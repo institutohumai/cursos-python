@@ -155,21 +155,106 @@ def georreferenciar_direcciones(
 
             data['direcciones'].append(consulta)
 
+        try:
+            # realiza la consulta
+            resultados_parciales = requests.post(
+                f"https://apis.datos.gob.ar/georef/api/direcciones",
+                json=data
+            ).json()['resultados']
+
+            for resultado in resultados_parciales:
+                if resultado and resultado['direcciones'] and len(resultado['direcciones']) != 0:
+                    resultado_parseado = {
+                        'direccion_normalizada': resultado['direcciones'][0]['nomenclatura'],
+                        'latitud': resultado['direcciones'][0]['ubicacion_lat'],
+                        'longitud': resultado['direcciones'][0]['ubicacion_lon'],
+                        'provincia_id': resultado['direcciones'][0]['provincia_id'],
+                        'provincia_nombre': resultado['direcciones'][0]['provincia_nombre']
+                    }
+
+                    resultados.append(resultado_parseado)
+                else:
+                    resultados.append(resultado_nulo)
+
+        except Exception as e:
+            print(f'No se pudo normalizar el bloque {start} a {end}. '
+                  'Reemplazando por resultados nulos.')
+            print(e)
+            resultados.extend([resultado_nulo] * (end - start))
+
+    return pd.DataFrame(resultados)
+
+
+def ubicar_coordenadas(entidades, latitud_campo, longitud_campo,
+                       chunk_size=1000):
+    '''Normaliza unidades territoriales usando la API Georef.
+
+    Args:
+        entidades (pd.DataFrame): Una lista de coordenadas a ubicar donde
+            'latitud_campo' es el nombre de la columna que tiene la latitud y
+            'longitud_campo' la columna que tiene la longitud. Las coordenadas
+            deben estar en numeros decimales y en el sistema de referencia
+            EPSG 4326.
+        latitud_campo (str): Nombre del campo que tiene la latitud.
+        longitud_campo (str): Nombre del campo que tiene la longitud.
+
+    Return:
+        pd.DataFrame: Nombres y codigos oficiales de las unidades territoriales
+            que contienen a las coordenadas.
+    '''
+
+    # genera un array vacio para guardar los resultados de cada request
+    resultados = []
+
+    # genera un resultado nulo para reemplazar los casos que no funcionen
+    resultado_nulo = {
+        'provincia_id': None,
+        'provincia_nombre': None,
+        'departamento_id': None,
+        'departamento_nombre': None,
+        'municipio_id': None,
+        'municipio_nombre': None,
+    }
+
+    # genera el JSON con la lista de consultas a realizar
+    for i in range(0, len(entidades), chunk_size):
+        start, end = i, i + chunk_size
+
+        # el final no puede ser mayor a la cantidad de entidades
+        if end > len(entidades):
+            end = len(entidades)
+
+        data = {'ubicaciones': []}
+
+        # si no se pasa una lista, debe haber un nombre de campo que contenga
+        # los nombres a normalizar, y puede haber una columna de provincia
+        for entidad in entidades.to_dict('record')[start:end]:
+            consulta = {
+                'lat': entidad[latitud_campo],
+                'lon': entidad[longitud_campo],
+                'campos': 'provincia.id,provincia.nombre,departamento.id,departamento.nombre,municipio.id,municipio.nombre,',
+                'aplanar': True
+            }
+
+            data['ubicaciones'].append(consulta)
+
         # try:
         # realiza la consulta
-        resultados_parciales = requests.post(
-            f"https://apis.datos.gob.ar/georef/api/direcciones",
+        response = requests.post(
+            f"https://apis.datos.gob.ar/georef/api/ubicacion",
             json=data
-        ).json()['resultados']
+        ).json()
+        resultados_parciales = response['resultados']
 
         for resultado in resultados_parciales:
-            if resultado and resultado['direcciones'] and len(resultado['direcciones']) != 0:
+            if resultado and resultado['ubicacion'] and len(resultado['ubicacion']) != 0:
                 resultado_parseado = {
-                    'direccion_normalizada': resultado['direcciones'][0]['nomenclatura'],
-                    'latitud': resultado['direcciones'][0]['ubicacion_lat'],
-                    'longitud': resultado['direcciones'][0]['ubicacion_lon'],
-                    'provincia_id': resultado['direcciones'][0]['provincia_id'],
-                    'provincia_nombre': resultado['direcciones'][0]['provincia_nombre']
+                    'provincia_id': resultado['ubicacion']['provincia_id'],
+                    'provincia_nombre': resultado['ubicacion']['provincia_nombre'],
+                    'departamento_id': resultado['ubicacion']['departamento_id'],
+                    'departamento_nombre': resultado['ubicacion']['departamento_nombre'],
+                    'municipio_id': resultado['ubicacion']['municipio_id'],
+                    'municipio_nombre': resultado['ubicacion']['municipio_nombre'],
                 }
 
                 resultados.append(resultado_parseado)
