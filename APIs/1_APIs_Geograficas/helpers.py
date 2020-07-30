@@ -102,7 +102,8 @@ def normalizar_unidades_territoriales(
 
 def georreferenciar_direcciones(
         entidades, nombre_campo=None,
-        provincia_campo=None, chunk_size=1000
+        provincia_campo=None, chunk_size=1000,
+        output_as_dataframe=True
 ):
     '''Normaliza unidades territoriales usando la API Georef.
 
@@ -177,12 +178,25 @@ def georreferenciar_direcciones(
                     resultados.append(resultado_nulo)
 
         except Exception as e:
-            print(f'No se pudo normalizar el bloque {start} a {end}. '
-                  'Reemplazando por resultados nulos.')
-            print(e)
-            resultados.extend([resultado_nulo] * (end - start))
+            if chunk_size > 1:
+                for j in range(start, end, int(chunk_size / 2)):
+                    start_j, end_j = j, j + chunk_size
+                    resultados_parciales = georreferenciar_direcciones(
+                        entidades, nombre_campo=nombre_campo,
+                        provincia_campo=provincia_campo, chunk_size=chunk_size,
+                        output_as_dataframe=False
+                    )
+                    resultados.extend(resultados_parciales)
+            else:
+                print(f'No se pudo normalizar el bloque {start} a {end}. '
+                      'Reemplazando por resultados nulos.')
+                print(e)
+                resultados.extend([resultado_nulo] * (end - start))
 
-    return pd.DataFrame(resultados)
+    if output_as_dataframe:
+        return pd.DataFrame(resultados)
+    else:
+        return resultados
 
 
 def ubicar_coordenadas(entidades, latitud_campo, longitud_campo,
