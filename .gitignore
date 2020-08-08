@@ -135,6 +135,9 @@ dmypy.json
 .pytype/
 
 # Cython debug symbols
-cython_debug/
 
+cython_debug/
 *creds.json
+cython_debug/preprocesamiento.ipynb
+**/data/
+AnalisisDeDatos/4_Visualizacion/preprocesamiento.ipynb
