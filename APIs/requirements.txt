@@ -3,3 +3,4 @@ geopandas
 descartes
 matplotlib
 requests
+openpyxl
