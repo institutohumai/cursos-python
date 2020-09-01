@@ -30,7 +30,7 @@ Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blo
 
 Ejercicio: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.ipynb
 
-4_Data_Wrangling_Avanzado: en esta cuarta clase el foco está puesto en otro tipo de herramientas de Pandas, como transformaciones sobre strings, manipulación de series de tiempo y .melt. Además se ven conceptos de Tidy Data. Clase elaborada por Leonardo Ignacio Córdoba
+4_Data_Wrangling_Avanzado: en esta cuarta clase el foco está puesto en otro tipo de herramientas de Pandas, como transformaciones sobre strings, manipulación de series de tiempo y .melt. Además se ven conceptos de Tidy Data. Clase elaborada por Leonardo Ignacio Córdoba, Juan Manuel Barriola y Mileta Dotta.
 
 Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb
 
