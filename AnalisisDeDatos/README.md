@@ -14,31 +14,34 @@ También se verán otras librerías usadas en visualización y para extraer info
 
 1_Indexing: presentamos la librería Pandas y los métodos de acceso .loc y .iloc. Clase elaborada por María Gaska.
 
-Clase: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/Indexing.ipynb
+Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/Indexing.ipynb
 
-Ejercicio: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.ipynb
+Ejercicio: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.ipynb
 
 2_Pivot_Table_y_Joins: en esta clase vemos cómo aplicar pivot tables en Python con Pandas (muy usadas en herramientas como Excel) y vemos cómo "joinear" distintas tablas. Clase elaborada por Agustín Benassi.
 
-Clase: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.ipynb
+Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.ipynb
 
-Ejercicio: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.ipynb
+Ejercicio: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.ipynb
 
 3_Agrupacion_y_Agregacion: acá nos vamos a concentrar en cómo trabajar sobre grupos de información en Pandas. Clase elaborada por María Gaska.
 
-Clase: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.ipynb
+Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.ipynb
 
 Ejercicio: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.ipynb
 
 4_Data_Wrangling_Avanzado: en esta cuarta clase el foco está puesto en otro tipo de herramientas de Pandas, como transformaciones sobre strings, manipulación de series de tiempo y .melt. Además se ven conceptos de Tidy Data. Clase elaborada por Leonardo Ignacio Córdoba
 
-Clase: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb
+Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb
+
+Ejercicio: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.ipynb
 
 5_Visualizacion: por último, acá vamos a presentar los métodos de visualización con Pandas y una librería muy útil llamada Plotly, también para realizar gráficos. Clase elaborada por Máximo Ripani.
 
 Clase: 
 
-1- Visualización con Pandas: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/pandas_visualizacion.ipynb
+1- Visualización con Pandas: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/pandas_visualizacion.ipynb
 
-2- Visualización con Plotly: https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/avanzado_visualizacion.ipynb
+2- Visualización con Plotly: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/avanzado_visualizacion.ipynb
+
 
