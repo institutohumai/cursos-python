@@ -44,4 +44,7 @@ Clase:
 
 2- Visualización con Plotly: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/avanzado_visualizacion.ipynb
 
+Ejercicio:
+
+https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/ejercicios/ejercicios_extra.ipynb
 
