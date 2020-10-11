@@ -10,6 +10,6 @@ Ejercicios: https://colab.research.google.com/github/institutohumai/cursos-pytho
 
 2_APIs_Series_Tiempo: en esta clase analizamos APIs con datos de series de tiempo. Vemos la API de Series de Tiempo de Argentina [https://datosgobar.github.io/series-tiempo-ar-api/] y también las de FRED, Quandl y Banco Mundial. Clase elaborada por Agustín Benassi. 
 
-clase: https://github.com/institutohumai/cursos-python/blob/master/APIs/2_APIs_Series_Tiempo/clase-2.ipynb
-
-Ejercicios: https://github.com/institutohumai/cursos-python/blob/master/APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.ipynb
+clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/2_APIs_Series_Tiempo/clase-2.ipynb
+       
+Ejercicios: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.ipynb
