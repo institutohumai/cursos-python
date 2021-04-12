@@ -32,6 +32,10 @@ Ejercicio: https://github.com/institutohumai/cursos-python/blob/master/Introducc
 Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/4_Intro_Poo/intro-poo.ipynb
 Ejercicio: https://github.com/institutohumai/cursos-python/blob/master/Introduccion/4_Intro_Poo/ejercicio/ejercicio.ipynb
 
-5_Poo_Proyecto: finalmente, como cierre proponemos seguir profundizando con POO al mismo tiempo que armamos una versión simple del popular juego Pacman. Clase elaborada por María Gaska y Leonardo Ignacio Córdoba. 
+5_Poo_Experimento: en esta clase usaremos lo visto para hacer un pequeño experimento de tiempo de reacción que involucra elementos iniciales de Programación Orientada a Objetos, manejo y análisis de datos, y automatización para generar un reporte de los resultados. Clase elaborada por Matías Grinberg.
+
+Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Experimento/poo-experimento.ipynb
+
+6_Poo_Proyecto: finalmente, como cierre proponemos seguir profundizando con POO al mismo tiempo que armamos una versión simple del popular juego Pacman. Clase elaborada por María Gaska y Leonardo Ignacio Córdoba. 
 
 Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Proyecto/poo-proyecto.ipynb

@@ -6,7 +6,7 @@ En este repositorio podrán encontrar cursos sobre el lenguaje de programación 
 1- El material debe ser **abierto**: siendo que es cada vez más relevante el aprender a programar y dado que existen muchísimas 
 instituciones y personas a quienes podrían serle de utilidad, decidimos que el material desarrollado sea públicamente accesible. Esto tiene por fin la **difusión** 
 pero también invitar a colaborar a todas aquellas personas quienes quieran donar material.
-Para ello les invitamos a que nos contacten a cordoba.leonardoignacio@gmail.com o maria.gaska@gmail.com. Para colaborar empleamos un versión reducida de GitFlow. 
+Para ello les invitamos a que nos contacten a cordoba.leonardoignacio@gmail.com, maria.gaska@gmail.com o mg@ihum.ai. Para colaborar empleamos un versión reducida de GitFlow. 
 Pueden aprender sobre eso en cursos-python/0_Colaboracion y en https://medium.com/@ihumai/gitflow-colaborando-en-git-4046f4a95c9c podrán encontrar más detalles y un video.
 
 2- El contenido tiene una orientación **local**: considerando que la mayor parte del material disponible en internet se encuentra en inglés y esto es una barrera para mucha gente, creemos que es importante
