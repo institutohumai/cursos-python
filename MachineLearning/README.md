@@ -26,4 +26,4 @@ Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNV
 - Diagnóstico del modelo
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
-Video: (PENDIENTE)
+Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo
