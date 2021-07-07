@@ -17,3 +17,13 @@ Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/1_Introduccion/rls.ipynb
 Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNVHb7N_wHCp0
+
+2 Regresión Lineal Múltiple: 
+- Modelo de Regresión Lineal Múltiple. 
+- Estimación e interpretación de los parámetros. 
+- Variables categóricas. 
+- Evaluación del modelo. 
+- Diagnóstico del modelo
+
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
+Video: (PENDIENTE)
