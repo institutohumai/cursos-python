@@ -18,7 +18,7 @@ Presentamos la librería Pandas y los métodos de acceso .loc y .iloc. Clase ela
 
 - [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/Indexing.ipynb)
 - [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.ipynb)
-- [Videos](https://www.youtube.com/watch?v=grBT_YZXHwU&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=1) - Clase dictada por Miranda Chab.
+- [Video](https://www.youtube.com/watch?v=grBT_YZXHwU&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=1) - Clase dictada por Miranda Chab.
 
 ## 2 Pivot Table y Joins
 En esta clase vemos cómo aplicar pivot tables en Python con Pandas (muy usadas en herramientas como Excel) y vemos cómo "joinear" distintas tablas. Clase elaborada por Agustín Benassi.
