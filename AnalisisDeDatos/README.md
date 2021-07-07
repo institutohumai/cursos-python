@@ -44,5 +44,5 @@ Por último, acá vamos a presentar los métodos de visualización con Pandas y 
 
 - [Parte 1](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/pandas_visualizacion.ipynb) - Visualización con Pandas
 - [Parte 2](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/avanzado_visualizacion.ipynb) - Visualización con Plotly
-- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/ejercicios/ejercicios_extra.ipynb
+- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/ejercicios/ejercicios_extra.ipynb)
 - [Video](https://www.youtube.com/watch?v=zgVEpj-6ChY&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=5) - Clase dictada por Máximo Ripani.
