@@ -51,4 +51,4 @@ También te dejamos los links de los videos que acompañan a cada una de las cla
 
 6_Poo_Proyecto: finalmente, como cierre proponemos seguir profundizando con POO al mismo tiempo que armamos una versión simple del popular juego Pacman. Clase elaborada por María Gaska y Leonardo Ignacio Córdoba. 
 
-Clase: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Proyecto/poo-proyecto.ipynb
+- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Proyecto/poo-proyecto.ipynb)
