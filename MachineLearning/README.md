@@ -35,4 +35,4 @@ Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc
 - Pipelines
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb
-Video:
+Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R
