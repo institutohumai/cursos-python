@@ -27,3 +27,12 @@ Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNV
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
 Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo
+
+3 Regularización:
+- Regularización
+- Optimización
+- Feature Engineering
+- Pipelines
+
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb
+Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R
