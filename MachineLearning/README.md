@@ -36,3 +36,13 @@ Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb
 Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R
+
+
+5 KNN y Árboles de Decisión
+- Modelos paramétricos vs. no paramétricos
+- K-vecinos más cercanos
+- Árboles de decisión para clasificación
+- Árboles de decisión para regresión
+
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb
+Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76FY3eJNdja8
