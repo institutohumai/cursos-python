@@ -37,6 +37,14 @@ Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb
 Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R
 
+4 Clasificación:
+- Limitaciones de la Regresión Lineal
+- Regresión Logística
+- Interpretación
+- Métricas de evaluación
+
+Código: https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/4_Clasificacion/Clasificacion.ipynb
+Video: https://www.youtube.com/watch?v=qW9qC1zstwc&list=PLISuMnTdVU-zvmwe88-8yvbJWoRgpCriR
 
 5 KNN y Árboles de Decisión
 - Modelos paramétricos vs. no paramétricos
