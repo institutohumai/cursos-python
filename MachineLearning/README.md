@@ -16,6 +16,7 @@ Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el
 - Regresion lineal simple
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/1_Introduccion/rls.ipynb
+
 Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNVHb7N_wHCp0
 
 2 Regresión Lineal Múltiple: 
@@ -26,6 +27,7 @@ Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNV
 - Diagnóstico del modelo
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
+
 Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo
 
 3 Regularización:
@@ -35,6 +37,7 @@ Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc
 - Pipelines
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb
+
 Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R
 
 4 Clasificación:
@@ -43,7 +46,8 @@ Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu3
 - Interpretación
 - Métricas de evaluación
 
-Código: https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/4_Clasificacion/Clasificacion.ipynb
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/4_Clasificacion/Clasificacion.ipynb
+
 Video: https://www.youtube.com/watch?v=qW9qC1zstwc&list=PLISuMnTdVU-zvmwe88-8yvbJWoRgpCriR
 
 5 KNN y Árboles de Decisión
@@ -53,4 +57,5 @@ Video: https://www.youtube.com/watch?v=qW9qC1zstwc&list=PLISuMnTdVU-zvmwe88-8yvb
 - Árboles de decisión para regresión
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb
+
 Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76FY3eJNdja8
