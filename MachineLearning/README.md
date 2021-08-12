@@ -68,6 +68,6 @@ Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76
 	-AdaBoost
 	-Grandient BoostingTrees 
 
-Código: 
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/6_Ensambles/Bagging&Boosting.ipynb
 
 Video: https://www.youtube.com/watch?v=YAOzh2pTAy4&list=PLISuMnTdVU-x13FA77cV5cr4OMoOPT6MZ&ab_channel=InstitutoHumai
