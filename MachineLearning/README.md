@@ -59,3 +59,15 @@ Video: https://www.youtube.com/watch?v=qW9qC1zstwc&list=PLISuMnTdVU-zvmwe88-8yvb
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb
 
 Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76FY3eJNdja8
+
+6 Ensambles
+- Baggin 
+	- Random Forest
+	- Extratrees
+- Boosting
+	-AdaBoost
+	-Grandient BoostingTrees 
+
+Código: 
+
+Video: https://www.youtube.com/watch?v=YAOzh2pTAy4&list=PLISuMnTdVU-x13FA77cV5cr4OMoOPT6MZ&ab_channel=InstitutoHumai
