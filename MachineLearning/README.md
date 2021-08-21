@@ -71,3 +71,15 @@ Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/6_Ensamble/Bagging%26Boosting.ipynb
 
 Video: https://www.youtube.com/watch?v=YAOzh2pTAy4&list=PLISuMnTdVU-x13FA77cV5cr4OMoOPT6MZ&ab_channel=InstitutoHumai
+
+7 XGBoost
+- XGBoost
+- LightGBM
+- CatBoost
+- NGBoost
+- Pipelines
+
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/7_XGBoost/xgboost.ipynb
+
+Video: https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv
+
