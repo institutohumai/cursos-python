@@ -87,7 +87,7 @@ PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios 
 
 Somos una organización independiente y sin fines de lucro que busca fomentar el desarrollo de la Inteligencia Artificial y Ciencia de Datos en Argentina y América Latina. El objetivo es ayudar a la democratización de la tecnología ofreciendo educación especializada y accesible. Buscamos colocar las nuevas tecnologías en función del entorno y el avance social por medio de la formación, investigación y el trabajo colaborativos.
 
-Si te resuena nuestra misión, contribuí haciendo click en [ihum.ai/sumate](https://ihum.ai/sumate) o [invitános un cafecito](https://cafecito.app/humai). 
+Si te resuena nuestra misión, contribuí haciendo click en [ihum.ai/sumate](https://ihum.ai/sumate) o [invitanos un cafecito](https://cafecito.app/humai). 
 
 También estás invitado a sumarte a [nuestro Slack](https://join.slack.com/t/ihumai/shared_invite/zt-fr1gdg51-VOrVPEJHEbCyi2VkSX727Q) o seguirnos en las redes (al costado en [ihum.ai](https://ihum.ai/)). ¡Cualquier cosa, esperamos tus comentarios! :grinning:
 
