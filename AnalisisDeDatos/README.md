@@ -30,7 +30,7 @@ En esta clase vemos cómo aplicar pivot tables en Python con Pandas (muy usadas 
 ## 3 Agrupacion y Agregacion
 Acá nos vamos a concentrar en cómo trabajar sobre grupos de información en Pandas. Clase eleaborada por Maria Gaska
 - [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.ipynb)
-- [Ejercicio](https://github.com/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.ipynblase)
+- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.ipynb)
 - [Video](https://www.youtube.com/watch?v=NFERQ_bCfHw&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=3) - Clase dictada por Agustin Benassi.
 
 ## 4 Data Wrangling Avanzado
@@ -42,7 +42,7 @@ En esta cuarta clase el foco está puesto en otro tipo de herramientas de Pandas
 ## 5 Visualizacion
 Por último, acá vamos a presentar los métodos de visualización con Pandas y una librería muy útil llamada Plotly, también para realizar gráficos. Clase elaborada por Máximo Ripani.
 
-- [Parte 1](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/pandas_visualizacion.ipynb) - Visualización con Pandas
-- [Parte 2](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/avanzado_visualizacion.ipynb) - Visualización con Plotly
-- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/ejercicios/ejercicios_extra.ipynb)
+- [Parte 1](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.ipynb) - Visualización con Pandas
+- [Parte 2](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.ipynb) - Visualización con Plotly
+- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.ipynb)
 - [Video](https://www.youtube.com/watch?v=zgVEpj-6ChY&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=5) - Clase dictada por Máximo Ripani.
