@@ -64,9 +64,9 @@ Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76
 - Bagging
 	- Random Forests
 	- Extratrees
-- Boosting
-	-AdaBoost
-	-Grandient BoostingTrees 
+- Boosting  
+	-AdaBoost  
+	-Grandient Boosting Trees 
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/6_Ensamble/Bagging%26Boosting.ipynb
 
