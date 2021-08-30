@@ -26,7 +26,7 @@ Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNV
 - Evaluación del modelo. 
 - Diagnóstico del modelo
 
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
+[Código]: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
 
 Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo
 
@@ -61,12 +61,12 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76FY3eJNdja8
 
 6 Ensambles
-- Baggin 
-	- Random Forest
+- Bagging
+	- Random Forests
 	- Extratrees
-- Boosting
-	-AdaBoost
-	-Grandient BoostingTrees 
+- Boosting  
+	-AdaBoost  
+	-Grandient Boosting Trees 
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/6_Ensamble/Bagging%26Boosting.ipynb
 

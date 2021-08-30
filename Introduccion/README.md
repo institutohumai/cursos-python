@@ -6,8 +6,6 @@ Cada Jupyter se puede ejecutar de manera local usando el programa Jupyter Notebo
 
 Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el cual es un producto gratuito de Google, es una Jupyter Notebook en la nube. El botón lo pueden encontrar al comienzo de cada clase. Finalmente, también incluímos acá las rutas a las que redirige ese botón, que es https://colab.research.google.com + la ruta en github.
 
-0- 0_Colaboracion: en esta carpeta encontrarán una guía de colaboración para ayudarnos a mejorar las clases. No es necesaria para tomar el curso.
-
 También te dejamos los links de los videos que acompañan a cada una de las clases dadas.
 
 1_TiposDatos: aquí introducimos los tipos de datos básicos, condicionales y bucles. Clase elaborada por Matías Grinberg, María Gaska y Leonardo Ignacio Córdoba. 
@@ -48,7 +46,7 @@ También te dejamos los links de los videos que acompañan a cada una de las cla
 
 - [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Experimento/poo-experimento.ipynb)
 
-- [Video](https://www.youtube.com/watch?v=31fjtQqmuIc&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=5) - Clase dictada por Matias Grimberg
+- [Video](https://www.youtube.com/watch?v=31fjtQqmuIc&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=5) - Clase dictada por Matias Grinberg
 
 6_Poo_Proyecto: finalmente, como cierre proponemos seguir profundizando con POO al mismo tiempo que armamos una versión simple del popular juego Pacman. Clase elaborada por María Gaska y Leonardo Ignacio Córdoba. 
 
