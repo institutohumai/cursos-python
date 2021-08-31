@@ -83,3 +83,15 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 
 Video: https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv
 
+
+8 SHAP y ANOMALIAS
+- Detección de anomalías
+    - Técnicas de exploración
+    - Isolation forest
+- Explicabilidad de modelos
+    - Feature Importance
+    - Shap values
+
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/8_ShapYAnomalias/anomaly-detection-shap-values.ipynb
+
+Video: https://www.youtube.com/watch?v=a4uHGK4nW-0&list=PLISuMnTdVU-zxuEhD2Wtg8depk_ZXfWhU
