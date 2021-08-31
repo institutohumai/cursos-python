@@ -92,6 +92,6 @@ Video: https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv
     - Feature Importance
     - Shap values
 
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/8_ShapYAnomalias/anomaly-detection-shap-values.ipynb
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.ipynb
 
 Video: https://www.youtube.com/watch?v=a4uHGK4nW-0&list=PLISuMnTdVU-zxuEhD2Wtg8depk_ZXfWhU
