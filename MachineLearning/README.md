@@ -84,7 +84,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 Video: https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv
 
 
-7 SHAP y ANOMALIAS
+8 SHAP y ANOMALIAS
 - Detección de anomalías
     - Técnicas de exploración
     - Isolation forest
