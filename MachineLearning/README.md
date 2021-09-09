@@ -95,3 +95,18 @@ Video: https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.ipynb
 
 Video: https://www.youtube.com/watch?v=a4uHGK4nW-0&list=PLISuMnTdVU-zxuEhD2Wtg8depk_ZXfWhU
+
+9 Series de tiempo
+
+- ETS
+- ARIMA
+- Prophet
+- Time series cross validation y métricas de error
+
+Código: 
+
+https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/1.ARIMA.ipynb
+
+https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/2.Prophet.ipynb
+
+Video: https://www.youtube.com/watch?v=TeG-Ut8ftrw&list=PLISuMnTdVU-wJ4nvYFjji2EGlONuOwfVg
