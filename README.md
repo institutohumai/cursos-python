@@ -17,19 +17,7 @@ que el material desarrollado sea en español. Además, a la hora de trabajar con
 4- El contenido está **curado**: todo lo publicado en la rama master fue revisado previamente a ser subido, y sigue pautas acordadas sobre estilo. En especial, tratamos de respetar
 PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios como parte de la clase y también ofrecer notebooks con tarea.
 
-## Cursos
-
-1- Introduccion: curso introductorio a Python.
-
-2- AnalisisDeDatos: curso orientado a la manipulación y análisis de datos con Pandas y librerías de visualización. En desarrollo.
-
-3- DatosGeograficos: curso sobre datos vectoriales con GeoPandas y librerías de visualización.
-
-4- Scraping: extracción de datos de la web e interacción con APIs.
-
-5- Machine Learning: introducción al aprendizaje automático.
-
-# Material: 
+# Cursos
 
 # Intro a Python
 
@@ -43,7 +31,6 @@ PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios 
 | POO Pac Man | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Proyecto/poo-proyecto.ipynb) | - | - |
 
 
-
 # Análisis de datos
 
 | Título        | Clase         | Ejercicios | Video
@@ -54,13 +41,19 @@ PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios 
 | Data Wrangling Avanzado | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.ipynb) | [Video](https://www.youtube.com/watch?v=fjOgkNA-sQ4&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=4) |
 | Visualización | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Visualizacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.ipynb) | [Video](https://www.youtube.com/watch?v=zgVEpj-6ChY&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=5) |
 
-# Scraping
+# Automatización y Web Scraping
 
 | Título        | Clase         | Ejercicios | Video
 |:--------------------|:--------------------:|:--------------------:|:--------------------
-| Inicial: HTTP | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/scraping_http_inicial.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/ejercicio/spinetta.ipynb) | - |
+| Automatización I | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/automatizacion_pygui_bash_os.ipynb) | <- | [Video](https://youtu.be/kmlYp8I1MJs)
+| Expresiones Regulares | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/expresiones_regulares.ipynb) | <- | [Video](https://youtu.be/JB7H4htd3tU)
+| Inicial: HTTP | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/2021_web_scraping_http_inicial.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/ejercicio/spinetta.ipynb) | - | [Video](https://youtu.be/QpEuv_QHb8o)
 | HTTP Avanzado | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/2_HTTP_Avanzado/scraping_http_avanzado.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/2_HTTP_Avanzado/ejercicio/rappi-rapanui.ipynb) | - |
 | Selenium | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Automatizacion/scraping_por_automatizacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Automatizacion/ejercicio/whatsapp_bot.ipynb) | - |
+
+# APIS
+| Título        | Clase         | Ejercicios | Video
+|:--------------------|:--------------------:|:--------------------:|:--------------------
 | APIs Geográficas | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/1_APIs_Geograficas/clase-1.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/1_APIs_Geograficas/clase-1-ejercicios.ipynb) | - |
 | APIs Series de Tiempo | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/2_APIs_Series_Tiempo/clase-2.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.ipynb) | - |
 
@@ -82,8 +75,7 @@ PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios 
 | Recomendación | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb) | - | [Video 1](https://www.youtube.com/watch?v=9KWVIZJfm8Q) [Video 2](https://www.youtube.com/watch?v=d-MiHa4cRqo) |
 
 
-### Referencias y material complementario:
-### [Recursos-IA](https://github.com/institutohumai/recursos-ia)
+### Referencias y material complementario: [Recursos-IA](https://github.com/institutohumai/recursos-ia)
 
 
 # Humai
