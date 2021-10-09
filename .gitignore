@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # Borradores o extras
-_*/
+_*
 
 # Distribution / packaging
 .Python
