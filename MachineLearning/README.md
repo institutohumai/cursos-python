@@ -7,7 +7,6 @@ Cada Jupyter se puede ejecutar de manera local usando el programa Jupyter Notebo
 Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el cual es un producto gratuito de Google, es una Jupyter Notebook en la nube. El botón lo pueden encontrar al comienzo de cada clase. Finalmente, también incluímos acá las rutas a las que redirige ese botón, que es https://colab.research.google.com + la ruta en github.
 
 
-
 1_Introducción a Machine Learning + Regresión Lineal Simple: 
 - Aprendizaje supervisado y no supervisado. 
 - Algoritmos paramétricos y no paramétricos. 
@@ -110,3 +109,11 @@ https://colab.research.google.com/github/institutohumai/cursos-python/blob/maste
 https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/2.Prophet.ipynb
 
 Video: https://www.youtube.com/watch?v=TeG-Ut8ftrw&list=PLISuMnTdVU-wJ4nvYFjji2EGlONuOwfVg
+
+10 Sistemas de Recomendación
+
+Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb
+
+Video 1: https://www.youtube.com/watch?v=9KWVIZJfm8Q
+
+Video 2: https://www.youtube.com/watch?v=d-MiHa4cRqo
