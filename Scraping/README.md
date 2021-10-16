@@ -11,9 +11,9 @@ las librerías beautifulsoup y selenium. También se aprende cómo encontrar API
 
 2 **HTTP_Avanzado**: en esta clase vemos cómo encontrar APIs ocultas en páginas web. Clase elaborada por <a href="http://mathigatti.com/" target="_blank">Mathias Gatti</a> y <a href="https://ar.linkedin.com/in/matias-grinberg" target="_blank">Matías Grinberg</a>.
 
-- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/develop/Scraping/2_HTTP_Avanzado/scraping_http_avanzado.ipynb" target="_blank">Clase: APIs ocultas</a>
-- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/develop/Scraping/2_HTTP_Avanzado/scraping_extra_tips.ipynb" target="_blank">Clase: Tips de web scraping</a>
-- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/develop/Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.ipynb" target="_blank">Ejercicio</a>
+- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/auto/Scraping/2_HTTP_Avanzado/scraping_http_avanzado.ipynb" target="_blank">Clase: APIs ocultas</a>
+- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/auto/Scraping/2_HTTP_Avanzado/scraping_extra_tips.ipynb" target="_blank">Clase: Tips de web scraping</a>
+- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/auto/Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.ipynb" target="_blank">Ejercicio</a>
 
 3 **Automatizacion**: en esta clase vemos cómo usar Selenium y XPath conjuntamente. Clase elaborada por <a href="http://mathigatti.com/" target="_blank">Mathias Gatti</a>.
 
