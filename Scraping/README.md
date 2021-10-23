@@ -17,5 +17,5 @@ las librerías beautifulsoup y selenium. También se aprende cómo encontrar API
 
 3 **Selenium_y_xpath**: en esta clase vemos cómo usar Selenium y XPath conjuntamente. Clase elaborada por <a href="http://mathigatti.com/" target="_blank">Mathias Gatti</a> y <a href="https://ar.linkedin.com/in/gustavo-juantorena" target="_blank">Gustavo Juantorena</a>.
 
-- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Automatizacion/scraping_por_automatizacion.ipynb" target="_blank">Clase</a>
-- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Automatizacion/ejercicios/scraping_por_automatizacion_solucion.ipynb" target="_blank">Ejercicio</a>
+- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.ipynb" target="_blank">Clase</a>
+- <a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/scraping_por_automatizacion_solucion.ipynb" target="_blank">Ejercicio</a>
