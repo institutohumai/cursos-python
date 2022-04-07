@@ -1,6 +1,7 @@
 # Cursos de Python
 
 ## Introducción
+
 En este repositorio podrán encontrar cursos sobre el lenguaje de programación Python. Orientan el desarrollo 4 ideas principales:
 
 1- El material debe ser **abierto**: siendo que es cada vez más relevante el aprender a programar y dado que existen muchísimas 
@@ -9,8 +10,8 @@ pero también invitar a colaborar a todas aquellas personas quienes quieran dona
 Para ello les invitamos a que nos contacten a cordoba.leonardoignacio@gmail.com, maria.gaska@gmail.com o mg@ihum.ai. Para colaborar empleamos un versión reducida de GitFlow. 
 Pueden aprender sobre eso en General/guiagit.pdf y en [este artículo de Medium](https://medium.com/@ihumai/gitflow-colaborando-en-git-4046f4a95c9c) podrán encontrar más detalles y un video.
 
-2- El contenido tiene una orientación **local**: considerando que la mayor parte del material disponible en internet se encuentra en inglés y esto es una barrera para mucha gente, creemos que es importante
-que el material desarrollado sea en español. Además, a la hora de trabajar con datos generalmente usamos datasets reales y en español.
+2- El contenido tiene una orientación **local**: apuntamos a impulsar el ecosistema regional, considerando que la mayor parte del material disponible en internet se encuentra en inglés y esto es una barrera para mucha gente, creemos que es importante
+que el material desarrollado sea en español Además, a la hora de trabajar con datos generalmente usamos datos reales y en español.
 
 3- El material es **modular**: siendo que cada persona tiene necesidades de aprendizaje distintas, los contenidos se organizan en módulos chicos, cada cual se enfoca en un tema en particular. De este modo cada persona puede seguir su camino hacia distintas vertientes del área, como Científico de Datos, Analísta de Datos, Ingeniero de Machine Learning, etc.
 
@@ -48,7 +49,7 @@ PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios 
 | Automatización I | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/Automatización_I/automatizacion_pygui_bash_os.ipynb) | <- | [Video](https://youtu.be/kmlYp8I1MJs)
 | Expresiones Regulares | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/Expresiones_Regulares/expresiones_regulares.ipynb) | <- | [Video](https://youtu.be/JB7H4htd3tU)
 | Inicial: HTTP | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/2021_web_scraping_http_inicial.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/ejercicio/spinetta.ipynb) | [Video](https://youtu.be/QpEuv_QHb8o)
-| HTTP Avanzado | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/2_HTTP_Avanzado/scraping_http_avanzado.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/2_HTTP_Avanzado/ejercicio/rappi-rapanui.ipynb) | - |
+| HTTP Avanzado | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/2_HTTP_Avanzado/scraping_http_avanzado.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/2_HTTP_Avanzado/scraping_2.ipynb) | - |
 | Xpath | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/ejercicio/whatsapp_bot.ipynb) | [video](https://youtu.be/v42ykY4iztE) |
 | Selenium  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/ejercicio/whatsapp_bot.ipynb) | [video](https://youtu.be/VV6UX_0xws4) |
 | Automatización II | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/Automatización_2/clase_automatizacion_2_gsheets_cron_mails.ipynb) | <- | [Google Sheets]() <br>[Cron]()  <br>[Google Data Studio]()  <br>[Enviar mails]()
