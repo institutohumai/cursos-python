@@ -1,3 +1,0 @@
-https://docs.google.com/spreadsheets/d/17cnZDzVIf8Nz9xXZF4MdQ4Pci8OmoB91VFJHL0H5Qf0/edit?usp=sharing
-
-reemplazar: export?format=xlsx
