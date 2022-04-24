@@ -1,6 +1,6 @@
 # Ciencia de Datos y Aprendizaje Automático
 
-[Sitio Web del repositorio](https://institutohumai.github.io/cursos-python/intro.html)
+- Sitio Web del repositorio: [humai.com.ar/docs/intro](https://humai.com.ar/docs/intro)
 
 ## Introducción
 
