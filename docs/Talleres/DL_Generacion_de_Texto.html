@@ -1,0 +1,1437 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generación de texto &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introducción a GCP y Cloud Computing" href="../IngenieriaDeDatosGCP/1_Introducci%C3%B3n_a_GCP_y_Cloud_Computing/Introducci%C3%B3n_a_GCP_y_Cloud_Computing.html" />
+    <link rel="prev" title="Introducción al Periodismo de Datos" href="Periodismo_de_datos.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones2.html">
+   Funciones 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/7_Probabilidad/Probabilidad.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Audio/README.html">
+   Talleres de Audio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Audio/Audio_I.html">
+   Audio I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Audio/Audio_II.html">
+   Audio II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Audio/Audio_III.html">
+   Audio III
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Talleres
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="README.html">
+   Talleres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="automatizacion.html">
+   🤖 Taller de Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Periodismo_de_datos.html">
+   Introducción al Periodismo de Datos
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Generación de texto
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Ingenieria de Datos con GCP
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IngenieriaDeDatosGCP/1_Introducci%C3%B3n_a_GCP_y_Cloud_Computing/Introducci%C3%B3n_a_GCP_y_Cloud_Computing.html">
+   Introducción a GCP y Cloud Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../IngenieriaDeDatosGCP/2_BigQuery%20y%20SQL/BigQuery_y_SQL.html">
+   BigQuery y SQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../NeuroIA/deep_learning_ok.html">
+   Deep Learning I
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  General
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../General/referencias.html">
+   Recursos abiertos para estudiar ciencia de datos y aprendizaje automático
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Talleres/DL_Generacion_de_Texto.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FTalleres/DL_Generacion_de_Texto.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos">
+   Ejemplos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#harry-potter-en-ingles">
+     Harry Potter en inglés
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#whatsapp-en-espanol">
+     Whatsapp en español
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teoria">
+   Teoria
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-al-machine-learning">
+   Introducción al Machine Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-programacion-clasica">
+     La programación clásica
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-aprendizaje-automatico">
+   El aprendizaje automático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#redes-neuronales-artificiales">
+   Redes Neuronales Artificiales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-una-neurona">
+     ¿Qué es una neurona?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-una-red-neuronal">
+     ¿Qué es una Red Neuronal?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-es-posible-esta-magia">
+     ¿Cómo es posible esta magia?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generacion-de-texto-y-gpt-2">
+   Generación de texto y GPT-2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformers">
+     Transformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practica">
+   Practica
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-le-ensenamos-a-hablar-a-la-computadora">
+     ¿Cómo le enseñamos a hablar a la computadora?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fine-tuning">
+       Fine tuning
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#texto-en-espanol">
+       Texto en español
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conectarnos-a-google-drive">
+   Conectarnos a Google Drive
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalando-librerias-e-inicializando-variables">
+   Instalando librerias e inicializando variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrenamiento">
+   Entrenamiento
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generar-texto-usando-el-modelo-entrenado">
+   Generar texto usando el modelo entrenado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-recopilo-datos-para-entrenar-a-mi-red">
+   ¿Cómo recopilo datos para entrenar a mi red?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-descargo-datos-de-otro-sitio-web">
+   ¿Cómo descargo datos de otro sitio web?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Generación de texto</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos">
+   Ejemplos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#harry-potter-en-ingles">
+     Harry Potter en inglés
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#whatsapp-en-espanol">
+     Whatsapp en español
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teoria">
+   Teoria
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-al-machine-learning">
+   Introducción al Machine Learning
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#la-programacion-clasica">
+     La programación clásica
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-aprendizaje-automatico">
+   El aprendizaje automático
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#redes-neuronales-artificiales">
+   Redes Neuronales Artificiales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-una-neurona">
+     ¿Qué es una neurona?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-una-red-neuronal">
+     ¿Qué es una Red Neuronal?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-es-posible-esta-magia">
+     ¿Cómo es posible esta magia?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generacion-de-texto-y-gpt-2">
+   Generación de texto y GPT-2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transformers">
+     Transformers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practica">
+   Practica
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-le-ensenamos-a-hablar-a-la-computadora">
+     ¿Cómo le enseñamos a hablar a la computadora?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#fine-tuning">
+       Fine tuning
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#texto-en-espanol">
+       Texto en español
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conectarnos-a-google-drive">
+   Conectarnos a Google Drive
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instalando-librerias-e-inicializando-variables">
+   Instalando librerias e inicializando variables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entrenamiento">
+   Entrenamiento
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generar-texto-usando-el-modelo-entrenado">
+   Generar texto usando el modelo entrenado
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-recopilo-datos-para-entrenar-a-mi-red">
+   ¿Cómo recopilo datos para entrenar a mi red?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-descargo-datos-de-otro-sitio-web">
+   ¿Cómo descargo datos de otro sitio web?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="generacion-de-texto">
+<h1>Generación de texto<a class="headerlink" href="#generacion-de-texto" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/institutohumai/talleres/blob/master/DL_Generacion_de_Texto.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://minimaxir.com/apps/gpt2-reddit/">https://minimaxir.com/apps/gpt2-reddit/</a></p></li>
+<li><p><a class="reference external" href="https://lyrics.mathigatti.com/">https://lyrics.mathigatti.com/</a></p></li>
+</ul>
+<div class="section" id="ejemplos">
+<h2>Ejemplos<a class="headerlink" href="#ejemplos" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="harry-potter-en-ingles">
+<h3>Harry Potter en inglés<a class="headerlink" href="#harry-potter-en-ingles" title="Permalink to this headline">¶</a></h3>
+<br/>
+<p>      <strong>Harry saw Dumbledore’s Fenix leaving the room. He knew it was time to dance.</strong></p>
+<br/>
+<p>      When they reached the dance floor, Sirius was already in the middle of</p>
+<p>      fidgeting in his seat. Harry realized he was flirting with him. He swallowed</p>
+<p>      and then decided to throw in a wink.</p>
+<br/>
+<p>      Harry rose from his seat, grabbed his bag, and then srode to the door. He</p>
+<p>      opened it and entered the room, locking the door behind him. He could hear</p>
+<p>      Sirius blushing and glacing over his shoulder. He heard the snore and looked</p>
+<p>      over his shoulder at Sirius again. He was just about to go to the dance floor</p>
+<p>      with some Gryffindor-puffs, but stopped himself. The dance floor was</p>
+<p>      reserved for students.</p>
+<br/>
+</div>
+<div class="section" id="whatsapp-en-espanol">
+<h3>Whatsapp en español<a class="headerlink" href="#whatsapp-en-espanol" title="Permalink to this headline">¶</a></h3>
+<br/>
+<p>      Estaba todo re infierno y muy extracurricular</p>
+<p>      me parecía que me había que hacer programación</p>
+<p>      tipo apellido de ese plan</p>
+<p>      el final es una vaca</p>
+<p>      bueno, quizás es una vaca - ya fue</p>
+<p>      todo sirve para nacer.</p>
+</div>
+</div>
+<div class="section" id="teoria">
+<h2>Teoria<a class="headerlink" href="#teoria" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="introduccion-al-machine-learning">
+<h2>Introducción al Machine Learning<a class="headerlink" href="#introduccion-al-machine-learning" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="la-programacion-clasica">
+<h3>La programación clásica<a class="headerlink" href="#la-programacion-clasica" title="Permalink to this headline">¶</a></h3>
+<p>Los lenguajes de programación se componen de comandos que le indican a la computadora qué hacer. Normalmente contienen palabras en inglés para facilitar su lectura por humanos.</p>
+<p>En la programación usual uno le indica exactamente qué hacer a la computadora en cada paso.</p>
+<p>Ejemplo de un programa que decide si un texto carece vocales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sin_vocales</span><span class="p">(</span><span class="n">palabra</span><span class="p">):</span>
+  <span class="k">if</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">&quot;No&quot;</span>
+
+  <span class="k">if</span> <span class="s2">&quot;e&quot;</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">&quot;No&quot;</span>
+
+  <span class="k">if</span> <span class="s2">&quot;i&quot;</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">&quot;No&quot;</span>
+
+  <span class="k">if</span> <span class="s2">&quot;o&quot;</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">&quot;No&quot;</span>
+
+  <span class="k">if</span> <span class="s2">&quot;u&quot;</span> <span class="ow">in</span> <span class="n">palabra</span><span class="p">:</span>
+      <span class="k">return</span> <span class="s2">&quot;No&quot;</span>
+
+  <span class="k">return</span> <span class="s2">&quot;Si&quot;</span>
+
+<span class="n">sin_vocales</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;No&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="el-aprendizaje-automatico">
+<h2>El aprendizaje automático<a class="headerlink" href="#el-aprendizaje-automatico" title="Permalink to this headline">¶</a></h2>
+<p>El ejemplo anterior funciona bien pero uno podría preguntarse si se podrá hacer de otra manera. Si en lugar de describir explicitamente los pasos a seguir se podrá, en vez, mostrar ejemplos y que la computadora se de cuenta sola de la solución al problema.</p>
+<p>Por ejemplo, podríamos armar un <em>dataset</em> que luzca asi:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Palabra</p></th>
+<th class="head"><p>¿Sin vocales?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>hola</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>wtf</p></td>
+<td><p>Si</p></td>
+</tr>
+<tr class="row-even"><td><p>dm</p></td>
+<td><p>Si</p></td>
+</tr>
+<tr class="row-odd"><td><p>cordon</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<p>Luego en base a estos ejemplos la computadora debería implementar un programa que haga lo que queremos.</p>
+<p>Machine Learning es el estudio de los procedimientos necesarios para hacer que las máquinas mejoren automáticamente a través de la experiencia.</p>
+<br/>
+<p>Aplicar esto a detectar si un texto es <em>sin_vocales</em> es un poco forzado ya que si uno puede resolver un problema indicandole exactamente a la computadora lo que quiere entonces no es necesario esperar a que aprenda en base a ejemplos. Pero hay problemas que son mucho mas dificiles de describir en palabras o instrucciones de computadora, muchas veces son cosas que nosotros hacemos inconcientemente, sin entender demasiado cómo se hacen realmente.</p>
+<br/>
+<p><img alt="texto alternativo" src="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2017/08/26/15037611080600.jpg" /></p>
+<br/>
+<p>Un ejemplo clásico es el reconocimiento de imágenes. En la foto hay una cara, pero como sabemos eso? Hay dos ojos, una nariz y una boca en posiciones anatomicamente correctas. Pero como describo esto de forma precisa? Debería decribir lo que es una sonrisa, con todas las variedades de color, tamaño y posicion que hay, lo mismo para las demas partes de la cara.</p>
+<p><img alt="" src="https://i.imgur.com/4AX2GW0.png" /></p>
+</div>
+<div class="section" id="redes-neuronales-artificiales">
+<h2>Redes Neuronales Artificiales<a class="headerlink" href="#redes-neuronales-artificiales" title="Permalink to this headline">¶</a></h2>
+<p><em>Una decisión compleja se toma a partir de muchas decisiones simples</em></p>
+<div class="section" id="que-es-una-neurona">
+<h3>¿Qué es una neurona?<a class="headerlink" href="#que-es-una-neurona" title="Permalink to this headline">¶</a></h3>
+<p>La neurona es la unidad básica de la red. Esta, en base a una serie de valores, toma una decisión, similarmente a cuando tenemos un if en un programa y decidimos si hacer algo o no en base a algunas variables.</p>
+<p><img alt="texto alternativo" src="https://www.xeridia.com/sites/default/files/contenidos/blog/neurona_artificial.jpg" /></p>
+</div>
+<div class="section" id="que-es-una-red-neuronal">
+<h3>¿Qué es una Red Neuronal?<a class="headerlink" href="#que-es-una-red-neuronal" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Ilustración de un clasificador de imagenes" src="https://i.imgur.com/n0EC5Xn.gif" /></p>
+<p><img alt="Detalle de los filtros de cada capa de un clasificador de imagenes" src="https://i.imgur.com/dlN3W0R.jpg" /></p>
+</div>
+<div class="section" id="como-es-posible-esta-magia">
+<h3>¿Cómo es posible esta magia?<a class="headerlink" href="#como-es-posible-esta-magia" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://es.wikipedia.org/wiki/Propagaci%C3%B3n_hacia_atr%C3%A1s">backpropagation</a>: Un algoritmo eficiente para buscar la configuración optima de las neuronas automáticamente a partir de un <em>dataset</em> de entrenamiento.</p></li>
+<li><p><a class="reference external" href="https://es.wikipedia.org/wiki/Tarjeta_gr%C3%A1fica">Placas de video</a>: Componentes baratos y poderosos para realizar miles de calculos matemáticos simultaneamente.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="generacion-de-texto-y-gpt-2">
+<h2>Generación de texto y GPT-2<a class="headerlink" href="#generacion-de-texto-y-gpt-2" title="Permalink to this headline">¶</a></h2>
+<p>Hoy vamos a usar una red neuronal generadora de texto llamada GPT-2. Normalmente un programa que genera texto funciona de a una palabra por vez, o sea basado en las palabras anteriores, piensa cual debería decir luego.</p>
+<p>Un ejemplo de esto se puede encontrar en el predictor de sus telefonos cuando escriben un mensaje. Una actividad entretenida (Y de profunda introspección(?)) es probar a qué frases llegan utilizando unicamente las palabras que este sugiere.</p>
+<div class="section" id="transformers">
+<h3>Transformers<a class="headerlink" href="#transformers" title="Permalink to this headline">¶</a></h3>
+<p>La red que vamos a ver hoy utiliza una arquitectura inventada en 2017 llamada <strong>transformer</strong>. Si bien vimos que las redes neuronales son un conjunto de neuronas conectadas entre si, en los últimos años se empezaron a desarrollar modelos mas complejos que son mas como redes de redes. O sea muchas redes con objetivos especificos conectadas entre si para resolver cierta tarea mas compleja. Por ejemplo, en el caso particular del modelo transformer, este tiene un módulo que se encarga especificamente de decidir cuales son las palabras mas importantes en una oración. Ese módulo no resuelve todo el problema, pero resulta muy util para que el resto del programa sepa decidir mejor que palabra elegir próxima, guiandose primero de las palabras mas relevantes.</p>
+<p><img alt="texto alternativo" src="https://lilianweng.github.io/lil-log/assets/images/cheng2016-fig1.png" /></p>
+</div>
+</div>
+<div class="section" id="practica">
+<h2>Practica<a class="headerlink" href="#practica" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="como-le-ensenamos-a-hablar-a-la-computadora">
+<h3>¿Cómo le enseñamos a hablar a la computadora?<a class="headerlink" href="#como-le-ensenamos-a-hablar-a-la-computadora" title="Permalink to this headline">¶</a></h3>
+<p>Entrenar una red compleja como esta lleva mucho tiempo y requiere cantidades de datos muy grandes. Pero debido a que alguien ya hizo ese trabajo por nosotros, entonces podemos utilizar estos modelos ya entrenados.</p>
+<div class="section" id="fine-tuning">
+<h4>Fine tuning<a class="headerlink" href="#fine-tuning" title="Permalink to this headline">¶</a></h4>
+<p>El modelo ya entrenado funciona muy bien pero produce texto generico. Podríamos intentar entrenarlo un poco mas para que se especialice en un estilo literario o vocabulario mas especifico. Esta idea de arrancar con un modelo generico ya entrenado y luego entrenarlo un poquito mas para que cumpla cierta tarea especifica se llama <em>finetuning</em>.</p>
+</div>
+<div class="section" id="texto-en-espanol">
+<h4>Texto en español<a class="headerlink" href="#texto-en-espanol" title="Permalink to this headline">¶</a></h4>
+<p>El modelo provisto sabe hablar inglés, no español, pero es mejor que nada. Podemos utilizar la técnica de finetuning sobre el texto en español que nos interese o traducir primero lo que tenemos a inglés para conseguir mejores resultados.</p>
+</div>
+</div>
+</div>
+<div class="section" id="conectarnos-a-google-drive">
+<h2>Conectarnos a Google Drive<a class="headerlink" href="#conectarnos-a-google-drive" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="instalando-librerias-e-inicializando-variables">
+<h2>Instalando librerias e inicializando variables<a class="headerlink" href="#instalando-librerias-e-inicializando-variables" title="Permalink to this headline">¶</a></h2>
+<p>Hoy vamos a utilizar la libreria gpt-2-simple, ante dudas se puede recurrir a su <a class="reference external" href="https://minimaxir.com/2019/09/howto-gpt2/">documentación</a> o utilizar el comando <em>help</em> de python</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">transformers</span><span class="o">==</span><span class="m">2</span>.9.1
+<span class="o">!</span>pip install pytorch-lightning<span class="o">==</span><span class="m">0</span>.8.4
+<span class="o">!</span>pip install -q aitextgen
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mkdir -p <span class="s2">&quot;/content/drive/My Drive/gpt2&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> &quot;/content/drive/My Drive/gpt2&quot;
+<span class="kn">from</span> <span class="nn">aitextgen</span> <span class="kn">import</span> <span class="n">aitextgen</span>
+<span class="c1">#Para inicialziar el modelo por primera vez se carga así</span>
+<span class="n">ai</span> <span class="o">=</span> <span class="n">aitextgen</span><span class="p">(</span><span class="n">tf_gpt2</span><span class="o">=</span><span class="s2">&quot;124M&quot;</span><span class="p">,</span> <span class="n">to_gpu</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#Para continuar un entrenamiento previo se carga el modelo de esta manera</span>
+<span class="c1">#ai = aitextgen(model=&quot;trained_model/pytorch_model.bin&quot;, config=&quot;trained_model/config.json&quot;, to_gpu=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="entrenamiento">
+<h2>Entrenamiento<a class="headerlink" href="#entrenamiento" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;/content/drive/My Drive/gpt2/todojunto.txt&quot;</span> <span class="c1"># Ruta del archivo de texto que usare para entrenar al modelo</span>
+<span class="n">ai</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span>
+         <span class="n">line_by_line</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+         <span class="n">num_steps</span><span class="o">=</span><span class="mi">5000</span><span class="p">,</span>
+         <span class="n">generate_every</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+         <span class="n">save_every</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+         <span class="n">learning_rate</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">,</span>
+         <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+         <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generar-texto-usando-el-modelo-entrenado">
+<h2>Generar texto usando el modelo entrenado<a class="headerlink" href="#generar-texto-usando-el-modelo-entrenado" title="Permalink to this headline">¶</a></h2>
+<p>Después del entrenamiento podemos generar tanto texto como queramos utilizando el comando <code class="docutils literal notranslate"><span class="pre">generate</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ai</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar y guardar los textos en test.txt</span>
+<span class="n">resultados</span> <span class="o">=</span> <span class="n">ai</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">return_as_list</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;test.txt&quot;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+  <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">resultados</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ai</span><span class="o">.</span><span class="n">generate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method generate in module aitextgen.aitextgen:
+
+generate(n:int=1, prompt:str=None, max_length:int=256, temperature:float=0.7, do_sample:bool=True, return_as_list:bool=False, seed:int=None, **kwargs) -&gt; Union[str, NoneType] method of aitextgen.aitextgen.aitextgen instance
+    Generates texts using the stored Transformers model.
+    Currently generates text using the model&#39;s generate() function.
+    
+    :param n: Numbers of texts to generate.
+    :param prompt: Text to force the generated text to start with
+    :param max_length: Maximum length for the generated text
+    :param temperature: Determines the &quot;creativity&quot; of the generated text.
+    The value range is different for each type of Transformer.
+    :param do_sample: Samples the text, which is what we want. If False,
+    the generated text will be the optimal prediction at each time,
+    and therefore deterministic.
+    :param return_as_list: Boolean which determine if text should be returned
+    as a list. If False, the generated texts will be print to console.
+    :param seed: A numeric seed which sets all randomness, allowing the
+    generate text to be reproducible if rerunning with same parameters
+    and model.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="como-recopilo-datos-para-entrenar-a-mi-red">
+<h2>¿Cómo recopilo datos para entrenar a mi red?<a class="headerlink" href="#como-recopilo-datos-para-entrenar-a-mi-red" title="Permalink to this headline">¶</a></h2>
+<p>Aplicando web scraping. Por ejemplo desarrollando código como <a class="reference external" href="https://gist.github.com/mathigatti/fec92ff0fffefd0a2951ec43f4302f43">este</a> que descarga canciones de <a class="reference external" href="http://letras.com">letras.com</a></p>
+<p><img alt="" src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fgilpress%2Ffiles%2F2016%2F03%2FTime-1200x511.jpg" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bajemos un programa que sirve para scrapear letras.com</span>
+<span class="o">!</span>wget https://gist.githubusercontent.com/mathigatti/fec92ff0fffefd0a2951ec43f4302f43/raw/bf27d2ef139c033238255025ed44f7af1d40b736/scrape_letras.py
+<span class="c1"># wget es un comando de bash para descargar el contenido de un sitio web</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2020-10-28 22:44:09--  https://gist.githubusercontent.com/mathigatti/fec92ff0fffefd0a2951ec43f4302f43/raw/bf27d2ef139c033238255025ed44f7af1d40b736/scrape_letras.py
+Resolving gist.githubusercontent.com (gist.githubusercontent.com)... 151.101.0.133, 151.101.64.133, 151.101.128.133, ...
+Connecting to gist.githubusercontent.com (gist.githubusercontent.com)|151.101.0.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1090 (1.1K) [text/plain]
+Saving to: ‘scrape_letras.py’
+
+scrape_letras.py    100%[===================&gt;]   1.06K  --.-KB/s    in 0s      
+
+2020-10-28 22:44:09 (36.3 MB/s) - ‘scrape_letras.py’ saved [1090/1090]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con este comando ejecuto con el interprete de python el codigo que esta en el archivo &quot;scrape_letras.py&quot; y le especifico que quiero descargar canciones de lady-gaga</span>
+<span class="o">!</span>python scrape_letras.py lady-gaga
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">def</span> <span class="nf">unir_txts</span><span class="p">(</span><span class="n">carpeta_con_los_txts</span><span class="p">):</span>
+  <span class="n">lista_de_txts</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">carpeta_con_los_txts</span><span class="p">)</span> <span class="c1"># Esto arma la lista de todos los archivos que estan en ese directorio/carpeta</span>
+
+  <span class="n">texto_final</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="c1"># Variable donde voy a ir juntando el texto de todos los txts</span>
+  <span class="n">delimitador</span> <span class="o">=</span> <span class="s2">&quot;==NEW_TEXT==</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="c1"># Voy a usar esto como delimitador/separador, para resaltar cuando arranca un nuevo texto</span>
+
+  <span class="k">for</span> <span class="n">nombre_del_txt</span> <span class="ow">in</span> <span class="n">lista_de_txts</span><span class="p">:</span> <span class="c1"># recorro los archivos uno por una</span>
+    <span class="c1"># uno el nombre de la carpeta con el nombre del archivo para armar la ruta exacta donde el txt se ubica</span>
+    <span class="n">ruta_al_archivo</span> <span class="o">=</span> <span class="n">carpeta_con_los_txts</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">nombre_del_txt</span> 
+
+    <span class="c1"># leo el archivo y agrego su texto a &quot;texto_final&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ruta_al_archivo</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+      <span class="n">texto_del_proximo_txt</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+      <span class="n">texto_final</span> <span class="o">=</span> <span class="n">texto_final</span> <span class="o">+</span> <span class="n">delimitador</span> <span class="o">+</span> <span class="n">texto_del_proximo_txt</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+  <span class="c1"># Escribo todo el texto en un archivo llamado &quot;archivo_final.txt&quot;</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;todojunto.txt&quot;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">texto_final</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+<span class="n">carpeta_con_los_txts</span> <span class="o">=</span> <span class="s2">&quot;lady-gaga&quot;</span>
+<span class="n">unir_txts</span><span class="p">(</span><span class="n">carpeta_con_los_txts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="como-descargo-datos-de-otro-sitio-web">
+<h2>¿Cómo descargo datos de otro sitio web?<a class="headerlink" href="#como-descargo-datos-de-otro-sitio-web" title="Permalink to this headline">¶</a></h2>
+<p>Si te quedaste con ganas de aprender mas sobre como extraer fuentes de datos de internet entonces anotate en el <a class="reference external" href="https://ihum.ai/cursos/web">curso de extracción de Datos</a> que arranca el 9/11</p>
+<p><a class="reference external" href="https://ihum.ai/cursos/web"><img aligned="center" src="https://instagram.faep9-2.fna.fbcdn.net/v/t51.2885-15/fr/e15/s1080x1080/121506368_281801079543305_2993402788434074675_n.jpg?_nc_ht=instagram.faep9-2.fna.fbcdn.net&_nc_cat=105&_nc_ohc=uP9mJ5xA_J8AX-qj1SG&oh=e0440f4a2cd8f5404a5800369230cb0e&oe=5FC2E630" alt="Curso scraping" width="500"></a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Talleres"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Periodismo_de_datos.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introducción al Periodismo de Datos</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../IngenieriaDeDatosGCP/1_Introducci%C3%B3n_a_GCP_y_Cloud_Computing/Introducci%C3%B3n_a_GCP_y_Cloud_Computing.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introducción a GCP y Cloud Computing</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

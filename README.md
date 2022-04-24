@@ -1,4 +1,6 @@
-# Cursos de Python
+# Ciencia de Datos y Aprendizaje Automático
+
+- Sitio Web del repositorio: [humai.com.ar/docs/intro](https://humai.com.ar/docs/intro)
 
 ## Introducción
 
@@ -78,16 +80,18 @@ PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios 
 | Recomendación | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb) | - | [Video 1](https://www.youtube.com/watch?v=9KWVIZJfm8Q) [Video 2](https://www.youtube.com/watch?v=d-MiHa4cRqo) |
 
 
-### Referencias y material complementario: [Recursos-IA](https://github.com/institutohumai/recursos-ia)
-
-
 # Humai
+
+Videos de las clases en: [Canal de Youtube](https://m.youtube.com/c/InstitutoHumai)
+
+Más información en: [humai.com.ar](https://humai.com.ar) ⭐
 
 Somos una organización independiente y sin fines de lucro que busca fomentar el desarrollo de la Inteligencia Artificial y Ciencia de Datos en Argentina y América Latina. El objetivo es ayudar a la democratización de la tecnología ofreciendo educación especializada y accesible. Buscamos colocar las nuevas tecnologías en función del entorno y el avance social por medio de la formación, investigación y el trabajo colaborativos.
 
-Si te resuena nuestra misión, contribuí haciendo click en [ihum.ai/sumate](https://ihum.ai/sumate) o [invitanos un cafecito](https://cafecito.app/humai). 
+Si te gustó nuestro material para estudiar o enseñar, o simplemente te resuena nuestra misión, agradecemos enormemente contribuciones en [nuestro sitio web](https://humai.com.ar/sumate.html#Card) o invitanos un [cafecito](https://cafecito.app/humai) ☕ . Estamos abiertos a colaboración de docentes o desarrolladores, si estás interesado  escribínos a admin@humai.com.ar! En cualquier caso como estudiante, docente, o interesado en IA y ciencia de datos te invitamos a sumarte a [nuestro foro en Discord](https://discord.gg/wYCA2chQvb).
 
-También estás invitado a sumarte a [nuestro Slack](https://join.slack.com/t/ihumai/shared_invite/zt-fr1gdg51-VOrVPEJHEbCyi2VkSX727Q) o seguirnos en las redes (al costado en [ihum.ai](https://ihum.ai/)). ¡Cualquier cosa, esperamos tus comentarios! :grinning:
+También estás invitado a sumarte a [nuestro Discord](https://join.slack.com/t/ihumai/shared_invite/zt-fr1gdg51-VOrVPEJHEbCyi2VkSX727Q) o seguirnos en las redes (al costado en [humai.com.ar](https://ihum.ai/)). ¡Cualquier cosa, esperamos tus comentarios! 😊
 
-Un enorme saludo, 
-Fran, Leo, Mati, y todo el equipo de [Humai](https://ihum.ai/)
+Desde ya un enorme agradecimiento,  
+
+Mati, Fran, Leo, y todo el equipo de Humai.

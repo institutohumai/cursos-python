@@ -1,0 +1,3589 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>APIs geográficas &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="APIs Geográficas: Ejercicios" href="clase-1-ejercicios.html" />
+    <link rel="prev" title="APIs" href="../README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones2.html">
+   Funciones 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/7_Probabilidad/Probabilidad.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/README.html">
+   Talleres de Audio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_I.html">
+   Audio I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_II.html">
+   Audio II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_III.html">
+   Audio III
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Talleres
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/README.html">
+   Talleres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/automatizacion.html">
+   🤖 Taller de Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/Periodismo_de_datos.html">
+   Introducción al Periodismo de Datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/DL_Generacion_de_Texto.html">
+   Generación de texto
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Ingenieria de Datos con GCP
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/1_Introducci%C3%B3n_a_GCP_y_Cloud_Computing/Introducci%C3%B3n_a_GCP_y_Cloud_Computing.html">
+   Introducción a GCP y Cloud Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/2_BigQuery%20y%20SQL/BigQuery_y_SQL.html">
+   BigQuery y SQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/deep_learning_ok.html">
+   Deep Learning I
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  General
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/referencias.html">
+   Recursos abiertos para estudiar ciencia de datos y aprendizaje automático
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/APIs/1_APIs_Geograficas/clase-1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FAPIs/1_APIs_Geograficas/clase-1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requests">
+   Requests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interfaces-de-aplicaciones">
+     Interfaces de aplicaciones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apis-rest">
+     APIs REST
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-request">
+     GET request
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-georef">
+   API Georef
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referencia">
+     Referencia
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#libreria-requests-y-formato-json">
+       Librería
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         requests
+        </span>
+       </code>
+       y formato JSON
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pandas-y-formato-csv">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pandas
+        </span>
+       </code>
+       y formato CSV
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geopandas-y-el-formato-shp-shapefile">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         geopandas
+        </span>
+       </code>
+       y el formato SHP (shapefile)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalizacion">
+     Normalización
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodos-post-y-consultas-bulk">
+       Métodos POST y consultas bulk
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#georreferenciacion">
+     Georreferenciación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#georreferenciacion-inversa">
+     Georreferenciación inversa
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-nominatim">
+   API Nominatim
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#busqueda-de-objetos-en-el-espacio">
+     Busqueda de objetos en el espacio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Georreferenciacion inversa
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chequea-el-estado-del-servicio">
+     Chequea el estado del servicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-normalizacion-gcba">
+   API normalización GCBA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Georreferenciacion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datos-utiles">
+     Datos utiles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-transporte-gcba">
+   API Transporte GCBA
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>APIs geográficas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#requests">
+   Requests
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interfaces-de-aplicaciones">
+     Interfaces de aplicaciones
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#apis-rest">
+     APIs REST
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#get-request">
+     GET request
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-georef">
+   API Georef
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#referencia">
+     Referencia
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#libreria-requests-y-formato-json">
+       Librería
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         requests
+        </span>
+       </code>
+       y formato JSON
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#pandas-y-formato-csv">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pandas
+        </span>
+       </code>
+       y formato CSV
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geopandas-y-el-formato-shp-shapefile">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         geopandas
+        </span>
+       </code>
+       y el formato SHP (shapefile)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalizacion">
+     Normalización
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metodos-post-y-consultas-bulk">
+       Métodos POST y consultas bulk
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#georreferenciacion">
+     Georreferenciación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#georreferenciacion-inversa">
+     Georreferenciación inversa
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-nominatim">
+   API Nominatim
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#busqueda-de-objetos-en-el-espacio">
+     Busqueda de objetos en el espacio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Georreferenciacion inversa
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chequea-el-estado-del-servicio">
+     Chequea el estado del servicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-normalizacion-gcba">
+   API normalización GCBA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Georreferenciacion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datos-utiles">
+     Datos utiles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#api-transporte-gcba">
+   API Transporte GCBA
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a class="reference external" href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/1_APIs_Geograficas/clase-1.ipynb"><img alt="Open In colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="apis-geograficas">
+<h1>APIs geográficas<a class="headerlink" href="#apis-geograficas" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">helpers</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="requests">
+<h2>Requests<a class="headerlink" href="#requests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="interfaces-de-aplicaciones">
+<h3>Interfaces de aplicaciones<a class="headerlink" href="#interfaces-de-aplicaciones" title="Permalink to this headline">¶</a></h3>
+<p>¿Qué es una API? Los sistemas tienen distintos tipos de interfaces que permiten interactuar con ellos.</p>
+<ul class="simple">
+<li><p><strong>GUI (Graphical User Interface)</strong>: El usuario clickea e interactúa con distintos objetos para ejecutar acciones y lograr sus objetivos. Las páginas web tienen interfaces gráficas.</p></li>
+<li><p><strong>API (Application Programming Interface)</strong>: El usuario escribe líneas de código para interactuar con el sistema, ejecutar acciones y lograr sus objetivos.</p></li>
+</ul>
+<p>Todos los sitios web tienen una interfaz gráfica con la que estamos acostumbrados a interactuar, y también tienen una interfaz de programación más o menos desarrollada, o más o menos expuesta, con la cual tal vez no estemos tan acostumbrados a interactuar.</p>
+<p>Ejemplo:</p>
+<p>Si van a <a class="reference external" href="https://www.mercadolibre.com.ar/">https://www.mercadolibre.com.ar/</a> pueden hacer click en un input box, escribir “pelotas”, apretar “Enter” y el sistema les devolverá el resultado de una búsqueda. Si lo cambian por “pelotas futbol” y hacen “Enter” de nuevo, cambiará el resultado de la búsqueda. Esta es la <strong>interfaz gráfica del sitio</strong>.</p>
+<p>Sin embargo también podrían cumplir el mismo objetivo sólo escribiendo distintas URLs en el navegador:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://listado.mercadolibre.com.ar/pelotas">https://listado.mercadolibre.com.ar/pelotas</a></p></li>
+<li><p><a class="reference external" href="https://listado.mercadolibre.com.ar/pelotas-futbol">https://listado.mercadolibre.com.ar/pelotas-futbol</a></p></li>
+</ul>
+<p>Esto es más parecido a lo que llamaríamos una <strong>interfaz de programación</strong>.</p>
+</div>
+<div class="section" id="apis-rest">
+<h3>APIs REST<a class="headerlink" href="#apis-rest" title="Permalink to this headline">¶</a></h3>
+<p>En la web, las interfaces de programación de uso más difundido son las APIs REST (<a class="reference external" href="https://es.wikipedia.org/wiki/Transferencia_de_Estado_Representacional">Representational state transfer</a>) que especifica protocolos y métodos para interactuar con los vastos recursos de internet, escribiendo líneas de código.</p>
+<p>La web utiliza ampliamente el protocolo HTTP para interactuar con sus recursos. Este protocolo indica cómo estructurar un mensaje de texto que describa la petición (<strong>request</strong>) del usuario a un servidor. Hay distintos tipos de peticios que un usuario puede realizar, algunas de ellas son:</p>
+<ul class="simple">
+<li><p><strong>GET</strong>: Solicita una representación de un recurso alojado en el servidor.</p></li>
+<li><p><strong>POST</strong>: Envía datos al servidor para crear un recurso nuevo.</p></li>
+<li><p><strong>PUT</strong>: Crea o modifica un recurso del servidor.</p></li>
+<li><p><strong>DELETE</strong>: Elimina un recurso del servidor.</p></li>
+</ul>
+<p>Existen otros métodos que hoy no nos interesan.</p>
+</div>
+<div class="section" id="get-request">
+<h3>GET request<a class="headerlink" href="#get-request" title="Permalink to this headline">¶</a></h3>
+<p>Cada vez que vamos al navegador y escribimos la dirección de una página web, <strong>estamos haciendo un GET request</strong> a un servidor. Esto es una petición para adquirir el código de un recurso que queremos visualizar en el navegador.</p>
+<p>La URL es la parte más importante de la definición de un GET request (aunque el navegador agrega otras cosas también, que no vemos) y nos permite cambiar la representación deseada de ese mismo recurso de distintas maneras:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://deportes.mercadolibre.com.ar/pelotas-futbol">https://deportes.mercadolibre.com.ar/pelotas-futbol</a> pide al servidor pelotas de fútbol.</p></li>
+<li><p><a class="reference external" href="https://deportes.mercadolibre.com.ar/pelotas-futbol_OrderId_PRICE">https://deportes.mercadolibre.com.ar/pelotas-futbol_OrderId_PRICE</a> pide al servidor pelotas de fútbol ordenadas por precio.</p></li>
+</ul>
+<p>Cuando escribimos una URL en un navegador, la mayoría de las veces hacemos GET requests que devuelven código HTML (es el código que usa el navegador para renderizar una página web) pero las GET requests pueden devolver datos en otros formatos (por ejemplo en JSON y en CSV).</p>
+<p><strong>Las APIs REST que definen GET requests capaces de devolver datos en formato JSON y CSV, son particularmente interesantes para enriquecer nuestras capacidades de análisis de datos.</strong></p>
+<p>Ahora vamos a conocer algunas de ellas.</p>
+</div>
+</div>
+<div class="section" id="api-georef">
+<h2>API Georef<a class="headerlink" href="#api-georef" title="Permalink to this headline">¶</a></h2>
+<p>La <a class="reference external" href="http://apis.datos.gob.ar/georef">API Georef</a> o, en su nombre más largo, el <strong>Servicio de Normalización de Datos Geográficos de Argentina</strong> es una API REST desarrollada y mantenida por el Estado Nacional de Argentina para la normalización de datos geográficos, que es capaz de:</p>
+<ul class="simple">
+<li><p>Georreferenciar una dirección</p></li>
+<li><p>Normalizar nombres de provincias, departamentos y otras entidades</p></li>
+<li><p>Devolver los nombres de provincias, departamentos y otras entidades que contienen a un par de coordenadas (georreferenciación inversa)</p></li>
+<li><p>Sirve de referencia, devolviendo las listas canónicas con nombres y códigos oficiales de estas entidades, en formato CSV, JSON, SHP y otros.</p></li>
+</ul>
+<p>A continuación, vamos a ver algunos de los usos que tienen los recursos de esta API para potenciar nuestras capacidades de analizar datos.</p>
+<div class="section" id="referencia">
+<h3>Referencia<a class="headerlink" href="#referencia" title="Permalink to this headline">¶</a></h3>
+<p>La API Georef contiene las listas con nombres y códigos oficiales de Argentina para, entre otras, las siguientes entidades:</p>
+<ul class="simple">
+<li><p>Provinicias</p></li>
+<li><p>Departamentos</p></li>
+<li><p>Municipios</p></li>
+<li><p>Localidades</p></li>
+<li><p>Calles</p></li>
+</ul>
+<p>Cada una de ellas se consulta usando un <strong>recurso</strong> de la API.</p>
+<div class="section" id="libreria-requests-y-formato-json">
+<h4>Librería <code class="docutils literal notranslate"><span class="pre">requests</span></code> y formato JSON<a class="headerlink" href="#libreria-requests-y-formato-json" title="Permalink to this headline">¶</a></h4>
+<p>Si estuviéramos desarrollando una aplicación web que contiene, por ejemplo, un formulario donde el usurio debe elegir el nombre de la provincia donde vive con el objeto de guardar la información en una base de datos, podríamos usar la API Georef para obtener esa lista.</p>
+<p>La librería <code class="docutils literal notranslate"><span class="pre">requests</span></code> en python permite hacer todo tipo de requests APIs REST y es sencilla de utilizar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://apis.datos.gob.ar/georef/api/provincias&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># el status code de una request indica si esta fue realizada con éxito o no, y por qué</span>
+<span class="c1"># el código 200 indica que una request fue realizada exitosamente</span>
+<span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provincias</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">provincias</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">response.json()</span></code> de la librería <code class="docutils literal notranslate"><span class="pre">requests</span></code> devuelve una respuesta de formato JSON, en un familiar diccionario de python.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provincias</span><span class="p">[</span><span class="s2">&quot;provincias&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;centroide&#39;: {&#39;lat&#39;: -26.8753965086829, &#39;lon&#39;: -54.6516966230371},
+ &#39;id&#39;: &#39;54&#39;,
+ &#39;nombre&#39;: &#39;Misiones&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las APIs tienen distintos parámetros que permiten modificar la consulta a un recurso determinado, estos se agregan al final usando un signo de interrogación <code class="docutils literal notranslate"><span class="pre">?</span></code> y separándolos con el caracter <em>ampersand</em> <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
+<ul class="simple">
+<li><p><strong>Recurso</strong>: <a class="reference external" href="http://apis.datos.gob.ar/georef/api/provincias">apis.datos.gob.ar/georef/api/provincias</a></p></li>
+<li><p><strong>Parámetros</strong>: ?orden=nombre&amp;aplanar</p></li>
+<li><p><strong>URL completa</strong>: <a class="reference external" href="http://apis.datos.gob.ar/georef/api/provincias?orden=nombre&amp;aplanar">apis.datos.gob.ar/georef/api/provincias?orden=nombre&amp;aplanar</a></p></li>
+</ul>
+<p>El parámetro “orden” permite elegir un campo por el cual ordenar los resultados. El parámetro “aplanar” devuelve una estructura plana o no anidada de los resultados que a veces es más fácil de utilizar, dependiendo de lo que estemos haciendo.</p>
+<p>Podés consultar los otros parámetros disponibles para el recurso “provincias” en <a class="reference external" href="https://datosgobar.github.io/georef-ar-api/open-api/#/Recursos/get_provincias">https://datosgobar.github.io/georef-ar-api/open-api/#/Recursos/get_provincias</a></p>
+<p><strong>Ejercicio:</strong> crea una lista ordenada alfabéticamente con tuplas que contengan id y nombre de cada provincia, que usarías para armar tu selector de provincias en una página web.</p>
+</div>
+<div class="section" id="pandas-y-formato-csv">
+<h4><code class="docutils literal notranslate"><span class="pre">pandas</span></code> y formato CSV<a class="headerlink" href="#pandas-y-formato-csv" title="Permalink to this headline">¶</a></h4>
+<p>Si estamos creando una tabla auxiliar o de consulta para obtener los nombres y códigos oficiales de las provincias, es posible que queramos descargarla en CSV o leerla directamente en un dataframe de pandas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://apis.datos.gob.ar/georef/api/provincias?formato=csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>provincia_id</th>
+      <th>provincia_nombre</th>
+      <th>provincia_centroide_lat</th>
+      <th>provincia_centroide_lon</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>54</td>
+      <td>Misiones</td>
+      <td>-26.875397</td>
+      <td>-54.651697</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>74</td>
+      <td>San Luis</td>
+      <td>-33.757726</td>
+      <td>-66.028130</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>70</td>
+      <td>San Juan</td>
+      <td>-30.865368</td>
+      <td>-68.889491</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>30</td>
+      <td>Entre Ríos</td>
+      <td>-32.058874</td>
+      <td>-59.201448</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>78</td>
+      <td>Santa Cruz</td>
+      <td>-48.815485</td>
+      <td>-69.955762</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>62</td>
+      <td>Río Negro</td>
+      <td>-40.405796</td>
+      <td>-67.229330</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>26</td>
+      <td>Chubut</td>
+      <td>-43.788623</td>
+      <td>-68.526759</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>14</td>
+      <td>Córdoba</td>
+      <td>-32.142933</td>
+      <td>-63.801753</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>50</td>
+      <td>Mendoza</td>
+      <td>-34.629887</td>
+      <td>-68.583123</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>46</td>
+      <td>La Rioja</td>
+      <td>-29.685776</td>
+      <td>-67.181736</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>10</td>
+      <td>Catamarca</td>
+      <td>-27.335833</td>
+      <td>-66.947682</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>42</td>
+      <td>La Pampa</td>
+      <td>-37.131554</td>
+      <td>-65.446655</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>86</td>
+      <td>Santiago del Estero</td>
+      <td>-27.782412</td>
+      <td>-63.252387</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>18</td>
+      <td>Corrientes</td>
+      <td>-28.774305</td>
+      <td>-57.801219</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>82</td>
+      <td>Santa Fe</td>
+      <td>-30.706927</td>
+      <td>-60.949837</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>90</td>
+      <td>Tucumán</td>
+      <td>-26.947800</td>
+      <td>-65.364758</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>58</td>
+      <td>Neuquén</td>
+      <td>-38.641758</td>
+      <td>-70.118571</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>66</td>
+      <td>Salta</td>
+      <td>-24.299134</td>
+      <td>-64.814463</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>22</td>
+      <td>Chaco</td>
+      <td>-26.386431</td>
+      <td>-60.765831</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>34</td>
+      <td>Formosa</td>
+      <td>-24.894973</td>
+      <td>-59.932441</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>38</td>
+      <td>Jujuy</td>
+      <td>-23.320078</td>
+      <td>-65.764252</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>2</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+      <td>-34.614493</td>
+      <td>-58.445856</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>-36.676942</td>
+      <td>-60.558832</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>94</td>
+      <td>Tierra del Fuego, Antártida e Islas del Atlánt...</td>
+      <td>-82.521518</td>
+      <td>-50.742749</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Notá que la respuesta viene “aplanada” por defecto, ya que el CSV es un formato tabular (no anidado).</p>
+<p><strong>Ejercicio:</strong> crea una tabla con la lista de departamentos de la provincia de Santa Fé. Para esto usa el recurso “departamentos” y el parámetro “provincia” para filtrarlo con los resultados de la provincia de Santa Fé.</p>
+<p>Puedes usar tanto el id como el nombre de la provincia para filtrar.</p>
+</div>
+<div class="section" id="geopandas-y-el-formato-shp-shapefile">
+<h4><code class="docutils literal notranslate"><span class="pre">geopandas</span></code> y el formato SHP (shapefile)<a class="headerlink" href="#geopandas-y-el-formato-shp-shapefile" title="Permalink to this headline">¶</a></h4>
+<p>La API georef también permite obtener las geometrías de las entidades para, por ejemplo, graficarlas en un mapa. Sólo debe cambiarse el formato por “shp”.</p>
+<p>Geopandas puede leer un shapefile directo de la URL, tal como hicimos con el CSV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://apis.datos.gob.ar/georef/api/departamentos?formato=shp&amp;provincia=82&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f4159ab4fd0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por qué faltan departamentos? La API devuelve 10 resultados como máximo por defecto, pero se puede aumentar la cantidad de resultados con el parámetro “max” hasta 5000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;https://apis.datos.gob.ar/georef/api/departamentos?formato=shp&amp;provincia=82&amp;max=5000&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f4159dfc9d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-1_38_1.png" src="../../_images/clase-1_38_1.png" />
+</div>
+</div>
+<p><strong>Ejercicio:</strong> crea un mapa de los departamentos de la provincia de Buenos Aires. Y luego crea otro solamente de aquellos departamentos con nombres de santos.</p>
+<p>Podés usar el parámetro “nombre” para filtrar los nombres de los departamentos que contengan la palabra “san”.</p>
+</div>
+</div>
+<div class="section" id="normalizacion">
+<h3>Normalización<a class="headerlink" href="#normalizacion" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="metodos-post-y-consultas-bulk">
+<h4>Métodos POST y consultas bulk<a class="headerlink" href="#metodos-post-y-consultas-bulk" title="Permalink to this headline">¶</a></h4>
+<p>Los recursos se pueden usar para normalizar nombres de unidades territoriales mal escritos, corrigiendo con el nombre oficial y agregando el código oficial. Esto facilita enormemente la cruza de datos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://apis.datos.gob.ar/georef/api/provincias?nombre=sant fe&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cantidad&#39;: 1,
+ &#39;inicio&#39;: 0,
+ &#39;parametros&#39;: {&#39;nombre&#39;: &#39;sant fe&#39;},
+ &#39;provincias&#39;: [{&#39;centroide&#39;: {&#39;lat&#39;: -30.7069271588117,
+    &#39;lon&#39;: -60.9498369430241},
+   &#39;id&#39;: &#39;82&#39;,
+   &#39;nombre&#39;: &#39;Santa Fe&#39;}],
+ &#39;total&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sin embargo, los datasets a normalizar generalmente tendrán muchas filas y el método GET en este caso no nos llevará muy lejos.. Consumiremos rápidamente la cuota de la API y no conseguiremos el objetivo.</p>
+<p>Para esto podemos usar la versión “bulk” del recurso, y realizar una request POST.</p>
+<p>Imaginemos que tenemos un dataset con varias filas a normalizar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioetanol</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;http://datos.minem.gob.ar/dataset/5ce77ad1-c729-42cd-a8b5-2407de005e5b/resource/0df1eeda-854b-44b0-8ea6-1a537f167fa4/download/bioetanol.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioetanol</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fecha</th>
+      <th>empresa</th>
+      <th>localidad</th>
+      <th>provincia</th>
+      <th>insumo</th>
+      <th>cupo_total_asignado_m3</th>
+      <th>produccion__m3</th>
+      <th>ventas_totales__m3</th>
+      <th>ventas_a_axion_m3</th>
+      <th>ventas_a_petrobras_m3</th>
+      <th>ventas_a_fox_petrol_m3</th>
+      <th>ventas_a_refineria_del_norte_m3</th>
+      <th>ventas_a_shell_m3</th>
+      <th>ventas_a_ypf_m3</th>
+      <th>ventas_a_energia_derivada_del_petroleo_m3</th>
+      <th>ventas_a_oil_combustibles_m3</th>
+      <th>ventas_a_trafigura_oil_m3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>1/1/2012</td>
+      <td>ALCONOA S.R.L.</td>
+      <td>EL TABACAL</td>
+      <td>SALTA</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>3500.0</td>
+      <td>6767.997473</td>
+      <td>3565.003159</td>
+      <td>298.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>1366.00</td>
+      <td>1901.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1/1/2012</td>
+      <td>BIO SAN ISIDRO S.A.</td>
+      <td>CAMPO SANTO</td>
+      <td>SALTA</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>300.0</td>
+      <td>0</td>
+      <td>476.651927</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>476.65</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1/1/2012</td>
+      <td>BIOENERGÍA LA CORONA S.A.</td>
+      <td>CONCEPCIÓN</td>
+      <td>TUCUMÁN</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>670.0</td>
+      <td>0</td>
+      <td>654.403032</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>654.41</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>1/1/2012</td>
+      <td>BIOENERGÍA SANTA ROSA S.A.</td>
+      <td>LEÓN ROUGES</td>
+      <td>TUCUMÁN</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>1200.0</td>
+      <td>0</td>
+      <td>1051.345546</td>
+      <td>517.57</td>
+      <td>533.77</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>1/1/2012</td>
+      <td>BIOLEDESMA S.A.</td>
+      <td>LEDESMA</td>
+      <td>JUJUY</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>4083.0</td>
+      <td>4391.787745</td>
+      <td>4278.686039</td>
+      <td>503.81</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>615.17</td>
+      <td>2645.09</td>
+      <td>104.36</td>
+      <td>410.27</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>967</td>
+      <td>3/1/2018</td>
+      <td>ENERGÍAS ECOLÓGICAS DEL TUCUMÁN S.A.</td>
+      <td>AGUILARES</td>
+      <td>TUCUMÁN</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>NaN</td>
+      <td>1848.98</td>
+      <td>1704.720000</td>
+      <td>1194.33</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>510.39</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>968</td>
+      <td>3/1/2018</td>
+      <td>FRONTERITA ENERGÍA S.A.</td>
+      <td>FAMAILLÁ</td>
+      <td>TUCUMÁN</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>NaN</td>
+      <td>463.5</td>
+      <td>2774.120000</td>
+      <td>1048.58</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>542.67</td>
+      <td>0.00</td>
+      <td>1182.87</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>969</td>
+      <td>3/1/2018</td>
+      <td>PROMAÍZ S.A.</td>
+      <td>ALEJANDRO ROCA</td>
+      <td>CÓRDOBA</td>
+      <td>MAÍZ</td>
+      <td>NaN</td>
+      <td>13904.27</td>
+      <td>12420.200000</td>
+      <td>3098.05</td>
+      <td>1301.97</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>2516.67</td>
+      <td>5503.51</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>970</td>
+      <td>3/1/2018</td>
+      <td>RÍO GRANDE ENERGÍA S.A.</td>
+      <td>LA MENDIETA</td>
+      <td>JUJUY</td>
+      <td>CAÑA DE AZÚCAR</td>
+      <td>NaN</td>
+      <td>1130.15</td>
+      <td>1573.470000</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>583.60</td>
+      <td>989.87</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <td>971</td>
+      <td>3/1/2018</td>
+      <td>VICENTÍN S.A.I.C.</td>
+      <td>AVELLANEDA</td>
+      <td>SANTA FE</td>
+      <td>MAÍZ</td>
+      <td>NaN</td>
+      <td>6108.93</td>
+      <td>5569.070000</td>
+      <td>2306.31</td>
+      <td>219.59</td>
+      <td>0.0</td>
+      <td>0.00</td>
+      <td>582.79</td>
+      <td>2460.38</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>972 rows × 17 columns</p>
+</div></div></div>
+</div>
+<p>Los métodos POST se usan cuando una request debe enviarle datos al servidor para cumplir su cometido. Generalmente las POST requests generan cambios en el servidor (por ejemplo, agregan un comentario a una nota periodística) pero también se usan cuando la consulta requiere parámetros más complejos o voluminosos.</p>
+<p>El método POST permite enviar un JSON (por ejemplo) aparte de la URL.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;provincias&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;JUJUY&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;campos&#39;</span><span class="p">:</span> <span class="s1">&#39;id,nombre&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;TUCUMAN&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;campos&#39;</span><span class="p">:</span> <span class="s1">&#39;id,nombre&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;CORDOBA&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;campos&#39;</span><span class="p">:</span> <span class="s1">&#39;id,nombre&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="s1">&#39;SALTA&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;campos&#39;</span><span class="p">:</span> <span class="s1">&#39;id,nombre&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este diccionario, cada objeto en la lista de provincias es una consulta individual. Se pueden acumular hasta 1000 consultas en un solo POST request de esta API.</p>
+<p>En todos los casos ponemos ‘max’ = 1 porque solo queremos el mejor match posible de cada caso, y elegimos que devuelva solo los campos que necesitamos, para agilizar la consulta.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultado_provs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;https://apis.datos.gob.ar/georef/api/provincias&quot;</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="n">data</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultado_provs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;resultados&#39;: [{&#39;cantidad&#39;: 1,
+   &#39;inicio&#39;: 0,
+   &#39;parametros&#39;: {&#39;campos&#39;: [&#39;id&#39;, &#39;nombre&#39;], &#39;max&#39;: 1, &#39;nombre&#39;: &#39;JUJUY&#39;},
+   &#39;provincias&#39;: [{&#39;id&#39;: &#39;38&#39;, &#39;nombre&#39;: &#39;Jujuy&#39;}],
+   &#39;total&#39;: 1},
+  {&#39;cantidad&#39;: 1,
+   &#39;inicio&#39;: 0,
+   &#39;parametros&#39;: {&#39;campos&#39;: [&#39;id&#39;, &#39;nombre&#39;], &#39;max&#39;: 1, &#39;nombre&#39;: &#39;TUCUMAN&#39;},
+   &#39;provincias&#39;: [{&#39;id&#39;: &#39;90&#39;, &#39;nombre&#39;: &#39;Tucumán&#39;}],
+   &#39;total&#39;: 1},
+  {&#39;cantidad&#39;: 1,
+   &#39;inicio&#39;: 0,
+   &#39;parametros&#39;: {&#39;campos&#39;: [&#39;id&#39;, &#39;nombre&#39;], &#39;max&#39;: 1, &#39;nombre&#39;: &#39;CORDOBA&#39;},
+   &#39;provincias&#39;: [{&#39;id&#39;: &#39;14&#39;, &#39;nombre&#39;: &#39;Córdoba&#39;}],
+   &#39;total&#39;: 1},
+  {&#39;cantidad&#39;: 1,
+   &#39;inicio&#39;: 0,
+   &#39;parametros&#39;: {&#39;campos&#39;: [&#39;id&#39;, &#39;nombre&#39;], &#39;max&#39;: 1, &#39;nombre&#39;: &#39;SALTA&#39;},
+   &#39;provincias&#39;: [{&#39;id&#39;: &#39;66&#39;, &#39;nombre&#39;: &#39;Salta&#39;}],
+   &#39;total&#39;: 1}]}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultado_provs</span><span class="p">[</span><span class="s1">&#39;resultados&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;provincias&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;id&#39;: &#39;38&#39;, &#39;nombre&#39;: &#39;Jujuy&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para usar este método necesitamos generar el diccionario de una forma más flexible (no lo podemos hacer a mano!).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provincias_normalizar</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bioetanol</span><span class="o">.</span><span class="n">provincia</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;provincias&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="n">provincia</span><span class="p">,</span>
+            <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s1">&#39;campos&#39;</span><span class="p">:</span> <span class="s1">&#39;id,nombre&#39;</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">provincia</span> <span class="ow">in</span> <span class="n">provincias_normalizar</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultado_provs</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;https://apis.datos.gob.ar/georef/api/provincias&quot;</span><span class="p">,</span>
+    <span class="n">json</span><span class="o">=</span><span class="n">data</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultado_provs</span><span class="p">[</span><span class="s1">&#39;resultados&#39;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provincias_normalizadas</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">resultado</span><span class="p">[</span><span class="s1">&#39;provincias&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">resultado</span> <span class="ow">in</span> <span class="n">resultado_provs</span><span class="p">[</span><span class="s1">&#39;resultados&#39;</span><span class="p">]</span>   
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provincias_normalizadas</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[{&#39;id&#39;: &#39;66&#39;, &#39;nombre&#39;: &#39;Salta&#39;},
+ {&#39;id&#39;: &#39;66&#39;, &#39;nombre&#39;: &#39;Salta&#39;},
+ {&#39;id&#39;: &#39;90&#39;, &#39;nombre&#39;: &#39;Tucumán&#39;},
+ {&#39;id&#39;: &#39;90&#39;, &#39;nombre&#39;: &#39;Tucumán&#39;},
+ {&#39;id&#39;: &#39;38&#39;, &#39;nombre&#39;: &#39;Jujuy&#39;},
+ {&#39;id&#39;: &#39;90&#39;, &#39;nombre&#39;: &#39;Tucumán&#39;},
+ {&#39;id&#39;: &#39;90&#39;, &#39;nombre&#39;: &#39;Tucumán&#39;},
+ {&#39;id&#39;: &#39;90&#39;, &#39;nombre&#39;: &#39;Tucumán&#39;},
+ {&#39;id&#39;: &#39;38&#39;, &#39;nombre&#39;: &#39;Jujuy&#39;},
+ {&#39;id&#39;: &#39;66&#39;, &#39;nombre&#39;: &#39;Salta&#39;}]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_provincias_normalizadas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">provincias_normalizadas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_provincias_normalizadas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>66</td>
+      <td>Salta</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>66</td>
+      <td>Salta</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>90</td>
+      <td>Tucumán</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>90</td>
+      <td>Tucumán</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>38</td>
+      <td>Jujuy</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>967</td>
+      <td>90</td>
+      <td>Tucumán</td>
+    </tr>
+    <tr>
+      <td>968</td>
+      <td>90</td>
+      <td>Tucumán</td>
+    </tr>
+    <tr>
+      <td>969</td>
+      <td>14</td>
+      <td>Córdoba</td>
+    </tr>
+    <tr>
+      <td>970</td>
+      <td>38</td>
+      <td>Jujuy</td>
+    </tr>
+    <tr>
+      <td>971</td>
+      <td>82</td>
+      <td>Santa Fe</td>
+    </tr>
+  </tbody>
+</table>
+<p>972 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioetanol</span><span class="p">[</span><span class="s1">&#39;provincia_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_provincias_normalizadas</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="n">bioetanol</span><span class="p">[</span><span class="s1">&#39;provincia_nombre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_provincias_normalizadas</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">normalizar_unidades_territoriales</span><span class="p">(</span><span class="n">entidades</span><span class="p">,</span> <span class="n">entidades_tipo</span><span class="p">):</span>
+    
+    <span class="c1"># genera el JSON con la lista de consultas a realizar</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">entidades_tipo</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s1">&#39;nombre&#39;</span><span class="p">:</span> <span class="n">nombre</span><span class="p">,</span>
+                <span class="s1">&#39;max&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s1">&#39;campos&#39;</span><span class="p">:</span> <span class="s1">&#39;id,nombre&#39;</span>
+            <span class="p">}</span>
+            <span class="k">for</span> <span class="n">nombre</span> <span class="ow">in</span> <span class="n">entidades</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+    
+    <span class="c1"># realiza la consulta</span>
+    <span class="n">resultados</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;https://apis.datos.gob.ar/georef/api/</span><span class="si">{</span><span class="n">entidades_tipo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="n">data</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    
+    <span class="c1"># parsea la respuesta</span>
+    <span class="n">entidades_normalizadas</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">resultado</span><span class="p">[</span><span class="n">entidades_tipo</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">resultado</span> <span class="ow">in</span> <span class="n">resultados</span><span class="p">[</span><span class="s1">&#39;resultados&#39;</span><span class="p">]</span>   
+    <span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">entidades_normalizadas</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejercicio:</strong> usá la función para normalizar las localidades del dataset. Qué te parece que puede estar mal en el resultado, en este caso?</p>
+<p>Tal vez necesitemos modificar un poco la función para este caso. Como no queremos pasar todo el tiempo con este tema, en el módulo <code class="docutils literal notranslate"><span class="pre">helpers.py</span></code> te dejamos ya armada una funcion para normalizar distintas entidades usando la API Georef.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">localidades_normalizadas</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">normalizar_unidades_territoriales</span><span class="p">(</span>
+    <span class="n">bioetanol</span><span class="p">[[</span><span class="s1">&#39;localidad&#39;</span><span class="p">,</span> <span class="s1">&#39;provincia&#39;</span><span class="p">]],</span>
+    <span class="n">entidades_tipo</span><span class="o">=</span><span class="s1">&#39;localidades&#39;</span><span class="p">,</span>
+    <span class="n">nombre_campo</span><span class="o">=</span><span class="s1">&#39;localidad&#39;</span><span class="p">,</span>
+    <span class="n">provincia_campo</span><span class="o">=</span><span class="s1">&#39;provincia&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">localidades_normalizadas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>nombre</th>
+      <th>provincia_id</th>
+      <th>provincia_nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>66126030000</td>
+      <td>EL TABACAL</td>
+      <td>66</td>
+      <td>Salta</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>66049010000</td>
+      <td>CAMPO SANTO</td>
+      <td>66</td>
+      <td>Salta</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>90021050000</td>
+      <td>CONCEPCION</td>
+      <td>90</td>
+      <td>Tucumán</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>38035080002</td>
+      <td>PUEBLO LEDESMA</td>
+      <td>38</td>
+      <td>Jujuy</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>967</td>
+      <td>90077010001</td>
+      <td>AGUILARES</td>
+      <td>90</td>
+      <td>Tucumán</td>
+    </tr>
+    <tr>
+      <td>968</td>
+      <td>90028030002</td>
+      <td>FAMAILLA</td>
+      <td>90</td>
+      <td>Tucumán</td>
+    </tr>
+    <tr>
+      <td>969</td>
+      <td>14056010000</td>
+      <td>ALEJANDRO ROCA</td>
+      <td>14</td>
+      <td>Córdoba</td>
+    </tr>
+    <tr>
+      <td>970</td>
+      <td>38063090000</td>
+      <td>LA MENDIETA</td>
+      <td>38</td>
+      <td>Jujuy</td>
+    </tr>
+    <tr>
+      <td>971</td>
+      <td>82049020000</td>
+      <td>AVELLANEDA</td>
+      <td>82</td>
+      <td>Santa Fe</td>
+    </tr>
+  </tbody>
+</table>
+<p>972 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bioetanol</span><span class="p">[</span><span class="s1">&#39;localidad_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_provincias_normalizadas</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<span class="n">bioetanol</span><span class="p">[</span><span class="s1">&#39;localidad_nombre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_provincias_normalizadas</span><span class="p">[</span><span class="s1">&#39;nombre&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="georreferenciacion">
+<h3>Georreferenciación<a class="headerlink" href="#georreferenciacion" title="Permalink to this headline">¶</a></h3>
+<p>En la API Georef, casi todos los recursos tienen una version GET (mas facil de usar, pero que permite hace pocas consultas) y una version POST (mas dificil de usar, pero que permite hacer mas consultas y mas eficientemente).</p>
+<p>En las proximas dos secciones te vamos a presentar otras funcionalidades de la API Georef con el metodo GET correspondiente, y luego te ofreceremos una funcion ya escrita para hacer consultas masivas.</p>
+<p>La funcion de <strong>georreferenciacion</strong> permite normalizar y descomponer una direccion de Argentina en partes, asi como obtener sus coordenadas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/direcciones?direccion=balcarce 50&amp;provincia=02&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>No es obligatorio especificar una provincia, pero esto mejora mucho la precision del resultado. Tambien se puede especificar departamento u otros tipos de filtros. La API reconoce esquinas y diversas modalidades de especificar una direccion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/direcciones?direccion=santa fe y pueyrredon&amp;provincia=02&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cantidad&#39;: 1,
+ &#39;direcciones&#39;: [{&#39;altura&#39;: {&#39;unidad&#39;: None, &#39;valor&#39;: None},
+   &#39;calle&#39;: {&#39;categoria&#39;: &#39;AV&#39;,
+    &#39;id&#39;: &#39;0201401001740&#39;,
+    &#39;nombre&#39;: &#39;AV SANTA FE&#39;},
+   &#39;calle_cruce_1&#39;: {&#39;categoria&#39;: &#39;AV&#39;,
+    &#39;id&#39;: &#39;0201401001675&#39;,
+    &#39;nombre&#39;: &#39;AV PUEYRREDON&#39;},
+   &#39;calle_cruce_2&#39;: {&#39;categoria&#39;: None, &#39;id&#39;: None, &#39;nombre&#39;: None},
+   &#39;departamento&#39;: {&#39;id&#39;: &#39;02014&#39;, &#39;nombre&#39;: &#39;Comuna 2&#39;},
+   &#39;localidad_censal&#39;: {&#39;id&#39;: &#39;02000010&#39;,
+    &#39;nombre&#39;: &#39;Ciudad Autónoma de Buenos Aires&#39;},
+   &#39;nomenclatura&#39;: &#39;AV SANTA FE (ESQUINA AV PUEYRREDON), Comuna 2, Ciudad Autónoma de Buenos Aires&#39;,
+   &#39;piso&#39;: None,
+   &#39;provincia&#39;: {&#39;id&#39;: &#39;02&#39;, &#39;nombre&#39;: &#39;Ciudad Autónoma de Buenos Aires&#39;},
+   &#39;ubicacion&#39;: {&#39;lat&#39;: -34.5944399212952, &#39;lon&#39;: -58.4023531671055}}],
+ &#39;inicio&#39;: 0,
+ &#39;parametros&#39;: {&#39;direccion&#39;: {&#39;altura&#39;: {&#39;unidad&#39;: None, &#39;valor&#39;: None},
+   &#39;calles&#39;: [&#39;santa fe&#39;, &#39;pueyrredon&#39;],
+   &#39;piso&#39;: None,
+   &#39;tipo&#39;: &#39;interseccion&#39;},
+  &#39;provincia&#39;: [&#39;02&#39;]},
+ &#39;total&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/direcciones?direccion=santa fe (esq pueyrredon)&amp;provincia=02&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cantidad&#39;: 1,
+ &#39;direcciones&#39;: [{&#39;altura&#39;: {&#39;unidad&#39;: None, &#39;valor&#39;: None},
+   &#39;calle&#39;: {&#39;categoria&#39;: &#39;AV&#39;,
+    &#39;id&#39;: &#39;0201401001740&#39;,
+    &#39;nombre&#39;: &#39;AV SANTA FE&#39;},
+   &#39;calle_cruce_1&#39;: {&#39;categoria&#39;: &#39;AV&#39;,
+    &#39;id&#39;: &#39;0201401001675&#39;,
+    &#39;nombre&#39;: &#39;AV PUEYRREDON&#39;},
+   &#39;calle_cruce_2&#39;: {&#39;categoria&#39;: None, &#39;id&#39;: None, &#39;nombre&#39;: None},
+   &#39;departamento&#39;: {&#39;id&#39;: &#39;02014&#39;, &#39;nombre&#39;: &#39;Comuna 2&#39;},
+   &#39;localidad_censal&#39;: {&#39;id&#39;: &#39;02000010&#39;,
+    &#39;nombre&#39;: &#39;Ciudad Autónoma de Buenos Aires&#39;},
+   &#39;nomenclatura&#39;: &#39;AV SANTA FE (ESQUINA AV PUEYRREDON), Comuna 2, Ciudad Autónoma de Buenos Aires&#39;,
+   &#39;piso&#39;: None,
+   &#39;provincia&#39;: {&#39;id&#39;: &#39;02&#39;, &#39;nombre&#39;: &#39;Ciudad Autónoma de Buenos Aires&#39;},
+   &#39;ubicacion&#39;: {&#39;lat&#39;: -34.5944399212952, &#39;lon&#39;: -58.4023531671055}}],
+ &#39;inicio&#39;: 0,
+ &#39;parametros&#39;: {&#39;direccion&#39;: {&#39;altura&#39;: {&#39;unidad&#39;: None, &#39;valor&#39;: None},
+   &#39;calles&#39;: [&#39;santa fe&#39;, &#39;pueyrredon&#39;],
+   &#39;piso&#39;: None,
+   &#39;tipo&#39;: &#39;interseccion&#39;},
+  &#39;provincia&#39;: [&#39;02&#39;]},
+ &#39;total&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejercicio</strong>: Genera un dataframe con direcciones para georreferenciar, que se pueda usar en la funcion de abajo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># completa con direcciones y la provincia a la que pertenecen</span>
+<span class="n">direcciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
+    <span class="p">{</span><span class="s1">&#39;direccion&#39;</span><span class="p">:</span> <span class="s1">&#39;balcarce 50&#39;</span><span class="p">,</span> <span class="s1">&#39;provincia&#39;</span><span class="p">:</span> <span class="s1">&#39;02&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;direccion&#39;</span><span class="p">:</span> <span class="s1">&#39;balcarce 50&#39;</span><span class="p">,</span> <span class="s1">&#39;provincia&#39;</span><span class="p">:</span> <span class="s1">&#39;02&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;direccion&#39;</span><span class="p">:</span> <span class="s1">&#39;balcarce 50&#39;</span><span class="p">,</span> <span class="s1">&#39;provincia&#39;</span><span class="p">:</span> <span class="s1">&#39;02&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;direccion&#39;</span><span class="p">:</span> <span class="s1">&#39;balcarce 50&#39;</span><span class="p">,</span> <span class="s1">&#39;provincia&#39;</span><span class="p">:</span> <span class="s1">&#39;02&#39;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s1">&#39;direccion&#39;</span><span class="p">:</span> <span class="s1">&#39;balcarce 50&#39;</span><span class="p">,</span> <span class="s1">&#39;provincia&#39;</span><span class="p">:</span> <span class="s1">&#39;02&#39;</span><span class="p">},</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">direcciones_georreferenciadas</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">georreferenciar_direcciones</span><span class="p">(</span>
+    <span class="n">direcciones</span><span class="p">[[</span><span class="s1">&#39;direccion&#39;</span><span class="p">,</span> <span class="s1">&#39;provincia&#39;</span><span class="p">]],</span>
+    <span class="n">nombre_campo</span><span class="o">=</span><span class="s1">&#39;direccion&#39;</span><span class="p">,</span>
+    <span class="n">provincia_campo</span><span class="o">=</span><span class="s1">&#39;provincia&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">direcciones_georreferenciadas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>direccion_normalizada</th>
+      <th>latitud</th>
+      <th>longitud</th>
+      <th>provincia_id</th>
+      <th>provincia_nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>BALCARCE 50, Comuna 1, Ciudad Autónoma de Buen...</td>
+      <td>-34.608341</td>
+      <td>-58.370885</td>
+      <td>02</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>BALCARCE 50, Comuna 1, Ciudad Autónoma de Buen...</td>
+      <td>-34.608341</td>
+      <td>-58.370885</td>
+      <td>02</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>BALCARCE 50, Comuna 1, Ciudad Autónoma de Buen...</td>
+      <td>-34.608341</td>
+      <td>-58.370885</td>
+      <td>02</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>BALCARCE 50, Comuna 1, Ciudad Autónoma de Buen...</td>
+      <td>-34.608341</td>
+      <td>-58.370885</td>
+      <td>02</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>BALCARCE 50, Comuna 1, Ciudad Autónoma de Buen...</td>
+      <td>-34.608341</td>
+      <td>-58.370885</td>
+      <td>02</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="georreferenciacion-inversa">
+<h3>Georreferenciación inversa<a class="headerlink" href="#georreferenciacion-inversa" title="Permalink to this headline">¶</a></h3>
+<p>La funcionalidad de <strong>georreferenciacion inversa</strong> toma un punto de coordenadas y devuelve aquellas unidades territoriales que lo contienen.</p>
+<p>No es esctrictamente una funcion georreferenciacion inversa en realidad, ya que no devuelve una aproximacion de la direccion a la que pertenece ese punto de coordenadas, solo devuelve las unidades territoriales que contienen al punto.</p>
+<p>Esta funcion es muy util cuando ya se tiene un dataset con coordenadas, pero queremos tener tambien las columnas de provincias, departamentos y municipios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/ubicacion?lat=-34.6037389&amp;lon=-58.3815704&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;parametros&#39;: {&#39;lat&#39;: -34.6037389, &#39;lon&#39;: -58.3815704},
+ &#39;ubicacion&#39;: {&#39;departamento&#39;: {&#39;id&#39;: &#39;02007&#39;, &#39;nombre&#39;: &#39;Comuna 1&#39;},
+  &#39;lat&#39;: -34.6037389,
+  &#39;lon&#39;: -58.3815704,
+  &#39;municipio&#39;: {&#39;id&#39;: None, &#39;nombre&#39;: None},
+  &#39;provincia&#39;: {&#39;id&#39;: &#39;02&#39;, &#39;nombre&#39;: &#39;Ciudad Autónoma de Buenos Aires&#39;}}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/ubicacion?lat=-32.9477132&amp;lon=-60.6304658&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;parametros&#39;: {&#39;lat&#39;: -32.9477132, &#39;lon&#39;: -60.6304658},
+ &#39;ubicacion&#39;: {&#39;departamento&#39;: {&#39;id&#39;: &#39;82084&#39;, &#39;nombre&#39;: &#39;Rosario&#39;},
+  &#39;lat&#39;: -32.9477132,
+  &#39;lon&#39;: -60.6304658,
+  &#39;municipio&#39;: {&#39;id&#39;: None, &#39;nombre&#39;: None},
+  &#39;provincia&#39;: {&#39;id&#39;: &#39;82&#39;, &#39;nombre&#39;: &#39;Santa Fe&#39;}}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/ubicacion?lat=-38.0048387&amp;lon=-57.5483175&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;parametros&#39;: {&#39;lat&#39;: -38.0048387, &#39;lon&#39;: -57.5483175},
+ &#39;ubicacion&#39;: {&#39;departamento&#39;: {&#39;id&#39;: &#39;06357&#39;, &#39;nombre&#39;: &#39;General Pueyrredón&#39;},
+  &#39;lat&#39;: -38.0048387,
+  &#39;lon&#39;: -57.5483175,
+  &#39;municipio&#39;: {&#39;id&#39;: &#39;060357&#39;, &#39;nombre&#39;: &#39;General Pueyrredón&#39;},
+  &#39;provincia&#39;: {&#39;id&#39;: &#39;06&#39;, &#39;nombre&#39;: &#39;Buenos Aires&#39;}}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por ejemplo, si tenemos las coordenadas de todos los aeropuertos del pais, podemos agregarle facilmente los codigos y nombres oficiales de las provincias, departamentos y municipios que los contienen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aeropuertos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;https://servicios.transporte.gob.ar/gobierno_abierto/descargar.php?t=aeropuertos&amp;d=detalle&#39;</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aeropuertos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>local</th>
+      <th>oaci</th>
+      <th>iata</th>
+      <th>tipo</th>
+      <th>denominacion</th>
+      <th>coordenadas</th>
+      <th>latitud</th>
+      <th>longitud</th>
+      <th>elev</th>
+      <th>uom_elev</th>
+      <th>...</th>
+      <th>condicion</th>
+      <th>control</th>
+      <th>region</th>
+      <th>fir</th>
+      <th>uso</th>
+      <th>trafico</th>
+      <th>sna</th>
+      <th>concesionado</th>
+      <th>provincia</th>
+      <th>inhab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>ACB</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Aeródromo</td>
+      <td>CORONEL BOGADO/AGROSERVICIOS</td>
+      <td>33°16'20"S  60°34'14"W</td>
+      <td>-60.570660</td>
+      <td>-33.272260</td>
+      <td>44.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PRIVADO</td>
+      <td>NOCONTROL</td>
+      <td>RACE</td>
+      <td>SAEF</td>
+      <td>AEROAPP</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>SANTA FÉ</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>ACH</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Aeródromo</td>
+      <td>GENERAL ACHA</td>
+      <td>37°24' 6"S  64°36'49"W</td>
+      <td>-64.613510</td>
+      <td>-37.401640</td>
+      <td>277.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PUBLICO</td>
+      <td>NOCONTROL</td>
+      <td>RACE</td>
+      <td>SAEF</td>
+      <td>CIVIL</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>LA PAMPA</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>ACM</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Aeródromo</td>
+      <td>ARRECIFES/LA CURA MALAL</td>
+      <td>34° 4'33"S  60° 8'30"W</td>
+      <td>-60.141700</td>
+      <td>-34.075740</td>
+      <td>37.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PRIVADO</td>
+      <td>NOCONTROL</td>
+      <td>RACE</td>
+      <td>SAEF</td>
+      <td>CIVIL</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>BUENOS AIRES</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>ADO</td>
+      <td>SAWD</td>
+      <td>PUD</td>
+      <td>Aeródromo</td>
+      <td>PUERTO DESEADO</td>
+      <td>47°44' 6"S  65°54'15"W</td>
+      <td>-65.904100</td>
+      <td>-47.735110</td>
+      <td>82.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PUBLICO</td>
+      <td>AERADIO</td>
+      <td>RASU</td>
+      <td>SAVF</td>
+      <td>CIVIL</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>SANTA CRUZ</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>ADT</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Aeródromo</td>
+      <td>BANDERA/AGROSERVICIOS DOÑA TERESA</td>
+      <td>28°51'19"S  62°15'53"W</td>
+      <td>-62.264620</td>
+      <td>-28.855410</td>
+      <td>75.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PRIVADO</td>
+      <td>NOCONTROL</td>
+      <td>RANO</td>
+      <td>SACF</td>
+      <td>AEROAPP</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>SANTIAGO DEL ESTERO</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>688</td>
+      <td>YOS</td>
+      <td>SAZH</td>
+      <td>OYO</td>
+      <td>Aeródromo</td>
+      <td>TRES ARROYOS</td>
+      <td>38°23' 8"S  60°19'39"W</td>
+      <td>-60.327500</td>
+      <td>-38.385556</td>
+      <td>122.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PUBLICO</td>
+      <td>NOCONTROL</td>
+      <td>RACE</td>
+      <td>SAEF</td>
+      <td>NaN</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>BUENOS AIRES</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>689</td>
+      <td>YPY</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Aeródromo</td>
+      <td>YAPEYÚ</td>
+      <td>29°21'32"S  56°47'45"W</td>
+      <td>-56.795730</td>
+      <td>-29.358770</td>
+      <td>53.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PRIVADO</td>
+      <td>NOCONTROL</td>
+      <td>RANE</td>
+      <td>SARR</td>
+      <td>NaN</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>CORRIENTES</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>690</td>
+      <td>ZAP</td>
+      <td>SAHZ</td>
+      <td>APZ</td>
+      <td>Aeródromo</td>
+      <td>ZAPALA</td>
+      <td>38°58'33"S  70° 6'48"W</td>
+      <td>-70.113464</td>
+      <td>-38.975886</td>
+      <td>1048.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PUBLICO</td>
+      <td>NOCONTROL</td>
+      <td>RACE</td>
+      <td>SAEF</td>
+      <td>NaN</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>NEUQUÉN</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>691</td>
+      <td>ZLM</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Aeródromo</td>
+      <td>BELL VILLE/LA ZULEMA</td>
+      <td>32°29'23"S  62°40'17"W</td>
+      <td>-62.671389</td>
+      <td>-32.489722</td>
+      <td>129.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PRIVADO</td>
+      <td>NOCONTROL</td>
+      <td>RANO</td>
+      <td>SACF</td>
+      <td>AEROAPP</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>CÓRDOBA</td>
+      <td>NO</td>
+    </tr>
+    <tr>
+      <td>692</td>
+      <td>ZUL</td>
+      <td>SAZA</td>
+      <td>NaN</td>
+      <td>Aeródromo</td>
+      <td>AZUL</td>
+      <td>36°50'12"S  59°52'51"W</td>
+      <td>-59.880800</td>
+      <td>-36.836750</td>
+      <td>146.0</td>
+      <td>Metros</td>
+      <td>...</td>
+      <td>PUBLICO</td>
+      <td>NOCONTROL</td>
+      <td>RACE</td>
+      <td>SAEF</td>
+      <td>CIVIL</td>
+      <td>Nacional</td>
+      <td>NO</td>
+      <td>NO</td>
+      <td>BUENOS AIRES</td>
+      <td>NO</td>
+    </tr>
+  </tbody>
+</table>
+<p>693 rows × 23 columns</p>
+</div></div></div>
+</div>
+<p>Notemos que el dataset tiene un error! Los nombres de las columnas latitud y longitud, estan invertidos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">aeropuertos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;latitud&#39;</span><span class="p">]</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="n">aeropuertos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;longitud&#39;</span><span class="p">]</span>
+
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;https://apis.datos.gob.ar/georef/api/ubicacion?lat=</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s1">&amp;lon=</span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;parametros&#39;: {&#39;lat&#39;: -60.57066, &#39;lon&#39;: -33.27226},
+ &#39;ubicacion&#39;: {&#39;departamento&#39;: {&#39;id&#39;: None, &#39;nombre&#39;: None},
+  &#39;lat&#39;: -60.57066,
+  &#39;lon&#39;: -33.27226,
+  &#39;municipio&#39;: {&#39;id&#39;: None, &#39;nombre&#39;: None},
+  &#39;provincia&#39;: {&#39;id&#39;: None, &#39;nombre&#39;: None}}}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">aeropuertos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;longitud&#39;</span><span class="p">]</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="n">aeropuertos</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;latitud&#39;</span><span class="p">]</span>
+
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;https://apis.datos.gob.ar/georef/api/ubicacion?lat=</span><span class="si">{</span><span class="n">lat</span><span class="si">}</span><span class="s1">&amp;lon=</span><span class="si">{</span><span class="n">lon</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;parametros&#39;: {&#39;lat&#39;: -33.27226, &#39;lon&#39;: -60.57066},
+ &#39;ubicacion&#39;: {&#39;departamento&#39;: {&#39;id&#39;: &#39;82084&#39;, &#39;nombre&#39;: &#39;Rosario&#39;},
+  &#39;lat&#39;: -33.27226,
+  &#39;lon&#39;: -60.57066,
+  &#39;municipio&#39;: {&#39;id&#39;: &#39;823393&#39;, &#39;nombre&#39;: &#39;Coronel Bogado&#39;},
+  &#39;provincia&#39;: {&#39;id&#39;: &#39;82&#39;, &#39;nombre&#39;: &#39;Santa Fe&#39;}}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alcanza con notar esto para poder especifiar los nombres invertidos en la funcion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unidades_territoriales</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">ubicar_coordenadas</span><span class="p">(</span>
+    <span class="n">aeropuertos</span><span class="p">[[</span><span class="s1">&#39;latitud&#39;</span><span class="p">,</span> <span class="s1">&#39;longitud&#39;</span><span class="p">]],</span>
+    <span class="s1">&#39;longitud&#39;</span><span class="p">,</span> <span class="s1">&#39;latitud&#39;</span>
+<span class="p">)</span>
+<span class="n">unidades_territoriales</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>provincia_id</th>
+      <th>provincia_nombre</th>
+      <th>departamento_id</th>
+      <th>departamento_nombre</th>
+      <th>municipio_id</th>
+      <th>municipio_nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>82</td>
+      <td>Santa Fe</td>
+      <td>82084</td>
+      <td>Rosario</td>
+      <td>823393</td>
+      <td>Coronel Bogado</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>42</td>
+      <td>La Pampa</td>
+      <td>42154</td>
+      <td>Utracán</td>
+      <td>420133</td>
+      <td>General Acha</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>06</td>
+      <td>Buenos Aires</td>
+      <td>06077</td>
+      <td>Arrecifes</td>
+      <td>060077</td>
+      <td>Arrecifes</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>78</td>
+      <td>Santa Cruz</td>
+      <td>78014</td>
+      <td>Deseado</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>86</td>
+      <td>Santiago del Estero</td>
+      <td>86077</td>
+      <td>General Taboada</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>688</td>
+      <td>06</td>
+      <td>Buenos Aires</td>
+      <td>06833</td>
+      <td>Tres Arroyos</td>
+      <td>060833</td>
+      <td>Tres Arroyos</td>
+    </tr>
+    <tr>
+      <td>689</td>
+      <td>18</td>
+      <td>Corrientes</td>
+      <td>18147</td>
+      <td>San Martín</td>
+      <td>180378</td>
+      <td>Yapeyú</td>
+    </tr>
+    <tr>
+      <td>690</td>
+      <td>58</td>
+      <td>Neuquén</td>
+      <td>58112</td>
+      <td>Zapala</td>
+      <td>580245</td>
+      <td>Zapala</td>
+    </tr>
+    <tr>
+      <td>691</td>
+      <td>14</td>
+      <td>Córdoba</td>
+      <td>14182</td>
+      <td>Unión</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>692</td>
+      <td>06</td>
+      <td>Buenos Aires</td>
+      <td>06049</td>
+      <td>Azul</td>
+      <td>060049</td>
+      <td>Azul</td>
+    </tr>
+  </tbody>
+</table>
+<p>693 rows × 6 columns</p>
+</div></div></div>
+</div>
+<p><strong>Ejercicio</strong>: ubica las coordenadas de las estaciones de medicion de recursos hidricos (<a class="reference external" href="https://datos.mininterior.gob.ar/dataset/93913deb-d22e-4c0d-bca3-f465e7b2bb94/resource/26d292a4-4d7f-48e1-872a-50a0dca35386/download/estacioneslatlong.csv">https://datos.mininterior.gob.ar/dataset/93913deb-d22e-4c0d-bca3-f465e7b2bb94/resource/26d292a4-4d7f-48e1-872a-50a0dca35386/download/estacioneslatlong.csv</a>) en sus unidades territoriales. Tene en cuenta que este dataset <strong>esta codificado en ‘latin1’</strong>. Tenes que especificar la codificacion en la llamada pd.read_csv() para que lo lea sin errores.</p>
+</div>
+</div>
+<div class="section" id="api-nominatim">
+<h2>API Nominatim<a class="headerlink" href="#api-nominatim" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://nominatim.org/">https://nominatim.org/</a></p>
+<p>Por supuesto, la API Georef del Estado Nacional no es la unica API de georreferenciacion que podes usar, existen muchas otras con distintos alcances y funcionalides.</p>
+<p>La API de Nominativa, utiliza la base de datos de la iniciativa Open Street Map para proveer un servicio abierto de georreferenciacion con alcance global.</p>
+<p>Es importante que si usas esta API regularmente, leas los <a class="reference external" href="https://operations.osmfoundation.org/policies/nominatim/">terminos y condiciones</a>. Entre ellas no permite hacer mas de 1 request por segundo, debe citarse la fuente y no se permite el uso para geocodificacion bulk. Esta API es para usar en forma esporadica, pero no en produccion (salvo que se instale la API en infraestructura propia).</p>
+<p>Podes leer la documentacion de uso de la API, aca: <a class="reference external" href="https://nominatim.org/release-docs/develop/api/Overview/">https://nominatim.org/release-docs/develop/api/Overview/</a></p>
+<div class="section" id="busqueda-de-objetos-en-el-espacio">
+<h3>Busqueda de objetos en el espacio<a class="headerlink" href="#busqueda-de-objetos-en-el-espacio" title="Permalink to this headline">¶</a></h3>
+<p>Uno de los usos de la API es buscar objetos en el espacio, funciona de manera parecida a como a veces usamos Google Maps. Le podemos decir ‘escuelas en berlin’, ‘hospitales en montevideo’ y otras cosas parecidas, y devolvera una lista de resultados de lo que encuentre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hospitales en Montevideo</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://nominatim.openstreetmap.org/?addressdetails=1&amp;q=hospitales+en+montevideo+uruguay&amp;format=json&amp;limit=3&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejercicio:</strong> genera una lista de nombres y direcciones de hospitales en la Ciudad de Buenos Aires, a partir de la API de Nominatim.</p>
+</div>
+<div class="section" id="id1">
+<h3>Georreferenciacion inversa<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>El recurso /reverse permite recuperar una direccion, a partir de un par de coordenadas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://nominatim.openstreetmap.org/reverse?format=jsonv2&amp;lat=-34.6083411208197&amp;lon=-58.37088525365451&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;place_id&#39;: 14124008,
+ &#39;licence&#39;: &#39;Data © OpenStreetMap contributors, ODbL 1.0. https://osm.org/copyright&#39;,
+ &#39;osm_type&#39;: &#39;way&#39;,
+ &#39;osm_id&#39;: 208809079,
+ &#39;lat&#39;: &#39;-34.6090457&#39;,
+ &#39;lon&#39;: &#39;-58.3709109&#39;,
+ &#39;place_rank&#39;: 30,
+ &#39;category&#39;: &#39;place&#39;,
+ &#39;type&#39;: &#39;house&#39;,
+ &#39;importance&#39;: -0.1,
+ &#39;addresstype&#39;: &#39;place&#39;,
+ &#39;name&#39;: None,
+ &#39;display_name&#39;: &#39;302, Avenida Hipólito Yrigoyen, Monserrat, Buenos Aires, Ciudad Autónoma de Buenos Aires, Comuna 1, C1086AAD, Argentina&#39;,
+ &#39;address&#39;: {&#39;house_number&#39;: &#39;302&#39;,
+  &#39;road&#39;: &#39;Avenida Hipólito Yrigoyen&#39;,
+  &#39;suburb&#39;: &#39;Monserrat&#39;,
+  &#39;city&#39;: &#39;Buenos Aires&#39;,
+  &#39;state_district&#39;: &#39;Comuna 1&#39;,
+  &#39;postcode&#39;: &#39;C1086AAD&#39;,
+  &#39;country&#39;: &#39;Argentina&#39;,
+  &#39;country_code&#39;: &#39;ar&#39;},
+ &#39;boundingbox&#39;: [&#39;-34.6090957&#39;, &#39;-34.6089957&#39;, &#39;-58.3709609&#39;, &#39;-58.3708609&#39;]}
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejercicio:</strong> usa alguna de las coordenadas de las estaciones de medicion hidricas, para encontrar su direccion con este metodo. Funciona? Que resultados da esta API para esos casos?</p>
+</div>
+<div class="section" id="chequea-el-estado-del-servicio">
+<h3>Chequea el estado del servicio<a class="headerlink" href="#chequea-el-estado-del-servicio" title="Permalink to this headline">¶</a></h3>
+<p>Si la API no parece funcionar, podes asegurarte consultando si el servicio esta funcionando en este momento o no.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://nominatim.openstreetmap.org/status.php?format=json&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;status&#39;: 0, &#39;message&#39;: &#39;OK&#39;, &#39;data_updated&#39;: &#39;2020-07-30T20:04:01+00:00&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="api-normalizacion-gcba">
+<h2>API normalización GCBA<a class="headerlink" href="#api-normalizacion-gcba" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://usig.buenosaires.gob.ar/apis/">https://usig.buenosaires.gob.ar/apis/</a></p>
+<p>Si lo que necesitas hacer tiene un alcance acotado al Area Metropolitana de Buenos Aires (AMBA), tambien podes usar la API de normalizacion de direcciones del AMBA del Gobierno de la Ciudad de Buenos Aires. Una ventaja que tiene este servicio, es que tambien lo podes instalar como una libreria de python para no necesitar internet ni tener limite de cuotas (<a class="reference external" href="https://github.com/usig/normalizador-amba">https://github.com/usig/normalizador-amba</a>).</p>
+<div class="section" id="id2">
+<h3>Georreferenciacion<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://ws.usig.buenosaires.gob.ar/rest/normalizar_y_geocodificar_direcciones?calle=balcarce&amp;altura=50&amp;desambiguar=1&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Normalizacion&#39;: {&#39;TipoResultado&#39;: &#39;DireccionNormalizada&#39;,
+  &#39;DireccionesCalleAltura&#39;: {&#39;direcciones&#39;: [{&#39;CodigoCalle&#39;: &#39;2014&#39;,
+     &#39;Calle&#39;: &#39;BALCARCE&#39;,
+     &#39;Altura&#39;: &#39;50&#39;}]},
+  &#39;DireccionesCalleCalle&#39;: {&#39;direcciones&#39;: []}},
+ &#39;GeoCodificacion&#39;: {&#39;x&#39;: &#39;108487.447694&#39;, &#39;y&#39;: &#39;102343.772587&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+<p>La API de normalizacion de la USIG del GCBA devuelve coordenadas en el sistema de proyeccion Buenos Aires Gauss Krueguer, que es mas preciso para trabajar dentro del espacio geografico de la CABA pero tambien menos facil de usar para otros usos.</p>
+<p>Hay otro recurso de la API que transforma esas coordenadas en EPSG 4326 (el sistema de coordenadas al que estamos mas acostumbrados).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://ws.usig.buenosaires.gob.ar/rest/convertir_coordenadas?x=108487.447694&amp;y=102343.772587&amp;output=lonlat&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;tipo_resultado&#39;: &#39;Ok&#39;, &#39;resultado&#39;: {&#39;x&#39;: &#39;-58.370769&#39;, &#39;y&#39;: &#39;-34.608107&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="datos-utiles">
+<h3>Datos utiles<a class="headerlink" href="#datos-utiles" title="Permalink to this headline">¶</a></h3>
+<p>Otro metodo de las APIs de USIG devuelve datos utiles del contexto de una direccion. Es parecido al de ‘ubicacion’ de la API Georef, pero tiene otras areas / unidades territoriales que contienen al punto, y son propias del AMBA.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="s1">&#39;https://ws.usig.buenosaires.gob.ar/datos_utiles?calle=balcarce&amp;altura=50&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;comuna&#39;: &#39;Comuna 1&#39;,
+ &#39;barrio&#39;: &#39;Monserrat&#39;,
+ &#39;comisaria&#39;: &#39;2&#39;,
+ &#39;area_hospitalaria&#39;: &#39;HTAL. DR. C. ARGERICH&#39;,
+ &#39;region_sanitaria&#39;: &#39;I (Este)&#39;,
+ &#39;distrito_escolar&#39;: &#39;Distrito Escolar   IV&#39;,
+ &#39;comisaria_vecinal&#39;: &#39;1D&#39;,
+ &#39;seccion_catastral&#39;: &#39;02&#39;,
+ &#39;distrito_economico&#39;: &#39;&#39;,
+ &#39;codigo_de_planeamiento_urbano&#39;: &#39;&#39;,
+ &#39;partido_amba&#39;: &#39;&#39;,
+ &#39;localidad_amba&#39;: &#39;&#39;,
+ &#39;codigo_postal&#39;: &#39;1064&#39;,
+ &#39;codigo_postal_argentino&#39;: &#39;C1064AAB&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="api-transporte-gcba">
+<h2>API Transporte GCBA<a class="headerlink" href="#api-transporte-gcba" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://www.buenosaires.gob.ar/desarrollourbano/transporte/apitransporte">https://www.buenosaires.gob.ar/desarrollourbano/transporte/apitransporte</a></p>
+<p>La API unificada de transporte del GCBA ofrece acceso en tiempo real a las localizaciones de subtes, colectivos, trenes, monopatines y otros muchos datos sobre la movilidad en la Ciudad de Buenos Aires. Es gratuita pero requiere registrarse y usar credenciales para cada consulta.</p>
+<p>Una vez registrado, tenes que guardar tus credenciales en un archivo JSON <code class="docutils literal notranslate"><span class="pre">api_transporte_creds.json</span></code> en el directorio de este notebook, o copiarlas directamente en la URL de la llamada.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># carga credenciales</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;api_transporte_creds.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">creds</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client_id</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;client_id&#39;</span><span class="p">]</span>
+<span class="n">client_secret</span> <span class="o">=</span> <span class="n">creds</span><span class="p">[</span><span class="s1">&#39;client_secret&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colectivos_ahora</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">&#39;https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?client_id=</span><span class="si">{</span><span class="n">client_id</span><span class="si">}</span><span class="s1">&amp;client_secret=</span><span class="si">{</span><span class="n">client_secret</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">colectivos_ahora</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">colectivos_ahora</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">gdf</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">gdf</span><span class="o">.</span><span class="n">latitude</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f4158f6f150&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-1_129_1.png" src="../../_images/clase-1_129_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lineas</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;route_short_name&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lineas</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>route_id</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>speed</th>
+      <th>timestamp</th>
+      <th>id</th>
+      <th>direction</th>
+      <th>agency_name</th>
+      <th>agency_id</th>
+      <th>trip_headsign</th>
+      <th>geometry</th>
+    </tr>
+    <tr>
+      <th>route_short_name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>343A</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>329TR1</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <td>53C</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <td>12A</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <td>41A</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>92A</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <td>152A</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <td>67A</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>10A</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>106A</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>707ROJ</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+      <td>31</td>
+    </tr>
+    <tr>
+      <td>102A</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td>343B</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>124A</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>17A</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>96G</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>151A</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>118A</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>257A</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <td>59A</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+      <td>27</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="p">[</span><span class="n">gdf</span><span class="o">.</span><span class="n">route_short_name</span> <span class="o">==</span> <span class="s1">&#39;152A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f4158f13bd0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-1_132_1.png" src="../../_images/clase-1_132_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./APIs/1_APIs_Geograficas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">APIs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="clase-1-ejercicios.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">APIs Geográficas: Ejercicios</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

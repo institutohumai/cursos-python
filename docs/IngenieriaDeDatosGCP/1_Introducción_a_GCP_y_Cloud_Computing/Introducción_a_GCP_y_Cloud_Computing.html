@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducción a GCP y Cloud Computing &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="BigQuery y SQL" href="../2_BigQuery%20y%20SQL/BigQuery_y_SQL.html" />
+    <link rel="prev" title="Generación de texto" href="../../Talleres/DL_Generacion_de_Texto.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones2.html">
+   Funciones 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/7_Probabilidad/Probabilidad.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/README.html">
+   Talleres de Audio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_I.html">
+   Audio I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_II.html">
+   Audio II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_III.html">
+   Audio III
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Talleres
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/README.html">
+   Talleres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/automatizacion.html">
+   🤖 Taller de Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/Periodismo_de_datos.html">
+   Introducción al Periodismo de Datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/DL_Generacion_de_Texto.html">
+   Generación de texto
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Ingenieria de Datos con GCP
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introducción a GCP y Cloud Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_BigQuery%20y%20SQL/BigQuery_y_SQL.html">
+   BigQuery y SQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/deep_learning_ok.html">
+   Deep Learning I
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  General
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/referencias.html">
+   Recursos abiertos para estudiar ciencia de datos y aprendizaje automático
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/Introducción_a_GCP_y_Cloud_Computing.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FIngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/Introducción_a_GCP_y_Cloud_Computing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introducción a GCP y Cloud Computing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing0.png" /></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="introduccion-a-gcp-y-cloud-computing">
+<h1>Introducción a GCP y Cloud Computing<a class="headerlink" href="#introduccion-a-gcp-y-cloud-computing" title="Permalink to this headline">¶</a></h1>
+<p><span style="color:#CEA6FF">TABLE OF CONTENTS</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing1.png" /></p>
+<p><span style="color:#FFFFFF">Fundamentos del Cloud Computing</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing2.png" /></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing3.png" /></p>
+<p><span style="color:#FFFFFF">CONCEPTOS BASICOS</span></p>
+<p><span style="color:#CEA6FF">Arquitectura Cliente - Servidor</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing4.png" /></p>
+<p><span style="color:#252525">Puntos clave de la arquitectura:</span></p>
+<p><span style="color:#252525">Cliente.</span></p>
+<p><span style="color:#252525">Servidor.</span></p>
+<p><span style="color:#CEA6FF">¿Qué es el Cloud Computing?</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing5.png" /></p>
+<p><span style="color:#252525">“</span>  <span style="color:#252525">El Cloud Computing o Cómputo en la nube, es una nueva tecnología que nos permite acceder mediante un sistema remoto, al software, al procesamiento de datos y al almacenamiento de archivos.”</span></p>
+<p><span style="color:#CEA6FF">Cloud Computing y Big Data</span></p>
+<p><span style="color:#252525">“</span>  <span style="color:#252525">A diferencia de esquemas de servidores tradicionales, el Cloud Computing permite el tratamiento de los grandes volúmenes de información del Big Data gracias a una de sus características clave: la escalabilidad.”</span></p>
+<p><span style="color:#252525">Ventajas:</span></p>
+<p><span style="color:#252525">Abaratamiento de costes.</span></p>
+<p><span style="color:#252525">Inmediatez.</span></p>
+<p><span style="color:#252525">Capacidad de proceso.</span></p>
+<p><span style="color:#252525">Concurrencia.</span></p>
+<p><span style="color:#CEA6FF">El principio 5 - 3- 2</span></p>
+<p><span style="color:#252525">Este principio se compone de:</span></p>
+<p><span style="color:#252525">5 características.</span></p>
+<p><span style="color:#252525">3 métodos de entrega.</span></p>
+<p><span style="color:#252525">2 modelos de implementación.</span></p>
+<p><span style="color:#CEA6FF">El principio 5 - 3- 2</span></p>
+<p><span style="color:#28262B"> <strong>5 - Características</strong> </span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing6.png" /></p>
+<p><span style="color:#CEA6FF">El principio 5 - 3- 2</span></p>
+<p><span style="color:#252525">3 – Métodos de Entrega: </span></p>
+<p><span style="color:#252525">Infraestructura como servicio (IaaS).</span></p>
+<p><span style="color:#252525">Plataforma como servicio (PaaS).</span></p>
+<p><span style="color:#252525">Software como servicio (SaaS).</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing7.jpg" /></p>
+<p><span style="color:#CEA6FF">El principio 5 - 3- 2</span></p>
+<p><span style="color:#28262B"> <em>Niveles de Responsabilidad</em> </span>  <span style="color:#252525">: </span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing8.png" /></p>
+<p><span style="color:#CEA6FF">El principio 5 - 3- 2</span></p>
+<p><span style="color:#28262B">2 – Modelos de Implementación: </span></p>
+<p><span style="color:#28262B">Nube Privada.</span></p>
+<p><span style="color:#28262B">Nube Pública.</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing9.png" /></p>
+<p><span style="color:#CEA6FF">Proveedores de Servicios en la Nube</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing10.png" /></p>
+<p><span style="color:#252525">“</span>  <span style="color:#252525">Quizás Amazon Web Services, es una de las plataformas  de servicios en la nube más conocidas, proporciona una variedad de servicios de infraestructura, tales como almacenamiento, redes, bases de datos, servicios de aplicaciones, potencia de cómputo, mensajería, inteligencia artificial, servicios móviles, seguridad, identidad y conformidad, entre otros. ¿Cuál es su principal ventaja?, sin dudas la experiencia en el mercado y el servicio de atención al cliente que ofrece”.</span></p>
+<p><span style="color:#CEA6FF">Proveedores de Servicios en la Nube</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing11.png" /></p>
+<p><span style="color:#252525">“</span>  <span style="color:#252525">Microsoft Azure, proporciona una gama de servicios en la nube, incluidos servicios vinculados con la computación, analítica, almacenamiento y redes. Los usuarios pueden elegir entre estos servicios para desarrollar y escalar nuevas aplicaciones, o ejecutar aplicaciones existentes. ¿Cuál es su principal ventaja?, la rapidez”. </span></p>
+<p><span style="color:#CEA6FF">Proveedores de Servicios en la Nube</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing12.png" /></p>
+<p><span style="color:#252525">“</span>  <span style="color:#252525">Gooogle Cloud Platform, también conocida por la nomenclatura GCP, es una suite que contiene diversos servicios que funcionan en la misma infraestructura que utiliza Google de manera interna, por ejemplo con servicios como Youtube o Google Search”. ¿Cuál es su principal ventaja?, la seguridad.</span></p>
+<p><span style="color:#CEA6FF">Proveedores de Servicios en la Nube</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing13.png" /></p>
+<p><span style="color:#252525">¿Ahora bien, cuál elegir?</span></p>
+<p><span style="color:#252525">Resulta relevante destacar, que las distintas soluciones anteriormente mencionadas, ofrecen una serie de ventajas, similitudes y ciertas diferencias. La elección de una u otra tecnología, deberá realizarse en función de las necesidades computacionales de la organización y acompañado por la asesoría de un profesional capacitado en la temática. Quizás, una buena recomendación antes de tomar una decisión definitiva al respecto, sería tomar una prueba gratuita de cada una de las herramientas, para vivenciar de esa manera la experiencia de utilizar cada una de ellas. </span></p>
+<p><span style="color:#CEA6FF">Modelo de Costos en la Nube</span></p>
+<p><span style="color:#252525">Los Servicios en la Nube proporcionan un modelo de precios basados en “pago por uso” o “consumo”. </span></p>
+<p><span style="color:#252525">Este modelo basado en el consumo aporta muchas ventajas, por ejemplo:</span></p>
+<p><span style="color:#252525">No hay costos iniciales de infraestructura.</span></p>
+<p><span style="color:#252525">No es necesario comprar ni administrar infraestructuras costosas que es posible que no se aprovechen del todo.</span></p>
+<p><span style="color:#252525">Se puede pagar para obtener recursos adicionales, y solo si se necesitan y en el momento en el que se necesiten.</span></p>
+<p><span style="color:#252525">Se puede dejar de pagar por los recursos que ya no se necesiten.</span></p>
+<p><span style="color:#CEA6FF">Modelo de Costos en la Nube</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing14.png" /></p>
+<p><span style="color:#CEA6FF">SPOF (Single Point Of Failure ó Punto Simple de Fallo)</span></p>
+<p><span style="color:#252525">La regla básica para hacer un sistema de alta disponibilidad es la replicación de elementos (Recordando la idea de RAID, Redundant Array of Independent Disks). Con SPOF se quiere hacer referencia a cualquier elemento no replicado y que puede estar sujeto a fallos; afectando con ello al servicio. Se debe evitar el SPOF en cualquier subsistema del sistema, ya que en caso de fallo puede peligrar el servicio de datos por culpa de un subsistema.</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing15.png" /></p>
+<p><span style="color:#CEA6FF">Riesgos del Cómputo en la Nube</span></p>
+<p><span style="color:#252525">Pérdida de gobernanza.</span></p>
+<p><span style="color:#252525">Dependencia.</span></p>
+<p><span style="color:#252525">Integración.</span></p>
+<p><span style="color:#252525">Incumplimiento de servicio.</span></p>
+<p><span style="color:#252525">Aspectos vinculados con la privacidad</span>  <span style="color:#000000">.</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing16.jpg" /></p>
+<p><span style="color:#CEA6FF">Acuerdo de Nivel de Servicio</span></p>
+<p><span style="color:#252525">Un Service Level Agreement (SLA) es un contrato que describe el nivel de servicio que un cliente espera de su proveedor. Los Service Level Agreement, sirven para establecer unos indicadores que se puedan medir, para regular el servicio que un proveedor presta y así, asegurar el cumplimiento de las expectativas de los clientes.</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing17.jpg" /></p>
+<p><span style="color:#CEA6FF">Gastos de Capital vs Gastos Operativos</span></p>
+<p><span style="color:#252525">Los servicios informáticos ofrecidos suelen variar en función de cada proveedor. Normalmente estos servicios incluyen:</span></p>
+<p><span style="color:#252525">Potencia de proceso: por ejemplo, aplicaciones web o servidores Linux.</span></p>
+<p><span style="color:#252525">Almacenamiento: por ejemplo, archivos y bases de datos.</span></p>
+<p><span style="color:#252525">Redes: por ejemplo, conexiones seguras entre el proveedor de nube y la empresa.</span></p>
+<p><span style="color:#CEA6FF">Gastos de Capital vs Gastos Operativos</span></p>
+<p><span style="color:#252525"> __Costos de los Gastos de Capital (CapEx): __ </span></p>
+<p><span style="color:#252525">Costos de servidores.</span></p>
+<p><span style="color:#252525">Costos de red.</span></p>
+<p><span style="color:#252525">Costos de almacenamiento.</span></p>
+<p><span style="color:#252525">Costos de copia de seguridad y archivo</span></p>
+<p><span style="color:#252525">Personal técnico.</span></p>
+<p><span style="color:#252525">Costos de continuidad y recuperación ante desastres de la organización.</span></p>
+<p><span style="color:#252525">Costos de infraestructura del centro de datos.</span></p>
+<p><span style="color:#28262B"> __Aclaración: __ </span>  <span style="color:#252525">Los costos tipo CapEx, suelen estar relacionados con la compra de infraestructura física como ser hardware.</span></p>
+<p><span style="color:#CEA6FF">Gastos de Capital vs Gastos Operativos</span></p>
+<p><span style="color:#252525"> __Costos de los Gastos de Operacion (OpEx): __ </span></p>
+<p><span style="color:#252525">Leasing de software y características personalizadas.</span></p>
+<p><span style="color:#252525">El escalado se cobra en función del uso o la demanda, en lugar del hardware fijo o la capacidad.</span></p>
+<p><span style="color:#252525">Facturación en el nivel de usuario o la organización.</span></p>
+<p><span style="color:#28262B"> __Aclaración: __ </span>  <span style="color:#252525">Los costos tipo OpEx, suelen estar asociados al dinero que se invierte en servicios o productos y se facturan al instante.</span></p>
+<p><span style="color:#CEA6FF">Google Cloud Platform</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing18.png" /></p>
+<p><span style="color:#CEA6FF">Principales Servicios</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing19.png" /></p>
+<p><span style="color:#252525">Todos los servicios:</span></p>
+<p><span style="color:#252525"><a class="reference external" href="https://cloud.google.com/products?hl=es-419">https://cloud.google.com/products?hl=es-419</a></span></p>
+<p><span style="color:#CEA6FF">Recursos de Interés</span></p>
+<p><span style="color:#252525">¿Por qué Google Cloud?</span></p>
+<p><span style="color:#252525"><a class="reference external" href="https://cloud.google.com/why-google">https://cloud.google.com/why-google</a></span></p>
+<p><span style="color:#252525">Filosofía de Precios</span></p>
+<p><span style="color:#252525"><a class="reference external" href="https://cloud.google.com/pricing/philosophy">https://cloud.google.com/pricing/philosophy</a></span></p>
+<p><span style="color:#252525">Data Centers</span></p>
+<p><span style="color:#252525"><a class="reference external" href="https://www.google.com/about/datacenters">https://www.google.com/about/datacenters</a></span></p>
+<p><span style="color:#252525">Google Cloud Platform, Productos</span></p>
+<p><span style="color:#252525"><a class="reference external" href="http://cloud.google.com/products">http://cloud.google.com/products</a></span></p>
+<p><span style="color:#252525">Google Cloud Platform, Soluciones</span></p>
+<p><span style="color:#252525"><a class="reference external" href="http://cloud.google.com/solutions">http://cloud.google.com/solutions</a></span></p>
+<p><span style="color:#CEA6FF">Creación de Cuenta en Google Cloud Platform</span></p>
+<p><span style="color:#252525">Para empezar tu viaje en la nube de Google necesitarás abrir una cuenta de Google Cloud.</span></p>
+<p><span style="color:#252525">Afortunadamente Google Cloud cuenta con dos herramientas para que puedas experimentar con confianza. La primera es una asignación automática de 300 dólares al momento de abrir tu cuenta. La segunda es el programa de uso gratis bajo ciertos límites de consumo de algunos servicios durante 12 meses, puedes ver el detalle en el siguiente link:</span></p>
+<p><span style="color:#252525"><a class="reference external" href="https://cloud.google.com/free">https://cloud.google.com/free</a></span></p>
+<p><span style="color:#CEA6FF">Creación de Cuenta en Google Cloud Platform</span></p>
+<p><span style="color:#252525">Para crear nuestra cuenta hay que dirigirnos a la consola de Google Cloud Platform y seleccionar el vínculo para crear una nueva cuenta y seguir las instrucciones en pantalla propuesta.</span></p>
+<p><span style="color:#252525">Como parte del proceso de creación vas a tener que introducir los detalles de una tarjeta de crédito u otro medio de pago soportado. No te preocupes, no se realizará ningún cobro, pues automáticamente recibirás 300 dólares para probar la plataforma, pero una vez que esos créditos se acaben vas a incurrir en cualquier gasto en la plataforma.</span></p>
+<p><span style="color:#CEA6FF">Creación de Cuenta en Google Cloud Platform</span></p>
+<p><span style="color:#252525"><a class="reference external" href="https://console.cloud.google.com/">https://console.cloud.google.com/</a></span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing20.png" /></p>
+<p><span style="color:#CEA6FF">Creación de Cuenta en Google Cloud Platform</span></p>
+<p><span style="color:#252525">En GCP trabajamos dentro de una estructura conocida como: </span>  <span style="color:#252525"> __Proyectos __ </span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing21.png" /></p>
+<p><span style="color:#CEA6FF">Proyectos en GCP</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing22.png" /></p>
+<p><span style="color:#CEA6FF">Proyectos en GCP</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing23.png" /></p>
+<p><span style="color:#CEA6FF">IAM</span>  <span style="color:#CEA6FF">(Administración de Identidades y Accesos)</span></p>
+<p><span style="color:#252525">Permite otorgar acceso a recursos específicos de Google Cloud. Adopta el principio de</span></p>
+<p><span style="color:#252525">seguridad de mínimo privilegio (recomendación Google), en el que otorgas solo los permisos necesarios para acceder a recursos específicos. </span></p>
+<p><span style="color:#252525">Para administrar el control de acceso con la IAM, define quién (identidad) tiene qué acceso (función) a qué recurso.</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing24.png" /></p>
+<p><span style="color:#CEA6FF">IAM</span>  <span style="color:#CEA6FF">(Administración de Identidades y Accesos)</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing25.png" /></p>
+<p><span style="color:#CEA6FF">Roles Primitivos</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing26.png" /></p>
+<p><span style="color:#CEA6FF">Roles Predefinidos</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing27.png" /></p>
+<p><span style="color:#CEA6FF">Roles Predefinidos</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing28.png" /></p>
+<p><span style="color:#CEA6FF">Roles Predefinidos</span></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing29.png" /></p>
+<p><img alt="" src="IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/img/Introducci%C3%B3n%20a%20GCP%20y%20Cloud%20Computing30.png" /></p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../Talleres/DL_Generacion_de_Texto.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Generación de texto</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../2_BigQuery%20y%20SQL/BigQuery_y_SQL.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">BigQuery y SQL</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

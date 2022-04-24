@@ -1,0 +1,1063 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Funciones &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Funciones 2" href="Funciones2.html" />
+    <link rel="prev" title="Factorización de matrices" href="../3_Factorizacion/Factorizacion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Funciones2.html">
+   Funciones 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_Probabilidad/Probabilidad.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/README.html">
+   Talleres de Audio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_I.html">
+   Audio I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_II.html">
+   Audio II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_III.html">
+   Audio III
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Talleres
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/README.html">
+   Talleres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/automatizacion.html">
+   🤖 Taller de Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/Periodismo_de_datos.html">
+   Introducción al Periodismo de Datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/DL_Generacion_de_Texto.html">
+   Generación de texto
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Ingenieria de Datos con GCP
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/1_Introducci%C3%B3n_a_GCP_y_Cloud_Computing/Introducci%C3%B3n_a_GCP_y_Cloud_Computing.html">
+   Introducción a GCP y Cloud Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/2_BigQuery%20y%20SQL/BigQuery_y_SQL.html">
+   BigQuery y SQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/deep_learning_ok.html">
+   Deep Learning I
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  General
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/referencias.html">
+   Recursos abiertos para estudiar ciencia de datos y aprendizaje automático
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/MatematicasParaML/4_Funciones/Funciones.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FMatematicasParaML/4_Funciones/Funciones.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcion-plano-cartesiano-y-descartes">
+   Funcion, plano cartesiano y Descartes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-una-funcion">
+     ¿Qué es una función?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen">
+   Resumen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-camino-sigue-y-sigue">
+   El camino sigue y sigue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dada-una-serie-de-puntos-cual-es-el-numero-que-esta-mas-cerca-de-ellos">
+   Dada una serie de puntos, cual es el número que esta más cerca de ellos.
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Funciones</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funcion-plano-cartesiano-y-descartes">
+   Funcion, plano cartesiano y Descartes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-es-una-funcion">
+     ¿Qué es una función?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#resumen">
+   Resumen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#el-camino-sigue-y-sigue">
+   El camino sigue y sigue
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dada-una-serie-de-puntos-cual-es-el-numero-que-esta-mas-cerca-de-ellos">
+   Dada una serie de puntos, cual es el número que esta más cerca de ellos.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a class="reference external" href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaML/4_Funciones/Funciones.ipynb"><img alt="Open In colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="funciones">
+<h1>Funciones<a class="headerlink" href="#funciones" title="Permalink to this headline">¶</a></h1>
+<p>La historia del cálculo es una de la mejores historias no contadas. Es la historia de como logramos dominar el infinito, de como logramos tratar objetos complejos como colecciones de objetos más simples. Es la historia de como hace más de 2000 años empezamos a dominar las herramientas que potencia casi la totalidad de nuestras tecnologías. Sin el cálculo no tendríamos telecomunicaciones, no tendríamos motores, no tendríamos heladeras, no tendríamos ventiladores…</p>
+<p>El cálculo ha sido la principal herramienta de la física desde su primer esbozo con Newton y Leibniz. Pero ellos no fueron ni los primeros ni lo únicos. Newton no reparaba en humiladad cuando hablaba de estar parado en los hombres de gigantes. Son un compendio de historias que debemos escuchar. Son historias de como pequeñas ideas dan lugar a grandes desarrollos. Es también la historia de la miseria humana, de como los propios egos nos carcomen por dentro. Es la historia de como pasamos de contar y dibujar a como pasamos a diseñar, inventar, especular y mejorar la calidad de vida.</p>
+<p>Esta presentación esta muy fuente inspirada en el libro <strong><a class="reference external" href="https://www.stevenstrogatz.com/books/infinite-powers">Infinite Power</a></strong> de Steven Strogatz. Strogatz es un matemático especializado en aplicaciones y como tal cuenta la historia del cálculo con los conflictos y las contradicciones de la época. Nos cuenta como el cambio de conceptaulización permitió no solo el telegrafo o el diseño de vigas, sino tambien mejoras en el tratamiento del SIDA.</p>
+<p>A la base de la estadísitica moderna está el cálculo y su poder. Es por esto que si queremos aprender Machine Learning, pues más vale que entendamos algo de cálculo</p>
+<div class="section" id="funcion-plano-cartesiano-y-descartes">
+<h2>Funcion, plano cartesiano y Descartes<a class="headerlink" href="#funcion-plano-cartesiano-y-descartes" title="Permalink to this headline">¶</a></h2>
+<p>Como toda gran epopeya, requerimos un heroe y un antagónista. Empecemos con nuestro gran antagonista: Rene Descartes. Descartes se había convertido en EL filósofo de su época. No solo era interesante la forma en que proponía hacer filosofía, sino también como había intentado acercar las matemáticas a su pensamiento. Además era un filósofo que había estado al servicio de muchos señores feudales y que había estudiado en las mejores universidades. Era un hijo prodigo de la academia de su tiempo. Además había tenido formación militar y participado de guerras religiosas de la época. En algún sentido era todo lo que se esperaba de un hombre en la época.</p>
+<p>Gracias a Descartes y su geometría analítica tenemos la idea de función matemática moderna. De hecho, “El discurso del método” de Descartes era una prólogo a “La Geometrie”, el libro fundacional de la geometría analitica. El nombre de ejes catesianos, se debe a Descartes.</p>
+<p>Antes de proseguir, es una buena idea que entendamos el concepto de fúnción matemática como lo definen los matemáticos. Para esto tomaremos las funciones de Python y luego hablaremos sus diferencias con la función matemática. En este desarrollo usaremos la noción contemporanea de función, que es levemente distinta a la idea de Descartes, pero que es la definición más aceptada por los matemáticos.</p>
+<div class="section" id="que-es-una-funcion">
+<h3>¿Qué es una función?<a class="headerlink" href="#que-es-una-funcion" title="Permalink to this headline">¶</a></h3>
+<p>Sabemos lo que es una función en programación. Muy esquematicamente, una función es una forma de reutilizar nuestro código sin tener que repetir las mismas instrucciones. Una función nos permite guardar una serie de instrucciones para usarlas sobre nuestros datos cada vez que lo necesitemos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mensaje</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hola soy un mensaje.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La vida de las mensajes es corta.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Aparecemos en pantalla y morimos.&quot;</span><span class="p">)</span>
+
+<span class="n">mensaje</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este ejemplo, nuestra función <code class="docutils literal notranslate"><span class="pre">mensaje()</span></code> solo hace una serie de instrucciones. Esta función, no tiene argumentos y no devuelve ningun tipo de valores o resultado.</p>
+<p>Si bien esto es una función en el sentido de lenguajes de programación, no es una <strong>función matemática</strong></p>
+<p>Esta diferencia entre una función matemática y una serie de procedimientos era tenida en lenguajes de programación como Fortran (creado en la decada del 50). La razón para introducir esta diferencia entre función matemática y función en lenguajes de computación es para poder hablar de  <strong>cálculo</strong>.</p>
+<p>Una función matemática, a los términos prácticos, es una caja negra. Como caja negra, nuestra función recibe una entrada definida, devuelve una una salida <strong>definida</strong>. Tanto la entrada como la salida deben ser valores. En caso contrario, no es una función <em>en el sentido matemático</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">NoFuncion1</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No soy una función.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No tengo entradas ni salidas&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">NoFuncion2</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No soy una función.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo entradas: &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pero, no tengo salidas&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">NoFuncion3</span><span class="p">():</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No soy una función.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo salidas: &quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pero, no tengo entradas&quot;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">NoFuncion4</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No soy una función.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo entradas: &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo salidas: &quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pero mi salida no está definida.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mi salida es aleatoria&quot;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">ProperFuncion</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No soy una función.&quot;</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo entradas: &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo salidas: &quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otra diferencia entre funciones dentro de lenguajes de programáción y funciones matemáticas es que las funciones matemáticas no prescriben la forma de calculo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">duplicate</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+  <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="k">def</span> <span class="nf">duplicar</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">x</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span> <span class="nf">daburu</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+  <span class="n">x</span> <span class="o">+=</span> <span class="n">x</span>
+  <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">daburu</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">duplicate</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">duplicar</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En este caso hemos definido 3 funciones. Todas ellas calculan el doble de un número. pero lo hacen de 3 maneras distintas:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">duplicate</span></code> obtiene el doble  por medio de multiplicaciones</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">duplicar</span></code> obtiene el doble con incrementos constantes. Estos incrementos constantes siempre valen 1. Este aumento se realiza varias veces, hasta llegar al resultado</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">daburu</span></code> obtiene el doble por medio sumas</p></li>
+</ul>
+<p>La definición de <strong>función matemática</strong> no dice como debemos calculara la función. Solo nos relaciona entradas con salidas. En este sentido, las funciones matemáticas son una abtracción mucho mayor y por esto decimos que se comportan como verdaderas cajas negras.</p>
+<p>Cuando empezamos a trabajar con Python, dijimos que Python es un lenguaje de tipado dinámico. Es decir, una variable puede representar un número en un momento, una cadena de caracteres en otro y una lista en otros.</p>
+<p>Si uno quisiera comparar funciones en Python con las funciones matemáticas, un debería decir que las funciones matemáticas se comportan entidades de lenguajes de tipado estricto. Si la entrada a una función son números enteros, la función no puede recibir números reales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de tipado dinámico</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;mensaje&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mf">2.2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>En tipado estático, si la variable <code class="docutils literal notranslate"><span class="pre">a</span></code>  era un string, no podemos asignar nada que no sea string. La función <code class="docutils literal notranslate"><span class="pre">print</span></code>, también tiene algo similar al tipado dinámico. Recibe la variable <code class="docutils literal notranslate"><span class="pre">a</span></code> y hace algo, una función matemática no podría hacer nada si <code class="docutils literal notranslate"><span class="pre">a</span></code> no fuera del tipo correcto.</p>
+<p>Por ejemplo, en el lenguaje C, la función <code class="docutils literal notranslate"><span class="pre">printf</span></code> debe recibir siempre como primer argumento una cadena de caracteres. Caso contrario, el programa fallará. En C, <code class="docutils literal notranslate"><span class="pre">printf</span></code> se comporta como una función en el sentido matemático. <code class="docutils literal notranslate"><span class="pre">printf</span></code>, no solo admite un solo tipo de entrada sino que además tiene una salida definida (La salida de <code class="docutils literal notranslate"><span class="pre">printf</span></code> es la cantidad de caracteres enviados a la pantalla)</p>
+<p>Este punto sobre las diferencias entre funciones matemáticas y funciones en lenguajes de programción es muy importante. Para hablar de cálculo diferencial necesitamos que nuestra entrada sean números reales o cosas que se comportan como los números reales, por ejemplo vectores de componentes reales. Es por esto que en cálculo diferencial solo le interesan las funciones con entradas reales y salidas reales. Desde el punto de vista matemático, son las propiedades de los números reales, las que dan sentido al cálculo.</p>
+<p>Por último, debemos señalar la utilidad de las funciones matemáticas en el contexto de su invención. Las funciones matemáticas surgen para poder representar de manera geométrica expresiones algebraicas. La genialidad de Descartes, fue poder usar la potencia del álgebra árabe en el conexto de la geometría griega. Ahora era posible saber propiedades de expresiones algebraicas, a partir de propiedades geométricas de una curva y viceversa.</p>
+<p>aca habría que hacer dibujitos</p>
+</div>
+</div>
+<div class="section" id="resumen">
+<h2>Resumen<a class="headerlink" href="#resumen" title="Permalink to this headline">¶</a></h2>
+<p>Función de Python</p>
+<ol class="simple">
+<li><p>Existe para poder abstraer código y evitar repeticiones innecesarias</p></li>
+<li><p>No requiere entradas ni salidas</p></li>
+<li><p>Requiere una implementación clara de los procedimientos</p></li>
+<li><p>Por las características de Python, la entrada y la salida no tiene tipos definidos.</p></li>
+</ol>
+<p>Función matemática</p>
+<ol class="simple">
+<li><p>Noción surgida como puente entre la geometría griega y el álgebra árabe. Descartes descubre que ahora era posible dibujar entidades matemáticas abstractas en un plano.</p></li>
+<li><p>Toda función matemática DEBE tener entrada y salida.</p></li>
+<li><p>Solo relaciona entradas con salidas. No prescribe ningún procedimiento para obtener un resultado</p></li>
+<li><p>Las características de la entrada y la salida estan bien definidas. Si una función es de reales a enteros, solo puede recibir números reales como entrada y solo puede devolver números enteros.</p></li>
+</ol>
+</div>
+<div class="section" id="el-camino-sigue-y-sigue">
+<h2>El camino sigue y sigue<a class="headerlink" href="#el-camino-sigue-y-sigue" title="Permalink to this headline">¶</a></h2>
+<p>Una de las primeras ideas que tuvo Descartes para usar su nueva geometría fue tratar de usar lo aprendido para encontrar cantidades mínimas o máximas de sus nuevas funciones. La idea no es extraña, uno puede pensar en cosas como: ¿cuándo sera la máxima crecida de un río este año? ¿Que día tendrá más horas con luz diurna? Hay una dimensión práctica en estas ideas aún cuando podían ser formalizadas en las nuevas ideas de Descartes y su geometría analítica.</p>
+<p>Sin embargo es aqui donde entra el heroe de nuestra historia. El hombre que le mostró a Descartes que sus ideas no eran las mejores y que habían mejores soluciones. Este hombre fue Pierre de Fermat. Fermat, además de ser abogado, era matemático amateur. Tal vez fue el último gran matemático amateur y en parte por lo influyente que fueron sus ideas. Fermat había ideado un método para encontrar mínimos. Su método erá más sencillo que el de Descartes. Además las bases de las ideas de Fermat dieron lugar a la noción de derivada que es la última herramienta que se desarrollo en el cálculo. La ideas de Fermat fueron tan influyentes que dieron lugar a herramientas matemáticas tan poderosas, que haría muy dificil la aparición de más matemáticos amateurs. Comencemos con un ejemplo de esto.</p>
+</div>
+<div class="section" id="dada-una-serie-de-puntos-cual-es-el-numero-que-esta-mas-cerca-de-ellos">
+<h2>Dada una serie de puntos, cual es el número que esta más cerca de ellos.<a class="headerlink" href="#dada-una-serie-de-puntos-cual-es-el-numero-que-esta-mas-cerca-de-ellos" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">closest</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">numbers</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">numbers</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">closest</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">numbers</span><span class="p">),</span> <span class="n">numbers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1.436587565225911,
+ array([0.09295142, 0.970362  , 0.05145769, 0.58944726, 0.36911953]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>agregar dibujito de la parabola</p>
+<p>Lo que estoy por decir, es lo que tanto Descartes como Fermat habían notado. Existe un punto, correspondiente al mínimo, donde la función tiene una recta tangente horizontal. Descartes, al ver esto, propuso que un círculo tangente a ese punto podía usarse encontrar el mínimo. Fermát, por el contrario encontró una técnica para encontrar esta recta tangente. No solo esto, Fermat había encontrado una de las grandes herramientas de la cienca moderna. Había triunfado donde Descartes había fracasado. Demás está decir que Descartes no lo tomo para bien cuando descubrió esto. Cuando dije al principio que la historia de el cálculo era “la historia de como los propios egos nos carcomen por dentro” me refería a como el ego de Descartes quiso hacerle la vida imposible a Fermat y como Fermat salió airoso.</p>
+<p>No solo Fermat fue el gran pionero en la noción de derivada, sino que además había inventado la estructura básica de todos los problemas de optimización. Mismos problemas con los que todavía atormetamos a los alumanos de cálculo. Todo desde su cómodo sofá en Francia. En la oficina donde obraba como abogado</p>
+<p>Para más información sobre el truco que descubrió Fermat, sugerimos que revisen el libro de Strogatz. (o lo podemos traducir)</p>
+<p>Nuestra intención ahora será obtener una respuesta alternativa a la que ideo Fermat. Así como vimos que hay un mínimo en nuestra función, también podemos ver que en un mínimo ocurren algo interesante. Hay una parte donde la función decrece, llegamos al mínimo y luego tenemos un máximo.</p>
+<p>LA idea aca es describir lo que hice en desmos. como armar algo que parece calcular una derivada, y como armar una ewspecie de descencos de grdientes</p>
+<p>Hay que meter código</p>
+<p>si pidieramos que la separeción se acerque más y más a cero eventualmente llegaríamos a la tangente. Este es el concepto de derivada, en última instancia. Por eso decimos que Fermat dio las primeras ideas para la idea de derivada.</p>
+<p>############################### Coda caso continuo y multivariable</p>
+<p>hablamos del número mas cercano a un conjunto de valroes.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MatematicasParaML/4_Funciones"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../3_Factorizacion/Factorizacion.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Factorización de matrices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Funciones2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Funciones 2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

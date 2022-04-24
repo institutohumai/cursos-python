@@ -1,0 +1,1476 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automatización II: outputs, envío de mail, volcado a GSheets, scheduling &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ejercicios Automatización II" href="clase_automatizacion_2_ejercicios.html" />
+    <link rel="prev" title="Automatización" href="../Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones2.html">
+   Funciones 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/7_Probabilidad/Probabilidad.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/README.html">
+   Talleres de Audio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_I.html">
+   Audio I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_II.html">
+   Audio II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_III.html">
+   Audio III
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Talleres
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/README.html">
+   Talleres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/automatizacion.html">
+   🤖 Taller de Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/Periodismo_de_datos.html">
+   Introducción al Periodismo de Datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/DL_Generacion_de_Texto.html">
+   Generación de texto
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Ingenieria de Datos con GCP
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/1_Introducci%C3%B3n_a_GCP_y_Cloud_Computing/Introducci%C3%B3n_a_GCP_y_Cloud_Computing.html">
+   Introducción a GCP y Cloud Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/2_BigQuery%20y%20SQL/BigQuery_y_SQL.html">
+   BigQuery y SQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/deep_learning_ok.html">
+   Deep Learning I
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  General
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/referencias.html">
+   Recursos abiertos para estudiar ciencia de datos y aprendizaje automático
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Automatizacion/Automatización_2/clase_automatizacion_2_gsheets_cron_mails.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FAutomatizacion/Automatización_2/clase_automatizacion_2_gsheets_cron_mails.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hoja-de-ruta">
+   Hoja de ruta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scrapping-con-pandas">
+   Scrapping con Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vinculacion-con-google-drive">
+   <strong>
+    Vinculación con Google Drive
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generacion-de-archivo-de-autenticacion-conexion-local">
+     Generación de archivo de autenticación. (Conexión local)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-gspread-para-interactuar-con-las-hojas-de-calculo-de-google">
+     Usando gspread para interactuar con las hojas de cálculo de Google
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interactuamos-con-google-sheets">
+       Interactuamos con Google Sheets.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interaccion-con-google-data-studio">
+   <strong>
+    Interacción con Google Data Studio
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#envio-automatico-de-e-mails">
+   <strong>
+    Envio automatico de e-mails
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#protocolo-smtp">
+     <strong>
+      Protocolo SMTP
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-python">
+     Usando Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enviar-mas-de-un-mail">
+     Enviar más de un mail
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enviar-archivos-adjuntos">
+     Enviar archivos adjuntos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scheduling-con-cron">
+   Scheduling con CRON
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comandos-basicos-de-cron">
+     Comandos básicos de Cron
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursos">
+     Recursos
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Automatización II: outputs, envío de mail, volcado a GSheets, scheduling</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hoja-de-ruta">
+   Hoja de ruta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scrapping-con-pandas">
+   Scrapping con Pandas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vinculacion-con-google-drive">
+   <strong>
+    Vinculación con Google Drive
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generacion-de-archivo-de-autenticacion-conexion-local">
+     Generación de archivo de autenticación. (Conexión local)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-gspread-para-interactuar-con-las-hojas-de-calculo-de-google">
+     Usando gspread para interactuar con las hojas de cálculo de Google
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#interactuamos-con-google-sheets">
+       Interactuamos con Google Sheets.
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interaccion-con-google-data-studio">
+   <strong>
+    Interacción con Google Data Studio
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#envio-automatico-de-e-mails">
+   <strong>
+    Envio automatico de e-mails
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#protocolo-smtp">
+     <strong>
+      Protocolo SMTP
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#usando-python">
+     Usando Python
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enviar-mas-de-un-mail">
+     Enviar más de un mail
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enviar-archivos-adjuntos">
+     Enviar archivos adjuntos
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scheduling-con-cron">
+   Scheduling con CRON
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#comandos-basicos-de-cron">
+     Comandos básicos de Cron
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursos">
+     Recursos
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div align="center"><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/Automatización_2/clase_automatizacion_2_gsheets_cron_mails.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg'/> </a> <br> Recordá abrir en una nueva pestaña </div><div class="tex2jax_ignore mathjax_ignore section" id="automatizacion-ii-outputs-envio-de-mail-volcado-a-gsheets-scheduling">
+<h1>Automatización II: outputs, envío de mail, volcado a GSheets, scheduling<a class="headerlink" href="#automatizacion-ii-outputs-envio-de-mail-volcado-a-gsheets-scheduling" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hoja-de-ruta">
+<h2>Hoja de ruta<a class="headerlink" href="#hoja-de-ruta" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ejemplo scrapeo sencillo con <em>Pandas</em>.</p></li>
+<li><p>Uso de la API de <em>Google Sheets</em>.</p></li>
+<li><p>Carga de datos en <em>Google Data Studio</em> y creación de un gráfico sencillo.</p></li>
+<li><p>Ejemplo envío automático de mail con <em>smtplib</em>.</p></li>
+<li><p>Scheduling: cron para Mac y linux, GUI en Windows.</p></li>
+</ul>
+</div>
+<div class="section" id="scrapping-con-pandas">
+<h2>Scrapping con Pandas<a class="headerlink" href="#scrapping-con-pandas" title="Permalink to this headline">¶</a></h2>
+<p>Vamos a utilizar la librería de pandas para obtener las tablas que contiene una página.</p>
+<p>Documentación: <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_html.html">https://pandas.pydata.org/docs/reference/api/pandas.read_html.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%.7f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Datos de criptomonedas</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://coinmarketcap.com/new/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora con <em>pandas.read_html()</em> es posible conseguir una lista con las tablas que contiene una <em>url</em>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listadoTablas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listadoTablas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Seleccionamos la tabla de las criptomonedas recientemente añadidas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">listadoTablas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;Unnamed: 10&#39;</span><span class="p">,</span> <span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Eliminamos columna valores nulos.</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="s1">&#39;PctChnge_1h&#39;</span><span class="p">,</span> <span class="s1">&#39;PctChnge_24h&#39;</span><span class="p">,</span> <span class="s1">&#39;FullDiluted_MarketCap&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">,</span> <span class="s1">&#39;Blockchain&#39;</span><span class="p">,</span> <span class="s1">&#39;Added_HoursAgo&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Imputamos valores nulos como 0 </span>
+<span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\.\.\.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Para liberarnos de los tres puntos. OJO: No devuelve el valor real, sino que le sacamos ceros. </span>
+<span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convertimos a los tipos deseados</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\$,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;FullDiluted_MarketCap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;FullDiluted_MarketCap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\$,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span>  <span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\$,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_1h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\%,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_24h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_24h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\%,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Added_HoursAgo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Added_HoursAgo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vinculacion-con-google-drive">
+<h2><strong>Vinculación con Google Drive</strong><a class="headerlink" href="#vinculacion-con-google-drive" title="Permalink to this headline">¶</a></h2>
+<p>Para poder escribir/leer un archivo que se encuentra en <em>Google Drive</em>, será necesario primero, contar con un archivo de <em>autenticación</em> a su vez que compartir el archivo pertinente con el servicio creado desde Python.</p>
+<div class="section" id="generacion-de-archivo-de-autenticacion-conexion-local">
+<h3>Generación de archivo de autenticación. (Conexión local)<a class="headerlink" href="#generacion-de-archivo-de-autenticacion-conexion-local" title="Permalink to this headline">¶</a></h3>
+<p>Para ello entraremos en el siguiente <a class="reference external" href="https://console.cloud.google.com/apis/">link</a> ingresando con la cuenta de google que querramos vincular. Una vez dentro de la plataforma de Google Cloud, crearemos un proyecto. Una vez dentro del proyecto entraremos en la sección <strong>API y servicios</strong> y daremos click en la opción <strong>habilitar API y servicio</strong>.</p>
+  <img src="https://unket.s3.sa-east-1.amazonaws.com/static/gcp1.png" alt="drawing" width="500"/><p>Allí dentro seleccionaremos el tipo de API que estemos necesitando. En este caso la de Google Drive y Google Sheets. Una vez habilitada la API dentro de nuestro proyecto, iremos a la sección de <strong>credenciales</strong>, y dentro de la misma daremos click a <strong>crear credenciales</strong>. Seleccionamos la opción de <em>Cuenta de servicio</em>. Una vez que la <em>Cuenta de servicio</em> haya sido generada, será posible acceder a sus configuraciones y generar una clave en formato json dentro de la misma.</p>
+<p><img src="https://unket.s3.sa-east-1.amazonaws.com/static/gcp2.png" alt="drawing" width="500" height="300"/> <img src="https://unket.s3.sa-east-1.amazonaws.com/static/clave2.png" alt="drawing" width="500"/></p>
+<p>Más información sobre como crear un proyecto y habilitar una API <a class="reference external" href="https://developers.google.com/workspace/guides/create-project">aquí</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta funcion incluye todo lo que hicios antes, para poder actualizar nuestro DataFrame</span>
+<span class="k">def</span> <span class="nf">coinmarketcap_scraper</span><span class="p">():</span>
+  <span class="sd">&quot;&quot;&quot;Scraper de la pagina https://coinmarketcap.com/new/</span>
+<span class="sd">  Obtiene los datos, los limpia y los devuelve como un DataFrame de Pandas.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://coinmarketcap.com/new/&quot;</span>
+  
+  <span class="c1"># Scrapeamos la tabla con Pandas</span>
+  <span class="n">listadoTablas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  
+  <span class="c1"># creamos DataFrame</span>
+  <span class="n">df</span> <span class="o">=</span> <span class="n">listadoTablas</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+  <span class="c1"># Limpieza de datos</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;#&#39;</span><span class="p">,</span><span class="s1">&#39;Unnamed: 10&#39;</span><span class="p">,</span> <span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Eliminamos columna valores nulos.</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">,</span> <span class="s1">&#39;PctChnge_1h&#39;</span><span class="p">,</span> <span class="s1">&#39;PctChnge_24h&#39;</span><span class="p">,</span> <span class="s1">&#39;FullDiluted_MarketCap&#39;</span><span class="p">,</span> <span class="s1">&#39;Volume&#39;</span><span class="p">,</span> <span class="s1">&#39;Blockchain&#39;</span><span class="p">,</span> <span class="s1">&#39;Added_HoursAgo&#39;</span><span class="p">]</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># Imputamos valores nulos como 0 </span>
+  <span class="n">df</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;\.\.\.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1">#Para liberarnos de los tres puntos. OJO: No devuelve el valor real, sino que le sacamos ceros. </span>
+  <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+
+  <span class="c1"># Convertimos a los tipos deseados</span>
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\$,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;FullDiluted_MarketCap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;FullDiluted_MarketCap&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\$,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\$,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_1h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_1h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\%,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_24h&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PctChnge_24h&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[\%,)]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">regex</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>
+  <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Added_HoursAgo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Added_HoursAgo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+  <span class="k">return</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="usando-gspread-para-interactuar-con-las-hojas-de-calculo-de-google">
+<h3>Usando gspread para interactuar con las hojas de cálculo de Google<a class="headerlink" href="#usando-gspread-para-interactuar-con-las-hojas-de-calculo-de-google" title="Permalink to this headline">¶</a></h3>
+<p>Documentación: <a class="reference external" href="https://docs.gspread.org/en/v5.3.0/">https://docs.gspread.org/en/v5.3.0/</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instalamos y hacemos un upgrade de gspread porque la funcion que necesitamos esta a partir de la version 3.6</span>
+<span class="o">!</span>pip install gspread --upgrade
+</pre></div>
+</div>
+</div>
+</div>
+<p>Importamos la libreria gspread y chequeamos la version</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gspread</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Version de gspread:</span><span class="si">{</span><span class="n">gspread</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Version de gspread:5.3.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="interactuamos-con-google-sheets">
+<h4>Interactuamos con Google Sheets.<a class="headerlink" href="#interactuamos-con-google-sheets" title="Permalink to this headline">¶</a></h4>
+<p>Creamos una nueva hoja de calculo con su debido título y la compartimos con la cuenta desde la cual querramos acceder.</p>
+<p><strong>Autenticación local</strong></p>
+<ul class="simple">
+<li><p>Documentación: <a class="reference external" href="https://docs.gspread.org/en/latest/oauth2.html">https://docs.gspread.org/en/latest/oauth2.html</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paso 1: Accedemos a nuestra cuenta y creamos la hoja de calculo</span>
+
+<span class="n">gc</span> <span class="o">=</span> <span class="n">gspread</span><span class="o">.</span><span class="n">service_account</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;/content/credenciales_gsheets.json&#39;</span><span class="p">)</span>
+
+<span class="n">nombre</span> <span class="o">=</span> <span class="s1">&#39;humai2&#39;</span>
+<span class="n">hoja_de_calculo</span> <span class="o">=</span> <span class="n">gc</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">nombre</span><span class="p">)</span>
+
+<span class="c1"># Para hacer visible el archivo es necesario compartirlo</span>
+<span class="n">tu_mail</span> <span class="o">=</span> <span class="s1">&#39;mi_mail@mail.com&#39;</span>
+<span class="n">hoja_de_calculo</span><span class="o">.</span><span class="n">share</span><span class="p">(</span><span class="n">tu_mail</span><span class="p">,</span> <span class="n">perm_type</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s1">&#39;writer&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paso 2: Compartir la hoja con el &#39;client_email&#39; que viene en el json</span>
+<span class="c1"># Para eso simplemente abrimos nuestra hoja, vamos a &#39;Compartir&#39; y ahi agregamos el mail que encontramos </span>
+<span class="c1">#en el json como si fuera un usuario mas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paso 3: Abrimos accedemos al documento </span>
+<span class="c1"># Abrimos el documento</span>
+<span class="n">hoja_de_calculo</span> <span class="o">=</span> <span class="n">gc</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;humai2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Agarramos la primera de las hojas </span>
+<span class="n">worksheet</span> <span class="o">=</span> <span class="n">hoja_de_calculo</span><span class="o">.</span><span class="n">sheet1</span>
+
+<span class="c1"># Actualizo la hoja</span>
+<span class="n">worksheet</span><span class="o">.</span><span class="n">update</span><span class="p">([</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span> <span class="o">+</span> <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Paso 4: Obtenemos los valores desde nuestra hoja de calculo</span>
+
+<span class="n">nuestra_hoja</span> <span class="o">=</span> <span class="n">worksheet</span><span class="o">.</span><span class="n">get_all_values</span><span class="p">()</span>
+
+<span class="c1"># Cargamos con Pandas</span>
+<span class="n">df_aux</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">nuestra_hoja</span><span class="p">)</span>
+<span class="n">df_aux</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span>
+<span class="n">df_aux</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,:]</span>
+<span class="n">df_aux</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># actualizamos el df</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">coinmarketcap_scraper</span><span class="p">()</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Otorgar acceso desde Google Colab</strong></p>
+<ul class="simple">
+<li><p>En caso de acceder desde Google Colab resulta más sencillo autenticarse dado que lo hace automaticamente con la cuenta linkeada.</p></li>
+<li><p>Una vez que ya tenemos nuestro objeto <code class="docutils literal notranslate"><span class="pre">gc</span></code> podemos trabajar usando los mismos métodos que en el caso local.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Autenticarse con Colab</span>
+<span class="kn">import</span> <span class="nn">gspread</span>
+<span class="kn">from</span> <span class="nn">google.auth</span> <span class="kn">import</span> <span class="n">default</span>
+<span class="n">creds</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">default</span><span class="p">()</span>
+<span class="n">gc</span> <span class="o">=</span> <span class="n">gspread</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="n">creds</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="interaccion-con-google-data-studio">
+<h2><strong>Interacción con Google Data Studio</strong><a class="headerlink" href="#interaccion-con-google-data-studio" title="Permalink to this headline">¶</a></h2>
+<img src='https://www.mdmarketingdigital.com/blog/wp-content/uploads/2019/06/Data-Studio-Stats-1200x700.png' width=500>
+<p><a class="reference external" href="https://datastudio.google.com/">Google Data Studio</a> es una herramienta en línea para convertir datos en paneles e informes  personalizables</p>
+</div>
+<div class="section" id="envio-automatico-de-e-mails">
+<h2><strong>Envio automatico de e-mails</strong><a class="headerlink" href="#envio-automatico-de-e-mails" title="Permalink to this headline">¶</a></h2>
+<p>En esta sección haremos un ejemplo de como enviar mails desde Python</p>
+<div class="section" id="protocolo-smtp">
+<h3><strong>Protocolo SMTP</strong><a class="headerlink" href="#protocolo-smtp" title="Permalink to this headline">¶</a></h3>
+<p>El protocolo para transferencia simple de correo (en inglés: Simple Mail Transfer Protocol o SMTP) es un protocolo de red utilizado para el intercambio de mensajes de correo electrónico entre computadoras u otros dispositivos (PDA, teléfonos móviles, impresoras, etcétera).</p>
+</div>
+<div class="section" id="usando-python">
+<h3>Usando Python<a class="headerlink" href="#usando-python" title="Permalink to this headline">¶</a></h3>
+<p>Para poder usar Python desde gmail tendremos que habilitar el uso de “aplicaciones poco seguras”.</p>
+<img src='https://docs.rocketbot.co/wp-content/uploads/2020/01/c3.png' >
+<img src='https://docs.rocketbot.co/wp-content/uploads/2020/01/c4-768x244.png' >
+<center>
+Fuente: https://docs.rocketbot.co/?p=1567
+</center>
+<ul class="simple">
+<li><p>Si tienen problemas mirar aca: <a class="reference external" href="https://stackoverflow.com/questions/26852128/smtpauthenticationerror-when-sending-mail-using-gmail-and-python">https://stackoverflow.com/questions/26852128/smtpauthenticationerror-when-sending-mail-using-gmail-and-python</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+
+<span class="c1"># Contenido</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;curso_de_automatizacion_de_humai@gmail.com&quot;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;mi_mail@mail.com&quot;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s2">&quot;Probando mandar mails!&quot;</span>
+<span class="n">cuerpo_del_mail</span> <span class="o">=</span> <span class="s1">&#39;Este es un mail enviado con Python en la clase! =D&#39;</span>
+<span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="n">cuerpo_del_mail</span><span class="p">)</span>
+
+<span class="c1"># No se queden en los detalles aquí, pero pueden leer más sobre el protocolo SMTP acá: https://es.wikipedia.org/wiki/Protocolo_para_transferencia_simple_de_correo </span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+
+<span class="c1"># Usuario y contraseña</span>
+<span class="n">usuario</span> <span class="o">=</span> <span class="s1">&#39;mi_usuario&#39;</span>
+
+<span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<span class="c1"># enviar</span>
+<span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="enviar-mas-de-un-mail">
+<h3>Enviar más de un mail<a class="headerlink" href="#enviar-mas-de-un-mail" title="Permalink to this headline">¶</a></h3>
+<p>Podría existir el caso de uso donde querramos enviar más de un mail. Por ejemplo a todes nuestres alumnes con la nota de su parcial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">notas</span>  <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span> <span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="n">alumnes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Lupe&#39;</span><span class="p">,</span> <span class="s1">&#39;Juan&#39;</span><span class="p">,</span> <span class="s1">&#39;Sofia&#39;</span><span class="p">]</span>
+<span class="n">mails</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Juan@mail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Sofia@mail.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Lupe@mail.com&#39;</span><span class="p">]</span>
+
+<span class="c1"># Usuario y contraseña</span>
+<span class="n">usuario</span> <span class="o">=</span> <span class="s1">&#39;mi_usuario&#39;</span>
+
+
+<span class="k">with</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span> <span class="k">as</span> <span class="n">server</span><span class="p">:</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">notas</span><span class="p">)):</span>
+    <span class="c1"># Contenido</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+
+    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;curso_de_automatizacion_de_humai@gmail.com&quot;</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;tu_mail@mail.com&quot;</span> <span class="c1"># Obviamente habria que ir variando los mails, aca no lo voya hacer pero seria poner mails[i]</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s2">&quot;Probando mandar mails!&quot;</span>
+    <span class="n">cuerpo_del_mail</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Hola </span><span class="si">{</span><span class="n">alumnes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">, tu nota en el parcial fue de </span><span class="si">{</span><span class="n">notas</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">.</span><span class="se">\n\n</span><span class="s1">Saludos!&#39;</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="n">cuerpo_del_mail</span><span class="p">)</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+    <span class="c1"># server.starttls()</span>
+
+    <span class="c1"># enviar</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;mail enviado a </span><span class="si">{</span><span class="n">alumnes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="enviar-archivos-adjuntos">
+<h3>Enviar archivos adjuntos<a class="headerlink" href="#enviar-archivos-adjuntos" title="Permalink to this headline">¶</a></h3>
+<p>Podemos agregar archivos adjuntos como por ejemplo imágenes o PDFs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enviar archivos adjuntos</span>
+
+<span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="c1"># El módulo imghdr determina el tipo de imagen contenida en un archivo.</span>
+<span class="kn">import</span> <span class="nn">imghdr</span>
+<span class="kn">from</span> <span class="nn">email.message</span> <span class="kn">import</span> <span class="n">EmailMessage</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">EmailMessage</span><span class="p">()</span>
+
+<span class="c1"># Contenido</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;curso_de_automatizacion_de_humai@gmail.com&quot;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;mi_mail@gmail.com&quot;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s2">&quot;Probando mandar mails!&quot;</span>
+<span class="n">cuerpo_del_mail</span> <span class="o">=</span> <span class="s1">&#39;Te estoy enviando una imagen con Python! =D&#39;</span>
+<span class="n">msg</span><span class="o">.</span><span class="n">set_content</span><span class="p">(</span><span class="n">cuerpo_del_mail</span><span class="p">)</span>
+
+<span class="n">path_imagen</span> <span class="o">=</span> <span class="s1">&#39;/content/humai_logo.png&#39;</span> 
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_imagen</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">image_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="c1"># Para saber el tipo de archivo</span>
+    <span class="n">image_type</span> <span class="o">=</span> <span class="n">imghdr</span><span class="o">.</span><span class="n">what</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">image_name</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span>
+
+<span class="n">msg</span><span class="o">.</span><span class="n">add_attachment</span><span class="p">(</span><span class="n">image_data</span><span class="p">,</span> <span class="n">maintype</span><span class="o">=</span><span class="s1">&#39;image&#39;</span><span class="p">,</span> <span class="n">subtype</span><span class="o">=</span><span class="n">image_type</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">image_name</span><span class="p">)</span>
+
+<span class="c1"># No se queden en los detalles aquí, pero pueden leer más sobre el protocolo SMTP acá: https://es.wikipedia.org/wiki/Protocolo_para_transferencia_simple_de_correo </span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+
+<span class="c1"># Usuario y contraseña</span>
+<span class="n">usuario</span> <span class="o">=</span> <span class="s1">&#39;mi_usuario&#39;</span>
+
+
+<span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+<span class="c1"># enviar</span>
+<span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mail enviado&#39;</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scheduling-con-cron">
+<h2>Scheduling con CRON<a class="headerlink" href="#scheduling-con-cron" title="Permalink to this headline">¶</a></h2>
+<p>En el sistema operativo Unix, cron es un administrador regular de procesos en segundo plano (demonio) que ejecuta procesos o guiones a intervalos regulares (por ejemplo, cada minuto, día, semana o mes). Los procesos que deben ejecutarse y la hora a la que deben hacerlo se especifican en el archivo crontab.</p>
+<img src="https://i.ibb.co/ZWCbc2m/crontab.png" alt="crontab" border="0">
+<p>Cron se puede definir como el equivalente a Tareas Programadas de Windows.</p>
+<p><img src='https://www.solvetic.com/uploads/monthly_01_2017/tutorials-9832-0-90051600-1484655732.png'> <br>
+Fuente: <a class="reference external" href="https://www.solvetic.com/tutoriales/article/3441-como-abrir-y-configurar-programador-tareas-windows-10/">https://www.solvetic.com/tutoriales/article/3441-como-abrir-y-configurar-programador-tareas-windows-10/</a></p>
+<div class="section" id="comandos-basicos-de-cron">
+<h3>Comandos básicos de Cron<a class="headerlink" href="#comandos-basicos-de-cron" title="Permalink to this headline">¶</a></h3>
+<p>En la terminal: <br>
+<strong><code class="docutils literal notranslate"><span class="pre">crontab</span> <span class="pre">-l</span></code></strong> -&gt; Permite ver la lista de las tareas programadas <br>
+<strong><code class="docutils literal notranslate"><span class="pre">crontab</span> <span class="pre">-e</span></code></strong> -&gt; Permite ver editar las tareas programadas</p>
+<p><font color='red'><h3>ATENCION! </h3></font></p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">crontab</span> <span class="pre">-r</span></code></strong> -&gt; Permite borrar las tareas programadas  <br>
+Es importante que lo uses cuando quieras que tu tarea deje de ser ejecutada, sino va a quedar funcionando indefinidamente</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ┌───────────── Minutos (0 - 59)</span>
+<span class="c1"># │ ┌───────────── Hora (0 - 23)</span>
+<span class="c1"># │ │ ┌───────────── Dia del mes (1 - 31)</span>
+<span class="c1"># │ │ │ ┌───────────── Mes (1 - 12) o jan,feb,mar,apr,may,jun,jul... (meses en inglés)</span>
+<span class="c1"># │ │ │ │ ┌─────────────  día de la semana (0-6) (domingo=0 o 7) o sun,mon,tue,wed,thu,fri,sat (días en inglés) </span>
+<span class="c1"># │ │ │ │ │                                       </span>
+<span class="c1"># │ │ │ │ │</span>
+<span class="c1"># │ │ │ │ │</span>
+<span class="c1"># * * * * *  comando_a_ejecutar</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algunos ejemplos:</p>
+<p>Todos los dias a las 12 y media del mediodia corre esto</p>
+<p><code class="docutils literal notranslate"><span class="pre">30</span> <span class="pre">12</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">python</span> <span class="pre">/ruta/a/mi/archivo/script.py</span></code></p>
+<p>El 10 de cada mes corre esto a las 3 de la tarde</p>
+<p><code class="docutils literal notranslate"> <span class="pre">*</span> <span class="pre">3</span> <span class="pre">10</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">python</span> <span class="pre">/ruta/a/mi/archivo/script.py</span></code></p>
+<p>Consideraciones</p>
+<ul class="simple">
+<li><p>Dependiendo del intérprete de Python que tengan instalado pueden tener que poner algo distinto a la palabra python. Ejemplo:
+<code class="docutils literal notranslate"> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">python3</span> <span class="pre">/ruta/a/mi/archivo/script.py</span></code></p></li>
+<li><p>Otra forma es que cron se posicione en la ruta del archivo y luego solo lo corra. Ejemplo:
+<code class="docutils literal notranslate"><span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">*</span> <span class="pre">cd</span> <span class="pre">/ruta/a/mi/archivo</span> <span class="pre">&amp;&amp;</span> <span class="pre">python</span> <span class="pre">script.py</span></code></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">escribir_archivo</span><span class="p">():</span>
+	<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;prueba.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+		<span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Esribiendo archivo desde Cron</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+		
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+	<span class="n">escribir_archivo</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recursos">
+<h3>Recursos<a class="headerlink" href="#recursos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Google Data Studio</p>
+<ul>
+<li><p><a class="reference external" href="https://datastudio.google.com/gallery">https://datastudio.google.com/gallery</a> les recomendamos ver la galeria para inspirarse y ver todo lo que se puede hacer con esta herramienta</p></li>
+</ul>
+</li>
+<li><p>cron:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=QZJ1drMQz1A&amp;t=12s&amp;ab_channel=CoreySchafer">Video de Corey Schafer</a> , aunque esta en ingles se los super recomiendo</p></li>
+<li><p><a class="reference external" href="https://crontab.guru/">https://crontab.guru/</a> Ayuda a escribir los comandos de cron</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Automatizacion/Automatización_2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Automatización</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="clase_automatizacion_2_ejercicios.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejercicios Automatización II</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
