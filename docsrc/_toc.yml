@@ -83,7 +83,15 @@ parts:
     - file: MachineLearning/9_SeriesDeTiempo/2.Prophet.ipynb
     - file: MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb
 
+  - caption: Datos Grográficos
+    chapters:
+    - file: DatosGeograficos/README.md
+    - file: DatosGeograficos/1_Introduccion/GeoPandas.ipynb
+    - file: DatosGeograficos/1_Introduccion/ejercicio/ejercicio.ipynb
+    - file: DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.ipynb
+    - file: DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.ipynb
+    - file: DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.ipynb
+
   - caption: Colaboración
-    numbered: True
     chapters:
     - file: "General/0_Colaboracion/Guia para armar contenido.ipynb" 

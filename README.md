@@ -1,4 +1,6 @@
-# Cursos de Python
+# Fuente para el libro "Inteligencia Artificial Aplicada en Castellano"
+
+Es nuestro placer compartirles este trabajo hecho con amor y esfuerzo, en una misión social por compartir y fomentar criteriosamente la Inteligencia Artificial en Latinoamérica.
 
 ## Introducción
 

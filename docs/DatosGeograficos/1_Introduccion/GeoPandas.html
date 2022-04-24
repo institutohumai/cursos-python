@@ -1,0 +1,2751 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoPandas &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ejercicios" href="ejercicio/ejercicio.html" />
+    <link rel="prev" title="Datos geograficos con Python" href="../README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Grográficos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicio/ejercicio.html">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Introducción
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/DatosGeograficos/1_Introduccion/GeoPandas.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FDatosGeograficos/1_Introduccion/GeoPandas.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-datos-geograficos">
+   Tipos de datos geográficos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-geopandas">
+   Introducción a GeoPandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importando-datos">
+     Importando datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geodataframes-metodos-y-atributos">
+       GeoDataFrames: métodos y atributos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#objetos-geometricos">
+       Objetos geométricos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     Ejercicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-geograficas">
+   Operaciones geográficas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapeando-hospitales">
+     Mapeando hospitales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculando-la-cobertura-de-los-bomberos-en-caba">
+     Calculando la cobertura de los bomberos en CABA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios">
+     Ejercicios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios-opcionales">
+     Ejercicios opcionales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distancia-aerea-y-centroide">
+     Distancia aérea y centroide
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>GeoPandas</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-datos-geograficos">
+   Tipos de datos geográficos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-geopandas">
+   Introducción a GeoPandas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importando-datos">
+     Importando datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#geodataframes-metodos-y-atributos">
+       GeoDataFrames: métodos y atributos
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#objetos-geometricos">
+       Objetos geométricos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     Ejercicio
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#operaciones-geograficas">
+   Operaciones geográficas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapeando-hospitales">
+     Mapeando hospitales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#calculando-la-cobertura-de-los-bomberos-en-caba">
+     Calculando la cobertura de los bomberos en CABA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios">
+     Ejercicios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios-opcionales">
+     Ejercicios opcionales
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distancia-aerea-y-centroide">
+     Distancia aérea y centroide
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a class="reference external" href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/DatosGeograficos/1_Introduccion/GeoPandas.ipynb"><img alt="Open In colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="geopandas">
+<h1>GeoPandas<a class="headerlink" href="#geopandas" title="Permalink to this headline">¶</a></h1>
+<p>I. Tabla de contenidos</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I. Tipos de datos geográficos
+II. Introducción a GeoPandas
+    I. Importando datos
+        I. GeoDataFrames: métodos y atributos
+        II. Objetos geométricos
+    II. Ejercicio
+III. Operaciones geográficas
+    I. Mapeando hospitales
+    II. Calculando la cobertura de los bomberos en CABA
+    III. Ejercicios
+    IV. Ejercicios opcionales
+    V. Distancia aérea y centroide
+    VI. Ejercicios
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install geopandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !apt install libspatialindex-dev</span>
+<span class="c1"># !pip install rtree</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">shapely.wkt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tipos-de-datos-geograficos">
+<h2>Tipos de datos geográficos<a class="headerlink" href="#tipos-de-datos-geograficos" title="Permalink to this headline">¶</a></h2>
+<p>La información geográfica generalmente se agrupa en dos grandes categorías:</p>
+<ul class="simple">
+<li><p>Datos ráster</p></li>
+<li><p>Datos vectoriales</p></li>
+</ul>
+<p><strong>Ráster</strong>: Los datos ráster son aquellos donde la información se encuentra codificada sobre una grilla o red, donde cada celda (o píxel) presenta un valor numérico. Los datos ráster son usados comúnmente en imágenes satelitales, en este caso cada píxel representa un espacio definido por la granularidad o calidad de la imagen tomada, por ejemplo, un píxel puede representar una superficie de 30 metros por 30 metros.</p>
+<p>Sin embargo, en esta clase nos vamos a concentrar en los datos <strong>vectoriales</strong>. En los datos vectoriales contamos con los siguientes tipos de objetos básicos: puntos, líneas, polígonos; así también tenemos multipunto, multilínea y multipolígono. La información se estructura a partir de las coordenadas de los vértices de cada uno de esos objetos.</p>
+</div>
+<div class="section" id="introduccion-a-geopandas">
+<h2>Introducción a GeoPandas<a class="headerlink" href="#introduccion-a-geopandas" title="Permalink to this headline">¶</a></h2>
+<p>GeoPandas es la librería de Python por excelencia para el procesamiento de datos vectoriales. Provee fácil acceso a una serie de funcionalidades empleando diversas librerías:</p>
+<ul class="simple">
+<li><p>Manipulación de datos con Pandas.</p></li>
+<li><p>Lectura de archivos espaciales a través de Fiona.</p></li>
+<li><p>Objetos vectoriales y operaciones vectoriales con Shapely.</p></li>
+<li><p>Visualización de mapas con Descartes y Matplotlib.</p></li>
+</ul>
+<div class="section" id="importando-datos">
+<h3>Importando datos<a class="headerlink" href="#importando-datos" title="Permalink to this headline">¶</a></h3>
+<p>La datos vectoriales comúnmente se presenta en archivos como el formato shapefile (.shp) de ESRI, archivos GeoJSON, bases de PostGIS (es una extensión del motor de bases de datos PostgreSQL), etc.
+Con la librería <strong>GeoPandas</strong> se pueden leer muchos de estos archivos, interfaceando con la librería GDAL/OGR, usando la función geopandas.read_file.
+Además, también es posible leer información geográfica desde archivos planos (.csv) donde tenemos las coordenadas de puntos que referencian algún objeto. Por último, también existen casos en los que la información está guardada en formato WKT (Well-Known Text).</p>
+<p>En esta notebook vamos a ver distintas formas de importar información geográfica de archivos vectoriales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://data.buenosaires.gob.ar/dataset/barrios</span>
+<span class="n">barrios</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://datasets-humai.s3.amazonaws.com/datasets/barrios.csv&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WKT</th>
+      <th>BARRIO</th>
+      <th>COMUNA</th>
+      <th>PERIMETRO</th>
+      <th>AREA</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>POLYGON ((-58.4528200492791 -34.5959886570639,...</td>
+      <td>CHACARITA</td>
+      <td>15.0</td>
+      <td>7725.695228</td>
+      <td>3.118101e+06</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>POLYGON ((-58.4655768128541 -34.5965577078058,...</td>
+      <td>PATERNAL</td>
+      <td>15.0</td>
+      <td>7087.513295</td>
+      <td>2.229829e+06</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>POLYGON ((-58.4237529813037 -34.5978273383243,...</td>
+      <td>VILLA CRESPO</td>
+      <td>15.0</td>
+      <td>8132.699348</td>
+      <td>3.613584e+06</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>POLYGON ((-58.4946097568899 -34.6148652395239,...</td>
+      <td>VILLA DEL PARQUE</td>
+      <td>11.0</td>
+      <td>7705.389797</td>
+      <td>3.399596e+06</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>POLYGON ((-58.4128700313089 -34.6141162515854,...</td>
+      <td>ALMAGRO</td>
+      <td>5.0</td>
+      <td>8537.901368</td>
+      <td>4.050752e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># En este caso la información está en WKT</span>
+<span class="n">barrios</span><span class="p">[</span><span class="s2">&quot;WKT&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;POLYGON ((-58.4528200492791 -34.5959886570639,-58.453655193137 -34.5965557163041,-58.4537674321647 -34.5966342484152,-58.4538163134148 -34.5966684788922,-58.4547947928051 -34.5973527273644,-58.4554840815948 -34.5978347610252,-58.4559204833296 -34.5976953435829,-58.4560093721285 -34.5976669530232,-58.4560576047802 -34.5976515472868,-58.4562363723257 -34.5975900748435,-58.4564940053845 -34.597501563774,-58.4570733158433 -34.5973024999733,-58.4576142986162 -34.5971165306991,-58.4578298572666 -34.5970394940224,-58.4579314199407 -34.5970031094655,-58.4579383597538 -34.5970006235554,-58.457939151188 -34.5970004324803,-58.4580314840712 -34.5969781271249,-58.4582467474022 -34.5969261254882,-58.4592081863103 -34.5966936826245,-58.4592753814056 -34.5966774864904,-58.4607717313584 -34.5965908256843,-58.461008489241 -34.5965771669178,-58.461500184562 -34.5965469590603,-58.4615048306102 -34.5965466787569,-58.4623220712384 -34.5965110490604,-58.4624802220071 -34.5965042183086,-58.4625206541306 -34.5965018079147,-58.4637678264729 -34.5964274496069,-58.4638637221527 -34.5964294210885,-58.4646140234657 -34.5964785682445,-58.4651592721924 -34.5965757917791,-58.4651613793847 -34.5965761676386,-58.4652710724273 -34.5966020115654,-58.465339885911 -34.5966119403979,-58.4654505835153 -34.59661891152,-58.4655402165487 -34.5966463016308,-58.4656201094845 -34.5967043067336,-58.4655768128541 -34.5965577078058,-58.465554434696 -34.5964822872553,-58.4655118251641 -34.5963386864843,-58.4654546732526 -34.5961458635988,-58.4651988343882 -34.5953364276981,-58.4650736836825 -34.5949011987359,-58.4648267024928 -34.5940422724471,-58.4644540217146 -34.5927935584922,-58.4643817851099 -34.5925515163591,-58.4644091198271 -34.5924672868431,-58.4650280527625 -34.5919364107241,-58.4658796865855 -34.5912081588557,-58.4660489985854 -34.5910867180571,-58.4663928573575 -34.5908622593099,-58.4665306488686 -34.5907723125485,-58.4665923016107 -34.5907351963295,-58.4668281722696 -34.5905930920952,-58.4657830008228 -34.5896043925249,-58.4645332635208 -34.5884221360889,-58.4630744816449 -34.5870649213261,-58.4629751205092 -34.5869805400343,-58.461952645947 -34.5861122031234,-58.4618702043843 -34.5860421891544,-58.4614638213396 -34.5858332613902,-58.4603788016938 -34.5855276845223,-58.4604139194362 -34.5854024167589,-58.4604462802733 -34.5852877643506,-58.4604255057232 -34.5852032534777,-58.4604706411008 -34.5850361353814,-58.4605356159209 -34.5849439493523,-58.4605345318123 -34.5840461665945,-58.4605331978237 -34.5829502757213,-58.460531948912 -34.5818532587471,-58.4605306146065 -34.580772157502,-58.4605292809645 -34.5796668306049,-58.4605276992685 -34.5782946601008,-58.4605232166307 -34.5782946690354,-58.4602248340306 -34.5782952880515,-58.4601985594291 -34.5782953479127,-58.4601021385732 -34.5782955676544,-58.4597845714173 -34.5783147333419,-58.4596950535932 -34.5783201362424,-58.4585384246269 -34.5783900346815,-58.4577639164539 -34.57843681251,-58.4577436676417 -34.5784380358534,-58.4573407479054 -34.5785467557746,-58.457161766713 -34.5785949886773,-58.4571475839219 -34.5785988155734,-58.4559708829345 -34.5789162808655,-58.4553992793144 -34.579070479135,-58.4548623268909 -34.5792427067768,-58.453533474128 -34.5796688999369,-58.4530206113015 -34.5798333742389,-58.4521930272086 -34.5800988095872,-58.4521387166743 -34.5801162118212,-58.4520222992006 -34.5801535152443,-58.4512517652657 -34.5804006516243,-58.451017590163 -34.5804757586408,-58.4510096596172 -34.5804789048291,-58.450952449802 -34.5805016004481,-58.4505172245318 -34.5806742198247,-58.4499989853758 -34.5808797606533,-58.4496743253071 -34.5810085114951,-58.449595440632 -34.5810397949395,-58.4494416523924 -34.5810963999448,-58.4491919812231 -34.5811882776715,-58.448459568068 -34.5814579241167,-58.4483934029757 -34.5814822833589,-58.4483258230482 -34.5815071661386,-58.4482895615355 -34.5815205167813,-58.4482796339798 -34.5815241718727,-58.4482750418364 -34.5815261463977,-58.4480518326744 -34.5816220940359,-58.4470924721564 -34.5820344712672,-58.4461817147653 -34.5824259258651,-58.4457859875885 -34.5825960105066,-58.4446425154933 -34.5830874842646,-58.4444715140105 -34.5831609807395,-58.4444485731026 -34.5831708409276,-58.4444069042627 -34.583188756327,-58.4443997765097 -34.5831918210746,-58.4444002339388 -34.5831933878554,-58.4447856534 -34.5845135514129,-58.4445857679104 -34.5846657823276,-58.4434772519387 -34.5854009946445,-58.4424251828668 -34.5860987403321,-58.4413975399073 -34.586780283069,-58.441089226108 -34.5869846738708,-58.4401565270955 -34.5876011493313,-58.4393890485044 -34.5881083499955,-58.4386143204607 -34.5886204031453,-58.4385455945534 -34.5886617712813,-58.4385357500838 -34.5886677008384,-58.4385362274348 -34.5886679479287,-58.4385831147669 -34.5886918427826,-58.4386416493153 -34.5887216732237,-58.4386702473123 -34.5887347948778,-58.4386988453235 -34.5887478984962,-58.4387274651478 -34.5887609885906,-58.4387560740821 -34.5887740741688,-58.4387569754002 -34.5887744854044,-58.4387846939256 -34.5887871597424,-58.4388133246817 -34.5888002326912,-58.4388419434531 -34.5888133182512,-58.4388705524208 -34.5888264128169,-58.4388991613986 -34.5888395037702,-58.4389277605693 -34.588852615448,-58.4389563586565 -34.5888657361333,-58.4389849360348 -34.5888788838513,-58.439013488347 -34.588892048685,-58.4390420341205 -34.5889052405542,-58.4390705548219 -34.5889184711739,-58.4390990548158 -34.588931724319,-58.4391275340973 -34.588945017117,-58.4391559806754 -34.5889583531714,-58.4391844032722 -34.5889717252723,-58.4392127942544 -34.588985145137,-58.4392411525366 -34.5889985965393,-58.4392694879268 -34.5890120866928,-58.439297814596 -34.5890256128957,-58.4393261074792 -34.5890391562131,-58.439354399274 -34.5890527265669,-58.4393826703621 -34.5890663176435,-58.4394109305577 -34.5890799141201,-58.4394391907565 -34.5890935322247,-58.4394674411557 -34.5891071458137,-58.4394956904703 -34.5891207729176,-58.4395239408854 -34.589134395508,-58.439552188041 -34.5891480135839,-58.4395804482894 -34.5891616190355,-58.4396087085473 -34.5891752235791,-58.439636979718 -34.5891888154979,-58.4396652748867 -34.5892023767656,-58.4396935787896 -34.5892159199995,-58.4397218707115 -34.5892294632245,-58.4397501735404 -34.5892430154594,-58.4397784796509 -34.5892565586739,-58.4398067726904 -34.5892701018793,-58.4398350755456 -34.5892836586017,-58.4398633816837 -34.5892972017964,-58.4398916845609 -34.5893107449839,-58.4399199874473 -34.5893242881649,-58.439948293613 -34.5893378313398,-58.4399765965178 -34.5893513745076,-58.4400048896216 -34.5893649176669,-58.4400331925448 -34.5893784608215,-58.440061498747 -34.5893920048715,-58.4400898016885 -34.5894055480129,-58.440118104638 -34.5894190956549,-58.440146410868 -34.5894326387837,-58.4401747138371 -34.5894461819053,-58.4402030168179 -34.5894597160059,-58.4402313339756 -34.589473259117,-58.4402596369744 -34.5894867941058,-58.4402879399803 -34.5895003372011,-58.4403162462678 -34.5895138712759,-58.4403445601946 -34.5895274053455,-58.440372864318 -34.5895409484212,-58.4404011695428 -34.5895544833775,-58.4404294834972 -34.5895680174273,-58.4404577876506 -34.5895815514688,-58.4404861038031 -34.5895950864073,-58.4405144068837 -34.5896086249425,-58.4405427208769 -34.589622150853,-58.4405710490499 -34.589635675858,-58.440599363065 -34.5896491882336,-58.4406276901708 -34.5896626960977,-58.440656026006 -34.5896762039569,-58.4406843531301 -34.5896897118078,-58.4407126780857 -34.5897032106373,-58.4407410161282 -34.5897167193785,-58.44076935418 -34.5897302272115,-58.4407976780731 -34.589743726021,-58.4408260063331 -34.5897572338392,-58.4408543411436 -34.5897707371446,-58.4408826683319 -34.5897842449494,-58.4409109835369 -34.5897977617598,-58.4409393107412 -34.5898112785658,-58.4409676248723 -34.5898248034758,-58.4409959291999 -34.5898383382934,-58.4410242335345 -34.5898518812174,-58.441052537875 -34.589865436755,-58.4410808324132 -34.589878997693,-58.4410981757752 -34.5898873219982,-58.4410982444382 -34.5898873544624,-58.4411091040679 -34.5898925667333,-58.4411373866275 -34.5899061537978,-58.44116564739 -34.5899197633881,-58.4411747424966 -34.5899241433085,-58.4411938961728 -34.589933367561,-58.4412221471414 -34.5899469852494,-58.4412503970258 -34.5899606164527,-58.4412786349279 -34.5899742521545,-58.4413068750208 -34.5899878824415,-58.4413351140314 -34.5900015181304,-58.4413633410567 -34.5900151709381,-58.4413915811769 -34.5900288021069,-58.4414198191232 -34.5900424458889,-58.4414480592619 -34.5900560770445,-58.4414950008443 -34.590078729495,-58.4415232290096 -34.5900923912802,-58.4415514462872 -34.5901060395352,-58.441579674471 -34.5901197013073,-58.4416078917614 -34.5901333720854,-58.4416361101534 -34.5901470338427,-58.4416643274658 -34.590160691086,-58.4416925447842 -34.590174360943,-58.4417207621116 -34.5901880316949,-58.4417489783583 -34.59020170244,-58.4417771957076 -34.5902153596571,-58.4418054130627 -34.5902290303894,-58.4418336304274 -34.5902427002136,-58.4418618478032 -34.5902563619183,-58.4418900651873 -34.5902700281236,-58.4419182825816 -34.5902836898152,-58.4419465010753 -34.5902973515004,-58.4419747293884 -34.5903110131807,-58.4420029468116 -34.5903246703454,-58.4420311751455 -34.5903383229982,-58.4420594023985 -34.5903519756442,-58.4420876318418 -34.5903656246783,-58.4421158602056 -34.5903792682969,-58.4421440983889 -34.5903929119107,-58.4421723387623 -34.5904065519124,-58.4422005780563 -34.5904201864988,-58.4422288173626 -34.5904338084584,-58.4422570686651 -34.5904474439351,-58.4422853178024 -34.5904610568687,-58.4423135691278 -34.5904746743034,-58.4423418193732 -34.5904882881256,-58.4423700794395 -34.5905018965341,-58.4423983406061 -34.590515500429,-58.4424266017828 -34.5905291007116,-58.4424548738682 -34.5905427045952,-58.4424831361566 -34.5905562913432,-58.4425114082613 -34.5905698916079,-58.4425396803784 -34.5905834783443,-58.4425679525047 -34.5905970650741,-58.4425962246392 -34.5906106563046,-58.4426244967861 -34.5906242340069,-58.4426527787504 -34.5906378207186,-58.4426810520046 -34.5906514029151,-58.4427093241792 -34.5906649805977,-58.4427376072632 -34.5906785582754,-58.4427658903565 -34.5906921359465,-58.4427941625575 -34.5907057181165,-58.4428224456692 -34.5907192957745,-58.4428507178895 -34.5907328743256,-58.4428790021086 -34.5907464564778,-58.4429072841557 -34.5907600431303,-58.442935556406 -34.5907736117458,-58.4429638286601 -34.5907872028908,-58.442992111827 -34.5908007805093,-58.4430203841007 -34.5908143671339,-58.4430486563835 -34.5908279537519,-58.4430769286745 -34.5908415448706,-58.4431052009758 -34.5908551314755,-58.4431334732833 -34.590868730694,-58.4431617347005 -34.5908823262984,-58.4431899972169 -34.5908959218964,-58.4432182586475 -34.5909095391223,-58.4432465200905 -34.5909231428201,-58.4432747706371 -34.5909367690456,-58.4433030211981 -34.5909503727284,-58.4433312717631 -34.5909639989408,-58.4433595234303 -34.5909776125265,-58.4433877838262 -34.5909912297128,-58.4434160344241 -34.5910048333694,-58.4434442959306 -34.5910184415283,-58.4434725574471 -34.5910320460749,-58.4435008298773 -34.5910456325877,-58.4435291023157 -34.5910592236012,-58.4435573856667 -34.5910728010882,-58.4435662630454 -34.5910770572975,-58.4435856690312 -34.5910863605397,-58.4436139643929 -34.5910999299023,-58.4436422575869 -34.5911134857364,-58.4436705529713 -34.5911270361555,-58.4436988570851 -34.5911405874709,-58.4437271633902 -34.5911541297656,-58.4437554686144 -34.5911676720535,-58.4437837727596 -34.5911812062217,-58.4438120790923 -34.5911947484966,-58.443840383254 -34.5912082907645,-58.443868689605 -34.5912218330262,-58.4438969948752 -34.5912353752812,-58.4439253001535 -34.5912489220368,-58.4439535945396 -34.5912624732913,-58.443981888935 -34.5912760245393,-58.4440101844275 -34.5912895847952,-58.4440384777493 -34.5913031441428,-58.4440667612677 -34.5913167133983,-58.4440950447946 -34.5913302862529,-58.4441233283297 -34.5913438636081,-58.4441516118759 -34.5913574319423,-58.4441798954312 -34.5913710011714,-58.4442081789928 -34.5913845830141,-58.4442364636547 -34.5913981603432,-58.4442647363353 -34.5914117376639,-58.4442930188346 -34.5914253194867,-58.4443212915337 -34.5914388967942,-58.4443495751421 -34.5914524749982,-58.4443778478596 -34.5914660522926,-58.4444061325737 -34.5914796431039,-58.4444344053096 -34.5914932203851,-58.4444626889551 -34.5915067976613,-58.4444909617064 -34.591520388451,-58.4445192344699 -34.5915339657125,-58.4445475072406 -34.5915475519819,-58.4445757909219 -34.591561133739,-58.4446040637111 -34.5915747199952,-58.4446323365113 -34.5915882972304,-58.4446606213084 -34.5916018879824,-58.4446888941251 -34.5916154742188,-58.444717166953 -34.5916290514343,-58.4447454496006 -34.5916426286445,-58.4447737224439 -34.5916562193685,-58.4448020061999 -34.5916697965658,-58.4448302790646 -34.5916833737549,-58.444858562838 -34.5916969554462,-58.4448868368112 -34.5917105326224,-58.4449151206039 -34.5917241097933,-58.4449433935045 -34.5917376914634,-58.4449716762254 -34.5917512695224,-58.4449999600458 -34.5917648466736,-58.4450282449674 -34.591778414804,-58.4450565288052 -34.5917919964493,-58.4450848126549 -34.5918055654678,-58.445113095424 -34.591819133578,-58.4451413792921 -34.5918327025834,-58.4451696642587 -34.591846275188,-58.4451979481454 -34.5918598432787,-58.4452262418534 -34.5918734032512,-58.445254537749 -34.5918869713305,-58.445282821665 -34.5919005312884,-58.4453111153999 -34.591914094847,-58.4453394113267 -34.591927645779,-58.4453677061707 -34.5919412057188,-58.4453960010277 -34.591954747623,-58.4454243067925 -34.5919682985367,-58.4454526125665 -34.5919818494438,-58.445480907451 -34.5919953913283,-58.4455092132443 -34.592008937715,-58.4455375201378 -34.592022479588,-58.4455658248603 -34.5920360214541,-58.4455941415845 -34.5920495543008,-58.4456224485072 -34.5920630880411,-58.4456507532591 -34.592076620873,-58.4456790700108 -34.5920901536999,-58.445683127874 -34.5920920932723,-58.4457073867715 -34.5921036874218,-58.4457356937329 -34.5921172112197,-58.4457640094221 -34.5921307440268,-58.4457923262122 -34.5921442687144,-58.4458206440999 -34.5921578015085,-58.4458489609083 -34.5921713261829,-58.4458772777259 -34.5921848508507,-58.4459055945529 -34.5921983746104,-58.4459339102972 -34.5922119073778,-58.4459622282324 -34.592225432026,-58.4459905450867 -34.5922389566674,-58.4460188510499 -34.5922524803993,-58.4460471679208 -34.5922660140419,-58.4460681287343 -34.5922760247334,-58.4460754848028 -34.5922795377621,-58.4461038016939 -34.5922930623771,-58.4461321185925 -34.5923065950985,-58.4461604256898 -34.592320127812,-58.4461887415184 -34.592333652407,-58.4462170584446 -34.5923471851087,-58.4462453655671 -34.5923607295211,-58.4462736705211 -34.5923742622079,-58.4463019874748 -34.5923877948898,-58.4463302946255 -34.5924013365781,-58.446358599605 -34.592414879161,-58.4463869056836 -34.5924284226389,-58.4464152019613 -34.5924419643061,-58.4464435069668 -34.5924555149822,-58.4464718032611 -34.5924690656506,-58.4465001082847 -34.5924826181164,-58.4465284045974 -34.5924961687716,-58.4465566889269 -34.5925097284331,-58.446584983074 -34.5925232989066,-58.4466132685121 -34.5925368576536,-58.4466415637677 -34.5925504281141,-58.4466698481324 -34.5925639958622,-58.4466717849849 -34.5925649255055,-58.4466981314158 -34.5925775663079,-58.446726416887 -34.5925911439589,-58.446754701279 -34.5926047134902,-58.4467829856788 -34.5926182902264,-58.4468112591867 -34.592631869659,-58.4468395436066 -34.5926454373676,-58.4468678291236 -34.5926590167886,-58.4468961124696 -34.5926725962027,-58.4469243860149 -34.5926861729046,-58.4469526704696 -34.5926997514042,-58.4469809549353 -34.5927133199814,-58.4470092404985 -34.592726898468,-58.4470375249826 -34.592740467032,-58.4470658083841 -34.5927540455051,-58.4470940928866 -34.5927676140559,-58.4471223784881 -34.5927811844032,-58.4471506630109 -34.592794743025,-58.4471789573513 -34.5928083133602,-58.447207253883 -34.5928218728718,-58.4472355384334 -34.5928354314738,-58.4472638328045 -34.5928489846618,-58.447292140266 -34.5928625351406,-58.447320434656 -34.5928760856111,-58.4473487421376 -34.5928896270622,-58.447377048538 -34.5929031703094,-58.4474053549479 -34.5929167117472,-58.4474336722708 -34.5929302360524,-58.447461989603 -34.5929437594494,-58.4474903069442 -34.5929572837414,-58.4475186351968 -34.5929707990136,-58.4475469634603 -34.5929843052648,-58.4475752917334 -34.5929978088051,-58.4476036309158 -34.5930113150444,-58.4476319592082 -34.5930248131629,-58.4476602984106 -34.5930383103746,-58.4476886376225 -34.5930518057768,-58.4477169779349 -34.5930652939609,-58.4477453171647 -34.5930787920542,-58.4477736553156 -34.593092278422,-58.4478020054661 -34.5931057665876,-58.4478303458155 -34.5931192529424,-58.447858685082 -34.5931327501078,-58.4478870243592 -34.5931462391536,-58.4479153734566 -34.5931597254897,-58.4479437138407 -34.5931732226355,-58.4479720531438 -34.5931867206759,-58.4480003815555 -34.593200217807,-58.448033331467 -34.5932159141089,-58.4480550550066 -34.5932242523706,-58.4480832307956 -34.5932379766279,-58.4481114174949 -34.5932516981757,-58.4481395933029 -34.5932654197156,-58.4481677691201 -34.593279141249,-58.4481959460365 -34.5932928636774,-58.4482241207806 -34.5933065942121,-58.4482522966256 -34.5933203157259,-58.44828047357 -34.5933340372333,-58.4483086483414 -34.5933477704526,-58.4483147522044 -34.593350745036,-58.4483368242127 -34.5933615009613,-58.4483650011833 -34.5933752314635,-58.4483931661725 -34.5933889619578,-58.448421331169 -34.5934027032629,-58.4484494961736 -34.593416451773,-58.448477660099 -34.593430191262,-58.4485058153112 -34.5934439415608,-58.4485339803452 -34.5934576810368,-58.448562144297 -34.5934714286193,-58.4485902995371 -34.5934851788985,-58.4486184635073 -34.5934989273693,-58.4486466187659 -34.5935126776355,-58.4486747827549 -34.5935264251918,-58.4487029380324 -34.593540173642,-58.4487310922288 -34.5935539238885,-58.4487592573341 -34.5935676804397,-58.4487874115491 -34.5935814306732,-58.4488155657737 -34.5935951790972,-58.4488437200057 -34.593608938332,-58.4488718742475 -34.5936226948559,-58.4489000394003 -34.5936364450645,-58.4489281936605 -34.5936502024768,-58.4489563479315 -34.5936639499667,-58.44898450221 -34.5936777091689,-58.4490126575883 -34.5936914656603,-58.4490408118868 -34.593705215835,-58.4490689661934 -34.5937189732147,-58.4490971096069 -34.5937327405026,-58.4491252519367 -34.5937465258127,-58.4491533746531 -34.5937603201285,-58.4491814962872 -34.5937741234522,-58.4492096190194 -34.5937879348825,-58.4492377286799 -34.5938017472062,-58.4492658503406 -34.5938155586233,-58.4492939611099 -34.5938293700327,-58.4493220838807 -34.593843173324,-58.4493502044806 -34.5938569766084,-58.449378337082 -34.5938707708733,-58.4494064696959 -34.5938845452998,-58.4494346252118 -34.5938983125108,-58.4494627796499 -34.5939120607848,-58.4494909548113 -34.5939257928286,-58.4495191430677 -34.5939394942181,-58.449547352047 -34.5939531811802,-58.4495755719406 -34.5939668410936,-58.4496038136495 -34.5939804721567,-58.4496320880771 -34.593994057243,-58.4496604061279 -34.5940075720147,-58.4496887787013 -34.5940210245861,-58.4497172068907 -34.5940343942239,-58.4497456765204 -34.5940477106742,-58.4497741908636 -34.5940609541057,-58.44980274883 -34.5940741254196,-58.4498313504153 -34.5940872525606,-58.4498599858132 -34.5941003075829,-58.4498886528394 -34.5941133157268,-58.4499173722102 -34.5941262454437,-58.4499462038917 -34.5941390201172,-58.4499751435257 -34.5941516235209,-58.4500042140081 -34.5941640286136,-58.4500334142536 -34.5941762011402,-58.4500627573462 -34.594188120369,-58.4500911434612 -34.5941993598031,-58.4500922432844 -34.5941997953141,-58.4501218578899 -34.5942112719477,-58.4501515935335 -34.5942225412545,-58.4501814284092 -34.5942336311768,-58.4502113494332 -34.5942445597422,-58.4502413457035 -34.594255334161,-58.4502443476215 -34.5942564026785,-58.4502713757865 -34.5942660247417,-58.4503014396731 -34.5942766918807,-58.4503315221069 -34.5942873040262,-58.4503616514339 -34.5942978341376,-58.4503918451004 -34.5943082479617,-58.4504220932998 -34.59431851575,-58.4504524276478 -34.5943286149694,-58.450482861231 -34.5943385050562,-58.4505134038622 -34.5943481706867,-58.4505488949718 -34.5943537370358,-58.4506005822013 -34.5943989522846,-58.4506310848741 -34.5944213498744,-58.4509568590193 -34.5946605554372,-58.4517045016343 -34.5952095178055,-58.451886479147 -34.5953370036164,-58.4520837007571 -34.5954757585265,-58.4526072418644 -34.5958441274194,-58.4528200492791 -34.5959886570639))&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="geodataframes-metodos-y-atributos">
+<h4>GeoDataFrames: métodos y atributos<a class="headerlink" href="#geodataframes-metodos-y-atributos" title="Permalink to this headline">¶</a></h4>
+<p>Los GeoDataFrame son objetos que tienen los mismos atributos que un Pandas DataFrame, con lo cual se puede manipular de datos a la que estamos acostumbrados. Como, por ejemplo, el método .plot(), acceso por .loc, .iloc, etc.
+Además, los GeoDataFrames tienen un atributo <em>geometry</em> que indica la columna que contiene la información geográfica.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">from_wkt</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">wkt_column</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">):</span>
+    
+    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;coordinates&quot;</span><span class="p">]</span><span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">wkt_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span> <span class="c1"># empleamos una función de shapely para leer WKT</span>
+        
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s1">&#39;coordinates&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span> <span class="c1"># seteamos la columna de geometría</span>
+    
+    <span class="k">return</span> <span class="n">gdf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span> <span class="o">=</span> <span class="n">from_wkt</span><span class="p">(</span><span class="n">barrios</span><span class="p">,</span> <span class="s2">&quot;WKT&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;BARRIO == &#39;CABALLITO&#39;&quot;</span><span class="p">)</span> <span class="c1"># podemos usar query</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WKT</th>
+      <th>BARRIO</th>
+      <th>COMUNA</th>
+      <th>PERIMETRO</th>
+      <th>AREA</th>
+      <th>coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>POLYGON ((-58.4306058283309 -34.6070470885963,...</td>
+      <td>CABALLITO</td>
+      <td>6.0</td>
+      <td>10990.964471</td>
+      <td>6.851029e+06</td>
+      <td>POLYGON ((-58.43061 -34.60705, -58.43056 -34.6...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="p">[</span><span class="n">barrios</span><span class="p">[</span><span class="s1">&#39;BARRIO&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;CABALLITO&#39;</span><span class="p">]</span> <span class="c1"># podemos hacer boolean indexing</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>WKT</th>
+      <th>BARRIO</th>
+      <th>COMUNA</th>
+      <th>PERIMETRO</th>
+      <th>AREA</th>
+      <th>coordinates</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>POLYGON ((-58.4306058283309 -34.6070470885963,...</td>
+      <td>CABALLITO</td>
+      <td>6.0</td>
+      <td>10990.964471</td>
+      <td>6.851029e+06</td>
+      <td>POLYGON ((-58.43061 -34.60705, -58.43056 -34.6...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span> <span class="c1"># BOOM: con uds. CABA!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_19_0.png" src="../../_images/GeoPandas_19_0.png" />
+</div>
+</div>
+<p>A diferencia del Pandas DataFrame, tiene un atributo que mantiene la información de la geometría.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    POLYGON ((-58.45282 -34.59599, -58.45366 -34.5...
+1    POLYGON ((-58.46558 -34.59656, -58.46562 -34.5...
+2    POLYGON ((-58.42375 -34.59783, -58.42495 -34.5...
+3    POLYGON ((-58.49461 -34.61487, -58.49479 -34.6...
+4    POLYGON ((-58.41287 -34.61412, -58.41282 -34.6...
+Name: coordinates, dtype: geometry
+</pre></div>
+</div>
+</div>
+</div>
+<p>Noten que cada barrio es un polígono</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:4326&quot;</span> <span class="c1"># seteamos el &#39;coordinate reference system&#39;, EPSG 4326 equivale a WGS 84</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="objetos-geometricos">
+<h4>Objetos geométricos<a class="headerlink" href="#objetos-geometricos" title="Permalink to this headline">¶</a></h4>
+<p>La librería shapely nos provee acceso a los objetos geométricos. Con ella podemos generar los objetos Point, Polygon y Line. Veamos un ejemplo.</p>
+<p>Además, podemos especificar la proyección pasando el parámetro crs. Para ver cómo transformar una proyección se puede ir a: <a class="reference external" href="http://geopandas.readthedocs.io/en/latest/projections.html">http://geopandas.readthedocs.io/en/latest/projections.html</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="o">-</span><span class="mf">58.396295</span><span class="p">,</span> <span class="o">-</span><span class="mf">34.591789</span><span class="p">)</span> <span class="c1"># Armo un punto a partir de dos coordenadas geográficas</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]})</span> <span class="c1"># Armo un DataFrame</span>
+
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="c1"># este es un GeoDataFrame con un solo punto</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>POINT (-58.39630 -34.59179)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Matplotlib funciona graficando capas. Para poder asociar distintas capas a un mismo gráfico es necesario instanciar un objeto AxesSubplot al cual referenciar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> <span class="c1"># Noten que vamos a reutilizar el axis (ax) en cada plot. </span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">barrios</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span> <span class="c1"># Esto es para evitar que las capas se ploteen separadas.</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_30_0.png" src="../../_images/GeoPandas_30_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si quisiéramos podemos cambiar la proyección empleando el método .to_crs()</p>
+<p>Ahora hagamos un plot de uno solo de los barrios, habiendo reproyectado el mapa.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palermo</span> <span class="o">=</span> <span class="n">barrios</span><span class="p">[</span><span class="n">barrios</span><span class="p">[</span><span class="s2">&quot;BARRIO&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;MATADEROS&quot;</span><span class="p">]</span>
+<span class="n">palermo</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span> <span class="o">=</span> <span class="mi">3395</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1">#EPSG 3395 es World Mercator. Noten los valores de los ejes, qué distintos son a 4326</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3138979048&gt;
+</pre></div>
+</div>
+<img alt="../../_images/GeoPandas_34_1.png" src="../../_images/GeoPandas_34_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio">
+<h3>Ejercicio<a class="headerlink" href="#ejercicio" title="Permalink to this headline">¶</a></h3>
+<p>1- En Google Maps buscar un punto en el barrio de Mataderos y guardar las coordenadas</p>
+<p>2- Graficar el barrio junto al punto en EPSG 3395. Antes, piensen bien qué proyección usa Google Maps.</p>
+</div>
+</div>
+<div class="section" id="operaciones-geograficas">
+<h2>Operaciones geográficas<a class="headerlink" href="#operaciones-geograficas" title="Permalink to this headline">¶</a></h2>
+<p>En geopandas tenemos distintos métodos para realizar diferentes operaciones geográficas:
+- equals
+- contains
+- crosses
+- disjoint
+- overlaps
+- touches
+- within
+- covers
+- contains
+- intersects
+- intersection
+- union
+- unary_union
+- difference
+- overlay (difference, intersection, symmetric_difference)
+- sjoin</p>
+<p>En el siguiente link se tiene una referencia de varios de estos métodos, los heredados de shapely:
+<a class="reference external" href="https://shapely.readthedocs.io/en/stable/manual.html#predicates-and-relationships">https://shapely.readthedocs.io/en/stable/manual.html#predicates-and-relationships</a></p>
+<div class="section" id="mapeando-hospitales">
+<h3>Mapeando hospitales<a class="headerlink" href="#mapeando-hospitales" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://data.buenosaires.gob.ar/dataset/hospitales</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospitales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://datasets-humai.s3.amazonaws.com/datasets/hospitales.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospitales</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>long</th>
+      <th>lat</th>
+      <th>id</th>
+      <th>nombre</th>
+      <th>nom_map</th>
+      <th>objeto</th>
+      <th>calle_nombre</th>
+      <th>calle_altura</th>
+      <th>calle_altura.1</th>
+      <th>dom_geo</th>
+      <th>...</th>
+      <th>mod_at_2</th>
+      <th>depend_adm</th>
+      <th>director</th>
+      <th>dom_norma</th>
+      <th>calle_altura.2</th>
+      <th>calle_altura.3</th>
+      <th>barrio</th>
+      <th>comuna</th>
+      <th>codigo_postal</th>
+      <th>codigo_postal_argentino</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-58.377551</td>
+      <td>-34.628847</td>
+      <td>1</td>
+      <td>HOSPITAL GENERAL DE NIÑOS PEDRO DE ELIZALDE</td>
+      <td>HOSP. DE ELIZALDE</td>
+      <td>HOSPITAL</td>
+      <td>MANUEL A. MONTES DE OCA</td>
+      <td>40</td>
+      <td>MANUEL A. MONTES DE OCA 40</td>
+      <td>40 MONTES DE OCA, MANUEL AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Javier Indart</td>
+      <td>MONTES DE OCA, MANUEL AV. 40</td>
+      <td>40</td>
+      <td>MANUEL A. MONTES DE OCA 40</td>
+      <td>Barracas</td>
+      <td>Comuna 4</td>
+      <td>1270.0</td>
+      <td>C1270AAN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-58.412070</td>
+      <td>-34.594192</td>
+      <td>2</td>
+      <td>HOSPITAL GENERAL DE NIÑOS RICARDO GUTIERREZ</td>
+      <td>HOSP. GUTIERREZ</td>
+      <td>HOSPITAL</td>
+      <td>GALLO</td>
+      <td>1330</td>
+      <td>GALLO 1330</td>
+      <td>1330 GALLO</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. María Cristina Galoppo</td>
+      <td>GALLO 1330</td>
+      <td>1330</td>
+      <td>GALLO 1330</td>
+      <td>Recoleta</td>
+      <td>Comuna 2</td>
+      <td>1425.0</td>
+      <td>C1425EFD</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-58.402728</td>
+      <td>-34.584528</td>
+      <td>4</td>
+      <td>HOSPITAL DE ODONTOLOGIA DR. RAMON CARRILLO (EX...</td>
+      <td>HOSP. ODONTOLOGICO CARRILLO</td>
+      <td>HOSPITAL</td>
+      <td>SANCHEZ DE BUSTAMANTE</td>
+      <td>2529</td>
+      <td>SANCHEZ DE BUSTAMANTE 2529</td>
+      <td>2529 SANCHEZ DE BUSTAMANTE</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Susana Rita Lisanti</td>
+      <td>SANCHEZ DE BUSTAMANTE 2529</td>
+      <td>2529</td>
+      <td>SANCHEZ DE BUSTAMANTE 2529</td>
+      <td>Recoleta</td>
+      <td>Comuna 2</td>
+      <td>1425.0</td>
+      <td>C1425DUY</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-58.385156</td>
+      <td>-34.639404</td>
+      <td>6</td>
+      <td>HOSPITAL DE SALUD MENTAL BRAULIO MOYANO</td>
+      <td>HOSP. MOYANO</td>
+      <td>HOSPITAL</td>
+      <td>BRANDSEN</td>
+      <td>2570</td>
+      <td>BRANDSEN 2570</td>
+      <td>2570 BRANDSEN</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Norma Derito</td>
+      <td>BRANDSEN 2570</td>
+      <td>2570</td>
+      <td>BRANDSEN 2570</td>
+      <td>Barracas</td>
+      <td>Comuna 4</td>
+      <td>1287.0</td>
+      <td>C1287ABJ</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-58.391311</td>
+      <td>-34.634154</td>
+      <td>7</td>
+      <td>HOSPITAL DE GASTROENTEROLOGIA B. UDAONDO</td>
+      <td>HOSP. UDAONDO</td>
+      <td>HOSPITAL</td>
+      <td>CASEROS</td>
+      <td>2061</td>
+      <td>CASEROS 2061</td>
+      <td>2061 CASEROS AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Eduardo Gustavo Sosa</td>
+      <td>CASEROS AV. 2061</td>
+      <td>2061</td>
+      <td>CASEROS 2061</td>
+      <td>Parque Patricios</td>
+      <td>Comuna 4</td>
+      <td>1264.0</td>
+      <td>C1264AAA</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-58.434943</td>
+      <td>-34.608472</td>
+      <td>8</td>
+      <td>INSTITUTO DE ZOONOSIS L. PASTEUR</td>
+      <td>INST. PASTEUR</td>
+      <td>HOSPITAL</td>
+      <td>DIAZ VELEZ</td>
+      <td>4821</td>
+      <td>DIAZ VELEZ 4821</td>
+      <td>4821 DIAZ VELEZ AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Oscar Enrique Lencinas</td>
+      <td>DIAZ VELEZ AV. 4821</td>
+      <td>4821</td>
+      <td>DIAZ VELEZ 4821</td>
+      <td>Caballito</td>
+      <td>Comuna 6</td>
+      <td>1405.0</td>
+      <td>C1405DCD</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-58.375843</td>
+      <td>-34.630211</td>
+      <td>9</td>
+      <td>HOSPITAL DE REHABILITACION RESPIRATORIA MARIA ...</td>
+      <td>HOSP. FERRER</td>
+      <td>HOSPITAL</td>
+      <td>DOCTOR ENRIQUE FINOCHIETTO</td>
+      <td>849</td>
+      <td>DOCTOR ENRIQUE FINOCHIETTO 849</td>
+      <td>849 FINOCHIETTO ENRIQUE DR.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Dora Lombardi</td>
+      <td>FINOCHIETTO ENRIQUE DR. 849</td>
+      <td>849</td>
+      <td>DOCTOR ENRIQUE FINOCHIETTO 849</td>
+      <td>Barracas</td>
+      <td>Comuna 4</td>
+      <td>1272.0</td>
+      <td>C1272AAA</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>-58.382328</td>
+      <td>-34.635702</td>
+      <td>10</td>
+      <td>HOSPITAL INFANTO JUVENIL C. TOBAR GARCIA</td>
+      <td>HOSP. TOBAR GARCIA</td>
+      <td>HOSPITAL</td>
+      <td>DOCTOR RAMON CARRILLO</td>
+      <td>315</td>
+      <td>DOCTOR RAMON CARRILLO 315</td>
+      <td>315 CARRILLO, RAMON, DR.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Guillermo Vega</td>
+      <td>CARRILLO, RAMON, DR. 315</td>
+      <td>315</td>
+      <td>DOCTOR RAMON CARRILLO 315</td>
+      <td>Barracas</td>
+      <td>Comuna 4</td>
+      <td>1275.0</td>
+      <td>C1275AHG</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-58.382128</td>
+      <td>-34.636435</td>
+      <td>11</td>
+      <td>HOSPITAL DE SALUD MENTAL J. T. BORDA</td>
+      <td>HOSP. BORDA</td>
+      <td>HOSPITAL</td>
+      <td>DOCTOR RAMON CARRILLO</td>
+      <td>375</td>
+      <td>DOCTOR RAMON CARRILLO 375</td>
+      <td>375 CARRILLO, RAMON, DR.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Daniel Cichello</td>
+      <td>CARRILLO, RAMON, DR. 375</td>
+      <td>375</td>
+      <td>DOCTOR RAMON CARRILLO 375</td>
+      <td>Barracas</td>
+      <td>Comuna 4</td>
+      <td>1275.0</td>
+      <td>C1275AHG</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>-58.360120</td>
+      <td>-34.638892</td>
+      <td>12</td>
+      <td>HOSPITAL DE ODONTOLOGIA INFANTIL DON BENITO QU...</td>
+      <td>HOSP. ODONTOLOGICO INFANTIL QUINQUELA MARTIN</td>
+      <td>HOSPITAL</td>
+      <td>DON PEDRO DE MENDOZA</td>
+      <td>1795</td>
+      <td>DON PEDRO DE MENDOZA 1795</td>
+      <td>1795 DON PEDRO DE MENDOZA AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Scagnet Gabriela</td>
+      <td>DON PEDRO DE MENDOZA AV. 1795</td>
+      <td>1795</td>
+      <td>DON PEDRO DE MENDOZA 1795</td>
+      <td>Boca</td>
+      <td>Comuna 4</td>
+      <td>1169.0</td>
+      <td>C1169AAB</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-58.440988</td>
+      <td>-34.553896</td>
+      <td>13</td>
+      <td>INSTITUTO DE REHABILITACION PSICOFISICA (I.R.E...</td>
+      <td>INST. DE REHAB. PSICOFISICA</td>
+      <td>HOSPITAL</td>
+      <td>ECHEVERRIA</td>
+      <td>955</td>
+      <td>ECHEVERRIA 955</td>
+      <td>955 ECHEVERRIA</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Silvina Ajolfi</td>
+      <td>ECHEVERRIA 955</td>
+      <td>955</td>
+      <td>ECHEVERRIA 955</td>
+      <td>Belgrano</td>
+      <td>Comuna 13</td>
+      <td>1428.0</td>
+      <td>C1428DQG</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-58.402751</td>
+      <td>-34.634856</td>
+      <td>14</td>
+      <td>HOSPITAL MATERNO INFANTIL R. SARDA</td>
+      <td>HOSP. SARDA</td>
+      <td>HOSPITAL</td>
+      <td>ESTEBAN DE LUCA</td>
+      <td>2151</td>
+      <td>ESTEBAN DE LUCA 2151</td>
+      <td>2151 LUCA, ESTEBAN DE</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Eduardo Valenti</td>
+      <td>LUCA, ESTEBAN DE 2151</td>
+      <td>2151</td>
+      <td>ESTEBAN DE LUCA 2151</td>
+      <td>Parque Patricios</td>
+      <td>Comuna 4</td>
+      <td>1246.0</td>
+      <td>C1246ABQ</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-58.460186</td>
+      <td>-34.605434</td>
+      <td>15</td>
+      <td>HOSPITAL OFTALMOLOGICO DR. PEDRO LAGLEYZE</td>
+      <td>HOSP. LAGLEYZE</td>
+      <td>HOSPITAL</td>
+      <td>JUAN B. JUSTO</td>
+      <td>4151</td>
+      <td>JUAN B. JUSTO 4151</td>
+      <td>4151 JUSTO, JUAN B. AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Fernando Scattini</td>
+      <td>JUSTO, JUAN B. AV. 4151</td>
+      <td>4151</td>
+      <td>JUAN B. JUSTO 4151</td>
+      <td>Villa Gral. Mitre</td>
+      <td>Comuna 11</td>
+      <td>1416.0</td>
+      <td>C1416DJI</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-58.427660</td>
+      <td>-34.614635</td>
+      <td>16</td>
+      <td>HOSPITAL DE ODONTOLOGIA  JOSE DUEÑAS</td>
+      <td>HOSP. ODONTOLOGICO DUEÑAS</td>
+      <td>HOSPITAL</td>
+      <td>MUÑIZ</td>
+      <td>15</td>
+      <td>MUÑIZ 15</td>
+      <td>15 MUÑIZ</td>
+      <td>...</td>
+      <td>DIAGNOSTICO</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Ada Severino</td>
+      <td>MUÑIZ 15</td>
+      <td>15</td>
+      <td>MUÑIZ 15</td>
+      <td>Almagro</td>
+      <td>Comuna 5</td>
+      <td>1212.0</td>
+      <td>C1212AAA</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-58.433248</td>
+      <td>-34.607051</td>
+      <td>17</td>
+      <td>HOSPITAL MUNICIPAL DE ONCOLOGIA MARIE CURIE</td>
+      <td>HOSP. CURIE</td>
+      <td>HOSPITAL</td>
+      <td>PATRICIAS ARGENTINAS</td>
+      <td>150</td>
+      <td>PATRICIAS ARGENTINAS 150</td>
+      <td>150  PATRICIAS ARGENTINAS AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Alejandro Fernández</td>
+      <td>PATRICIAS ARGENTINAS AV. 150</td>
+      <td>150</td>
+      <td>PATRICIAS ARGENTINAS 150</td>
+      <td>Caballito</td>
+      <td>Comuna 6</td>
+      <td>1405.0</td>
+      <td>C1405BWO</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>-58.432397</td>
+      <td>-34.625503</td>
+      <td>18</td>
+      <td>HOSPITAL DE QUEMADOS DR. ARTURO UMBERTO ILLIA</td>
+      <td>HOSP. DE QUEMADOS A. U. ILLIA</td>
+      <td>HOSPITAL</td>
+      <td>PEDRO GOYENA</td>
+      <td>369</td>
+      <td>PEDRO GOYENA 369</td>
+      <td>369 GOYENA, PEDRO AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Armando Escobar</td>
+      <td>GOYENA, PEDRO AV. 369</td>
+      <td>369</td>
+      <td>PEDRO GOYENA 369</td>
+      <td>Caballito</td>
+      <td>Comuna 6</td>
+      <td>1424.0</td>
+      <td>C1424BSD</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>-58.394064</td>
+      <td>-34.622713</td>
+      <td>19</td>
+      <td>HOSPITAL DE OFTALMOLOGIA SANTA LUCIA</td>
+      <td>HOSP. SANTA LUCIA</td>
+      <td>HOSPITAL</td>
+      <td>SAN JUAN AV. AV.</td>
+      <td>2021</td>
+      <td>SAN JUAN 2021</td>
+      <td>2021 SAN JUAN AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Estela Fernández Rey</td>
+      <td>SAN JUAN AV. 2021</td>
+      <td>2021</td>
+      <td>SAN JUAN 2021</td>
+      <td>San Cristobal</td>
+      <td>Comuna 3</td>
+      <td>1232.0</td>
+      <td>C1232AAC</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>-58.502145</td>
+      <td>-34.617982</td>
+      <td>20</td>
+      <td>HOSPITAL DE REHABILITACION M. ROCCA</td>
+      <td>HOSP. DE REHAB. ROCCA</td>
+      <td>HOSPITAL</td>
+      <td>SEGUROLA</td>
+      <td>1949</td>
+      <td>SEGUROLA 1949</td>
+      <td>1949 SEGUROLA AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Cichero Carlos</td>
+      <td>SEGUROLA AV. 1949</td>
+      <td>1949</td>
+      <td>SEGUROLA 1949</td>
+      <td>Monte Castro</td>
+      <td>Comuna 10</td>
+      <td>1407.0</td>
+      <td>C1407AOM</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>-58.393727</td>
+      <td>-34.637529</td>
+      <td>21</td>
+      <td>HOSPITAL DE INFECCIOSAS F. MUÑIZ</td>
+      <td>HOSP. MUÑIZ</td>
+      <td>HOSPITAL</td>
+      <td>USPALLATA</td>
+      <td>2272</td>
+      <td>USPALLATA 2272</td>
+      <td>2272 USPALLATA</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. González Montaner Pablo</td>
+      <td>USPALLATA 2272</td>
+      <td>2272</td>
+      <td>USPALLATA 2272</td>
+      <td>Parque Patricios</td>
+      <td>Comuna 4</td>
+      <td>1282.0</td>
+      <td>C1282AEN</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>-58.475259</td>
+      <td>-34.597210</td>
+      <td>22</td>
+      <td>HOSPITAL DE EMERGENCIAS PSIQUIATRICAS TORCUATO...</td>
+      <td>HOSP. T. DE ALVEAR</td>
+      <td>HOSPITAL</td>
+      <td>WARNES</td>
+      <td>2630</td>
+      <td>WARNES 2630</td>
+      <td>2630 WARNES AV.</td>
+      <td>...</td>
+      <td>DIAGNOSTICO</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Marcelo Ernesto Lahitou</td>
+      <td>WARNES AV. 2630</td>
+      <td>2630</td>
+      <td>WARNES 2630</td>
+      <td>Paternal</td>
+      <td>Comuna 15</td>
+      <td>1427.0</td>
+      <td>C1427DPS</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-58.400513</td>
+      <td>-34.584766</td>
+      <td>23</td>
+      <td>HOSPITAL GENERAL DE AGUDOS B. RIVADAVIA</td>
+      <td>HOSP. RIVADAVIA</td>
+      <td>HOSPITAL</td>
+      <td>GENERAL LAS HERAS</td>
+      <td>2670</td>
+      <td>GENERAL LAS HERAS 2670</td>
+      <td>2670 LAS HERAS GENERAL AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Eduardo Fernández Rostello</td>
+      <td>LAS HERAS GENERAL AV. 2670</td>
+      <td>2670</td>
+      <td>GENERAL LAS HERAS 2670</td>
+      <td>Recoleta</td>
+      <td>Comuna 2</td>
+      <td>1425.0</td>
+      <td>C1425ASQ</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>-58.365985</td>
+      <td>-34.628345</td>
+      <td>24</td>
+      <td>HOSPITAL GENERAL DE AGUDOS DR C. ARGERICH</td>
+      <td>HOSP. ARGERICH</td>
+      <td>HOSPITAL</td>
+      <td>PI Y MARGALL</td>
+      <td>750</td>
+      <td>CORBETA PI Y MARGAL 750</td>
+      <td>750 PI Y MARGALL</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Néstor Hernández</td>
+      <td>PI Y MARGALL 750</td>
+      <td>750</td>
+      <td>CORBETA PI Y MARGAL 750</td>
+      <td>Boca</td>
+      <td>Comuna 4</td>
+      <td>1155.0</td>
+      <td>C1155AHD</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>-58.406894</td>
+      <td>-34.581142</td>
+      <td>25</td>
+      <td>HOSPITAL GENERAL DE AGUDOS DR. J. A. FERNANDEZ</td>
+      <td>HOSP. FERNANDEZ</td>
+      <td>HOSPITAL</td>
+      <td>CERVIÑO</td>
+      <td>3356</td>
+      <td>CERVIÑO 3356</td>
+      <td>3356 CERVIÑO AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Previgliano Ignacio</td>
+      <td>CERVIÑO AV. 3356</td>
+      <td>3356</td>
+      <td>CERVIÑO 3356</td>
+      <td>Palermo</td>
+      <td>Comuna 14</td>
+      <td>1425.0</td>
+      <td>C1425AGP</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>-58.437981</td>
+      <td>-34.608973</td>
+      <td>26</td>
+      <td>HOSPITAL GENERAL DE AGUDOS DR. C. DURAND</td>
+      <td>HOSP. DURAND</td>
+      <td>HOSPITAL</td>
+      <td>DIAZ VELEZ</td>
+      <td>5044</td>
+      <td>DIAZ VELEZ 5044</td>
+      <td>5044 DIAZ VELEZ AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Bolla Horacio Alberto</td>
+      <td>DIAZ VELEZ AV. 5044</td>
+      <td>5044</td>
+      <td>DIAZ VELEZ 5044</td>
+      <td>Caballito</td>
+      <td>Comuna 6</td>
+      <td>1405.0</td>
+      <td>C1405DCS</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>-58.469502</td>
+      <td>-34.624170</td>
+      <td>27</td>
+      <td>HOSPITAL GENERAL DE AGUDOS DR. T. ALVAREZ</td>
+      <td>HOSP. ALVAREZ</td>
+      <td>HOSPITAL</td>
+      <td>DOCTOR JUAN FELIPE ARANGUREN</td>
+      <td>2701</td>
+      <td>DOCTOR JUAN FELIPE ARANGUREN 2701</td>
+      <td>2701 ARANGUREN, JUAN F., DR.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Laura Cordero</td>
+      <td>ARANGUREN, JUAN F., DR. 2701</td>
+      <td>2701</td>
+      <td>DOCTOR JUAN FELIPE ARANGUREN 2701</td>
+      <td>Flores</td>
+      <td>Comuna 7</td>
+      <td>1406.0</td>
+      <td>C1406FWY</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>-58.409611</td>
+      <td>-34.617660</td>
+      <td>28</td>
+      <td>HOSPITAL GENERAL DE AGUDOS J. M. RAMOS MEJIA</td>
+      <td>HOSP. RAMOS MEJIA</td>
+      <td>HOSPITAL</td>
+      <td>GENERAL URQUIZA</td>
+      <td>609</td>
+      <td>GENERAL URQUIZA 609</td>
+      <td>609 URQUIZA, GRAL.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Hugo Pandullo</td>
+      <td>URQUIZA, GRAL. 609</td>
+      <td>609</td>
+      <td>GENERAL URQUIZA 609</td>
+      <td>Balvanera</td>
+      <td>Comuna 3</td>
+      <td>1221.0</td>
+      <td>C1221ADC</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>-58.471078</td>
+      <td>-34.565052</td>
+      <td>29</td>
+      <td>HOSPITAL GENERAL DE AGUDOS DR. I. PIROVANO</td>
+      <td>HOSP. PIROVANO</td>
+      <td>HOSPITAL</td>
+      <td>MONROE</td>
+      <td>3555</td>
+      <td>MONROE 3555</td>
+      <td>3555 MONROE AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. José Antonio Cuba</td>
+      <td>MONROE AV. 3555</td>
+      <td>3555</td>
+      <td>MONROE 3555</td>
+      <td>Coghlan</td>
+      <td>Comuna 12</td>
+      <td>1430.0</td>
+      <td>C1430BKC</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>-58.511053</td>
+      <td>-34.599980</td>
+      <td>30</td>
+      <td>HOSPITAL GENERAL DE AGUDOS A. ZUBIZARRETA</td>
+      <td>HOSP. ZUBIZARRETA</td>
+      <td>HOSPITAL</td>
+      <td>NUEVA YORK</td>
+      <td>3952</td>
+      <td>NUEVA YORK 3952</td>
+      <td>3952 NUEVA YORK</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Lilia Borelli</td>
+      <td>NUEVA YORK 3952</td>
+      <td>3952</td>
+      <td>NUEVA YORK 3952</td>
+      <td>Villa Devoto</td>
+      <td>Comuna 11</td>
+      <td>1419.0</td>
+      <td>C1419HDN</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>-58.507615</td>
+      <td>-34.625337</td>
+      <td>31</td>
+      <td>HOSPITAL GENERAL DE AGUDOS D. VELEZ SARSFIELD</td>
+      <td>HOSP. VELEZ SARSFIELD</td>
+      <td>HOSPITAL</td>
+      <td>PEDRO CALDERON DE LA BARCA</td>
+      <td>1550</td>
+      <td>PEDRO CALDERON DE LA BARCA 1550</td>
+      <td>1550 CALDERON DE LA BARCA, PEDRO</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Virginia Lombardo</td>
+      <td>CALDERON DE LA BARCA, PEDRO 1550</td>
+      <td>1550</td>
+      <td>PEDRO CALDERON DE LA BARCA 1550</td>
+      <td>Monte Castro</td>
+      <td>Comuna 10</td>
+      <td>1407.0</td>
+      <td>C1407KQF</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>-58.515629</td>
+      <td>-34.649187</td>
+      <td>32</td>
+      <td>HOSPITAL GENERAL DE AGUDOS DONACION F. SANTOJANNI</td>
+      <td>HOSP. SANTOJANNI</td>
+      <td>HOSPITAL</td>
+      <td>PILAR</td>
+      <td>950</td>
+      <td>PILAR 950</td>
+      <td>950 PILAR</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Federico Charabora</td>
+      <td>PILAR 950</td>
+      <td>950</td>
+      <td>PILAR 950</td>
+      <td>Liniers</td>
+      <td>Comuna 9</td>
+      <td>1408.0</td>
+      <td>C1408INH</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>-58.410860</td>
+      <td>-34.643117</td>
+      <td>33</td>
+      <td>HOSPITAL GENERAL DE AGUDOS J. A. PENNA</td>
+      <td>HOSP. PENNA</td>
+      <td>HOSPITAL</td>
+      <td>PEDRO CHUTRO</td>
+      <td>3380</td>
+      <td>PEDRO CHUTRO 3380</td>
+      <td>3380 CHUTRO, PEDRO, PROF., DR.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Gustavo San Martín</td>
+      <td>CHUTRO, PEDRO, PROF., DR. 3380</td>
+      <td>3380</td>
+      <td>PEDRO CHUTRO 3380</td>
+      <td>Parque Patricios</td>
+      <td>Comuna 4</td>
+      <td>1437.0</td>
+      <td>C1437IYP</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>-58.471098</td>
+      <td>-34.587392</td>
+      <td>34</td>
+      <td>HOSPITAL GENERAL DE AGUDOS DR. E. TORNU</td>
+      <td>HOSP. TORNU</td>
+      <td>HOSPITAL</td>
+      <td>COMBATIENTES DE MALVINAS</td>
+      <td>3002</td>
+      <td>COMBATIENTES DE MALVINAS 3002</td>
+      <td>3002 COMBATIENTES DE MALVINAS AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Luis Eduardo Castañiza</td>
+      <td>COMBATIENTES DE MALVINAS AV. 3002</td>
+      <td>3002</td>
+      <td>COMBATIENTES DE MALVINAS 3002</td>
+      <td>Parque Chas</td>
+      <td>Comuna 15</td>
+      <td>1431.0</td>
+      <td>C1431FTA</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>-58.454117</td>
+      <td>-34.643894</td>
+      <td>35</td>
+      <td>HOSPITAL GENERAL DE AGUDOS P. PIÑERO</td>
+      <td>HOSP. PIÑERO</td>
+      <td>HOSPITAL</td>
+      <td>VARELA</td>
+      <td>1301</td>
+      <td>VARELA 1301</td>
+      <td>1301 VARELA AV.</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Rivero Marino Daniel</td>
+      <td>VARELA AV. 1301</td>
+      <td>1301</td>
+      <td>VARELA 1301</td>
+      <td>Flores</td>
+      <td>Comuna 7</td>
+      <td>1406.0</td>
+      <td>C1406ELA</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>-58.456643</td>
+      <td>-34.671848</td>
+      <td>36</td>
+      <td>HOSPITAL CECILIA GRIERSON</td>
+      <td>HOSP. GRIERSON</td>
+      <td>HOSPITAL</td>
+      <td>FERNANDEZ DE LA CRUZ, F., GRAL. AV.</td>
+      <td>4402</td>
+      <td>FERNANDEZ DE LA CRUZ, F., GRAL. AV. 4402 4402</td>
+      <td>4402 FERNANDEZ DE LA CRUZ, F., GRAL.</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Luis Giardino</td>
+      <td>FERNANDEZ DE LA CRUZ, F., GRAL. 4402</td>
+      <td>4402</td>
+      <td>FERNANDEZ DE LA CRUZ, F., GRAL. AV. 4402 4402</td>
+      <td>Villa Soldati</td>
+      <td>Comuna 8</td>
+      <td>1439.0</td>
+      <td>C1439CNU</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>-58.391879</td>
+      <td>-34.629945</td>
+      <td>3</td>
+      <td>HOSP. DE PEDIATRIA DR. J. GARRAHAN</td>
+      <td>HOSP. GARRAHAN</td>
+      <td>HOSPITAL</td>
+      <td>COMBATE DE LOS POZOS</td>
+      <td>1881</td>
+      <td>COMBATE DE LOS POZOS 1881</td>
+      <td>1881 COMBATE DE LOS POZOS</td>
+      <td>...</td>
+      <td>DIAG./TRATAM.</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dr. Luis Dal Bo</td>
+      <td>COMBATE DE LOS POZOS 1881</td>
+      <td>1881</td>
+      <td>COMBATE DE LOS POZOS 1881</td>
+      <td>Parque Patricios</td>
+      <td>Comuna 4</td>
+      <td>1245.0</td>
+      <td>C1245AAM</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>-58.381429</td>
+      <td>-34.641989</td>
+      <td>5</td>
+      <td>TALLERES PROTEGIDOS DE REHABILITACION PSIQUIAT...</td>
+      <td>TALLERES DE REHAB. PSIQUIATRICA</td>
+      <td>HOSPITAL</td>
+      <td>SUAREZ AV. AV.</td>
+      <td>2215</td>
+      <td>SUAREZ 2215</td>
+      <td>2215 SUAREZ AV.</td>
+      <td>...</td>
+      <td>DIAGNOSTICO</td>
+      <td>Ministerio de Salud GCBA</td>
+      <td>Dra. Graciela María Ana Russo</td>
+      <td>SUAREZ AV. 2215</td>
+      <td>2215</td>
+      <td>SUAREZ 2215</td>
+      <td>Barracas</td>
+      <td>Comuna 4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>36 rows × 27 columns</p>
+</div></div></div>
+</div>
+<p>Nótese que en este caso la información no viene en WKT sino que contamos con una columna long y una columna lat. Vamos a ver cómo construir manualmente un punto, y luego vamos a iterar por cada fila construyendo el punto de cada hospital.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">Point</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_44_0.svg" src="../../_images/GeoPandas_44_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">from_x_y</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="s1">&#39;EPSG:4326&#39;</span><span class="p">):</span>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="c1"># eliminamos las columnas originales</span>
+                                <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="c1"># Agregamos CRS</span>
+                                <span class="n">geometry</span><span class="o">=</span><span class="n">geopandas</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="n">y</span><span class="p">]))</span> <span class="c1"># junto &quot;x&quot; e &quot;y&quot; y lo paso a Point</span>
+    <span class="k">return</span> <span class="n">gdf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospitales</span> <span class="o">=</span> <span class="n">from_x_y</span><span class="p">(</span><span class="n">hospitales</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span> <span class="s2">&quot;lat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">barrios</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">hospitales</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_47_0.png" src="../../_images/GeoPandas_47_0.png" />
+</div>
+</div>
+<p>Tomemos dos hospitales y grafiquemos una línea entre ambos puntos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital_a</span> <span class="o">=</span> <span class="n">hospitales</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hospital_b</span> <span class="o">=</span> <span class="n">hospitales</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">LineString</span> <span class="c1"># Objeto línea</span>
+
+<span class="n">linea</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([</span><span class="n">hospital_a</span><span class="p">,</span> <span class="n">hospital_b</span><span class="p">])</span>
+<span class="n">linea</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_51_0.svg" src="../../_images/GeoPandas_51_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">puntos_y_linea</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">([</span><span class="n">hospital_a</span><span class="p">,</span> <span class="n">hospital_b</span><span class="p">,</span> <span class="n">linea</span><span class="p">])</span> <span class="c1"># Noten que estamos guardando dos puntos y una línea</span>
+<span class="n">puntos_y_linea</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;tab10&#39;</span><span class="p">);</span> <span class="c1"># ploteo todo</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">puntos_y_linea</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>geopandas.geoseries.GeoSeries
+</pre></div>
+</div>
+<img alt="../../_images/GeoPandas_52_1.png" src="../../_images/GeoPandas_52_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrio</span> <span class="o">=</span> <span class="n">barrios</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">barrios</span><span class="p">[</span><span class="s2">&quot;BARRIO&quot;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;BARRACAS&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con el método <strong>GeoDataFrame.contains</strong> podemos ver si un polígono contiene un punto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrio</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">hospital_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29    True
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrio</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">hospital_b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con el método <strong>GeoDataFrame.crosses</strong> podemos ver si una geometría corta otra. En este caso, para cada barrio podemos ver si se corta con la línea marcada entre los dos hospitales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">crosses</span><span class="p">(</span><span class="n">linea</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    False
+1    False
+2    False
+3    False
+4    False
+dtype: bool
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios</span><span class="p">[</span><span class="n">barrios</span><span class="o">.</span><span class="n">crosses</span><span class="p">(</span><span class="n">linea</span><span class="p">)]</span><span class="o">.</span><span class="n">BARRIO</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11    CONSTITUCION
+24       BALVANERA
+29        BARRACAS
+41       MONSERRAT
+44        RECOLETA
+Name: BARRIO, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculando-la-cobertura-de-los-bomberos-en-caba">
+<h3>Calculando la cobertura de los bomberos en CABA<a class="headerlink" href="#calculando-la-cobertura-de-los-bomberos-en-caba" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://data.buenosaires.gob.ar/dataset/cuarteles-destacamentos-bomberos</span>
+<span class="n">bomberos</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://datasets-humai.s3.amazonaws.com/datasets/bomberos.csv&quot;</span><span class="p">)</span>
+<span class="n">bomberos</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>long</th>
+      <th>lat</th>
+      <th>dcia</th>
+      <th>tipo</th>
+      <th>cuartel</th>
+      <th>gestion</th>
+      <th>calle_ofic</th>
+      <th>inters</th>
+      <th>altura</th>
+      <th>direcci</th>
+      <th>tel</th>
+      <th>barrio</th>
+      <th>comuna</th>
+      <th>codigo_postal</th>
+      <th>codigo_postal_argentino</th>
+      <th>observacion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>-58.435809</td>
+      <td>-34.577526</td>
+      <td>DESTACAMENTO PALERMO</td>
+      <td>DESTACAMENTO</td>
+      <td>NaN</td>
+      <td>Policía de la Ciudad</td>
+      <td>GUATEMALA</td>
+      <td>NaN</td>
+      <td>5966</td>
+      <td>5966 GUATEMALA</td>
+      <td>4772-2222</td>
+      <td>Palermo</td>
+      <td>Comuna 14</td>
+      <td>1425</td>
+      <td>C1425BVP</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>-58.487654</td>
+      <td>-34.644895</td>
+      <td>DESTACAMENTO VELEZ SARSFIELD</td>
+      <td>DESTACAMENTO</td>
+      <td>NaN</td>
+      <td>Policía de la Ciudad</td>
+      <td>RODO JOSE E.</td>
+      <td>NaN</td>
+      <td>4474</td>
+      <td>4474 RODO JOSE E.</td>
+      <td>4671-2222</td>
+      <td>Parque Avellaneda</td>
+      <td>Comuna 9</td>
+      <td>1407</td>
+      <td>C1407HDR</td>
+      <td>Brigada Especial Federal De Rescate (BEFER)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>-58.435415</td>
+      <td>-34.630275</td>
+      <td>DESTACAMENTO GER CABALLITO</td>
+      <td>DESTACAMENTO</td>
+      <td>NaN</td>
+      <td>Policía de la Ciudad</td>
+      <td>RIGLOS</td>
+      <td>NaN</td>
+      <td>959</td>
+      <td>959 RIGLOS</td>
+      <td>4921-2737</td>
+      <td>Parque Chacabuco</td>
+      <td>Comuna 7</td>
+      <td>1424</td>
+      <td>C1424AFS</td>
+      <td>Brigada Especial Federal De Rescate (BEFER)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bomberos</span> <span class="o">=</span> <span class="n">from_x_y</span><span class="p">(</span><span class="n">bomberos</span><span class="p">,</span> <span class="s2">&quot;long&quot;</span><span class="p">,</span><span class="s2">&quot;lat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">barrios</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">bomberos</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_63_0.png" src="../../_images/GeoPandas_63_0.png" />
+</div>
+</div>
+<p>Imagínese que se desea bacer el siguiente análisis: suponiendo que cada delegación de bomberos tiene un alcance de hasta 1.5 km (ACLARACIÓN: este valor no se basa en la realidad) se desean obtener los lugares abarcados y los no abarcados por el servicio.</p>
+<p>Para ello primero tendremos que convertir la proyección a una proyección que nos permita trabajar en metros y no en grados. Para eso usaremos la proyección  Gauss-Krueger Buenos Aires.</p>
+<p>Para obtener los datos de proyección se puede entrar a <a class="reference external" href="http://spatialreference.org/">http://spatialreference.org/</a></p>
+<p>Convertimos nuestros datasets a GKBA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios_gkba</span> <span class="o">=</span> <span class="n">barrios</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">crs</span> <span class="o">=</span> <span class="s2">&quot;+proj=tmerc +lat_0=-34.629269 +lon_0=-58.4633 +k=0.9999980000000001 +x_0=100000 +y_0=100000 +ellps=intl +units=m +no_defs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bomberos_gkba</span> <span class="o">=</span> <span class="n">bomberos</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">crs</span> <span class="o">=</span> <span class="s2">&quot;+proj=tmerc +lat_0=-34.629269 +lon_0=-58.4633 +k=0.9999980000000001 +x_0=100000 +y_0=100000 +ellps=intl +units=m +no_defs&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos cómo son los valores de la geometría ahora…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bomberos_gkba</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">geometry</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    POINT (102522.494 105739.771)
+1      POINT (97767.105 98266.211)
+2     POINT (102557.088 99887.991)
+3     POINT (98539.106 108425.610)
+4    POINT (106892.933 101766.659)
+Name: geometry, dtype: geometry
+</pre></div>
+</div>
+</div>
+</div>
+<p>Armamos un buffer de 1500 metros alrededor de cada cuartel y delegación de bomberos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bomberos_gkba_buff</span> <span class="o">=</span> <span class="n">bomberos_gkba</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">bomberos_gkba_buff</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">bomberos_gkba</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">1500</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a plotear el área cubierta por los bomberos…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">barrios_gkba</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">bomberos_gkba_buff</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_74_0.png" src="../../_images/GeoPandas_74_0.png" />
+</div>
+</div>
+<p>Ahora vamos a ver cómo calcular el área cubierta y el área no cubierta. El área cubierta es la <strong>intersección</strong> entre la capa de barrios y la capa de bomberos (con su buffer). Por otro lado, el área no cubierta es la <strong>diferencia</strong> entre la capa de barrios y la capa de bomberos (con su buffer).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interseccion</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">overlay</span><span class="p">(</span><span class="n">bomberos_gkba_buff</span><span class="p">,</span> <span class="n">barrios_gkba</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;intersection&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interseccion</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_77_0.png" src="../../_images/GeoPandas_77_0.png" />
+</div>
+</div>
+<p>Los GeoDataFrame tienen un atributo con el valor del área ya calculada para cada polígono, veámoslo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interseccion</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">area</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    4.856944e+05
+1    9.135930e+05
+2    3.073288e+06
+3    1.162122e+06
+4    6.557971e+05
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sin embargo, como podemos ver en la figura anterior, hay superposición entre los polígonos, con lo cual estaría doblecontabilizando parte del área. Para poder tener un buen cálculo del área primero debemos unir todos los polígonos en uno solo, de esa manera estaremos resolviendo la duplicación.</p>
+<p>Para poder hacer eso vamos a tener que emplear <strong>dissolve</strong>. Esta función junta geometrías dentro de una columna que se usa para agrupar. Por ejemplo, si quisiéramos calcular el área cubierta por barrio. Sin embargo, en nuestro caso queremos juntar todas las geometrías en una sola. Para ello usaremos un truco, construiremos una columna “constante” y la usaremos para “agrupar”. Nota: es obligatorio pasar una columna de agrupamiento, si no fuera así no sería necesario este “truco”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interseccion</span><span class="p">[</span><span class="s2">&quot;const&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interseccion</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;const&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1"># los barrios agrupados</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3137a7ed68&gt;
+</pre></div>
+</div>
+<img alt="../../_images/GeoPandas_83_1.png" src="../../_images/GeoPandas_83_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La cantidad total de metros que están cubiertos por bomberos es:&quot;</span><span class="p">,</span> 
+      <span class="nb">round</span><span class="p">(</span><span class="n">interseccion</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;const&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La cantidad total de metros que están cubiertos por bomberos es: 141080651.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora calculemos el área no cubierta por el servicio, con el mismo procedimiento que antes pero empleando <strong>difference</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diferencia</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">overlay</span><span class="p">(</span><span class="n">barrios_gkba</span><span class="p">,</span> <span class="n">bomberos_gkba_buff</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s2">&quot;difference&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diferencia</span><span class="p">[</span><span class="s2">&quot;const&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">diferencia</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;const&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="c1"># los barrios agrupados</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3137a09518&gt;
+</pre></div>
+</div>
+<img alt="../../_images/GeoPandas_87_1.png" src="../../_images/GeoPandas_87_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La cantidad total de metros que no están cubiertos por bomberos es:&quot;</span><span class="p">,</span> 
+      <span class="n">diferencia</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;const&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La cantidad total de metros que no están cubiertos por bomberos es: 62191574.9743366
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, veamos con qué precisión estamos haciendo nuestro calculo. Vamos a ver la diferencia entre las áreas computadas y el total de área en Buenos Aires.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diferencia</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;const&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">interseccion</span><span class="o">.</span><span class="n">dissolve</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;const&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>203272225.9202038
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">barrios_gkba</span><span class="o">.</span><span class="n">area</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>203272225.92020506
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicios">
+<h3>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h3>
+<p>1- Calcule <strong>cuántos metros</strong> cuadrados de FLORES tienen cobertura por el servicio de bomberos.</p>
+<p>2- Calcule qué <strong>porcentaje</strong> de FLORES tiene cobertura por el servicio de bomberos.</p>
+</div>
+<div class="section" id="ejercicios-opcionales">
+<h3>Ejercicios opcionales<a class="headerlink" href="#ejercicios-opcionales" title="Permalink to this headline">¶</a></h3>
+<p>1- Empleando la función overlay realizar una unión entre barrios_gkba y bomberos_gkba_buff y graficar, interpretar lo obtenido.</p>
+<p>2- Empleando la función overlay realizar una diferencia entre barrios_gkba y bomberos_gkba_buff (como hicimos antes) y graficar, y comparar con un gráfico de la diferencia simétrica. Comparar ambos casos.</p>
+<p>3- Un atributo de los GeoDataFrame es la frontera, la cual se puede acceder desde .boundary. Probar el método con un gráfico.</p>
+</div>
+<div class="section" id="distancia-aerea-y-centroide">
+<h3>Distancia aérea y centroide<a class="headerlink" href="#distancia-aerea-y-centroide" title="Permalink to this headline">¶</a></h3>
+<p>Otro uso muy común en operaciones geográficas, especialmente cuando hacemos análisis urbanos, es el cálculo de una <strong>distancia</strong>. Por simplicidad en este caso vamos a calcular la distancia aérea (o distancia euclidea).</p>
+<p>En ciertos casos es necesario tener una mayor precisión, para lo cual necesitamos calcular las distancias basándonos en el callejero de la ciudad y, en ocasiones, en los sentidos de las calles (si la distancia a recorrer es en un auto, o camión).</p>
+<p>Por otra parte, para representar el centro de un polígono usamos el concepto de <strong>centroide</strong>.</p>
+<p>Supongamos que se desea conocer cuáles son las 3 delegaciones de bomberos más cercanas al centro de Palermo, para ello podemos:
+- Calcular el centroide
+- Calcula la distancia a todos los centros de bomberos
+- Quedarnos con los tres más cercanos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">palermo</span> <span class="o">=</span> <span class="n">barrios_gkba</span><span class="p">[</span><span class="n">barrios_gkba</span><span class="p">[</span><span class="s2">&quot;BARRIO&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;PALERMO&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">caballito</span> <span class="o">=</span> <span class="n">barrios_gkba</span><span class="p">[</span><span class="n">barrios_gkba</span><span class="p">[</span><span class="s2">&quot;BARRIO&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CABALLITO&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">centroid</span> <span class="o">=</span> <span class="n">palermo</span><span class="o">.</span><span class="n">centroid</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">caballito_centroide</span> <span class="o">=</span> <span class="n">caballito</span><span class="o">.</span><span class="n">centroid</span> <span class="c1"># vean que el centroide es una geoserie con un punto</span>
+<span class="n">palermo_centroide</span> <span class="o">=</span> <span class="n">palermo</span><span class="o">.</span><span class="n">centroid</span>
+<span class="n">palermo_centroide</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>33    POINT (103749.893 106141.469)
+dtype: geometry
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">barrios_gkba</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">caballito_centroide</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">palermo_centroide</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">bomberos_gkba</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_99_0.png" src="../../_images/GeoPandas_99_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">centroide</span> <span class="o">=</span> <span class="n">caballito_centroide</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># nos quedamos sólo con el valor (que es un Point)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mas_cercanos</span> <span class="o">=</span> <span class="n">bomberos_gkba</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">centroide</span><span class="p">))</span><span class="o">.</span><span class="n">nsmallest</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mas_cercanos</span> <span class="o">=</span> <span class="n">bomberos_gkba</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mas_cercanos</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">barrios_gkba</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">caballito_centroide</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">bomberos_gkba</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span> <span class="c1"># esta capa tiene TODAS las delegaciones de bomberos</span>
+<span class="n">mas_cercanos</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span> <span class="c1"># esta capa tiene sólo las 3 delegaciones más cercanas y pisa la capa anterior</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/GeoPandas_103_0.png" src="../../_images/GeoPandas_103_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Ejercicios<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>1- Imaginemos que hay un incendio en Recoleta y un incendio en Monte Castro. Por conveniencia tomemos el centroide de cada barrio.</p>
+<p>2- El gobierno decide ocupar las delegaciones de los bomberos según la proximidad, es decir, debemos asignar cada de delegación al incendio más cercano. Entonces, decida a qué incendio se va a enfocar cada delegación.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "conda-env-geopandas_env-py"
+        },
+        kernelOptions: {
+            kernelName: "conda-env-geopandas_env-py",
+            path: "./DatosGeograficos/1_Introduccion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda-env-geopandas_env-py'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Datos geograficos con Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ejercicio/ejercicio.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejercicios</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
