@@ -44,6 +44,15 @@ parts:
     - file: Scraping/2_HTTP_Avanzado/scraping_extra_tips.ipynb
     - file: Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.ipynb
 
+  - caption: Datos Geográficos
+    chapters:
+    - file: DatosGeograficos/README.md
+    - file: DatosGeograficos/1_Introduccion/GeoPandas.ipynb
+    - file: DatosGeograficos/1_Introduccion/ejercicio/ejercicio.ipynb
+    - file: DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.ipynb
+    - file: DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.ipynb
+    - file: DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.ipynb
+
   - caption: APIs
     chapters:
     - file: APIs/README.md
@@ -67,6 +76,19 @@ parts:
     - file: AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.ipynb
     - file: AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.ipynb
 
+  - caption: Matemáticas para Aprendizaje Automático
+    chapters:
+    - file: MatematicasParaML/README.md
+    - file: MatematicasParaML/1_Vectores/Vectores.ipynb
+    - file: MatematicasParaML/1_Vectores/Ejercicios.ipynb
+    - file: MatematicasParaML/2_Matrices/Matrices.ipynb
+    - file: MatematicasParaML/3_Factorizacion/Factorizacion.ipynb
+    - file: MatematicasParaML/4_Funciones/Funciones.ipynb
+    - file: MatematicasParaML/4_Funciones/Funciones2.ipynb
+    - file: MatematicasParaML/6_Estadistica/estadistica_prob_1.ipynb
+    - file: MatematicasParaML/6_Estadistica/ejercicios_estadistica.ipynb
+    - file: MatematicasParaML/7_Probabilidad/Probabilidad.ipynb
+
   - caption: Aprendizaje Automático
     chapters:
     - file: MachineLearning/README.md
@@ -82,17 +104,21 @@ parts:
     - file: MachineLearning/9_SeriesDeTiempo/2.Prophet.ipynb
     - file: MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb
 
-  - caption: Datos Geográficos
+  - caption: Audio
     chapters:
-    - file: DatosGeograficos/README.md
-    - file: DatosGeograficos/1_Introduccion/GeoPandas.ipynb
-    - file: DatosGeograficos/1_Introduccion/ejercicio/ejercicio.ipynb
-    - file: DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.ipynb
-    - file: DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.ipynb
-    - file: DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.ipynb
+    - file: Audio/README.md
+    - file: Audio/Audio_I.ipynb
+    - file: Audio/Audio_II.ipynb
+    - file: Audio/Audio_III.ipynb
+
+  - caption: Ingenieria de Datos con GCP
+    chapters:
+    - file: IngenieriaDeDatosGCP/1_Introducción_a_GCP_y_Cloud_Computing/Introducción_a_GCP_y_Cloud_Computing.md
+    - file: "IngenieriaDeDatosGCP/2_BigQuery y SQL/BigQuery_y_SQL.md"
 
   - caption: Psicología Computacional y Neurociencias
     chapters:
+    - file: NeuroIA/README.md
     - file: NeuroIA/tiempo_de_reaccion.ipynb
     - file: NeuroIA/no_supervisado_nlp_social_listening.ipynb
     - file: NeuroIA/holland_viz.ipynb
@@ -102,20 +128,14 @@ parts:
     - file: NeuroIA/ejercicios_ml.ipynb
     - file: NeuroIA/sklearn_titanic.ipynb
     - file: NeuroIA/supervisado_okcupid.ipynb
-    - file: NeuroIA/deep_learning_ok.
-    
-  - caption: Matemáticas para Aprendizaje Automático
+    - file: NeuroIA/deep_learning_ok.ipynb
+
+  - caption: Talleres
     chapters:
-    - file: MatematicasParaML/README.md
-    - file: MatematicasParaML/1_Vectores/Vectores.ipynb
-    - file: MatematicasParaML/1_Vectores/Ejercicios.ipynb
-    - file: MatematicasParaML/2_Matrices/Matrices.ipynb
-    - file: MatematicasParaML/3_Factorizacion/Factorizacion.ipynb
-    - file: MatematicasParaML/4_Funciones/Funciones.ipynb
-    - file: MatematicasParaML/4_Funciones/Funciones2.ipynb
-    - file: MatematicasParaML/6_Estadistica/estadistica_prob_1.ipynb
-    - file: MatematicasParaML/6_Estadistica/ejercicios_estadistica.ipynb
-    - file: MatematicasParaML/7_Probabilidad/Probabilidad p18.ipynb
+    - file: Talleres/README.md
+    - file: Talleres/automatizacion.ipynb
+    - file: Talleres/DL_Generacion_de_Texto.ipynb
+    - file: Talleres/Periodismo_de_datos.ipynb
 
   # - caption: DBs
   # - caption: DL
