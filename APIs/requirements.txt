@@ -1,0 +1,6 @@
+pandas
+geopandas
+descartes
+matplotlib
+requests
+openpyxl
