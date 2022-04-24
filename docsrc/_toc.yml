@@ -144,6 +144,7 @@ parts:
   # - caption: CV
   # - caption: Desarrollo
 
-  - caption: Colaboración
+  - caption: General
     chapters:
+    - file: "General/referencias.ipynb" 
     - file: "General/0_Colaboracion/Guia para armar contenido.ipynb" 
