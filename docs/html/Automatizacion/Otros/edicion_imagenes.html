@@ -1,0 +1,1136 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>34. Edición de Imágenes con Python &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="35. Minería Web con Python" href="../../Scraping/README.html" />
+    <link rel="prev" title="33. Ejercicio: Organizando PDFs" href="organizando_pdfs.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   1. Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   2. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   7. Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   17. Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   18. Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   21. Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   22. Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   23. Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   24. Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   25. Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   26. Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   27. Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   29. Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   30. Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Expresiones_Regulares/expresiones_regulares.html">
+   31. Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gsheets_pytrends.html">
+   32. Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="organizando_pdfs.html">
+   33. Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   34. Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   35. Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   36. Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   37. Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   38. Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   42. Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   44. Argenprop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   46. Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   47. Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   48. APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   49. APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   50. APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   51. APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   52. APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   53. Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   54. Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   55. Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   56. Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   57. Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   58. Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   59. Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   60. Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   61. Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   62. Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   63. Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   64. Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   65. Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   66. Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   68. Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   69. Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   70. Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   71. Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   72. Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   73. Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   74. Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   75. Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   76. Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Automatizacion/Otros/edicion_imagenes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/cursos-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/cursos-python/issues/new?title=Issue%20on%20page%20%2FAutomatizacion/Otros/edicion_imagenes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/cursos-python/libro?urlpath=tree/Automatizacion/Otros/edicion_imagenes.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#color">
+   34.1. Color
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-imagecolor-getcolor">
+     34.1.1. Función
+     <em>
+      ImageColor.getcolor()
+     </em>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos-de-manipulacion">
+   34.2. Métodos de manipulación
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Edición de Imágenes con Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#color">
+   34.1. Color
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-imagecolor-getcolor">
+     34.1.1. Función
+     <em>
+      ImageColor.getcolor()
+     </em>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metodos-de-manipulacion">
+   34.2. Métodos de manipulación
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div align="center"><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/edicion_imagenes.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg'/> </a> <br> Recordá abrir en una nueva pestaña</div><div class="tex2jax_ignore mathjax_ignore section" id="edicion-de-imagenes-con-python">
+<h1><span class="section-number">34. </span>Edición de Imágenes con Python<a class="headerlink" href="#edicion-de-imagenes-con-python" title="Permalink to this headline">¶</a></h1>
+<p>Pillow es un módulo para interactuar con archivos de imagen. Éste posee muchas funciones que facilitan por ejemplo la edición, los recortes y los cambios de tamaño. Con el poder de manipular imágenes de la misma manera en la que se haría con otro software como Microsoft Paint o Adobe Photoshop, Python puede editar automáticamente cientas o miles de imágenes con facilidad.</p>
+<div class="section" id="color">
+<h2><span class="section-number">34.1. </span>Color<a class="headerlink" href="#color" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="funcion-imagecolor-getcolor">
+<h3><span class="section-number">34.1.1. </span>Función <em>ImageColor.getcolor()</em>:<a class="headerlink" href="#funcion-imagecolor-getcolor" title="Permalink to this headline">¶</a></h3>
+<p>Usualmente los colores se codifican en una tupla RGBA de cuatro elementos: Red, Green, Blue y Alpha. Los tres primeros representan el grado de cada uno de los colores rojo, verde y azul, mientras que Alpha indica la transparencia. Cada parámetro tiene un mínimo de 0 y un máximo de 255. Pillow nos brinda una función que nos puede ayudar a identificar el código RGBA de un color a partir de su nombre en inglés:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageColor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ImageColor</span><span class="o">.</span><span class="n">getcolor</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ImageColor</span><span class="o">.</span><span class="n">getcolor</span><span class="p">(</span><span class="s1">&#39;RED&#39;</span><span class="p">,</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ImageColor</span><span class="o">.</span><span class="n">getcolor</span><span class="p">(</span><span class="s1">&#39;Black&#39;</span><span class="p">,</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ImageColor</span><span class="o">.</span><span class="n">getcolor</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ImageColor</span><span class="o">.</span><span class="n">getcolor</span><span class="p">(</span><span class="s1">&#39;CornflowerBlue&#39;</span><span class="p">,</span> <span class="s1">&#39;RGBA&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(255, 0, 0, 255)
+(255, 0, 0, 255)
+(0, 0, 0, 255)
+(210, 105, 30, 255)
+(100, 149, 237, 255)
+</pre></div>
+</div>
+</div>
+</div>
+<p>#Abrir imágenes</p>
+<p>Para manipular una imagen con Pillow, primero necesitamos abrirla mediante la función <em>Image.open()</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://ihum.ai/static/logos/ISOTIPO.png -O logo.png #Traemos el logo de Humai desde la página oficial :<span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-11-10 17:32:48--  https://ihum.ai/static/logos/ISOTIPO.png
+Resolving ihum.ai (ihum.ai)... 18.190.92.144
+Connecting to ihum.ai (ihum.ai)|18.190.92.144|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 17855 (17K) [image/png]
+Saving to: ‘logo.png’
+
+logo.png            100%[===================&gt;]  17,44K  --.-KB/s    in 0s      
+
+2021-11-10 17:32:49 (613 MB/s) - ‘logo.png’ saved [17855/17855]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">logo</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;logo.png&#39;</span><span class="p">)</span>
+
+<span class="n">logo</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_7_0.png" src="../../_images/edicion_imagenes_7_0.png" />
+</div>
+</div>
+<p>Todas las rotaciones, cambios de tamaño, cortes, dibujos y otras tareas vamos a hacerlas llamando métodos de este objeto Image.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">logo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PIL.PngImagePlugin.PngImageFile
+</pre></div>
+</div>
+</div>
+</div>
+<p>#Tamaño</p>
+<p>Las dimensiones de una imagen se odenan a partir de una <em>Box tuple</em> de cuatro coordenadas:</p>
+<ul class="simple">
+<li><p>Left: La coordenada <em>x</em> del borde izquierdo de la imagen.</p></li>
+<li><p>Top: La coordenada <em>y</em> del borde superior de la imagen.</p></li>
+<li><p>Right: La coordenada <em>x</em> de un pixel a la derecha del borde derecho de la imagen. Este entero debe ser mayor a Left.</p></li>
+<li><p>Bottom: La coordenada <em>y</em> de un pixel más abajo del borde inferior de la imagen. Este entero debe ser mayor a Top.</p></li>
+</ul>
+<p>(Observemos que los enteros de Left y Top están incluidos, mientras que los de Right y Bottom están excluidos)</p>
+</div>
+</div>
+<div class="section" id="metodos-de-manipulacion">
+<h2><span class="section-number">34.2. </span>Métodos de manipulación<a class="headerlink" href="#metodos-de-manipulacion" title="Permalink to this headline">¶</a></h2>
+<p>Con <em>size</em> podemos obtener el tamaño de nuestra imagenen una tupla de dos elementos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(300, 391)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Separamos la tupla en ancho y alto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ancho</span><span class="p">,</span> <span class="n">alto</span> <span class="o">=</span> <span class="n">logo</span><span class="o">.</span><span class="n">size</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ancho</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>300
+391
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos obtener información como el nombre del archivo de la imagen…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span><span class="o">.</span><span class="n">filename</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;logo.png&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>…el formato…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span><span class="o">.</span><span class="n">format</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;PNG&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>…O incluso la descripción del formato.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span><span class="o">.</span><span class="n">format_description</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Portable network graphics&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con el método <em>save</em> guardamos una copia, pasándole como parámetro un string que especifique el nombre del archivo y el formato deseado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;muñequito_humai.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Con <em>crop()</em> podemos recortar un rectángulo específico dentro de la imagen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recorte</span> <span class="o">=</span> <span class="n">logo</span><span class="o">.</span><span class="n">crop</span><span class="p">((</span><span class="mi">115</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">205</span><span class="p">,</span> <span class="mi">70</span><span class="p">))</span>
+
+<span class="n">recorte</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_25_0.png" src="../../_images/edicion_imagenes_25_0.png" />
+</div>
+</div>
+<p>También podemos guardar el recorte realizado dentro de un archivo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">recorte</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;recorte.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El método <em>copy()</em> nos permite generar un nuevo objeto <em>Image</em> igual a aquél desde el cual fue llamado. Esto resulta ventajoso si queremos manipular una imagen pero al mismo tiempo mantener una versión intacta de la misma:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo2</span> <span class="o">=</span> <span class="n">logo</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">logo2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_29_0.png" src="../../_images/edicion_imagenes_29_0.png" />
+</div>
+</div>
+<p>El método <em>paste()</em> nos permite pegar una imagen sobre otra. En este caso vamos a superponer el recorte que hicimos sobre nuestra copia:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo2</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">recorte</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">logo2</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_31_0.png" src="../../_images/edicion_imagenes_31_0.png" />
+</div>
+</div>
+<p>¡¡¡Ahora el logo de Humai tiene dos pelotitas!!! Podemos agregarle una más del otro lado, modificando el parámetro que determina la coordenada superior izquierda de la imagen a pegar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo2</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">recorte</span><span class="p">,</span> <span class="p">(</span><span class="mi">220</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="n">logo2</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_33_0.png" src="../../_images/edicion_imagenes_33_0.png" />
+</div>
+</div>
+<p>Nota: Ni el método <em>copy()</em> ni el método <em>paste()</em> utilizan el portapapeles de nuestra computadora.</p>
+<p>Otra cosa que podemos hacer es pegar nuestro recorte de manera que recubra toda la imagen mediante un bucle anidado dentro de otro, de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ancho_copia</span><span class="p">,</span> <span class="n">alto_copia</span> <span class="o">=</span> <span class="n">logo2</span><span class="o">.</span><span class="n">size</span> <span class="c1">#Separamos ancho y alto de ambos objetos.</span>
+<span class="n">ancho_recorte</span><span class="p">,</span> <span class="n">alto_recorte</span> <span class="o">=</span> <span class="n">recorte</span><span class="o">.</span><span class="n">size</span>
+
+<span class="k">for</span> <span class="n">left</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">ancho_copia</span><span class="p">,</span> <span class="n">ancho_recorte</span><span class="p">):</span> <span class="c1">#Para un rango del ancho de la imagen, con un intervalo del ancho del recorte...</span>
+    <span class="k">for</span> <span class="n">top</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">alto_copia</span><span class="p">,</span> <span class="n">alto_recorte</span><span class="p">):</span> <span class="c1">#...y a su vez para un rango del alto de la imagen, con un intervalo del alto del recorte...</span>
+        <span class="n">logo2</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">recorte</span><span class="p">,</span> <span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">top</span><span class="p">))</span> <span class="c1">#...pegar el recorte.</span>
+
+<span class="n">logo2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_36_0.png" src="../../_images/edicion_imagenes_36_0.png" />
+</div>
+</div>
+<p>Veamos algunos ejemplos un poco más complejos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget https://codersera.com/blog/wp-content/uploads/2021/06/Beginners-Guide-To-Python.jpeg -O img.jpeg
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-11-10 17:32:49--  https://codersera.com/blog/wp-content/uploads/2021/06/Beginners-Guide-To-Python.jpeg
+Resolving codersera.com (codersera.com)... 172.67.149.220, 104.21.29.227, 2606:4700:3034::ac43:95dc, ...
+Connecting to codersera.com (codersera.com)|172.67.149.220|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [image/jpeg]
+Saving to: ‘img.jpeg’
+
+img.jpeg                [ &lt;=&gt;                ]  17,16K  --.-KB/s    in 0,009s  
+
+2021-11-10 17:32:50 (1,80 MB/s) - ‘img.jpeg’ saved [17574]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageDraw</span><span class="p">,</span> <span class="n">ImageFont</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Leemos la imagen</span>
+<span class="n">py</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;img.jpeg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">)</span>
+
+<span class="c1"># la achicamos</span>
+<span class="n">py</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">((</span><span class="mi">250</span><span class="p">,</span> <span class="mi">250</span><span class="p">))</span>
+<span class="n">py</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_40_0.png" src="../../_images/edicion_imagenes_40_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">storify</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">coloroff</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">16</span> <span class="o">/</span> <span class="mi">9</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Función para llevar una imagen a una proporcion dada, completando con el color dominante.</span>
+<span class="sd">    image:= Imagen PIL</span>
+<span class="sd">    color:= Color a usar, si no se quiere el dominante,</span>
+<span class="sd">    coloroff := offset del color para no tomar el más predominante,</span>
+<span class="sd">    ratio := proporción a la que llevar la imagen</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">old_size</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span>
+    <span class="c1"># calculamos las nuevas dimensiones    </span>
+    <span class="n">max_dimension</span><span class="p">,</span> <span class="n">min_dimension</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">old_size</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="n">old_size</span><span class="p">)</span>
+    <span class="n">desired_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_dimension</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_dimension</span> <span class="o">*</span> <span class="n">ratio</span><span class="p">))</span>
+    <span class="c1"># coordenadas medias para pegar la imagen original</span>
+    <span class="n">x_mid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">desired_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">old_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y_mid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">desired_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">old_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_mid</span><span class="p">,</span> <span class="n">y_mid</span><span class="p">)</span>
+
+    <span class="c1"># si el color es None, buscamos el color más presente</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">&quot;RGBA&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">color</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pixels</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">getcolors</span><span class="p">(</span><span class="n">image</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">image</span><span class="o">.</span><span class="n">height</span><span class="p">)</span>  <span class="c1"># get colors devuelve la cantidad de pixeles de cada color RGB</span>
+        <span class="n">sorted_pixels</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">sorted_pixels</span><span class="p">[</span><span class="o">-</span><span class="n">coloroff</span><span class="p">][</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># creamos una nueva imagen de la dimensión deseada y pegamos la original en el centro</span>
+    <span class="n">blank_image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;RGB&quot;</span><span class="p">,</span> <span class="n">desired_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">blank_image</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">blank_image</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">position</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">storify</span><span class="p">(</span><span class="n">py</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_43_0.png" src="../../_images/edicion_imagenes_43_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">storify</span><span class="p">(</span><span class="n">py</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ratio</span><span class="o">=</span><span class="mi">16</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">img</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_44_0.png" src="../../_images/edicion_imagenes_44_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget -nc https://unket.s3.sa-east-1.amazonaws.com/static/Roboto-Regular.ttf -O font.ttf
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-11-10 17:37:52--  https://unket.s3.sa-east-1.amazonaws.com/static/Roboto-Regular.ttf
+Resolving unket.s3.sa-east-1.amazonaws.com (unket.s3.sa-east-1.amazonaws.com)... 52.95.163.55
+Connecting to unket.s3.sa-east-1.amazonaws.com (unket.s3.sa-east-1.amazonaws.com)|52.95.163.55|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 168260 (164K) [binary/octet-stream]
+Saving to: ‘font.ttf’
+
+font.ttf            100%[===================&gt;] 164,32K   732KB/s    in 0,2s    
+
+2021-11-10 17:37:52 (732 KB/s) - ‘font.ttf’ saved [168260/168260]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_text_center</span><span class="p">(</span>
+    <span class="n">img</span><span class="p">,</span>
+    <span class="n">txt</span><span class="p">,</span>
+    <span class="n">y_offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">x_offset</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">font_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">font_ttf</span><span class="o">=</span><span class="s2">&quot;font.ttf&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Función para pegar un texto en una imagen PIL.</span>
+<span class="sd">    Por default, el texto se pega en el centro, con x e y offset se puede modificar. </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="c1"># leemos la tipografía de un archivo ttf</span>
+    <span class="n">font</span> <span class="o">=</span> <span class="n">ImageFont</span><span class="o">.</span><span class="n">truetype</span><span class="p">(</span><span class="n">font_ttf</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">font_size</span><span class="p">))</span>
+    <span class="c1"># vemos el tamaño resultante del texto para centrarlo</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">font</span><span class="o">.</span><span class="n">getsize</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+     
+    <span class="n">width</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span>
+    <span class="n">text_x</span><span class="p">,</span> <span class="n">text_y</span> <span class="o">=</span> <span class="n">size</span>
+    
+    <span class="c1"># por default el texto se centra, los offsets nos permiten correrlo del centro</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="n">text_x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">x_offset</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span> <span class="o">-</span> <span class="n">text_y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y_offset</span>
+    <span class="n">draw</span><span class="o">.</span><span class="n">text</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">txt</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="n">font</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">img</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">storify</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="n">img</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_47_0.png" src="../../_images/edicion_imagenes_47_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">add_text_center</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s1">&#39;Automatización con Python&#39;</span><span class="p">,</span> 
+                          <span class="n">font_size</span><span class="o">=</span><span class="mi">30</span> <span class="o">-</span> <span class="p">(</span><span class="n">i</span><span class="o">/</span><span class="mi">10</span><span class="p">),</span> 
+                          <span class="n">y_offset</span><span class="o">=-</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mf">0.4</span> <span class="o">-</span> <span class="n">i</span><span class="p">,</span> 
+                          <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="o">+</span><span class="n">i</span><span class="o">*</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span> <span class="o">=</span> <span class="n">logo</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGBA&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logo</span><span class="o">.</span><span class="n">thumbnail</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span><span class="o">.</span><span class="n">alpha_composite</span><span class="p">(</span><span class="n">logo</span><span class="p">,</span> <span class="p">(</span><span class="mi">180</span><span class="p">,</span> <span class="mi">650</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/edicion_imagenes_52_0.png" src="../../_images/edicion_imagenes_52_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Automatizacion/Otros"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="organizando_pdfs.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">33. </span>Ejercicio: Organizando PDFs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../Scraping/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>Minería Web con Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

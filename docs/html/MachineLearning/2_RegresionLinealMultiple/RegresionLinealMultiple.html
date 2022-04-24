@@ -1,0 +1,2808 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>68. Regresión Lineal Múltiple &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="69. Regularización - Optimización - Feature Engineering - Pipelines" href="../3_Regularizacion/Regularizacion.html" />
+    <link rel="prev" title="66. Regresión Lineal Simple" href="../1_Introduccion/rls.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   1. Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   2. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   7. Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   17. Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   18. Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   21. Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   22. Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   23. Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   24. Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   25. Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   26. Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   27. Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   29. Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   30. Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   31. Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   32. Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   33. Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   34. Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   35. Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   36. Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   37. Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   38. Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   42. Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   44. Argenprop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   46. Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   47. Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   48. APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   49. APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   50. APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   51. APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   52. APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   53. Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   54. Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   55. Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   56. Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   57. Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   58. Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   59. Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   60. Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   61. Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   62. Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   63. Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   64. Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   65. Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Introduccion/rls.html">
+   66. Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   68. Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Regularizacion/Regularizacion.html">
+   69. Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   70. Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Ensamble/Bagging%26Boosting.html">
+   71. Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   72. Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_SeriesDeTiempo/1.ARIMA.html">
+   73. Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_SeriesDeTiempo/2.Prophet.html">
+   74. Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Recomendacion/sistemas_recomendacion.html">
+   75. Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   76. Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/cursos-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/cursos-python/issues/new?title=Issue%20on%20page%20%2FMachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/cursos-python/libro?urlpath=tree/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-propiedades">
+   68.1. Dataset propiedades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-exploratorios">
+   68.2. 1. Analisis exploratorios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-estimacion-e-interpretacion">
+   68.3. 2. Modelos: Estimación e interpretación
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparacion-de-los-datos">
+     68.3.1. 2.1 Preparación de los datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-superficie-y-banos">
+     68.3.2. 2.2 Modelo Superficie y Baños
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-superficie-y-cuartos">
+     68.3.3. 2.2 Modelo Superficie y Cuartos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sin-embargo-esto-es-incorrecto-por-que">
+       68.3.3.1. Sin embargo, esto es incorrecto ¿Por qué?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#entonces-cual-es-la-interpretacion-correcta">
+       68.3.3.2. Entonces ¿Cúal es la interpretación correcta?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-con-variables-categoricas">
+   68.4. 3. Modelo con variables categóricas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-tipo-de-propiedad-y-superficie">
+     68.4.1. 3.1 Modelo Tipo de Propiedad y Superficie
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creacion-de-las-variables-dummies">
+       68.4.1.1. Creación de las variables dummies
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interaccion">
+     68.4.2. 3.2 Interacción
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluacion">
+   68.5. 4. Evaluación
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tests-estadisticos">
+     68.5.1. 4.1 Tests estadísticos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metricas-de-performance">
+     68.5.2. 4.2 Métricas de performance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostico">
+   68.6. 5. Diagnóstico
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Regresión Lineal Múltiple</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset-propiedades">
+   68.1. Dataset propiedades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-exploratorios">
+   68.2. 1. Analisis exploratorios
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-estimacion-e-interpretacion">
+   68.3. 2. Modelos: Estimación e interpretación
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparacion-de-los-datos">
+     68.3.1. 2.1 Preparación de los datos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-superficie-y-banos">
+     68.3.2. 2.2 Modelo Superficie y Baños
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-superficie-y-cuartos">
+     68.3.3. 2.2 Modelo Superficie y Cuartos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sin-embargo-esto-es-incorrecto-por-que">
+       68.3.3.1. Sin embargo, esto es incorrecto ¿Por qué?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#entonces-cual-es-la-interpretacion-correcta">
+       68.3.3.2. Entonces ¿Cúal es la interpretación correcta?
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelo-con-variables-categoricas">
+   68.4. 3. Modelo con variables categóricas
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-tipo-de-propiedad-y-superficie">
+     68.4.1. 3.1 Modelo Tipo de Propiedad y Superficie
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#creacion-de-las-variables-dummies">
+       68.4.1.1. Creación de las variables dummies
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interaccion">
+     68.4.2. 3.2 Interacción
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluacion">
+   68.5. 4. Evaluación
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tests-estadisticos">
+     68.5.1. 4.1 Tests estadísticos
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metricas-de-performance">
+     68.5.2. 4.2 Métricas de performance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diagnostico">
+   68.6. 5. Diagnóstico
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div><div class="tex2jax_ignore mathjax_ignore section" id="regresion-lineal-multiple">
+<h1><span class="section-number">68. </span>Regresión Lineal Múltiple<a class="headerlink" href="#regresion-lineal-multiple" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+
+<span class="c1"># Indicamos que los tipos de datos float se muestren con 2 decimales</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/statsmodels/tools/_testing.py:19: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+  import pandas.util.testing as tm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dataset-propiedades">
+<h2><span class="section-number">68.1. </span>Dataset propiedades<a class="headerlink" href="#dataset-propiedades" title="Permalink to this headline">¶</a></h2>
+<p>Continuamos en la misma consultora estadística de la clase pasada  y ahora nos contrata una empresa que se dedica a comprar y remodelar propiedades para luego venderlas. En esta oportunidad quiere que realicemos algunos modelos para predecir los precios de las propiedades y además poder entender como influyen en el precio determinadas variables para entender que modificaciones pueden llegar a aumentar el precio.</p>
+<p>El dataset consiste en los anuncios de ventas de Properati de propiedades en la Ciudad de Buenos Aires durante el primer semestre de 2021. Nuestra variable a predecir es el precio de la propiedad en dolares y las posibles variables predictoras son:</p>
+<ul class="simple">
+<li><p>Superficie Total: superficie total de la propiedad en metros cuadrados</p></li>
+<li><p>Superficie Cubierta: superficie cubierta de la propiedad en metros cuadrados</p></li>
+<li><p>Ambientes/Cuartos: cantidad de ambientes/cuartos (excluyendo baños)</p></li>
+<li><p>Baños: cantidad de baños</p></li>
+<li><p>Tipo de propiedad: si la propiedad es una casa, departamento o propiedad horizontal (PH)</p></li>
+<li><p>Latitud</p></li>
+<li><p>Longitud</p></li>
+<li><p>Barrio: barrio donde se encuentra la propiedad (l3)</p></li>
+</ul>
+<p>Datos provistos por <a href='https://www.properati.com.ar'>Properati</a></p>
+<p><u>Exploremos un poco los datos:</u></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lectura del dataset </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://datasets-humai.s3.amazonaws.com/datasets/properati_caba_2021.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos la semilla</span>
+<span class="n">SEMILLA</span> <span class="o">=</span> <span class="mi">1992</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analisis-exploratorios">
+<h2><span class="section-number">68.2. </span>1. Analisis exploratorios<a class="headerlink" href="#analisis-exploratorios" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Observamos los primeros registros del dataframe</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>l3</th>
+      <th>rooms</th>
+      <th>bathrooms</th>
+      <th>surface_total</th>
+      <th>surface_covered</th>
+      <th>price</th>
+      <th>property_type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5dmWZ4uqAU4kpJw0AEc/Hw==</td>
+      <td>-34.62</td>
+      <td>-58.40</td>
+      <td>San Cristobal</td>
+      <td>7.00</td>
+      <td>6.00</td>
+      <td>534.00</td>
+      <td>384.00</td>
+      <td>470000.00</td>
+      <td>Casa</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>kFa6ndbLuJ2k2zfzI1fY3A==</td>
+      <td>-34.56</td>
+      <td>-58.46</td>
+      <td>Belgrano</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>25.00</td>
+      <td>25.00</td>
+      <td>60000.00</td>
+      <td>Departamento</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>S0fct9jgpfmuqmOaPntC/Q==</td>
+      <td>-34.62</td>
+      <td>-58.38</td>
+      <td>Monserrat</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>40.00</td>
+      <td>40.00</td>
+      <td>82500.00</td>
+      <td>Departamento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>sduUfHxdOh9PuRwJruEcyA==</td>
+      <td>-34.62</td>
+      <td>-58.38</td>
+      <td>San Telmo</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>40.00</td>
+      <td>40.00</td>
+      <td>82500.00</td>
+      <td>Departamento</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tl1ebIQJyPOXV2XJMEImQg==</td>
+      <td>-34.62</td>
+      <td>-58.38</td>
+      <td>Constitución</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>40.00</td>
+      <td>40.00</td>
+      <td>82500.00</td>
+      <td>Departamento</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Observamos la matriz de correlación entre las variables numéricas</span>
+<span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>rooms</th>
+      <th>bathrooms</th>
+      <th>surface_total</th>
+      <th>surface_covered</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lat</th>
+      <td>1.00</td>
+      <td>-0.14</td>
+      <td>-0.01</td>
+      <td>0.10</td>
+      <td>0.02</td>
+      <td>0.04</td>
+      <td>0.15</td>
+    </tr>
+    <tr>
+      <th>lon</th>
+      <td>-0.14</td>
+      <td>1.00</td>
+      <td>0.05</td>
+      <td>0.08</td>
+      <td>0.05</td>
+      <td>0.09</td>
+      <td>0.18</td>
+    </tr>
+    <tr>
+      <th>rooms</th>
+      <td>-0.01</td>
+      <td>0.05</td>
+      <td>1.00</td>
+      <td>0.62</td>
+      <td>0.74</td>
+      <td>0.75</td>
+      <td>0.49</td>
+    </tr>
+    <tr>
+      <th>bathrooms</th>
+      <td>0.10</td>
+      <td>0.08</td>
+      <td>0.62</td>
+      <td>1.00</td>
+      <td>0.74</td>
+      <td>0.75</td>
+      <td>0.67</td>
+    </tr>
+    <tr>
+      <th>surface_total</th>
+      <td>0.02</td>
+      <td>0.05</td>
+      <td>0.74</td>
+      <td>0.74</td>
+      <td>1.00</td>
+      <td>0.97</td>
+      <td>0.72</td>
+    </tr>
+    <tr>
+      <th>surface_covered</th>
+      <td>0.04</td>
+      <td>0.09</td>
+      <td>0.75</td>
+      <td>0.75</td>
+      <td>0.97</td>
+      <td>1.00</td>
+      <td>0.76</td>
+    </tr>
+    <tr>
+      <th>price</th>
+      <td>0.15</td>
+      <td>0.18</td>
+      <td>0.49</td>
+      <td>0.67</td>
+      <td>0.72</td>
+      <td>0.76</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Observamos que las variables de <strong>superficie</strong> presentan una correlación positiva alta con el precio y una correlación muy fuerte entre sí.</p>
+<p>La variable de <strong>baños</strong> presenta una correlación positiva bastante alta seguida por la variable de <strong>ambientes</strong>.</p>
+<p>Por último, las variables de latitud y longitud presentan un correlación positiva baja con el precio.</p>
+<p>Observemos los gráficos de dispersión de algunas de estas variables con el precio</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Graficamos algunas de estas relaciones con el precio</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax4</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RegresionLinealMultiple_10_0.png" src="../../_images/RegresionLinealMultiple_10_0.png" />
+</div>
+</div>
+<p>Observamos que de estas 4 variables la que parece tener una relación aproximadamente lineal con el precio es la <strong>superficie total</strong>.</p>
+<p>Por otro lado, vemos que existen algunas observaciones que son <strong>outliers</strong> (valores atípicos) en las variables. Por ejemplo: hay propiedades con 30 y 35 ambientes y algunas 10 baños o más</p>
+<p>Ahora que ya conocemos un poco sobre los datos podemos proceder a diseñar e implementar algunos modelos para estimar el precio de las propiedades</p>
+</div>
+<div class="section" id="modelos-estimacion-e-interpretacion">
+<h2><span class="section-number">68.3. </span>2. Modelos: Estimación e interpretación<a class="headerlink" href="#modelos-estimacion-e-interpretacion" title="Permalink to this headline">¶</a></h2>
+<p>Vamos a desarrollar modelos de regresión lineal múltiple con la siguiente especificación:</p>
+<p><span class="math notranslate nohighlight">\(E(Y|X_1, X_2, ..., X_p) = \beta_0 + \beta_1 \cdot X_1 + \beta_2  \cdot X_2 + ... + \beta_p \cdot X_p \)</span></p>
+<p>En esta sección desarrollaremos distintos modelos con las variables numéricas que vimos previamente y observaremos los coeficientes estimados y su interpretación</p>
+<div class="section" id="preparacion-de-los-datos">
+<h3><span class="section-number">68.3.1. </span>2.1 Preparación de los datos<a class="headerlink" href="#preparacion-de-los-datos" title="Permalink to this headline">¶</a></h3>
+<p>Como se vio en la clase previa, para evaluar los modelos que diseñemos es necesario separar a los datos en:</p>
+<ul class="simple">
+<li><p>Conjunto de <strong>entrenamiento</strong>: datos con los cuales vamos a entrenar los modelos</p></li>
+<li><p>Conjunto de <strong>evaluación</strong>: datos con los cuales vamos a evaluar la performance del modelo</p></li>
+</ul>
+<p>Esto lo vamos a realizar con la función <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.train_test_split.html">train_test_split</a>. Le pasamos como argumentos el set de datos de variables predictoras, la serie de la variable a predecir y el porcentaje de datos que deseamos que forme nuestro set de evaluación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Separamos al dataset en X (variables predictoras) e y (variable a predecir)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">,</span> <span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="s1">&#39;surface_covered&#39;</span><span class="p">,</span> <span class="s1">&#39;property_type&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="c1"># Realizamos el split de X e y en los sets de entrenamiento (train) y test</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEMILLA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El dataset de entrenamiento cuenta con </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span><span class="si">}</span><span class="s2"> observaciones&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El dataset de evaluación cuenta con </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span><span class="si">}</span><span class="s2"> observaciones&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El dataset de entrenamiento cuenta con 32124 observaciones
+El dataset de evaluación cuenta con 8032 observaciones
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modelo-superficie-y-banos">
+<h3><span class="section-number">68.3.2. </span>2.2 Modelo Superficie y Baños<a class="headerlink" href="#modelo-superficie-y-banos" title="Permalink to this headline">¶</a></h3>
+<p>Por lo que vimos en nuestro análisis de datos las variables de <strong>superficie total</strong> y <strong>baños</strong> presentan un correlación positiva bastante alta con el precio. Entonces, comencemos con un modelo que incluya ambas variables como predictoras:</p>
+<p><span class="math notranslate nohighlight">\(E(precio|.) = \beta_0 + \beta_1 \cdot superficieTotal + \beta_2 \cdot baños\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos las variables exogenas (predictores)</span>
+<span class="n">variables_exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="s1">&#39;bathrooms&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construimos la matriz de X</span>
+<span class="n">X_train_modelo_sup_baños</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">variables_exogenas</span><span class="p">]</span>
+<span class="n">X_train_modelo_sup_baños</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>surface_total</th>
+      <th>bathrooms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36377</th>
+      <td>63.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>8124</th>
+      <td>42.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>34075</th>
+      <td>160.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>28781</th>
+      <td>126.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <th>4876</th>
+      <td>32.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos el modelo lineal</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos una instancia del modelo lineal con scikit learn</span>
+<span class="n">modelo_lineal_sup_baños</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Realizamos el proceso de estimación</span>
+<span class="n">modelo_lineal_sup_baños</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_modelo_sup_baños</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accedemos a los coeficientes estimados</span>
+<span class="n">modelo_lineal_sup_baños</span><span class="o">.</span><span class="n">coef_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([  2069.77563582, 113359.64561445])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accedemos al intercepto</span>
+<span class="n">modelo_lineal_sup_baños</span><span class="o">.</span><span class="n">intercept_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-107213.65573087399
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos variables para guardar los coeficientes estimados</span>
+<span class="n">coeficientes</span> <span class="o">=</span> <span class="n">modelo_lineal_sup_baños</span><span class="o">.</span><span class="n">coef_</span>
+<span class="n">intercepto</span> <span class="o">=</span> <span class="n">modelo_lineal_sup_baños</span><span class="o">.</span><span class="n">intercept_</span>
+<span class="n">beta_1</span><span class="p">,</span> <span class="n">beta_2</span> <span class="o">=</span> <span class="n">coeficientes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">coeficientes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El intercepto es </span><span class="si">{</span><span class="n">intercepto</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El coeficiente estimado para Beta 1 es </span><span class="si">{</span><span class="n">beta_1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;El coeficiente estimado para Beta 2 es </span><span class="si">{</span><span class="n">beta_2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El intercepto es -107213.66
+El coeficiente estimado para Beta 1 es 2069.78
+El coeficiente estimado para Beta 2 es 113359.65
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos una función para obtener los coeficientes en un dataframe</span>
+<span class="k">def</span> <span class="nf">obtener_coeficientes</span><span class="p">(</span><span class="n">modelo</span><span class="p">,</span> <span class="n">lista_variables</span><span class="p">):</span>
+  <span class="sd">&#39;&#39;&#39;Crea un dataframe con los coeficientes estimados de un modelo&#39;&#39;&#39;</span>
+  <span class="c1"># Creo la lista de nombres de variables</span>
+  <span class="n">lista_variables</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;intercepto&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">lista_variables</span>
+  <span class="c1"># Intercepto</span>
+  <span class="n">intercepto</span> <span class="o">=</span> <span class="n">modelo</span><span class="o">.</span><span class="n">intercept_</span>
+  <span class="c1"># Lista coeficientes excepto el intercepto</span>
+  <span class="n">coeficientes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">modelo</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+  <span class="c1"># Lista completa coeficientes</span>
+  <span class="n">lista_coeficientes</span> <span class="o">=</span> <span class="p">[</span><span class="n">intercepto</span><span class="p">]</span> <span class="o">+</span> <span class="n">coeficientes</span>
+  <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;variable&quot;</span><span class="p">:</span> <span class="n">lista_variables</span><span class="p">,</span> <span class="s2">&quot;coeficiente&quot;</span><span class="p">:</span> <span class="n">lista_coeficientes</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtenemos nuestro dataframe </span>
+<span class="n">coeficientes_modelo_sup_baños</span> <span class="o">=</span> <span class="n">obtener_coeficientes</span><span class="p">(</span><span class="n">modelo_lineal_sup_baños</span><span class="p">,</span> <span class="n">variables_exogenas</span><span class="p">)</span>
+<span class="n">coeficientes_modelo_sup_baños</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>coeficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>intercepto</td>
+      <td>-107213.66</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>surface_total</td>
+      <td>2069.78</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bathrooms</td>
+      <td>113359.65</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>¿Cómo interpretamos estos coeficientes?</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_0} = -107213.75\)</span></p>
+<p>El valor esperado/promedio/predicho de una propiedad sin superficie ni baños es de -107213.65 dólares</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_1} = 2069.77\)</span></p>
+<p>El valor esperado/promedio/predicho de una propiedad aumenta en 2069.77 dólares frente a un aumento de 1 metro cuadrado de la superficie total dada la cantidad de baños</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_2} = 113359.64\)</span></p>
+<p>El valor esperado/promedio/predicho de una propiedad aumenta en 113359.64 dólares frente a un aumento de 1 baño dada la superficie total</p>
+</div>
+<div class="section" id="modelo-superficie-y-cuartos">
+<h3><span class="section-number">68.3.3. </span>2.2 Modelo Superficie y Cuartos<a class="headerlink" href="#modelo-superficie-y-cuartos" title="Permalink to this headline">¶</a></h3>
+<p>También vimos en nuestro análisis de datos que la variable <strong>cuartos</strong> presentan un correlación positiva con el precio. Entonces, realicemos un modelo con los cuartos y la superficie total como predictoras:</p>
+<p><span class="math notranslate nohighlight">\(E(precio|.) = \beta_0 + \beta_1 \cdot superficieTotal + \beta_2 \cdot cuartos\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos las variables exogenas (predictores)</span>
+<span class="n">variables_exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="s1">&#39;rooms&#39;</span><span class="p">]</span>
+
+<span class="c1"># Construimos la matriz de X</span>
+<span class="n">X_train_modelo_sup_cuartos</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">variables_exogenas</span><span class="p">]</span>
+
+<span class="c1"># Definimos una instancia del modelo lineal con scikit learn</span>
+<span class="n">modelo_lineal_sup_cuartos</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Realizamos el proceso de estimación</span>
+<span class="n">modelo_lineal_sup_cuartos</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_modelo_sup_cuartos</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Obtenemos los coeficientes en el dataframe</span>
+<span class="n">coeficientes_modelo_sup_cuartos</span> <span class="o">=</span> <span class="n">obtener_coeficientes</span><span class="p">(</span><span class="n">modelo_lineal_sup_cuartos</span><span class="p">,</span> <span class="n">variables_exogenas</span><span class="p">)</span>
+<span class="n">coeficientes_modelo_sup_cuartos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>coeficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>intercepto</td>
+      <td>11793.04</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>surface_total</td>
+      <td>3290.52</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>rooms</td>
+      <td>-21992.68</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>¿Qué sucedió con los coeficientes estimados del modelo?</p>
+<p>Lo que nos puede llamar la atención en modelo es que el coeficiente de la variable <strong>ambientes</strong> es negativo.</p>
+<p>Alguien podría decirnos que la interpretación de este coeficiente es extraña y contraintuitiva si decimos que: el coeficiente <span class="math notranslate nohighlight">\(\hat{\beta_2} = -21992\)</span> indica que frente al aumento de un ambiente el precio esperado de la propiedad cae en 21992 dólares.</p>
+<div class="section" id="sin-embargo-esto-es-incorrecto-por-que">
+<h4><span class="section-number">68.3.3.1. </span>Sin embargo, esto es incorrecto ¿Por qué?<a class="headerlink" href="#sin-embargo-esto-es-incorrecto-por-que" title="Permalink to this headline">¶</a></h4>
+<p>Porque la interpretación del coeficiente estimado en el modelo de regresión lineal múltiple se realiza <strong>dadas las otras variables constantes</strong></p>
+</div>
+<div class="section" id="entonces-cual-es-la-interpretacion-correcta">
+<h4><span class="section-number">68.3.3.2. </span>Entonces ¿Cúal es la interpretación correcta?<a class="headerlink" href="#entonces-cual-es-la-interpretacion-correcta" title="Permalink to this headline">¶</a></h4>
+<p>La interpretación correcta de <span class="math notranslate nohighlight">\(\hat{\beta_2} = 21992\)</span> es:</p>
+<p>El valor esperado de una propiedad cae en 21992 dólares frente al aumento de 1 ambiente dada la superficie total.</p>
+<p>Esto quiere decir que si para una propiedad que tiene una superficie dada se crea un ambiente nuevo (dividir la superficie en más cuartos) se espera que su valor caiga en aproximadamente 22000 dolares</p>
+</div>
+</div>
+</div>
+<div class="section" id="modelo-con-variables-categoricas">
+<h2><span class="section-number">68.4. </span>3. Modelo con variables categóricas<a class="headerlink" href="#modelo-con-variables-categoricas" title="Permalink to this headline">¶</a></h2>
+<p>En esta sección vamos a incorporar la variable categórica del <strong>tipo de propiedad</strong> en nuestros modelos.</p>
+<p>Primero veamos como se relaciona esta variable con el precio de la propiedad</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boxplot del precio por tipo de propiedad</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RegresionLinealMultiple_34_0.png" src="../../_images/RegresionLinealMultiple_34_0.png" />
+</div>
+</div>
+<p>Se observa que existen múltiples <strong>outliers</strong> que dificultan la comparación entre los distintos tipos de propiedad. Las casas y departamentos se caracterizan por tener más outliers que los PH.</p>
+<p>Acotemos el gráfico a propiedades con precios menores a 1 millón de pesos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Boxplot del precio por tipo de propiedad</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;price&lt;=1000000&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RegresionLinealMultiple_36_0.png" src="../../_images/RegresionLinealMultiple_36_0.png" />
+</div>
+</div>
+<p>Ahora podemos observar que los departamentos y PH tienen una mediana similar mientras que las casas tiene una mediana de precio más elevada. Sin embargo, recordemos que en este gráfico no estamos controlando por otras variables.</p>
+<div class="section" id="modelo-tipo-de-propiedad-y-superficie">
+<h3><span class="section-number">68.4.1. </span>3.1 Modelo Tipo de Propiedad y Superficie<a class="headerlink" href="#modelo-tipo-de-propiedad-y-superficie" title="Permalink to this headline">¶</a></h3>
+<p>Como parecen existir diferencias en el precio que se pueden explicar por  el tipo de propiedad definimos un modelo que incluya está información.</p>
+<p>Recordemos que como se trata de una variable con 3 categorías deberemos crear dos variables binarias, quedando una categoría contenida en el intercepto.</p>
+<p><span class="math notranslate nohighlight">\(E(precio|X) = \beta_0 + \beta_1 \cdot superficieTotal + \beta_{2}  \cdot X_{casa} + \beta_{3}  \cdot X_{depto}\)</span></p>
+<p>Las variables dummies que debemos crear son:</p>
+<p><span class="math notranslate nohighlight">\(X_{casa}=\begin{cases}
+      0 &amp; \text{si la propiedad NO es una casa} \\
+      1 &amp; \text{si la observación es una casa}
+\end{cases}\)</span></p>
+<p><span class="math notranslate nohighlight">\(X_{depto}=\begin{cases}
+      0 &amp; \text{si la observación NO es un departamento} \\
+      1 &amp; \text{si la observación es un departamento}
+\end{cases}\)</span></p>
+<p>Veamos cuál es la manera de crear estas variables</p>
+<div class="section" id="creacion-de-las-variables-dummies">
+<h4><span class="section-number">68.4.1.1. </span>Creación de las variables dummies<a class="headerlink" href="#creacion-de-las-variables-dummies" title="Permalink to this headline">¶</a></h4>
+<p>Para crear las variables dummies vamos a utilizar el transformer (es un tipo de clase) <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html">OneHotEncoder</a>. Los argumentos que vamos a utilizar son:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">categories:</span></code> la lista de categorías que tiene la variable categórica</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">drop='first'</span></code>: indica que se va a “tirar” la primera categoría (es la que queda contenida en el intercepto)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos una instancia del transformer</span>
+<span class="n">one_hot_encoder</span> <span class="o">=</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;PH&#39;</span><span class="p">,</span> <span class="s1">&#39;Casa&#39;</span><span class="p">,</span> <span class="s1">&#39;Departamento&#39;</span><span class="p">]],</span> <span class="n">drop</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Realizamos el fit con los datos de entrenamiento</span>
+<span class="n">one_hot_encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OneHotEncoder(categories=[[&#39;PH&#39;, &#39;Casa&#39;, &#39;Departamento&#39;]], drop=&#39;first&#39;,
+              dtype=&lt;class &#39;numpy.float64&#39;&gt;, handle_unknown=&#39;error&#39;,
+              sparse=True)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accedemos a las categorias del encoder</span>
+<span class="n">one_hot_encoder</span><span class="o">.</span><span class="n">categories_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[array([&#39;PH&#39;, &#39;Casa&#39;, &#39;Departamento&#39;], dtype=object)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span> <span class="c1"># Generamos las variables dummies de la variable property type (notemos que tenemos 2 columnas!)</span>
+ <span class="n">matriz_dummies</span> <span class="o">=</span> <span class="n">one_hot_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">[[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+ <span class="n">matriz_dummies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 1.],
+       [0., 1.],
+       [1., 0.],
+       ...,
+       [0., 1.],
+       [0., 1.],
+       [0., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos los nombres de las variables dummies (notemos que tenemos 2 columnas!)</span>
+<span class="n">nombres_dummies</span> <span class="o">=</span> <span class="n">one_hot_encoder</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">([</span><span class="s1">&#39;tipo&#39;</span><span class="p">])</span>
+<span class="n">nombres_dummies</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;tipo_Casa&#39;, &#39;tipo_Departamento&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos el dataframe con las variables dummies con las matrices y columnas</span>
+<span class="n">df_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matriz_dummies</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">nombres_dummies</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X_train</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_dummies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tipo_Casa</th>
+      <th>tipo_Departamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36377</th>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>8124</th>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>34075</th>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>28781</th>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>4876</th>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Agregamos la información a nuestra matriz de variables predictoras</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_dummies</span><span class="p">)</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>rooms</th>
+      <th>bathrooms</th>
+      <th>surface_total</th>
+      <th>surface_covered</th>
+      <th>property_type</th>
+      <th>tipo_Casa</th>
+      <th>tipo_Departamento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36377</th>
+      <td>-34.62</td>
+      <td>-58.44</td>
+      <td>3.00</td>
+      <td>1.00</td>
+      <td>63.00</td>
+      <td>63.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>8124</th>
+      <td>-34.62</td>
+      <td>-58.49</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>42.00</td>
+      <td>42.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>34075</th>
+      <td>-34.66</td>
+      <td>-58.48</td>
+      <td>4.00</td>
+      <td>1.00</td>
+      <td>160.00</td>
+      <td>160.00</td>
+      <td>Casa</td>
+      <td>1.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>28781</th>
+      <td>-34.57</td>
+      <td>-58.43</td>
+      <td>3.00</td>
+      <td>2.00</td>
+      <td>126.00</td>
+      <td>110.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>4876</th>
+      <td>-34.60</td>
+      <td>-58.41</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>32.00</td>
+      <td>28.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos las variables exogenas (predictores)</span>
+<span class="n">variables_exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="s1">&#39;tipo_Casa&#39;</span><span class="p">,</span> <span class="s1">&#39;tipo_Departamento&#39;</span><span class="p">]</span>
+
+<span class="c1"># Construimos la matriz de X</span>
+<span class="n">X_train_modelo_sup_propiedad</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">variables_exogenas</span><span class="p">]</span>
+
+<span class="c1"># Definimos una instancia del modelo lineal con scikit learn</span>
+<span class="n">modelo_lineal_sup_propiedad</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Realizamos el proceso de estimación</span>
+<span class="n">modelo_lineal_sup_propiedad</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_modelo_sup_propiedad</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">coeficientes_modelo_sup_propiedad</span> <span class="o">=</span> <span class="n">obtener_coeficientes</span><span class="p">(</span><span class="n">modelo_lineal_sup_propiedad</span><span class="p">,</span> <span class="n">variables_exogenas</span><span class="p">)</span>
+<span class="n">coeficientes_modelo_sup_propiedad</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>coeficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>intercepto</td>
+      <td>-208630.36</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>surface_total</td>
+      <td>3489.43</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tipo_Casa</td>
+      <td>-212763.96</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>tipo_Departamento</td>
+      <td>173962.16</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>¿Cómo se interpretan estos coeficientes?</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_0} = -208630\)</span></p>
+<p>El precio esperado de un PH sin superficie es de -208630 dólares</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_1} = 3489\)</span></p>
+<p>El precio esperado aumenta en 3489 dólares cuando aumenta la superficie total en 1 m2, independientemente del tipo de propiedad</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_2} = -212763\)</span></p>
+<p>Si la propiedad es una casa, el precio esperado será 212763 dólares menor respecto a un PH <strong>dada la misma superficie total</strong></p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_3} = 173962\)</span></p>
+<p>Si la propiedad es una departamento, el precio esperado será 173962 dólares mayor respecto a un PH <strong>dada la misma superficie total</strong></p>
+</div>
+</div>
+<div class="section" id="interaccion">
+<h3><span class="section-number">68.4.2. </span>3.2 Interacción<a class="headerlink" href="#interaccion" title="Permalink to this headline">¶</a></h3>
+<p>También es posible que exista un efecto distinto de la superficie total en cada uno de los tipos de propiedades. Para ello vamos a definir un modelo con interacción de la siguiente manera:</p>
+<p><span class="math notranslate nohighlight">\(E(precio|X) = \beta_0 + \beta_1 \cdot superficieTotal + \beta_{2}  \cdot X_{casa} + \beta_{3}  \cdot X_{depto} + 
+\beta_{4}  \cdot (X_{casa} * superficieTotal) + \beta_{5}  \cdot (X_{depto}* superficieTotal)\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos las dos variables de interacción</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;interaccion_sup_casa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;tipo_Casa&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;interaccion_sup_depto&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;tipo_Departamento&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definimos las variables exogenas (predictores)</span>
+<span class="n">variables_exogenas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="s1">&#39;tipo_Casa&#39;</span><span class="p">,</span> <span class="s1">&#39;tipo_Departamento&#39;</span><span class="p">,</span> <span class="s1">&#39;interaccion_sup_casa&#39;</span><span class="p">,</span> <span class="s1">&#39;interaccion_sup_depto&#39;</span><span class="p">]</span>
+
+<span class="c1"># Construimos la matriz de X</span>
+<span class="n">X_train_modelo_interaccion</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">variables_exogenas</span><span class="p">]</span>
+
+<span class="c1"># Definimos una instancia del modelo lineal con scikit learn</span>
+<span class="n">modelo_lineal_interaccion</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Realizamos el proceso de estimación</span>
+<span class="n">modelo_lineal_interaccion</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_modelo_interaccion</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">coeficientes_modelo_interaccion</span> <span class="o">=</span> <span class="n">obtener_coeficientes</span><span class="p">(</span><span class="n">modelo_lineal_interaccion</span><span class="p">,</span> <span class="n">variables_exogenas</span><span class="p">)</span>
+<span class="n">coeficientes_modelo_interaccion</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>variable</th>
+      <th>coeficiente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>intercepto</td>
+      <td>68563.19</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>surface_total</td>
+      <td>1058.26</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>tipo_Casa</td>
+      <td>-86032.83</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>tipo_Departamento</td>
+      <td>-166791.39</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>interaccion_sup_casa</td>
+      <td>729.66</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>interaccion_sup_depto</td>
+      <td>3228.13</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>¿Cómo se interpretan coeficientes ?</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_0} = 68563\)</span></p>
+<p>El precio esperado de un PH sin superficie es de 68563 dólares</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_1} = 1058\)</span></p>
+<p>El precio esperado de un PH aumenta en 1058 dólares cuando aumenta la superficie total en 1 m2.</p>
+<p>Es muy importante notar que ahora <span class="math notranslate nohighlight">\(\hat{\beta_1}\)</span> nos habla sólo del cambio esperado de la superficie en el precio en los PH, ya que esta es la categoría que quedó en el nivel basal o de comparación</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_2} = -86032\)</span></p>
+<p>Si la propiedad es una casa, el precio esperado será 86032 dólares menor respecto a un PH <strong>dada la misma superficie total</strong></p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_3} = -166791\)</span></p>
+<p>Si la propiedad es una departamento, el precio esperado será 166791 dólares menor respecto a un PH <strong>dada la misma superficie total</strong></p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_4} = 729\)</span></p>
+<p>Si la propiedad es una casa, el precio esperado aumenta 729 dólares más respecto a un PH cuando la superficie aumenta en 1 m2.</p>
+<p>Esto equivale a decir que para una <strong>casa</strong> el precio esperado aumenta en 1787 (<span class="math notranslate nohighlight">\(\hat{\beta_1} + \hat{\beta_4}\)</span>) dólares cuando la superficie aumenta en 1 m2</p>
+<p><span class="math notranslate nohighlight">\(\hat{\beta_5} = 3228\)</span></p>
+<p>Si la propiedad es una departamento, el precio esperado aumenta 3228 dólares más respecto a un PH cuando la superficie aumenta en 1 m2.</p>
+<p>Esto equivale a decir que para un <strong>departamento</strong> el precio esperado aumenta en 4286 (<span class="math notranslate nohighlight">\(\hat{\beta_1} + \hat{\beta_5}\)</span>) dólares cuando la superficie aumenta en 1 m2</p>
+</div>
+</div>
+<div class="section" id="evaluacion">
+<h2><span class="section-number">68.5. </span>4. Evaluación<a class="headerlink" href="#evaluacion" title="Permalink to this headline">¶</a></h2>
+<p>En esta parte vamos a evaluar los resultados obtenidos por algunos de los modelos previos. Por un lado nos interesará observar los resultados de los tests estadísticos de significatividad individual y global y por el otro observar algunas métricas de performance</p>
+<div class="section" id="tests-estadisticos">
+<h3><span class="section-number">68.5.1. </span>4.1 Tests estadísticos<a class="headerlink" href="#tests-estadisticos" title="Permalink to this headline">¶</a></h3>
+<p>Para realizar la evaluación con un enfoque estadístico más tradicional debemos utilizar el modulo <a class="reference external" href="https://www.statsmodels.org/stable/regression.html">statsmodels</a>. Para poder acceder a la información que nos interesa vamos a tener que crear los modelos con esta librería.</p>
+<p>La librería sklearn no cuenta con las funciones necesarias para realizar la evaluación de los tests estadísticos de los coeficientes estimados.</p>
+<p>Comencemos preparando los datos para la implementación del modelo lineal en statsmodels</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># En statsmodels se le agrega el intercepto (en scikit se lo pasamos como un parametro a la instancia del modelo)</span>
+<span class="n">X_train_modelo_sup_baños_stats</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X_train_modelo_sup_baños</span><span class="p">)</span>
+<span class="n">X_train_modelo_sup_baños_stats</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>const</th>
+      <th>surface_total</th>
+      <th>bathrooms</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>36377</th>
+      <td>1.00</td>
+      <td>63.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>8124</th>
+      <td>1.00</td>
+      <td>42.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>34075</th>
+      <td>1.00</td>
+      <td>160.00</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <th>28781</th>
+      <td>1.00</td>
+      <td>126.00</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <th>4876</th>
+      <td>1.00</td>
+      <td>32.00</td>
+      <td>1.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construimos el modelo</span>
+<span class="n">modelo_sup_baños_stats</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train_modelo_sup_baños_stats</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guardamos los resultados</span>
+<span class="n">resultados_sup_baños_stats</span> <span class="o">=</span> <span class="n">modelo_sup_baños_stats</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accedemos a los coeficientes estimados</span>
+<span class="n">resultados_sup_baños_stats</span><span class="o">.</span><span class="n">params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const           -107213.66
+surface_total      2069.78
+bathrooms        113359.65
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>En primer lugar observamos que los coeficientes estimados son iguales a los que obtuvimos utilizando la implementación de scikit learn.</p>
+<p>Ahora veamos los p valores asociados a los tests de significatividad individual. Recordemos que las hipótesis son:</p>
+<p><span class="math notranslate nohighlight">\(H_0: \beta_j = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(H_A: \beta_j \neq 0\)</span></p>
+<p>Para rechazar la hipótesis de que el parámetro es igual a cero debemos observar un p valor inferior a 0.05</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accedemos a los p valores de los tests de significancia individual</span>
+<span class="n">resultados_sup_baños_stats</span><span class="o">.</span><span class="n">pvalues</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>const           0.00
+surface_total   0.00
+bathrooms       0.00
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Continuamos con el test de significatividad global. Las hipotesis son:</p>
+<p><span class="math notranslate nohighlight">\(H_0: \text{Todos los } \beta_j = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(H_A: \text{Algún } \beta_j \neq 0\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test significatividad global</span>
+<span class="n">resultados_sup_baños_stats</span><span class="o">.</span><span class="n">f_pvalue</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Observamos el R cuadrado y R cuadrado ajustado</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># R cuadrado</span>
+<span class="n">resultados_sup_baños_stats</span><span class="o">.</span><span class="n">rsquared</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5713023987671959
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># R cuadrado ajustado</span>
+<span class="n">resultados_sup_baños_stats</span><span class="o">.</span><span class="n">rsquared_adj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5712757060987714
+</pre></div>
+</div>
+</div>
+</div>
+<p>Toda esta información a la que fuimos accediendo (junto a mucha información más) se puede obtener imprimiendo el <code class="docutils literal notranslate"><span class="pre">summary</span></code> de los resultados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">resultados_sup_baños_stats</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  price   R-squared:                       0.571
+Model:                            OLS   Adj. R-squared:                  0.571
+Method:                 Least Squares   F-statistic:                 2.140e+04
+Date:                Wed, 07 Jul 2021   Prob (F-statistic):               0.00
+Time:                        02:50:21   Log-Likelihood:            -4.3859e+05
+No. Observations:               32124   AIC:                         8.772e+05
+Df Residuals:                   32121   BIC:                         8.772e+05
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+const         -1.072e+05   2338.152    -45.854      0.000   -1.12e+05   -1.03e+05
+surface_total  2069.7756     22.252     93.016      0.000    2026.161    2113.390
+bathrooms      1.134e+05   2032.921     55.762      0.000    1.09e+05    1.17e+05
+==============================================================================
+Omnibus:                    33294.388   Durbin-Watson:                   2.000
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):          7432291.005
+Skew:                           4.728   Prob(JB):                         0.00
+Kurtosis:                      76.914   Cond. No.                         291.
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora observemos estos elementos para el modelo de interacción que contaba con una mayor cantidad de variables predictoras. Tengamos en cuenta que vamos a observar el resumen para tratar de contestar las siguientes preguntas:</p>
+<ul class="simple">
+<li><p>¿Tiene sentido utilizar esta especificación del modelo para explicar/predecir el precio de las propiedades? (significatividad global)</p></li>
+<li><p>¿Cada variable presenta una relación estadísticamente significativa con el precio? (significatividad individual)</p></li>
+<li><p>¿Qué porcentaje de la variabilidad explica el modelo? ¿Cómo se compara respecto al modelo con menos variables que estimamos antes? (R cuadrado)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># En stats models se le agrega el intercepto </span>
+<span class="n">X_train_interaccion_stats</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">X_train_modelo_interaccion</span><span class="p">)</span>
+
+<span class="c1">#Construimos el modelo</span>
+<span class="n">modelo_interaccion_stats</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">X_train_interaccion_stats</span><span class="p">)</span>
+
+<span class="c1"># Estimamos los parámetros</span>
+<span class="n">resultados_interaccion</span> <span class="o">=</span> <span class="n">modelo_interaccion_stats</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+
+<span class="c1"># Imprimimos el resumen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resultados_interaccion</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  price   R-squared:                       0.675
+Model:                            OLS   Adj. R-squared:                  0.675
+Method:                 Least Squares   F-statistic:                 1.335e+04
+Date:                Wed, 07 Jul 2021   Prob (F-statistic):               0.00
+Time:                        02:50:21   Log-Likelihood:            -4.3413e+05
+No. Observations:               32124   AIC:                         8.683e+05
+Df Residuals:                   32118   BIC:                         8.683e+05
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+=========================================================================================
+                            coef    std err          t      P&gt;|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+const                  6.856e+04   6310.502     10.865      0.000    5.62e+04    8.09e+04
+surface_total          1058.2632     46.590     22.714      0.000     966.944    1149.582
+tipo_Casa             -8.603e+04   1.11e+04     -7.751      0.000   -1.08e+05   -6.43e+04
+tipo_Departamento     -1.668e+05   6546.818    -25.477      0.000    -1.8e+05   -1.54e+05
+interaccion_sup_casa    729.6612     57.091     12.781      0.000     617.760     841.562
+interaccion_sup_depto  3228.1323     49.676     64.983      0.000    3130.765    3325.500
+==============================================================================
+Omnibus:                    34358.273   Durbin-Watson:                   1.996
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):          8193012.339
+Skew:                           4.987   Prob(JB):                         0.00
+Kurtosis:                      80.599   Cond. No.                     1.85e+03
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.85e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metricas-de-performance">
+<h3><span class="section-number">68.5.2. </span>4.2 Métricas de performance<a class="headerlink" href="#metricas-de-performance" title="Permalink to this headline">¶</a></h3>
+<p>En la sección anterior observamos algunas formas de evaluación típicas del enfoque estadístico para nuestros modelos. Ahora veamos algunas métricas de evaluación muy usuales para los problemas de regresión en Machine Learning.</p>
+<p>Vamos a observar los valores de las siguientes métricas:</p>
+<p><strong>Mean Squared Error /Error Cuadrático Medio</strong></p>
+<p><span class="math notranslate nohighlight">\(MSE = \frac{1}{n} \sum_{i=1}^{n} (Y_i - \hat{Y_i})^2\)</span></p>
+<p><strong>Root Mean Squared Error /Raiz del Error Cuadrático Medio</strong></p>
+<p><span class="math notranslate nohighlight">\(RMSE = \sqrt{MSE}\)</span></p>
+<p><strong>Mean Absolute Error /Error Absoluto Medio</strong></p>
+<p><span class="math notranslate nohighlight">\(MAE = \frac{1}{n} \sum_{i=1}^{n} |Y_i - \hat{Y_i}|\)</span></p>
+<p>Además nos va a interesar comparar los valores de estas métricas para el set de entrenamiento y para el set de evaluación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos las métricas desde scikit-learn</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Todas estas funciones toman como argumentos:</p>
+<p><code class="docutils literal notranslate"><span class="pre">y_true</span></code>: vector/array/serie de los valores reales de Y</p>
+<p><code class="docutils literal notranslate"><span class="pre">y_pred</span></code>: vector/array/serie de los valores predichos de Y</p>
+<p>Para obtener los valores predichos de y vamos a utilizar el método <code class="docutils literal notranslate"><span class="pre">predict()</span></code> de los modelos que hemos creado.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predecimos los valores de y con nuestro modelo</span>
+<span class="n">y_train_sup_baños</span> <span class="o">=</span> <span class="n">modelo_lineal_sup_baños</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_modelo_sup_baños</span><span class="p">)</span>
+<span class="n">y_train_sup_baños</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([136541.85494006,  93076.5665879 , 337310.09161432, ...,
+        95146.34222371, 105495.2204028 ,  97216.11785953])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos R cuadrado</span>
+<span class="n">r2_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_sup_baños</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5713023987671959
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos MSE</span>
+<span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_sup_baños</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42307799437.76274
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos RMSE</span>
+<span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_sup_baños</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>205688.59822013165
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos MAE</span>
+<span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_sup_baños</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>90799.88306152548
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como nos interesa obtener estas 4 métricas para los modelos podemos crear una función que las calcule y nos devuelva un dataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">obtener_metricas_performance</span><span class="p">(</span><span class="n">y_verdadera</span><span class="p">,</span> <span class="n">y_predicha</span><span class="p">,</span> <span class="n">tipo_dataset</span><span class="p">):</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_verdadera</span><span class="p">,</span> <span class="n">y_predicha</span><span class="p">)</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_verdadera</span><span class="p">,</span> <span class="n">y_predicha</span><span class="p">)</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">)</span> 
+    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_verdadera</span><span class="p">,</span> <span class="n">y_predicha</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;metrica&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;R2&#39;</span><span class="p">,</span> <span class="s1">&#39;MSE&#39;</span><span class="p">,</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">,</span> <span class="s1">&#39;MAE&#39;</span><span class="p">],</span>
+                         <span class="s1">&#39;valor&#39;</span><span class="p">:[</span><span class="n">r2</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">rmse</span><span class="p">,</span> <span class="n">mae</span><span class="p">],</span>
+                         <span class="s1">&#39;tipo_dataset&#39;</span><span class="p">:</span><span class="n">tipo_dataset</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtenemos nuestro dataframe de métricas de performance</span>
+<span class="n">performance_train_sup_baños</span> <span class="o">=</span> <span class="n">obtener_metricas_performance</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_sup_baños</span><span class="p">,</span><span class="s1">&#39;entrenamiento&#39;</span><span class="p">)</span>
+<span class="n">performance_train_sup_baños</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metrica</th>
+      <th>valor</th>
+      <th>tipo_dataset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R2</td>
+      <td>0.57</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MSE</td>
+      <td>42307799437.76</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RMSE</td>
+      <td>205688.60</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MAE</td>
+      <td>90799.88</td>
+      <td>entrenamiento</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora observemos las métricas del modelo de interacción en entrenamiento</span>
+<span class="n">y_train_interaccion</span> <span class="o">=</span> <span class="n">modelo_lineal_interaccion</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train_modelo_interaccion</span><span class="p">)</span>
+<span class="n">performance_train_interaccion</span> <span class="o">=</span> <span class="n">obtener_metricas_performance</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_interaccion</span><span class="p">,</span> <span class="s1">&#39;entrenamiento&#39;</span><span class="p">)</span>
+<span class="n">performance_train_interaccion</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metrica</th>
+      <th>valor</th>
+      <th>tipo_dataset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R2</td>
+      <td>0.68</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MSE</td>
+      <td>32056546297.04</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RMSE</td>
+      <td>179043.42</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MAE</td>
+      <td>84810.58</td>
+      <td>entrenamiento</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora observemos las métricas de performance de estos dos modelos en el dataset de evaluación</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creamos la matrix de X para el modelo de superficie y baños</span>
+<span class="n">X_test_sup_baños</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="s1">&#39;bathrooms&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predecimos los valores</span>
+<span class="n">y_test_sup_baños</span> <span class="o">=</span>  <span class="n">modelo_lineal_sup_baños</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_sup_baños</span><span class="p">)</span>
+<span class="c1"># Obtenemos nuestro dataframe de métricas de performance</span>
+<span class="n">performance_test_sup_baños</span> <span class="o">=</span><span class="n">obtener_metricas_performance</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_sup_baños</span><span class="p">,</span> <span class="s1">&#39;evaluacion&#39;</span><span class="p">)</span>
+<span class="c1"># Mostramos en conjunto las métricas para entrenamiento y evaluación</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">performance_train_sup_baños</span><span class="p">,</span><span class="n">performance_test_sup_baños</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metrica</th>
+      <th>valor</th>
+      <th>tipo_dataset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R2</td>
+      <td>0.57</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MSE</td>
+      <td>42307799437.76</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RMSE</td>
+      <td>205688.60</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MAE</td>
+      <td>90799.88</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>R2</td>
+      <td>0.52</td>
+      <td>evaluacion</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MSE</td>
+      <td>50265146409.85</td>
+      <td>evaluacion</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RMSE</td>
+      <td>224198.90</td>
+      <td>evaluacion</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MAE</td>
+      <td>92456.48</td>
+      <td>evaluacion</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Realicemos lo mismo para el modelo de interacción. Primero debemos generar las variables binarias para el tipo de propiedad y las variables de interacción para poder utilizar el modelo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos las variables dummies de la variable property type (notemos que tenemos 2 columnas!)</span>
+<span class="n">matriz_dummies_test</span> <span class="o">=</span> <span class="n">one_hot_encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">[[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="c1"># Generamos el dataframe con las variables dummies con las matrices y columnas</span>
+<span class="n">df_dummies_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matriz_dummies_test</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">nombres_dummies</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">X_test</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="c1"># Agregamos la información a nuestra matriz de variables predictoras</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df_dummies_test</span><span class="p">)</span>
+<span class="c1"># Creamos las dos variables de interacción</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;interaccion_sup_casa&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;tipo_Casa&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">]</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;interaccion_sup_depto&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;tipo_Departamento&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">]</span>
+<span class="c1"># Vemos el dataframe</span>
+<span class="n">X_test</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lat</th>
+      <th>lon</th>
+      <th>rooms</th>
+      <th>bathrooms</th>
+      <th>surface_total</th>
+      <th>surface_covered</th>
+      <th>property_type</th>
+      <th>tipo_Casa</th>
+      <th>tipo_Departamento</th>
+      <th>interaccion_sup_casa</th>
+      <th>interaccion_sup_depto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>31033</th>
+      <td>-34.58</td>
+      <td>-58.42</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>126.00</td>
+      <td>120.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>126.00</td>
+    </tr>
+    <tr>
+      <th>11149</th>
+      <td>-34.57</td>
+      <td>-58.43</td>
+      <td>3.00</td>
+      <td>2.00</td>
+      <td>78.00</td>
+      <td>72.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>78.00</td>
+    </tr>
+    <tr>
+      <th>25214</th>
+      <td>-34.63</td>
+      <td>-58.38</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>88.00</td>
+      <td>88.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>88.00</td>
+    </tr>
+    <tr>
+      <th>33959</th>
+      <td>-34.60</td>
+      <td>-58.51</td>
+      <td>4.00</td>
+      <td>2.00</td>
+      <td>128.00</td>
+      <td>128.00</td>
+      <td>Departamento</td>
+      <td>0.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>128.00</td>
+    </tr>
+    <tr>
+      <th>23705</th>
+      <td>-34.58</td>
+      <td>-58.48</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>220.00</td>
+      <td>170.00</td>
+      <td>Casa</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>220.00</td>
+      <td>0.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos el dataset de predictoras</span>
+<span class="n">X_test_interaccion</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[[</span><span class="s1">&#39;surface_total&#39;</span><span class="p">,</span> <span class="s1">&#39;tipo_Casa&#39;</span><span class="p">,</span> <span class="s1">&#39;tipo_Departamento&#39;</span><span class="p">,</span> <span class="s1">&#39;interaccion_sup_casa&#39;</span><span class="p">,</span> <span class="s1">&#39;interaccion_sup_depto&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predecimos los valores</span>
+<span class="n">y_test_interaccion</span> <span class="o">=</span> <span class="n">modelo_lineal_interaccion</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_interaccion</span><span class="p">)</span>
+<span class="c1"># Obtenemos nuestro dataframe de métricas de performance</span>
+<span class="n">performance_test_interaccion</span> <span class="o">=</span> <span class="n">obtener_metricas_performance</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_test_interaccion</span><span class="p">,</span> <span class="s1">&#39;evaluacion&#39;</span><span class="p">)</span>
+<span class="c1"># Mostramos en conjunto las métricas para entrenamiento y evaluación</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">performance_train_interaccion</span><span class="p">,</span> <span class="n">performance_test_interaccion</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>metrica</th>
+      <th>valor</th>
+      <th>tipo_dataset</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>R2</td>
+      <td>0.68</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MSE</td>
+      <td>32056546297.04</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RMSE</td>
+      <td>179043.42</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MAE</td>
+      <td>84810.58</td>
+      <td>entrenamiento</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>R2</td>
+      <td>0.63</td>
+      <td>evaluacion</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MSE</td>
+      <td>38895552028.44</td>
+      <td>evaluacion</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RMSE</td>
+      <td>197219.55</td>
+      <td>evaluacion</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MAE</td>
+      <td>86913.28</td>
+      <td>evaluacion</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="diagnostico">
+<h2><span class="section-number">68.6. </span>5. Diagnóstico<a class="headerlink" href="#diagnostico" title="Permalink to this headline">¶</a></h2>
+<p>En esta sección vamos a realizar el gráfico de residuos vs valores predichos para observar si estos dos modelos cumplen o no con los supuestos del modelo lineal</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos los residuos para el modelo de superficie y baños</span>
+<span class="n">residuos_sup_baños</span> <span class="o">=</span> <span class="n">y_train</span> <span class="o">-</span> <span class="n">y_train_sup_baños</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Realizamos el gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_train_sup_baños</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residuos_sup_baños</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;royalblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Modelo Superficie y Baños&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RegresionLinealMultiple_92_0.png" src="../../_images/RegresionLinealMultiple_92_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos los residuos para el modelo de interacción</span>
+<span class="n">residuos_interaccion</span> <span class="o">=</span>  <span class="n">y_train</span> <span class="o">-</span> <span class="n">y_train_interaccion</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Realizamos el gráfico</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">y_train_sup_baños</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residuos_interaccion</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Modelo Interacción&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/RegresionLinealMultiple_94_0.png" src="../../_images/RegresionLinealMultiple_94_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MachineLearning/2_RegresionLinealMultiple"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../1_Introduccion/rls.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">66. </span>Regresión Lineal Simple</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../3_Regularizacion/Regularizacion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">69. </span>Regularización - Optimización - Feature Engineering - Pipelines</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

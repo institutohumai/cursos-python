@@ -1,0 +1,2480 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 1: ejercicios prácticos resueltos &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/README.html">
+   1. Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/1_TiposDatos/tipos-datos.html">
+   2. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   7. Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   17. Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/4_Intro_Poo/intro-poo.html">
+   18. Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   19. Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   20. Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   21. Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/README.html">
+   22. Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   23. Automatización:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   25. Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   26. Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   27. Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/Otros/gsheets_pytrends.html">
+   28. Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/Otros/organizando_pdfs.html">
+   29. Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Automatizacion/Otros/edicion_imagenes.html">
+   30. Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/README.html">
+   33. Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   34. Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   35. Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   36. Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   40. Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   42. Argenprop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   44. Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   45. Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../README.html">
+   46. APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../1_APIs_Geograficas/clase-1.html">
+   47. APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../1_APIs_Geograficas/clase-1-ejercicios.html">
+   48. APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../clase-2.html">
+   49. APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicios.html">
+   50. APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   51. Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/APIs/2_APIs_Series_Tiempo/ejercicios/solucion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/cursos-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/cursos-python/issues/new?title=Issue%20on%20page%20%2FAPIs/2_APIs_Series_Tiempo/ejercicios/solucion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/cursos-python/libro?urlpath=tree/docs/APIs/2_APIs_Series_Tiempo/ejercicios/solucion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1-api-de-series-de-tiempo-de-argentina">
+   Ejercicio 1: API de Series de Tiempo de Argentina
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bonus-track-graficar-una-recta-de-regresion">
+     Bonus track: graficar una recta de regresion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-2-api-de-quandl">
+   Ejercicio 2: API de Quandl
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-3-api-de-banco-mundial">
+   Ejercicio 3: API de Banco Mundial
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Clase 1: ejercicios prácticos resueltos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1-api-de-series-de-tiempo-de-argentina">
+   Ejercicio 1: API de Series de Tiempo de Argentina
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bonus-track-graficar-una-recta-de-regresion">
+     Bonus track: graficar una recta de regresion
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-2-api-de-quandl">
+   Ejercicio 2: API de Quandl
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-3-api-de-banco-mundial">
+   Ejercicio 3: API de Banco Mundial
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div><div class="tex2jax_ignore mathjax_ignore section" id="clase-1-ejercicios-practicos-resueltos">
+<h1>Clase 1: ejercicios prácticos resueltos<a class="headerlink" href="#clase-1-ejercicios-practicos-resueltos" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install markdown
+<span class="o">!</span>pip install arrow
+<span class="o">!</span>pip install seaborn
+<span class="o">!</span>pip install requests
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://nexus.corp.indeed.com/repository/pypi/simple
+Requirement already satisfied: markdown in /home/abenassi/anaconda3/lib/python3.8/site-packages (3.2.2)
+Looking in indexes: https://nexus.corp.indeed.com/repository/pypi/simple
+Requirement already satisfied: arrow in /home/abenassi/anaconda3/lib/python3.8/site-packages (0.16.0)
+Requirement already satisfied: python-dateutil&gt;=2.7.0 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from arrow) (2.8.1)
+Requirement already satisfied: six&gt;=1.5 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from python-dateutil&gt;=2.7.0-&gt;arrow) (1.15.0)
+Looking in indexes: https://nexus.corp.indeed.com/repository/pypi/simple
+Requirement already satisfied: seaborn in /home/abenassi/anaconda3/lib/python3.8/site-packages (0.10.1)
+Requirement already satisfied: matplotlib&gt;=2.1.2 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from seaborn) (3.2.2)
+Requirement already satisfied: scipy&gt;=1.0.1 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from seaborn) (1.5.0)
+Requirement already satisfied: pandas&gt;=0.22.0 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from seaborn) (1.0.5)
+Requirement already satisfied: numpy&gt;=1.13.3 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from seaborn) (1.18.5)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from matplotlib&gt;=2.1.2-&gt;seaborn) (1.2.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from matplotlib&gt;=2.1.2-&gt;seaborn) (2.4.7)
+Requirement already satisfied: cycler&gt;=0.10 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from matplotlib&gt;=2.1.2-&gt;seaborn) (0.10.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from matplotlib&gt;=2.1.2-&gt;seaborn) (2.8.1)
+Requirement already satisfied: pytz&gt;=2017.2 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from pandas&gt;=0.22.0-&gt;seaborn) (2020.1)
+Requirement already satisfied: six in /home/abenassi/anaconda3/lib/python3.8/site-packages (from cycler&gt;=0.10-&gt;matplotlib&gt;=2.1.2-&gt;seaborn) (1.15.0)
+Looking in indexes: https://nexus.corp.indeed.com/repository/pypi/simple
+Requirement already satisfied: requests in /home/abenassi/anaconda3/lib/python3.8/site-packages (2.24.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from requests) (2020.6.20)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from requests) (2.10)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from requests) (1.25.9)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /home/abenassi/anaconda3/lib/python3.8/site-packages (from requests) (3.0.4)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">arrow</span>
+<span class="kn">import</span> <span class="nn">markdown</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1-api-de-series-de-tiempo-de-argentina">
+<h2>Ejercicio 1: API de Series de Tiempo de Argentina<a class="headerlink" href="#ejercicio-1-api-de-series-de-tiempo-de-argentina" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Genera una tabla y grafica la evolucion de los tipos de cambio ARS/USD de todas las entidades financieras (canal electronico, venta, 15hs).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BASE_SERIES_API</span> <span class="o">=</span> <span class="s1">&#39;https://apis.datos.gob.ar/series/api/series/?ids=</span><span class="si">{ids}</span><span class="s1">&amp;last=5000&amp;format=csv&#39;</span>
+
+<span class="n">tcs_api</span> <span class="o">=</span> <span class="n">BASE_SERIES_API</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">ids</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="s1">&#39;tc_usd_galicia_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_supervielle_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_itau_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_macro_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_piano_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_credicoop_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_bbva_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_bna_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_ibcambio_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_patagonia_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_hsbc_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_brubank_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_bullmarket_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_santander_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_hipotecario_ev15&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tc_usd_balanz_ev15&#39;</span><span class="p">,</span>
+    <span class="p">])</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tcs_api</span><span class="p">)</span>
+
+<span class="n">tcs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">tcs_api</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://apis.datos.gob.ar/series/api/series/?ids=tc_usd_galicia_ev15,tc_usd_supervielle_ev15,tc_usd_itau_ev15,tc_usd_macro_ev15,tc_usd_piano_ev15,tc_usd_credicoop_ev15,tc_usd_bbva_ev15,tc_usd_bna_ev15,tc_usd_ibcambio_ev15,tc_usd_patagonia_ev15,tc_usd_hsbc_ev15,tc_usd_brubank_ev15,tc_usd_bullmarket_ev15,tc_usd_santander_ev15,tc_usd_hipotecario_ev15,tc_usd_balanz_ev15&amp;last=5000&amp;format=csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcs</span><span class="p">[</span><span class="s1">&#39;indice_tiempo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">tcs</span><span class="o">.</span><span class="n">indice_tiempo</span><span class="p">)</span>
+<span class="n">tcs</span> <span class="o">=</span> <span class="n">tcs</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;indice_tiempo&#39;</span><span class="p">)</span>
+<span class="n">tcs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tc_ars_dolar_galicia_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_supervielle_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_itau_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_macro_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_piano_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_credicoop_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_bbva_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_bna_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_ibcambio_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_patagonia_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_hsbc_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_brubank_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_bullmarket_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_santander_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_hipotecario_electronico_venta_15hs</th>
+      <th>tc_ars_dolar_balanz_electronico_venta_15hs</th>
+    </tr>
+    <tr>
+      <th>indice_tiempo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-01-02</th>
+      <td>16.20</td>
+      <td>NaN</td>
+      <td>16.20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.07</td>
+      <td>16.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.15</td>
+      <td>16.10</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-01-03</th>
+      <td>16.15</td>
+      <td>NaN</td>
+      <td>16.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.07</td>
+      <td>16.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.10</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-01-04</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.35</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.27</td>
+      <td>16.30</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.30</td>
+      <td>16.25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.40</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-01-05</th>
+      <td>16.25</td>
+      <td>NaN</td>
+      <td>16.25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.17</td>
+      <td>16.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.15</td>
+      <td>16.15</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.25</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-01-06</th>
+      <td>16.05</td>
+      <td>NaN</td>
+      <td>16.10</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.07</td>
+      <td>16.00</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.15</td>
+      <td>16.05</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>16.05</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-09-17</th>
+      <td>79.75</td>
+      <td>79.5</td>
+      <td>79.60</td>
+      <td>80.0</td>
+      <td>79.022</td>
+      <td>79.20</td>
+      <td>79.79</td>
+      <td>79.20</td>
+      <td>NaN</td>
+      <td>79.50</td>
+      <td>79.60</td>
+      <td>79.5</td>
+      <td>NaN</td>
+      <td>79.50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-18</th>
+      <td>79.75</td>
+      <td>79.5</td>
+      <td>79.70</td>
+      <td>80.0</td>
+      <td>79.022</td>
+      <td>79.20</td>
+      <td>79.79</td>
+      <td>79.20</td>
+      <td>NaN</td>
+      <td>79.50</td>
+      <td>79.75</td>
+      <td>79.5</td>
+      <td>NaN</td>
+      <td>79.50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-19</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-20</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-09-21</th>
+      <td>80.00</td>
+      <td>79.5</td>
+      <td>NaN</td>
+      <td>80.0</td>
+      <td>79.120</td>
+      <td>79.45</td>
+      <td>79.99</td>
+      <td>79.45</td>
+      <td>NaN</td>
+      <td>79.50</td>
+      <td>79.75</td>
+      <td>79.5</td>
+      <td>NaN</td>
+      <td>79.50</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>1359 rows × 16 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tcs</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b7285bc70&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/solucion_8_1.png" src="../../../_images/solucion_8_1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Genera un reporte automatico en HTML que diga las ultimas temperaturas diarias y el promedio de los ultimos 30 dias, para 3 ciudades de Argentina</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperaturas_api</span> <span class="o">=</span> <span class="n">BASE_SERIES_API</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">ids</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="s1">&#39;temp_max_sarc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;temp_max_sane&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;temp_max_saar&#39;</span><span class="p">,</span>
+    <span class="p">])</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">temperaturas_api</span><span class="p">)</span>
+
+<span class="n">temperaturas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">temperaturas_api</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://apis.datos.gob.ar/series/api/series/?ids=temp_max_sarc,temp_max_sane,temp_max_saar&amp;last=5000&amp;format=csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperaturas</span><span class="p">[</span><span class="s1">&#39;indice_tiempo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">temperaturas</span><span class="o">.</span><span class="n">indice_tiempo</span><span class="p">)</span>
+<span class="n">temperaturas</span> <span class="o">=</span> <span class="n">temperaturas</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;indice_tiempo&#39;</span><span class="p">)</span>
+<span class="n">temperaturas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperatura_maxima_sarc</th>
+      <th>temperatura_maxima_sane</th>
+      <th>temperatura_maxima_saar</th>
+    </tr>
+    <tr>
+      <th>indice_tiempo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018-11-17</th>
+      <td>29.8</td>
+      <td>37.2</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>2018-11-18</th>
+      <td>26.0</td>
+      <td>32.2</td>
+      <td>24.8</td>
+    </tr>
+    <tr>
+      <th>2018-11-19</th>
+      <td>26.2</td>
+      <td>30.7</td>
+      <td>27.8</td>
+    </tr>
+    <tr>
+      <th>2018-11-20</th>
+      <td>30.7</td>
+      <td>33.7</td>
+      <td>29.5</td>
+    </tr>
+    <tr>
+      <th>2018-11-21</th>
+      <td>32.5</td>
+      <td>35.2</td>
+      <td>33.5</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-01-29</th>
+      <td>35.0</td>
+      <td>32.0</td>
+      <td>25.8</td>
+    </tr>
+    <tr>
+      <th>2020-01-30</th>
+      <td>27.7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2020-01-31</th>
+      <td>30.0</td>
+      <td>34.6</td>
+      <td>29.6</td>
+    </tr>
+    <tr>
+      <th>2020-02-01</th>
+      <td>32.2</td>
+      <td>37.8</td>
+      <td>32.0</td>
+    </tr>
+    <tr>
+      <th>2020-02-02</th>
+      <td>34.2</td>
+      <td>40.2</td>
+      <td>34.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>443 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># como hay algunos dias sin valores, hay que especificar cual es la </span>
+<span class="c1"># cantidad minima de periodos aceptable para hacer el promedio de 30 dias</span>
+<span class="n">temperaturas_30d</span> <span class="o">=</span> <span class="n">temperaturas</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">temperaturas_30d</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>temperatura_maxima_sarc</th>
+      <th>temperatura_maxima_sane</th>
+      <th>temperatura_maxima_saar</th>
+    </tr>
+    <tr>
+      <th>indice_tiempo</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2018-11-17</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018-11-18</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018-11-19</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018-11-20</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2018-11-21</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-01-29</th>
+      <td>33.020000</td>
+      <td>35.303333</td>
+      <td>30.680000</td>
+    </tr>
+    <tr>
+      <th>2020-01-30</th>
+      <td>32.876667</td>
+      <td>35.279310</td>
+      <td>30.693103</td>
+    </tr>
+    <tr>
+      <th>2020-01-31</th>
+      <td>32.810000</td>
+      <td>35.251724</td>
+      <td>30.734483</td>
+    </tr>
+    <tr>
+      <th>2020-02-01</th>
+      <td>32.843333</td>
+      <td>35.410345</td>
+      <td>30.872414</td>
+    </tr>
+    <tr>
+      <th>2020-02-02</th>
+      <td>32.966667</td>
+      <td>35.606897</td>
+      <td>31.037931</td>
+    </tr>
+  </tbody>
+</table>
+<p>443 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fecha</span> <span class="o">=</span> <span class="n">arrow</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">temperaturas</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;YYYY-MM-DD&#39;</span><span class="p">)</span>
+
+<span class="n">corrientes_temp</span> <span class="o">=</span> <span class="n">temperaturas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fecha</span><span class="p">,</span> <span class="s1">&#39;temperatura_maxima_sarc&#39;</span><span class="p">]</span>
+<span class="n">santiago_temp</span> <span class="o">=</span> <span class="n">temperaturas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fecha</span><span class="p">,</span> <span class="s1">&#39;temperatura_maxima_sane&#39;</span><span class="p">]</span>
+<span class="n">rosario_temp</span> <span class="o">=</span> <span class="n">temperaturas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fecha</span><span class="p">,</span> <span class="s1">&#39;temperatura_maxima_saar&#39;</span><span class="p">]</span>
+
+<span class="n">corrientes_temp_30d</span> <span class="o">=</span> <span class="n">temperaturas_30d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fecha</span><span class="p">,</span> <span class="s1">&#39;temperatura_maxima_sarc&#39;</span><span class="p">]</span>
+<span class="n">santiago_temp_30d</span> <span class="o">=</span> <span class="n">temperaturas_30d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fecha</span><span class="p">,</span> <span class="s1">&#39;temperatura_maxima_sane&#39;</span><span class="p">]</span>
+<span class="n">rosario_temp_30d</span> <span class="o">=</span> <span class="n">temperaturas_30d</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fecha</span><span class="p">,</span> <span class="s1">&#39;temperatura_maxima_saar&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reporte</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">=== TEMPERATURAS ===</span>
+
+<span class="s2">Temperaturas maximas registradas al dia de </span><span class="si">{</span><span class="n">fecha</span><span class="si">}</span><span class="s2"> y </span>
+<span class="s2">promedio de maximas de los 30 dias anteriores.</span>
+
+<span class="s2">* Corrientes: </span><span class="si">{</span><span class="n">corrientes_temp</span><span class="si">}</span><span class="s2"> (promedio 30d: </span><span class="si">{</span><span class="n">corrientes_temp_30d</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)</span>
+<span class="s2">* Santiago del Estero: </span><span class="si">{</span><span class="n">santiago_temp</span><span class="si">}</span><span class="s2"> (promedio 30d: </span><span class="si">{</span><span class="n">santiago_temp_30d</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)</span>
+<span class="s2">* Rosario: </span><span class="si">{</span><span class="n">rosario_temp</span><span class="si">}</span><span class="s2"> (promedio 30d: </span><span class="si">{</span><span class="n">rosario_temp_30d</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">)</span>
+
+<span class="s2">=====================</span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">reporte</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="n">html</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><p>=== TEMPERATURAS ===</p>
+<p>Temperaturas maximas registradas al dia de 2020-02-02 y 
+promedio de maximas de los 30 dias anteriores.</p>
+<ul>
+<li>Corrientes: 34.2 (promedio 30d: 33.0)</li>
+<li>Santiago del Estero: 40.2 (promedio 30d: 35.6)</li>
+<li>Rosario: 34.0 (promedio 30d: 31.0)</li>
+</ul>
+<p>=====================</p></div></div>
+</div>
+<ul class="simple">
+<li><p>Grafica la relacion entre el nivel de precios (nucleo) y la base monetaria. Podes buscar la base monetaria en <a class="reference external" href="https://datos.gob.ar/dataset/sspm-factores-explicacion-base-monetaria/archivo/sspm_331.2">este dataset</a> bajo el nombre de “Saldo de la base monetaria” y la serie de nivel de precios <a class="reference external" href="https://datos.gob.ar/series/api/series/?ids=148.3_INUCLEONAL_DICI_M_19">es esta</a>. Algunos scatter a probar:</p>
+<ul>
+<li><p>IPC vs. base monetaria</p></li>
+<li><p>IPC promedio 6 meses vs. base monetaria promedio 6 meses (Pista: usa rolling() y mean()).</p></li>
+<li><p>IPC promedio 6 meses (variacion porcentual) vs. base monetaria promedio 6 meses (variacion porcentual) (Pista: agregale pct_change(1) al anterior).</p></li>
+<li><p>IPC promedio 6 meses (variacion porcentual) vs. base monetaria promedio 6 meses (variacion porcentual) de hace 3 meses -rezago de 3 meses- (Pista: agregale shift(3) a una de las variables).</p></li>
+</ul>
+</li>
+</ul>
+<p>Que otras variables se podrian incorporar para explicar o controlar esta relacion? Nivel de actividad? Tipo de cambio? Tasa de interes?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc_api</span> <span class="o">=</span> <span class="n">BASE_SERIES_API</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+    <span class="n">ids</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+        <span class="s1">&#39;148.3_INUCLEONAL_DICI_M_19&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;331.2_SALDO_BASERIA__15&#39;</span><span class="p">,</span>
+    <span class="p">])</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">m_ipc_api</span><span class="p">)</span>
+
+<span class="n">m_ipc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">m_ipc_api</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://apis.datos.gob.ar/series/api/series/?ids=148.3_INUCLEONAL_DICI_M_19,331.2_SALDO_BASERIA__15&amp;last=5000&amp;format=csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;indice_tiempo&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ipc_nucleo_nacional</th>
+      <th>saldo_base_monetaria</th>
+    </tr>
+    <tr>
+      <th>indice_tiempo</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2020-04-01</th>
+      <td>308.3681</td>
+      <td>2.147121e+06</td>
+    </tr>
+    <tr>
+      <th>2020-05-01</th>
+      <td>313.3195</td>
+      <td>2.221676e+06</td>
+    </tr>
+    <tr>
+      <th>2020-06-01</th>
+      <td>320.5733</td>
+      <td>2.159028e+06</td>
+    </tr>
+    <tr>
+      <th>2020-07-01</th>
+      <td>328.6943</td>
+      <td>2.315228e+06</td>
+    </tr>
+    <tr>
+      <th>2020-08-01</th>
+      <td>338.6645</td>
+      <td>2.333887e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="s1">&#39;saldo_base_monetaria&#39;</span><span class="p">,</span> <span class="s1">&#39;ipc_nucleo_nacional&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b63493d90&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/solucion_20_1.png" src="../../../_images/solucion_20_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc</span><span class="p">[</span><span class="s1">&#39;m_rolling_6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">saldo_base_monetaria</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">m_ipc</span><span class="p">[</span><span class="s1">&#39;ipc_rolling_6&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">ipc_nucleo_nacional</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="s1">&#39;m_rolling_6&#39;</span><span class="p">,</span> <span class="s1">&#39;ipc_rolling_6&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b634834c0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/solucion_22_1.png" src="../../../_images/solucion_22_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc</span><span class="p">[</span><span class="s1">&#39;m_roll_6_pct_var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">saldo_base_monetaria</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">m_ipc</span><span class="p">[</span><span class="s1">&#39;ipc_roll_6_pct_var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">ipc_nucleo_nacional</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="s1">&#39;m_roll_6_pct_var&#39;</span><span class="p">,</span> <span class="s1">&#39;ipc_roll_6_pct_var&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># para que eje X y eje Y tengan la misma escala</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/solucion_24_0.png" src="../../../_images/solucion_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ipc</span><span class="p">[</span><span class="s1">&#39;ipc_roll_6_pct_var_shift_3&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">ipc_nucleo_nacional</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># bonus track! con este codigo adicional </span>
+<span class="c1"># podes agregar la linea de equivalencia</span>
+
+<span class="c1"># creas una nueva serie con los valores de la serie </span>
+<span class="c1"># que es indice del grafico (eje Y)</span>
+<span class="n">m_ipc</span><span class="p">[</span><span class="s1">&#39;equal_line&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="p">[</span><span class="s1">&#39;ipc_roll_6_pct_var&#39;</span><span class="p">]</span>
+
+<span class="c1"># creas un dataframe que tiene el mismo indice que el grafico</span>
+<span class="n">m_index</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;ipc_roll_6_pct_var&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="s1">&#39;m_roll_6_pct_var&#39;</span><span class="p">,</span> <span class="s1">&#39;ipc_roll_6_pct_var_shift_3&#39;</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># agrega la linea de equivalencia, donde los valores del eje X</span>
+<span class="c1"># son iguales a los del eje Y (NO es una linea de tendencia)</span>
+<span class="n">m_index</span><span class="o">.</span><span class="n">equal_line</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b633c99a0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/solucion_27_1.png" src="../../../_images/solucion_27_1.png" />
+</div>
+</div>
+<div class="section" id="bonus-track-graficar-una-recta-de-regresion">
+<h3>Bonus track: graficar una recta de regresion<a class="headerlink" href="#bonus-track-graficar-una-recta-de-regresion" title="Permalink to this headline">¶</a></h3>
+<p>Posiblemente te hayas preguntado haciendo los ejercicios anteriores como se puede graficar una recta de regresion <em>facilmente</em>.</p>
+<p>Hay una libreria de graficos llamada <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> que tiene muchos de estos graficos tipicos implementados para hacerlos con facilidad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">m_ipc</span><span class="o">.</span><span class="n">m_roll_6_pct_var</span><span class="p">,</span> <span class="n">m_ipc</span><span class="o">.</span><span class="n">ipc_roll_6_pct_var_shift_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b7284d130&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/solucion_30_1.png" src="../../../_images/solucion_30_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2-api-de-quandl">
+<h2>Ejercicio 2: API de Quandl<a class="headerlink" href="#ejercicio-2-api-de-quandl" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Grafica las tasas de interes de los bonos de Estados Unidos, a partir del dataset de FRED disponible en Quandl (Pista: podes arrancar a buscar por aca: <a class="reference external" href="https://www.quandl.com/data/FRED-Federal-Reserve-Economic-Data?keyword=10%20years%20treasury">https://www.quandl.com/data/FRED-Federal-Reserve-Economic-Data?keyword=10 years treasury</a>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BASE_QUANDL_API</span> <span class="o">=</span> <span class="s1">&#39;https://www.quandl.com/api/v3/datasets/FRED/</span><span class="si">{serie_id}</span><span class="s1">.csv?start_date=2010-01-01&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DGS1&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS2&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS5&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS10&#39;</span><span class="p">,</span> <span class="s1">&#39;DGS30&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_fred_serie</span><span class="p">(</span><span class="n">serie_id</span><span class="p">):</span>
+    <span class="c1"># extrae la serie de Quandl</span>
+    <span class="n">api_call</span> <span class="o">=</span> <span class="n">BASE_QUANDL_API</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">serie_id</span><span class="o">=</span><span class="n">serie_id</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">api_call</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    
+    <span class="c1"># renombra con el id</span>
+    <span class="n">serie</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Value</span>
+    <span class="n">serie</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">serie_id</span>
+    
+    <span class="k">return</span> <span class="n">serie</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">get_fred_serie</span><span class="p">,</span> <span class="n">series_ids</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">series</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_t</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_t</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_t</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DGS1</th>
+      <th>DGS2</th>
+      <th>DGS5</th>
+      <th>DGS10</th>
+      <th>DGS30</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2010-01-04</th>
+      <td>0.45</td>
+      <td>1.09</td>
+      <td>2.65</td>
+      <td>3.85</td>
+      <td>4.65</td>
+    </tr>
+    <tr>
+      <th>2010-01-05</th>
+      <td>0.41</td>
+      <td>1.01</td>
+      <td>2.56</td>
+      <td>3.77</td>
+      <td>4.59</td>
+    </tr>
+    <tr>
+      <th>2010-01-06</th>
+      <td>0.40</td>
+      <td>1.01</td>
+      <td>2.60</td>
+      <td>3.85</td>
+      <td>4.70</td>
+    </tr>
+    <tr>
+      <th>2010-01-07</th>
+      <td>0.40</td>
+      <td>1.03</td>
+      <td>2.62</td>
+      <td>3.85</td>
+      <td>4.69</td>
+    </tr>
+    <tr>
+      <th>2010-01-08</th>
+      <td>0.37</td>
+      <td>0.96</td>
+      <td>2.57</td>
+      <td>3.83</td>
+      <td>4.70</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>2020-09-14</th>
+      <td>0.14</td>
+      <td>0.14</td>
+      <td>0.27</td>
+      <td>0.68</td>
+      <td>1.42</td>
+    </tr>
+    <tr>
+      <th>2020-09-15</th>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>0.27</td>
+      <td>0.68</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <th>2020-09-16</th>
+      <td>0.12</td>
+      <td>0.14</td>
+      <td>0.28</td>
+      <td>0.69</td>
+      <td>1.45</td>
+    </tr>
+    <tr>
+      <th>2020-09-17</th>
+      <td>0.12</td>
+      <td>0.13</td>
+      <td>0.28</td>
+      <td>0.69</td>
+      <td>1.43</td>
+    </tr>
+    <tr>
+      <th>2020-09-18</th>
+      <td>0.13</td>
+      <td>0.14</td>
+      <td>0.29</td>
+      <td>0.70</td>
+      <td>1.45</td>
+    </tr>
+  </tbody>
+</table>
+<p>2682 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_t</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b63302550&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/solucion_38_1.png" src="../../../_images/solucion_38_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-3-api-de-banco-mundial">
+<h2>Ejercicio 3: API de Banco Mundial<a class="headerlink" href="#ejercicio-3-api-de-banco-mundial" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Grafica la evolucion de las emisiones per capita de CO2 para por lo menos 8 paises paises de Sudamérica desde 1960 (o el primer año con datos).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">BASE_BM_API</span> <span class="o">=</span> <span class="s1">&#39;http://api.worldbank.org/v2/es/country/</span><span class="si">{pais}</span><span class="s1">/indicator/</span><span class="si">{indicador}</span><span class="s1">?format=json&amp;per_page=20000&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">paises</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;arg&#39;</span><span class="p">,</span> <span class="s1">&#39;bra&#39;</span><span class="p">,</span> <span class="s1">&#39;ury&#39;</span><span class="p">,</span> <span class="s1">&#39;chl&#39;</span><span class="p">,</span> <span class="s1">&#39;ven&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;col&#39;</span><span class="p">,</span> <span class="s1">&#39;bol&#39;</span><span class="p">,</span> <span class="s1">&#39;ecu&#39;</span><span class="p">,</span> <span class="s1">&#39;per&#39;</span><span class="p">,</span> <span class="s1">&#39;pry&#39;</span><span class="p">]</span>
+<span class="n">indicadores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EN.ATM.CO2E.PC&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">emisiones</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">BASE_BM_API</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">pais</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paises</span><span class="p">),</span> 
+        <span class="n">indicador</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">indicadores</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_emisiones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">json_normalize</span><span class="p">(</span><span class="n">emisiones</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_emisiones_series</span> <span class="o">=</span> <span class="n">df_emisiones</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;country.value&#39;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;value&#39;</span>
+<span class="p">)</span>
+<span class="n">df_emisiones_series</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>country.value</th>
+      <th>Argentina</th>
+      <th>Bolivia</th>
+      <th>Brasil</th>
+      <th>Chile</th>
+      <th>Colombia</th>
+      <th>Ecuador</th>
+      <th>Paraguay</th>
+      <th>Perú</th>
+      <th>Uruguay</th>
+      <th>Venezuela</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1960</th>
+      <td>2.383343</td>
+      <td>0.274753</td>
+      <td>0.649886</td>
+      <td>1.658786</td>
+      <td>1.021927</td>
+      <td>0.388195</td>
+      <td>0.159855</td>
+      <td>0.804897</td>
+      <td>1.701589</td>
+      <td>7.009412</td>
+    </tr>
+    <tr>
+      <th>1961</th>
+      <td>2.458551</td>
+      <td>0.279281</td>
+      <td>0.662130</td>
+      <td>1.743013</td>
+      <td>1.099581</td>
+      <td>0.352251</td>
+      <td>0.185738</td>
+      <td>0.827360</td>
+      <td>1.602729</td>
+      <td>6.153191</td>
+    </tr>
+    <tr>
+      <th>1962</th>
+      <td>2.538446</td>
+      <td>0.289272</td>
+      <td>0.701776</td>
+      <td>1.973032</td>
+      <td>1.137456</td>
+      <td>0.325586</td>
+      <td>0.195532</td>
+      <td>0.927541</td>
+      <td>1.540660</td>
+      <td>6.188718</td>
+    </tr>
+    <tr>
+      <th>1963</th>
+      <td>2.330685</td>
+      <td>0.312894</td>
+      <td>0.706049</td>
+      <td>2.006374</td>
+      <td>1.205764</td>
+      <td>0.363070</td>
+      <td>0.199338</td>
+      <td>0.925178</td>
+      <td>1.639286</td>
+      <td>6.208591</td>
+    </tr>
+    <tr>
+      <th>1964</th>
+      <td>2.553442</td>
+      <td>0.374320</td>
+      <td>0.699884</td>
+      <td>1.986497</td>
+      <td>1.194411</td>
+      <td>0.421134</td>
+      <td>0.204534</td>
+      <td>1.077547</td>
+      <td>1.710100</td>
+      <td>6.041545</td>
+    </tr>
+    <tr>
+      <th>1965</th>
+      <td>2.656466</td>
+      <td>0.374066</td>
+      <td>0.676455</td>
+      <td>1.976348</td>
+      <td>1.222187</td>
+      <td>0.434252</td>
+      <td>0.253210</td>
+      <td>1.021691</td>
+      <td>2.049519</td>
+      <td>6.271782</td>
+    </tr>
+    <tr>
+      <th>1966</th>
+      <td>2.806896</td>
+      <td>0.410062</td>
+      <td>0.750375</td>
+      <td>2.053283</td>
+      <td>1.218990</td>
+      <td>0.448237</td>
+      <td>0.230139</td>
+      <td>1.100485</td>
+      <td>1.985092</td>
+      <td>5.690063</td>
+    </tr>
+    <tr>
+      <th>1967</th>
+      <td>2.871100</td>
+      <td>0.449588</td>
+      <td>0.751887</td>
+      <td>2.068180</td>
+      <td>1.245901</td>
+      <td>0.466288</td>
+      <td>0.212900</td>
+      <td>1.102449</td>
+      <td>1.776106</td>
+      <td>6.352986</td>
+    </tr>
+    <tr>
+      <th>1968</th>
+      <td>2.981777</td>
+      <td>0.506850</td>
+      <td>0.856554</td>
+      <td>2.241519</td>
+      <td>1.304525</td>
+      <td>0.544402</td>
+      <td>0.251023</td>
+      <td>1.138785</td>
+      <td>1.760313</td>
+      <td>6.132858</td>
+    </tr>
+    <tr>
+      <th>1969</th>
+      <td>3.288161</td>
+      <td>0.580638</td>
+      <td>0.909093</td>
+      <td>2.343375</td>
+      <td>1.339331</td>
+      <td>0.609574</td>
+      <td>0.215760</td>
+      <td>1.168759</td>
+      <td>2.002060</td>
+      <td>6.245170</td>
+    </tr>
+    <tr>
+      <th>1970</th>
+      <td>3.464527</td>
+      <td>0.554466</td>
+      <td>0.985788</td>
+      <td>2.521098</td>
+      <td>1.322369</td>
+      <td>0.705683</td>
+      <td>0.300797</td>
+      <td>1.321339</td>
+      <td>2.043753</td>
+      <td>6.542518</td>
+    </tr>
+    <tr>
+      <th>1971</th>
+      <td>3.666159</td>
+      <td>0.668293</td>
+      <td>1.052858</td>
+      <td>2.725154</td>
+      <td>1.378209</td>
+      <td>0.676181</td>
+      <td>0.250167</td>
+      <td>1.345273</td>
+      <td>2.061018</td>
+      <td>5.326322</td>
+    </tr>
+    <tr>
+      <th>1972</th>
+      <td>3.657008</td>
+      <td>0.762785</td>
+      <td>1.145238</td>
+      <td>2.790262</td>
+      <td>1.398144</td>
+      <td>0.714649</td>
+      <td>0.275326</td>
+      <td>1.277858</td>
+      <td>2.153572</td>
+      <td>5.172668</td>
+    </tr>
+    <tr>
+      <th>1973</th>
+      <td>3.754154</td>
+      <td>0.722532</td>
+      <td>1.295362</td>
+      <td>2.693679</td>
+      <td>1.463645</td>
+      <td>0.795506</td>
+      <td>0.326793</td>
+      <td>1.351807</td>
+      <td>2.046522</td>
+      <td>5.339855</td>
+    </tr>
+    <tr>
+      <th>1974</th>
+      <td>3.753367</td>
+      <td>0.718815</td>
+      <td>1.370088</td>
+      <td>2.488784</td>
+      <td>1.549780</td>
+      <td>0.895287</td>
+      <td>0.350031</td>
+      <td>1.422401</td>
+      <td>2.012627</td>
+      <td>5.862013</td>
+    </tr>
+    <tr>
+      <th>1975</th>
+      <td>3.670151</td>
+      <td>0.811643</td>
+      <td>1.409906</td>
+      <td>2.172718</td>
+      <td>1.491606</td>
+      <td>1.052757</td>
+      <td>0.300849</td>
+      <td>1.424032</td>
+      <td>2.109366</td>
+      <td>4.838452</td>
+    </tr>
+    <tr>
+      <th>1976</th>
+      <td>3.799262</td>
+      <td>0.895692</td>
+      <td>1.413181</td>
+      <td>2.240724</td>
+      <td>1.547828</td>
+      <td>1.128498</td>
+      <td>0.361335</td>
+      <td>1.416923</td>
+      <td>2.075243</td>
+      <td>4.225145</td>
+    </tr>
+    <tr>
+      <th>1977</th>
+      <td>3.780415</td>
+      <td>0.857088</td>
+      <td>1.449508</td>
+      <td>2.115710</td>
+      <td>1.563877</td>
+      <td>1.013628</td>
+      <td>0.394716</td>
+      <td>1.435601</td>
+      <td>1.977924</td>
+      <td>4.563931</td>
+    </tr>
+    <tr>
+      <th>1978</th>
+      <td>3.792881</td>
+      <td>0.940601</td>
+      <td>1.536863</td>
+      <td>2.069415</td>
+      <td>1.619776</td>
+      <td>1.374940</td>
+      <td>0.484344</td>
+      <td>1.346266</td>
+      <td>1.996893</td>
+      <td>4.781869</td>
+    </tr>
+    <tr>
+      <th>1979</th>
+      <td>4.029810</td>
+      <td>0.867338</td>
+      <td>1.597599</td>
+      <td>2.209021</td>
+      <td>1.688635</td>
+      <td>1.563077</td>
+      <td>0.430067</td>
+      <td>1.301517</td>
+      <td>2.168018</td>
+      <td>5.183753</td>
+    </tr>
+    <tr>
+      <th>1980</th>
+      <td>3.897888</td>
+      <td>0.836585</td>
+      <td>1.550121</td>
+      <td>2.212528</td>
+      <td>1.648892</td>
+      <td>1.682677</td>
+      <td>0.469090</td>
+      <td>1.374633</td>
+      <td>2.002431</td>
+      <td>5.980674</td>
+    </tr>
+    <tr>
+      <th>1981</th>
+      <td>3.600810</td>
+      <td>0.841265</td>
+      <td>1.390352</td>
+      <td>2.120031</td>
+      <td>1.616879</td>
+      <td>2.036215</td>
+      <td>0.424635</td>
+      <td>1.340154</td>
+      <td>1.831867</td>
+      <td>5.896207</td>
+    </tr>
+    <tr>
+      <th>1982</th>
+      <td>3.591793</td>
+      <td>0.747988</td>
+      <td>1.361098</td>
+      <td>1.755452</td>
+      <td>1.633862</td>
+      <td>2.293675</td>
+      <td>0.406021</td>
+      <td>1.284595</td>
+      <td>1.649860</td>
+      <td>5.831459</td>
+    </tr>
+    <tr>
+      <th>1983</th>
+      <td>3.595564</td>
+      <td>0.723163</td>
+      <td>1.287243</td>
+      <td>1.750053</td>
+      <td>1.722127</td>
+      <td>2.267482</td>
+      <td>0.408086</td>
+      <td>1.083719</td>
+      <td>1.283989</td>
+      <td>5.662027</td>
+    </tr>
+    <tr>
+      <th>1984</th>
+      <td>3.582148</td>
+      <td>0.667485</td>
+      <td>1.275133</td>
+      <td>1.838034</td>
+      <td>1.669896</td>
+      <td>2.403764</td>
+      <td>0.418936</td>
+      <td>1.071074</td>
+      <td>1.153196</td>
+      <td>5.523520</td>
+    </tr>
+    <tr>
+      <th>1985</th>
+      <td>3.329226</td>
+      <td>0.667595</td>
+      <td>1.339864</td>
+      <td>1.754334</td>
+      <td>1.615252</td>
+      <td>2.143305</td>
+      <td>0.421940</td>
+      <td>0.986812</td>
+      <td>1.094674</td>
+      <td>5.847672</td>
+    </tr>
+    <tr>
+      <th>1986</th>
+      <td>3.394658</td>
+      <td>0.598658</td>
+      <td>1.440048</td>
+      <td>1.787563</td>
+      <td>1.606057</td>
+      <td>1.643989</td>
+      <td>0.440070</td>
+      <td>1.079959</td>
+      <td>1.049046</td>
+      <td>6.163044</td>
+    </tr>
+    <tr>
+      <th>1987</th>
+      <td>3.685883</td>
+      <td>0.625507</td>
+      <td>1.472978</td>
+      <td>1.793340</td>
+      <td>1.618419</td>
+      <td>1.587356</td>
+      <td>0.486203</td>
+      <td>1.246065</td>
+      <td>1.167589</td>
+      <td>6.086952</td>
+    </tr>
+    <tr>
+      <th>1988</th>
+      <td>3.835714</td>
+      <td>0.654790</td>
+      <td>1.457685</td>
+      <td>2.095843</td>
+      <td>1.648060</td>
+      <td>1.770430</td>
+      <td>0.540655</td>
+      <td>1.186943</td>
+      <td>1.566601</td>
+      <td>6.208790</td>
+    </tr>
+    <tr>
+      <th>1989</th>
+      <td>3.642232</td>
+      <td>0.743099</td>
+      <td>1.462632</td>
+      <td>2.480094</td>
+      <td>1.640109</td>
+      <td>2.028400</td>
+      <td>0.545718</td>
+      <td>1.010477</td>
+      <td>1.580258</td>
+      <td>5.679444</td>
+    </tr>
+    <tr>
+      <th>1990</th>
+      <td>3.438151</td>
+      <td>0.838649</td>
+      <td>1.401896</td>
+      <td>2.509653</td>
+      <td>1.732107</td>
+      <td>1.644802</td>
+      <td>0.510534</td>
+      <td>0.954654</td>
+      <td>1.284204</td>
+      <td>6.222407</td>
+    </tr>
+    <tr>
+      <th>1991</th>
+      <td>3.539959</td>
+      <td>0.856676</td>
+      <td>1.446314</td>
+      <td>2.321076</td>
+      <td>1.692052</td>
+      <td>1.575352</td>
+      <td>0.491545</td>
+      <td>0.901023</td>
+      <td>1.454313</td>
+      <td>5.744377</td>
+    </tr>
+    <tr>
+      <th>1992</th>
+      <td>3.619280</td>
+      <td>0.929434</td>
+      <td>1.430744</td>
+      <td>2.367010</td>
+      <td>1.802576</td>
+      <td>2.079174</td>
+      <td>0.567579</td>
+      <td>0.889335</td>
+      <td>1.639096</td>
+      <td>5.154892</td>
+    </tr>
+    <tr>
+      <th>1993</th>
+      <td>3.471494</td>
+      <td>1.070587</td>
+      <td>1.471087</td>
+      <td>2.483158</td>
+      <td>1.824446</td>
+      <td>2.208269</td>
+      <td>0.647991</td>
+      <td>1.008858</td>
+      <td>1.405527</td>
+      <td>5.918664</td>
+    </tr>
+    <tr>
+      <th>1994</th>
+      <td>3.558099</td>
+      <td>1.156559</td>
+      <td>1.518848</td>
+      <td>2.689742</td>
+      <td>1.889646</td>
+      <td>1.218080</td>
+      <td>0.744230</td>
+      <td>0.976425</td>
+      <td>1.270388</td>
+      <td>6.052086</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>3.674142</td>
+      <td>1.292197</td>
+      <td>1.594542</td>
+      <td>2.902824</td>
+      <td>1.636795</td>
+      <td>1.994006</td>
+      <td>0.829842</td>
+      <td>0.982881</td>
+      <td>1.423909</td>
+      <td>6.080432</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>3.830198</td>
+      <td>1.263302</td>
+      <td>1.729997</td>
+      <td>3.324776</td>
+      <td>1.632508</td>
+      <td>2.067063</td>
+      <td>0.767517</td>
+      <td>0.985271</td>
+      <td>1.675759</td>
+      <td>5.485843</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>3.870270</td>
+      <td>1.378568</td>
+      <td>1.797435</td>
+      <td>3.814010</td>
+      <td>1.720653</td>
+      <td>1.536271</td>
+      <td>0.839329</td>
+      <td>1.089877</td>
+      <td>1.698846</td>
+      <td>5.866977</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>3.876926</td>
+      <td>1.357333</td>
+      <td>1.839318</td>
+      <td>3.848484</td>
+      <td>1.719741</td>
+      <td>1.841248</td>
+      <td>0.881601</td>
+      <td>1.083748</td>
+      <td>1.728175</td>
+      <td>7.185496</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>4.030589</td>
+      <td>1.264810</td>
+      <td>1.858029</td>
+      <td>4.056172</td>
+      <td>1.449049</td>
+      <td>1.727677</td>
+      <td>0.863262</td>
+      <td>1.125764</td>
+      <td>2.033027</td>
+      <td>7.292498</td>
+    </tr>
+    <tr>
+      <th>2000</th>
+      <td>3.854992</td>
+      <td>1.314642</td>
+      <td>1.876441</td>
+      <td>3.833507</td>
+      <td>1.461619</td>
+      <td>1.633810</td>
+      <td>0.693004</td>
+      <td>1.145004</td>
+      <td>1.598365</td>
+      <td>6.300418</td>
+    </tr>
+    <tr>
+      <th>2001</th>
+      <td>3.587350</td>
+      <td>1.004765</td>
+      <td>1.904296</td>
+      <td>3.437728</td>
+      <td>1.397899</td>
+      <td>1.789962</td>
+      <td>0.703888</td>
+      <td>1.013652</td>
+      <td>1.530548</td>
+      <td>7.002518</td>
+    </tr>
+    <tr>
+      <th>2002</th>
+      <td>3.309684</td>
+      <td>1.189085</td>
+      <td>1.850682</td>
+      <td>3.517039</td>
+      <td>1.361735</td>
+      <td>1.898302</td>
+      <td>0.704636</td>
+      <td>1.003180</td>
+      <td>1.389165</td>
+      <td>7.701744</td>
+    </tr>
+    <tr>
+      <th>2003</th>
+      <td>3.546088</td>
+      <td>1.245553</td>
+      <td>1.769006</td>
+      <td>3.508135</td>
+      <td>1.384190</td>
+      <td>2.017036</td>
+      <td>0.722596</td>
+      <td>0.963765</td>
+      <td>1.383537</td>
+      <td>7.518236</td>
+    </tr>
+    <tr>
+      <th>2004</th>
+      <td>4.094083</td>
+      <td>1.225563</td>
+      <td>1.835946</td>
+      <td>3.732493</td>
+      <td>1.308847</td>
+      <td>2.136325</td>
+      <td>0.713493</td>
+      <td>1.154624</td>
+      <td>1.689162</td>
+      <td>5.836654</td>
+    </tr>
+    <tr>
+      <th>2005</th>
+      <td>4.168129</td>
+      <td>1.319870</td>
+      <td>1.865977</td>
+      <td>3.820018</td>
+      <td>1.429046</td>
+      <td>2.188926</td>
+      <td>0.657959</td>
+      <td>1.332646</td>
+      <td>1.738672</td>
+      <td>6.218895</td>
+    </tr>
+    <tr>
+      <th>2006</th>
+      <td>4.465186</td>
+      <td>1.602553</td>
+      <td>1.847655</td>
+      <td>3.963081</td>
+      <td>1.456923</td>
+      <td>2.052671</td>
+      <td>0.674089</td>
+      <td>1.022118</td>
+      <td>1.999239</td>
+      <td>6.355268</td>
+    </tr>
+    <tr>
+      <th>2007</th>
+      <td>4.414246</td>
+      <td>1.290181</td>
+      <td>1.910334</td>
+      <td>4.333797</td>
+      <td>1.427394</td>
+      <td>2.233048</td>
+      <td>0.689577</td>
+      <td>1.237819</td>
+      <td>1.801720</td>
+      <td>5.946848</td>
+    </tr>
+    <tr>
+      <th>2008</th>
+      <td>4.718224</td>
+      <td>1.361717</td>
+      <td>2.018593</td>
+      <td>4.300340</td>
+      <td>1.538558</td>
+      <td>2.330010</td>
+      <td>0.732038</td>
+      <td>1.447808</td>
+      <td>2.474512</td>
+      <td>6.530474</td>
+    </tr>
+    <tr>
+      <th>2009</th>
+      <td>4.445388</td>
+      <td>1.403396</td>
+      <td>1.893620</td>
+      <td>3.956216</td>
+      <td>1.637733</td>
+      <td>2.441287</td>
+      <td>0.740066</td>
+      <td>1.808369</td>
+      <td>2.406223</td>
+      <td>6.459470</td>
+    </tr>
+    <tr>
+      <th>2010</th>
+      <td>4.606804</td>
+      <td>1.511527</td>
+      <td>2.144736</td>
+      <td>4.234476</td>
+      <td>1.703569</td>
+      <td>2.428932</td>
+      <td>0.815799</td>
+      <td>2.000400</td>
+      <td>1.901575</td>
+      <td>6.693450</td>
+    </tr>
+    <tr>
+      <th>2011</th>
+      <td>4.644106</td>
+      <td>1.595994</td>
+      <td>2.224712</td>
+      <td>4.598226</td>
+      <td>1.684650</td>
+      <td>2.393287</td>
+      <td>0.840044</td>
+      <td>1.705167</td>
+      <td>2.304301</td>
+      <td>5.931888</td>
+    </tr>
+    <tr>
+      <th>2012</th>
+      <td>4.625260</td>
+      <td>1.813416</td>
+      <td>2.358548</td>
+      <td>4.653625</td>
+      <td>1.740273</td>
+      <td>2.101982</td>
+      <td>0.822882</td>
+      <td>1.872847</td>
+      <td>2.573106</td>
+      <td>6.540353</td>
+    </tr>
+    <tr>
+      <th>2013</th>
+      <td>4.589774</td>
+      <td>1.816391</td>
+      <td>2.505409</td>
+      <td>4.736431</td>
+      <td>1.994413</td>
+      <td>2.638984</td>
+      <td>0.834756</td>
+      <td>1.572399</td>
+      <td>2.238430</td>
+      <td>6.176024</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>4.588230</td>
+      <td>1.898829</td>
+      <td>2.631290</td>
+      <td>4.454138</td>
+      <td>1.845476</td>
+      <td>2.893263</td>
+      <td>0.864029</td>
+      <td>1.705884</td>
+      <td>1.984241</td>
+      <td>6.161192</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>4.664011</td>
+      <td>1.846703</td>
+      <td>2.466788</td>
+      <td>4.632586</td>
+      <td>1.980399</td>
+      <td>2.669044</td>
+      <td>0.942415</td>
+      <td>1.727432</td>
+      <td>1.963538</td>
+      <td>5.714223</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>4.619085</td>
+      <td>1.958514</td>
+      <td>2.242393</td>
+      <td>4.713172</td>
+      <td>2.030532</td>
+      <td>2.495571</td>
+      <td>1.092871</td>
+      <td>1.856501</td>
+      <td>1.975863</td>
+      <td>5.500713</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_emisiones_series</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f6b631bf820&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/solucion_46_1.png" src="../../../_images/solucion_46_1.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./APIs/2_APIs_Series_Tiempo/ejercicios"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

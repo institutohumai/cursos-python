@@ -1,0 +1,1360 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 1: ejercicios prácticos resueltos &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   1. Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   2. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   7. Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   17. Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   18. Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   19. Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   20. Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   21. Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   22. Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   23. Automatización:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   25. Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   26. Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   27. Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   28. Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   29. Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   30. Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   33. Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   34. Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   35. Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   36. Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   40. Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   42. Argenprop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   44. Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   45. Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   46. APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase-1.html">
+   47. APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase-1-ejercicios.html">
+   48. APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_APIs_Series_Tiempo/clase-2.html">
+   49. APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   50. APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   51. Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/APIs/1_APIs_Geograficas/clase-1-ejercicios-resueltos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/cursos-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/cursos-python/issues/new?title=Issue%20on%20page%20%2FAPIs/1_APIs_Geograficas/clase-1-ejercicios-resueltos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/cursos-python/libro?urlpath=tree/docs/APIs/1_APIs_Geograficas/clase-1-ejercicios-resueltos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1-api-georef">
+   Ejercicio 1: API Georef
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-2-api-nominatim">
+   Ejercicio 2: API Nominatim
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Clase 1: ejercicios prácticos resueltos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1-api-georef">
+   Ejercicio 1: API Georef
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-2-api-nominatim">
+   Ejercicio 2: API Nominatim
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/1_APIs_Geograficas/clase-1-ejercicios-resueltos.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div><div class="tex2jax_ignore mathjax_ignore section" id="clase-1-ejercicios-practicos-resueltos">
+<h1>Clase 1: ejercicios prácticos resueltos<a class="headerlink" href="#clase-1-ejercicios-practicos-resueltos" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlencode</span><span class="p">,</span> <span class="n">urljoin</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> 
+<span class="kn">import</span> <span class="nn">helpers</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1-api-georef">
+<h2>Ejercicio 1: API Georef<a class="headerlink" href="#ejercicio-1-api-georef" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Genera una lista en un dataframe de todas las calles que se llaman “San Martin” en la Argentina. Cuantas son?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calles_san_martin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/calles?nombre=san%20martin&amp;formato=csv&amp;max=5000&#39;</span>
+<span class="p">)</span>
+<span class="n">calles_san_martin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>calle_id</th>
+      <th>calle_nombre</th>
+      <th>calle_altura_inicio_derecha</th>
+      <th>calle_altura_inicio_izquierda</th>
+      <th>calle_altura_fin_derecha</th>
+      <th>calle_altura_fin_izquierda</th>
+      <th>calle_nomenclatura</th>
+      <th>calle_categoria</th>
+      <th>provincia_id</th>
+      <th>provincia_nombre</th>
+      <th>departamento_id</th>
+      <th>departamento_nombre</th>
+      <th>localidad_censal_id</th>
+      <th>localidad_censal_nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>605601004700</td>
+      <td>SAN MARTIN</td>
+      <td>1</td>
+      <td>0</td>
+      <td>899</td>
+      <td>802</td>
+      <td>SAN MARTIN, Bahía Blanca, Buenos Aires</td>
+      <td>CALLE</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6056</td>
+      <td>Bahía Blanca</td>
+      <td>6056010</td>
+      <td>Bahía Blanca</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>607001000700</td>
+      <td>SAN MARTIN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3500</td>
+      <td>3399</td>
+      <td>SAN MARTIN, Baradero, Buenos Aires</td>
+      <td>CALLE</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6070</td>
+      <td>Baradero</td>
+      <td>6070010</td>
+      <td>Baradero</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>607701000815</td>
+      <td>SAN MARTIN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>599</td>
+      <td>500</td>
+      <td>SAN MARTIN, Arrecifes, Buenos Aires</td>
+      <td>CALLE</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6077</td>
+      <td>Arrecifes</td>
+      <td>6077010</td>
+      <td>Arrecifes</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>611201000905</td>
+      <td>SAN MARTIN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2400</td>
+      <td>2399</td>
+      <td>SAN MARTIN, Bragado, Buenos Aires</td>
+      <td>CALLE</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6112</td>
+      <td>Bragado</td>
+      <td>6112010</td>
+      <td>Bragado</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>611905000865</td>
+      <td>SAN MARTIN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SAN MARTIN, Brandsen, Buenos Aires</td>
+      <td>CALLE</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6119</td>
+      <td>Brandsen</td>
+      <td>6119050</td>
+      <td>Coronel Brandsen</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>575</td>
+      <td>637101000405</td>
+      <td>AV GRL LIBERTADOR SAN MARTIN AV 85</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1599</td>
+      <td>1600</td>
+      <td>AV GRL LIBERTADOR SAN MARTIN AV 85, Ciudad Lib...</td>
+      <td>AV</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6371</td>
+      <td>Ciudad Libertador San Martín</td>
+      <td>6371010</td>
+      <td>General San Martín</td>
+    </tr>
+    <tr>
+      <td>576</td>
+      <td>7802801000085</td>
+      <td>AV DEL LDOR GRL SAN MARTIN - RUTA 11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>AV DEL LDOR GRL SAN MARTIN - RUTA 11, Lago Arg...</td>
+      <td>AV</td>
+      <td>78</td>
+      <td>Santa Cruz</td>
+      <td>78028</td>
+      <td>Lago Argentino</td>
+      <td>78028010</td>
+      <td>El Calafate</td>
+    </tr>
+    <tr>
+      <td>577</td>
+      <td>627001003860</td>
+      <td>RUTA NAC 205 AV LDOR GRL SAN MARTIN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>499</td>
+      <td>0</td>
+      <td>RUTA NAC 205 AV LDOR GRL SAN MARTIN, José M. E...</td>
+      <td>RUTA</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6270</td>
+      <td>José M. Ezeiza</td>
+      <td>6270010</td>
+      <td>Ezeiza</td>
+    </tr>
+    <tr>
+      <td>578</td>
+      <td>604902001130</td>
+      <td>SAN SERAPIO MARTIR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SAN SERAPIO MARTIR, Azul, Buenos Aires</td>
+      <td>CALLE</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6049</td>
+      <td>Azul</td>
+      <td>6049020</td>
+      <td>Azul</td>
+    </tr>
+    <tr>
+      <td>579</td>
+      <td>636403008775</td>
+      <td>SAN JOSE MARTIR</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SAN JOSE MARTIR, General Rodríguez, Buenos Aires</td>
+      <td>CALLE</td>
+      <td>6</td>
+      <td>Buenos Aires</td>
+      <td>6364</td>
+      <td>General Rodríguez</td>
+      <td>6364030</td>
+      <td>General Rodríguez</td>
+    </tr>
+  </tbody>
+</table>
+<p>580 rows × 14 columns</p>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>Hace un mapa de las representaciones diplomaticas extranjeras en la Argentina. Para esto descarga las direcciones del dataset <a class="reference external" href="https://datos.gob.ar/dataset/exterior-guia-diplomatica">“Guia Diplomatica”</a>, georreferencialas, crea un GeoDataframe con ellas y mapealas sobre una capa de provincias de Argentina. Sugerencias:</p>
+<ul>
+<li><p>Usa <code class="docutils literal notranslate"><span class="pre">pd.read_excel()</span></code> directamente con la URL de descarga de la lista de representaciones extranjeras.</p></li>
+<li><p>Cuando descargues las embajadas, elimina aquellas que no tengan direccion, porque hace fallar la georreferenciacion (<code class="docutils literal notranslate"><span class="pre">embajadas.dropna(subset=['representacion_direccion']</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embajadas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+    <span class="s1">&#39;https://cancilleria.gob.ar/userfiles/datos/representaciones-extranjeras.xlsx&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embajadas</span> <span class="o">=</span> <span class="n">embajadas</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;representacion_direccion&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embajadas</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>representacion_pais_descripcion</th>
+      <th>representacion_pais_iso</th>
+      <th>representacion_descripcion</th>
+      <th>representacion_circunscripcion</th>
+      <th>representacion_ciudad_descripcion</th>
+      <th>representacion_provincia_descripcion</th>
+      <th>representacion_direccion</th>
+      <th>representacion_email</th>
+      <th>representacion_pagina_web</th>
+      <th>representacion_horario_atencion</th>
+      <th>representacion_cuidad_codigo_tel</th>
+      <th>representacion_telefono</th>
+      <th>representacion_fax</th>
+      <th>representacion_telefax</th>
+      <th>Unnamed: 14</th>
+      <th>Unnamed: 15</th>
+      <th>Unnamed: 16</th>
+      <th>Unnamed: 17</th>
+      <th>Unnamed: 18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Alemania</td>
+      <td>DE</td>
+      <td>Consulado Honorario  de ALEMANIA en Córdoba</td>
+      <td>Provincia de Córdoba</td>
+      <td>Córdoba</td>
+      <td>Córdoba</td>
+      <td>Eliseo Cantón 1870</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>351</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>489-0900</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Alemania</td>
+      <td>DE</td>
+      <td>Consulado Honorario  de ALEMANIA en El Dorado</td>
+      <td>Los departamentos de la Provincia de Misiones ...</td>
+      <td>El Dorado</td>
+      <td>Misiones</td>
+      <td>San Juan 1595 - PB</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3751</td>
+      <td>423-214</td>
+      <td>423-214</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Alemania</td>
+      <td>DE</td>
+      <td>Consulado Honorario  de ALEMANIA en Mendoza</td>
+      <td>Provincias de Mendoza, San Juan y San Luis</td>
+      <td>Mendoza</td>
+      <td>Mendoza</td>
+      <td>Peatonal Sarmiento N° 165/199</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>261</td>
+      <td>4201077</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Alemania</td>
+      <td>DE</td>
+      <td>Consulado Honorario  de ALEMANIA en Posadas</td>
+      <td>Los departamentos de la Provincia de Misione...</td>
+      <td>Posadas</td>
+      <td>Misiones</td>
+      <td>Junín 1811 P 2 of 1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3752</td>
+      <td>443-5508//443-0570</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Alemania</td>
+      <td>DE</td>
+      <td>Consulado Honorario  de ALEMANIA en Salta</td>
+      <td>Provincias de Jujuy y Salta</td>
+      <td>Salta</td>
+      <td>Salta</td>
+      <td>Caseros N°1874</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>387</td>
+      <td>422-9088//492-1184</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>485</td>
+      <td>Uruguay</td>
+      <td>UY</td>
+      <td>Embajada de URUGUAY</td>
+      <td></td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+      <td>Buenos Aires</td>
+      <td>Arenales N° 1392</td>
+      <td>uruargentina@mrree.gub.uy</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11</td>
+      <td>6009-4020</td>
+      <td>6009-4080</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>486</td>
+      <td>Venezuela</td>
+      <td>VE</td>
+      <td>Consulado General de VENEZUELA en Ciudad Autón...</td>
+      <td>Todo el territorio de la República Argentina</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+      <td>Buenos Aires</td>
+      <td>Virrey Loreto 2035</td>
+      <td>embaven@arnet.com.ar</td>
+      <td>http://www.la-embajada.com.ar/</td>
+      <td>NaN</td>
+      <td>11</td>
+      <td>4788-4944</td>
+      <td>4129-0823/0824</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>487</td>
+      <td>Venezuela</td>
+      <td>VE</td>
+      <td>Embajada de VENEZUELA</td>
+      <td></td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+      <td>Buenos Aires</td>
+      <td>Av. Luis María Campos 170</td>
+      <td>despacho.argentina@mppre.gob.ve</td>
+      <td>http://argentina.embajada.gob.ve</td>
+      <td>NaN</td>
+      <td>11</td>
+      <td>4129-0800//63921135</td>
+      <td>4129-0823</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>488</td>
+      <td>Vietnam</td>
+      <td>VN</td>
+      <td>Embajada de VIETNAM</td>
+      <td></td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+      <td>Buenos Aires</td>
+      <td>11 de Septiembre 1442</td>
+      <td>atn.sqvn@gmail.com//</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11</td>
+      <td>4783-1425//4783-1802</td>
+      <td>4782-0078</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>489</td>
+      <td>Vietnam</td>
+      <td>VN</td>
+      <td>Sección Consular de VIETNAM en Ciudad Autónoma...</td>
+      <td>Todo el territorio de la República Argentina</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+      <td>Buenos Aires</td>
+      <td>11 de Septiembre 1442</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11</td>
+      <td>4783-1802//4783-1425</td>
+      <td>4782-0078</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>457 rows × 19 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embajadas_direcciones</span> <span class="o">=</span> <span class="n">helpers</span><span class="o">.</span><span class="n">georreferenciar_direcciones</span><span class="p">(</span>
+    <span class="n">embajadas</span><span class="p">,</span>
+    <span class="n">nombre_campo</span><span class="o">=</span><span class="s1">&#39;representacion_direccion&#39;</span><span class="p">,</span>
+    <span class="n">provincia_campo</span><span class="o">=</span><span class="s1">&#39;representacion_provincia_descripcion&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embajadas_direcciones</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>direccion_normalizada</th>
+      <th>latitud</th>
+      <th>longitud</th>
+      <th>provincia_id</th>
+      <th>provincia_nombre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>DR ELISEO CANTON 1870, Capital, Córdoba</td>
+      <td>-31.396194</td>
+      <td>-64.203748</td>
+      <td>14</td>
+      <td>Córdoba</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>None</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>CASEROS 1874, Capital, Salta</td>
+      <td>-24.788640</td>
+      <td>-65.428614</td>
+      <td>66</td>
+      <td>Salta</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>452</td>
+      <td>ARENALES 1392, Merlo, Buenos Aires</td>
+      <td>-34.697688</td>
+      <td>-58.728085</td>
+      <td>06</td>
+      <td>Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>453</td>
+      <td>VIRREY LORETO 2035, Almirante Brown, Buenos Aires</td>
+      <td>-34.823240</td>
+      <td>-58.355989</td>
+      <td>06</td>
+      <td>Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>454</td>
+      <td>AV LUIS MARIA CAMPOS 170, Comuna 14, Ciudad Au...</td>
+      <td>-34.575038</td>
+      <td>-58.430997</td>
+      <td>02</td>
+      <td>Ciudad Autónoma de Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>455</td>
+      <td>11 DE SEPTIEMBRE 1442, Tandil, Buenos Aires</td>
+      <td>-37.312035</td>
+      <td>-59.130081</td>
+      <td>06</td>
+      <td>Buenos Aires</td>
+    </tr>
+    <tr>
+      <td>456</td>
+      <td>11 DE SEPTIEMBRE 1442, Tandil, Buenos Aires</td>
+      <td>-37.312035</td>
+      <td>-59.130081</td>
+      <td>06</td>
+      <td>Buenos Aires</td>
+    </tr>
+  </tbody>
+</table>
+<p>457 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embajadas_normalizadas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">embajadas</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">embajadas_direcciones</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">embajadas_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
+    <span class="n">embajadas_normalizadas</span><span class="p">,</span> 
+    <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span>
+        <span class="n">embajadas_normalizadas</span><span class="o">.</span><span class="n">longitud</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> 
+        <span class="n">embajadas_normalizadas</span><span class="o">.</span><span class="n">latitud</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">provincias</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+        <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/provincias?max=100&amp;formato=shp&#39;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">provincias</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># se setean limites para no graficar la Antartida</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">right</span><span class="o">=-</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=-</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="n">embajadas_gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f0bbc4f3dd0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-1-ejercicios-resueltos_15_1.png" src="../../_images/clase-1-ejercicios-resueltos_15_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-2-api-nominatim">
+<h2>Ejercicio 2: API Nominatim<a class="headerlink" href="#ejercicio-2-api-nominatim" title="Permalink to this headline">¶</a></h2>
+<p>Crea distintos mapas que tengan al mapa de las comunas de la Ciudad de Buenos Aires como base, y sobre el dibujen los puntos de coordenadas de:</p>
+<ul class="simple">
+<li><p>Los 10 restaurantes mas cercanos al centroide del barrio de Almagro</p></li>
+<li><p>Los 10 hospitales mas cercanos al centroide de Villa Urquiza</p></li>
+<li><p>Las 10 escuelas mas cercanas al centroide de Villa Devoto</p></li>
+</ul>
+<p>Sugerencia: crea una funcion “buscar” que tome un texto de busqueda y haga la consulta a la API de Nominatim, y otra funcion “mapear” que tome un texto de busqueda y haga el mapa de los puntos sobre las comunas de la CABA. Usa la funcion mapear() para hacer los 3 mapas solicitados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">addressdetails</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Busca objetos geograficos en OSM.&#39;&#39;&#39;</span>
+    
+    <span class="c1"># toma los parametros de la funcion como un diccionario</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+    
+    <span class="c1"># crea url de consulta</span>
+    <span class="n">url_base</span> <span class="o">=</span> <span class="s1">&#39;https://nominatim.openstreetmap.org/?&#39;</span>
+    <span class="n">query_string</span> <span class="o">=</span> <span class="n">urlencode</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="n">url_base</span> <span class="o">+</span> <span class="n">query_string</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    
+    <span class="c1"># obtiene resultados y los convierte en un GeoDataframe</span>
+    <span class="n">resultados</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resultados</span><span class="p">),</span> <span class="s1">&#39;encontrados&#39;</span><span class="p">)</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">resultados</span><span class="p">)</span>
+    <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
+        <span class="n">df</span><span class="p">,</span> 
+        <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">lon</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> 
+                                    <span class="n">df</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">))</span>
+    <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">gdf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mapear</span><span class="p">(</span><span class="n">q</span><span class="p">):</span>
+    <span class="n">comunas_caba</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+        <span class="s1">&#39;https://apis.datos.gob.ar/georef/api/departamentos?provincia=02&amp;max=100&amp;formato=shp&#39;</span>
+    <span class="p">)</span>
+    <span class="n">objetos</span> <span class="o">=</span> <span class="n">buscar</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">comunas_caba</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">objetos</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapear</span><span class="p">(</span><span class="s1">&#39;restaurantes, almagro, ciudad de buenos aires, argentina&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://nominatim.openstreetmap.org/?q=restaurantes%2C+almagro%2C+ciudad+de+buenos+aires%2C+argentina&amp;addressdetails=1&amp;format=json&amp;limit=50
+50 encontrados
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f30914529d0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-1-ejercicios-resueltos_20_2.png" src="../../_images/clase-1-ejercicios-resueltos_20_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapear</span><span class="p">(</span><span class="s1">&#39;centros de salud, caballito, ciudad de buenos aires, argentina&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://nominatim.openstreetmap.org/?q=centros+de+salud%2C+caballito%2C+ciudad+de+buenos+aires%2C+argentina&amp;addressdetails=1&amp;format=json&amp;limit=50
+50 encontrados
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f3091296490&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-1-ejercicios-resueltos_21_2.png" src="../../_images/clase-1-ejercicios-resueltos_21_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mapear</span><span class="p">(</span><span class="s1">&#39;escuelas, devoto, ciudad de buenos aires, argentina&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://nominatim.openstreetmap.org/?q=escuelas%2C+devoto%2C+ciudad+de+buenos+aires%2C+argentina&amp;addressdetails=1&amp;format=json&amp;limit=50
+50 encontrados
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f309118ae50&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-1-ejercicios-resueltos_22_2.png" src="../../_images/clase-1-ejercicios-resueltos_22_2.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./APIs/1_APIs_Geograficas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

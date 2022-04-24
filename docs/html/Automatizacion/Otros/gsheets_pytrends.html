@@ -1,0 +1,1388 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>32. Práctica: GSheet y PyTrends &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="33. Ejercicio: Organizando PDFs" href="organizando_pdfs.html" />
+    <link rel="prev" title="31. Expresiones Regulares" href="../Expresiones_Regulares/expresiones_regulares.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   1. Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   2. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   7. Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   17. Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   18. Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   21. Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   22. Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   23. Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   24. Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   25. Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   26. Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   27. Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   29. Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   30. Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Expresiones_Regulares/expresiones_regulares.html">
+   31. Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   32. Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="organizando_pdfs.html">
+   33. Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="edicion_imagenes.html">
+   34. Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   35. Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   36. Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   37. Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   38. Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   42. Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   44. Argenprop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   46. Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   47. Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   48. APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   49. APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   50. APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   51. APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   52. APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   53. Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   54. Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   55. Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   56. Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   57. Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   58. Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   59. Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   60. Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   61. Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   62. Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   63. Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   64. Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   65. Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   66. Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   68. Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   69. Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   70. Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   71. Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   72. Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   73. Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   74. Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   75. Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   76. Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Automatizacion/Otros/gsheets_pytrends.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/cursos-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/cursos-python/issues/new?title=Issue%20on%20page%20%2FAutomatizacion/Otros/gsheets_pytrends.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/cursos-python/libro?urlpath=tree/Automatizacion/Otros/gsheets_pytrends.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparacion">
+   32.1. Preparación
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     32.1.1. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     32.1.2. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     32.1.3. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bonus">
+     32.1.4. Bonus:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     32.1.5. Bonus:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mandando-mails">
+     32.1.6. Mandando mails
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     32.1.7. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     32.1.8. Ejercicio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     32.1.9. Bonus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     32.1.10. Bonus
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Práctica: GSheet y PyTrends</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#preparacion">
+   32.1. Preparación
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     32.1.1. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     32.1.2. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     32.1.3. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bonus">
+     32.1.4. Bonus:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     32.1.5. Bonus:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mandando-mails">
+     32.1.6. Mandando mails
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     32.1.7. Ejercicio:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     32.1.8. Ejercicio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     32.1.9. Bonus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     32.1.10. Bonus
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div align="center"><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/gsheets_pytrends.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg'/> </a> <br> Recordá abrir en una nueva pestaña</div><div class="tex2jax_ignore mathjax_ignore section" id="practica-gsheet-y-pytrends">
+<h1><span class="section-number">32. </span>Práctica: GSheet y PyTrends<a class="headerlink" href="#practica-gsheet-y-pytrends" title="Permalink to this headline">¶</a></h1>
+<p>En esta clase veremos:</p>
+<ul class="simple">
+<li><p>Repaso Python</p></li>
+<li><p>Interactuando con Google Sheets</p></li>
+<li><p>Manipulación de strings</p></li>
+<li><p>Diccionario</p></li>
+<li><p>Función Enviar Mail</p></li>
+<li><p>Pytrends</p></li>
+</ul>
+<div class="section" id="preparacion">
+<h2><span class="section-number">32.1. </span>Preparación<a class="headerlink" href="#preparacion" title="Permalink to this headline">¶</a></h2>
+<p>Para operar sobre Google Sheets desde Python, tenemos que contar con un archivo de autenticación y compartir el archivo a manipular con el servicio o “bot” creado. Desde Colab, vamos a poder autenticar a nuestro usuario directamente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gspread</span>
+
+<span class="c1"># Colab</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">auth</span>
+<span class="kn">from</span> <span class="nn">oauth2client.client</span> <span class="kn">import</span> <span class="n">GoogleCredentials</span>
+<span class="c1">#auth.authenticate_user()</span>
+<span class="c1">#gc = gspread.authorize(GoogleCredentials.get_application_default())</span>
+
+<span class="c1"># Local</span>
+<span class="o">!</span>pip install gspread --upgrade
+<span class="n">gc</span> <span class="o">=</span> <span class="n">gspread</span><span class="o">.</span><span class="n">service_account</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;alumnos.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sheet_name</span> <span class="o">=</span> <span class="s1">&#39;Alumnos&#39;</span>
+<span class="n">sh</span> <span class="o">=</span> <span class="n">gc</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">sheet_name</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">sh</span><span class="o">.</span><span class="n">sheet1</span><span class="o">.</span><span class="n">get_all_records</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;list&#39;&gt;
+&lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Mail&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio">
+<h3><span class="section-number">32.1.1. </span>Ejercicio:<a class="headerlink" href="#ejercicio" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>¿Qué estructura de datos es?</p></li>
+<li><p>Los nombres donde aparece el apellido primero, darlos vuelta a la forma “Nombre Apellido”</p></li>
+</ul>
+<p>Pseudocódigo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">para</span> <span class="n">cada</span> <span class="n">elemento</span><span class="p">:</span>
+     <span class="n">si</span> <span class="n">el</span> <span class="n">nombre</span> <span class="n">está</span> <span class="n">al</span> <span class="n">revés</span><span class="p">:</span>
+        <span class="n">separar</span> <span class="n">el</span> <span class="n">nombre</span> <span class="n">por</span> <span class="n">la</span> <span class="n">coma</span>
+        <span class="n">invertirlo</span>
+        <span class="n">unirlo</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;,&#39;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]:</span>
+        <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">32.1.2. </span>Ejercicio:<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Definir la llave “Primer nombre” con el primer nombre en cada entrada</p>
+<p>Pseudocódigo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">para</span> <span class="n">cada</span> <span class="n">elemento</span><span class="p">:</span>
+   <span class="n">separar</span> <span class="n">el</span> <span class="n">string</span>
+   <span class="n">guardar</span> <span class="n">la</span> <span class="n">primer</span> <span class="n">palabra</span> <span class="n">en</span> <span class="n">el</span> <span class="nb">dict</span> <span class="n">con</span> <span class="n">el</span> <span class="n">key</span> <span class="s2">&quot;primer nombre&quot;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Primer Nombre&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">32.1.3. </span>Ejercicio:<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Guardar una lista con los dominios únicos de los mails</p>
+<p>Pseudocódigo</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">para</span> <span class="n">cada</span> <span class="n">elemento</span><span class="p">:</span>
+   <span class="n">tomar</span> <span class="n">el</span> <span class="n">mail</span>
+   <span class="n">extraer</span> <span class="n">el</span> <span class="n">dominio</span>
+   <span class="n">si</span> <span class="n">no</span> <span class="n">está</span> <span class="n">en</span> <span class="n">la</span> <span class="n">lista</span>
+      <span class="n">guardarlo</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dominios</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">dominio</span> <span class="o">=</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Mail&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;@&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">dominio</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dominios</span><span class="p">:</span>
+        <span class="n">dominios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dominio</span><span class="p">)</span>
+
+<span class="n">dominios</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gmail&#39;, &#39;intalbid&#39;, &#39;iadb&#39;, &#39;outlook&#39;, &#39;live&#39;, &#39;connectamericas&#39;, &#39;ihum&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bonus">
+<h3><span class="section-number">32.1.4. </span>Bonus:<a class="headerlink" href="#bonus" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Usar regular expressions</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">dominios</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">dominio</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;@(\w+)\.&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Mail&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">dominio</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dominios</span><span class="p">:</span>
+        <span class="n">dominios</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dominio</span><span class="p">)</span>
+
+<span class="n">dominios</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;gmail&#39;, &#39;intalbid&#39;, &#39;iadb&#39;, &#39;outlook&#39;, &#39;live&#39;, &#39;connectamericas&#39;, &#39;ihum&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3><span class="section-number">32.1.5. </span>Bonus:<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>En vez de una lista, hacer un diccionario con la frecuencia de cada dominio</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="n">dominios</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">dominio</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;@(\w+)\.&#39;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Mail&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">dominio</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dominios</span><span class="p">:</span>
+        <span class="n">dominios</span><span class="p">[</span><span class="n">dominio</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dominios</span><span class="p">[</span><span class="n">dominio</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="n">dominios</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;connectamericas&#39;: 1,
+ &#39;gmail&#39;: 3,
+ &#39;iadb&#39;: 8,
+ &#39;ihum&#39;: 1,
+ &#39;intalbid&#39;: 2,
+ &#39;live&#39;: 1,
+ &#39;outlook&#39;: 1}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mandando-mails">
+<h3><span class="section-number">32.1.6. </span>Mandando mails<a class="headerlink" href="#mandando-mails" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">smtplib</span>
+<span class="kn">from</span> <span class="nn">email.mime.multipart</span> <span class="kn">import</span> <span class="n">MIMEMultipart</span>
+<span class="kn">from</span> <span class="nn">email.mime.text</span> <span class="kn">import</span> <span class="n">MIMEText</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEMultipart</span><span class="p">()</span>
+
+<span class="c1"># Contenido</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;ejemplo.cuenta.246@gmail.com&quot;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span><span class="o">=</span><span class="s2">&quot;mg@ihum.ai&quot;</span>
+<span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span><span class="o">=</span> <span class="s2">&quot;Probando mandar mails!&quot;</span>
+<span class="n">msg</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">MIMEText</span><span class="p">(</span><span class="s1">&#39;Este es un mail enviado con Python&#39;</span><span class="p">,</span> <span class="s1">&#39;plain&#39;</span><span class="p">))</span>
+
+<span class="c1"># No se queden en los detalles aquí</span>
+<span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+
+<span class="c1"># Usuario y contraseña</span>
+<span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="s2">&quot;ejemplo.cuenta.246@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Ejemplo246&quot;</span><span class="p">)</span>
+
+<span class="c1"># enviar</span>
+<span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">32.1.7. </span>Ejercicio:<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Hacer una función con el código anterior para mandar mails</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mandar_mail</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">contra</span><span class="p">,</span> <span class="n">receptor</span><span class="p">,</span> <span class="n">asunto</span><span class="p">,</span> <span class="n">contenido</span><span class="p">):</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">MIMEMultipart</span><span class="p">()</span>
+
+    <span class="c1"># Contenido</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;From&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">usuario</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;To&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">receptor</span>
+    <span class="n">msg</span><span class="p">[</span><span class="s1">&#39;Subject&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">asunto</span>
+    <span class="n">msg</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">MIMEText</span><span class="p">(</span><span class="n">contenido</span><span class="p">,</span> <span class="s1">&#39;plain&#39;</span><span class="p">))</span>
+
+    <span class="c1"># No se queden en los detalles aquí</span>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">smtplib</span><span class="o">.</span><span class="n">SMTP</span><span class="p">(</span><span class="s1">&#39;smtp.gmail.com&#39;</span><span class="p">,</span> <span class="mi">587</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">starttls</span><span class="p">()</span>
+
+    <span class="c1"># Usuario y contraseña</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">login</span><span class="p">(</span><span class="n">usuario</span><span class="p">,</span> <span class="n">contra</span><span class="p">)</span>
+
+    <span class="c1"># enviar</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">quit</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3><span class="section-number">32.1.8. </span>Ejercicio<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Enviando mail</p>
+<ul class="simple">
+<li><p>Hacer un búcle que rellene la plantilla para cada diccionario</p></li>
+<li><p>Definir un string como plantilla para rellenar con “Primer Nombre” y “Tema”</p></li>
+<li><p>Si el mail es el tuyo… enviar el mail con la plantilla. Si no, hacer print</p></li>
+<li><p>Mostrar “Enviando mail a…” con el mail a quien se envió</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi_nombre</span> <span class="o">=</span> <span class="s1">&#39;Matías Grinberg&#39;</span>
+<span class="n">plantilla</span> <span class="o">=</span> <span class="s1">&#39;¡Hola! </span><span class="si">{nombre}</span><span class="s1">. Tu tema es </span><span class="si">{tema}</span><span class="s1">&#39;</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">plantilla</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Primer Nombre&#39;</span><span class="p">],</span> <span class="n">tema</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Tema&#39;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">mi_nombre</span><span class="p">:</span>
+        <span class="n">mandar_mail</span><span class="p">(</span><span class="s2">&quot;ejemplo.cuenta.246@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Ejemplo246&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Mail&#39;</span><span class="p">],</span> <span class="s2">&quot;Tema&quot;</span><span class="p">,</span> <span class="n">texto</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Enviando Mail a </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;Mail&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3><span class="section-number">32.1.9. </span>Bonus<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Usar la función .update_cell() del objeto sh para anotar “OK” en una nueva columna llamada “Mail Enviado”, donde corresponda</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enviado_idx</span> <span class="o">=</span> <span class="n">sheet</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Enviado&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">col</span>
+
+<span class="n">mi_nombre</span> <span class="o">=</span> <span class="s1">&#39;Matías Grinberg&#39;</span>
+<span class="n">plantilla</span> <span class="o">=</span> <span class="s1">&#39;¡Hola! </span><span class="si">{nombre}</span><span class="s1">. Tu tema es </span><span class="si">{tema}</span><span class="s1">&#39;</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">plantilla</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Primer Nombre&#39;</span><span class="p">],</span> <span class="n">tema</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Tema&#39;</span><span class="p">])</span>
+
+    <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">mi_nombre</span><span class="p">:</span>
+        <span class="n">mandar_mail</span><span class="p">(</span><span class="s2">&quot;ejemplo.cuenta.246@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Ejemplo246&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Mail&#39;</span><span class="p">],</span> <span class="s2">&quot;Tema&quot;</span><span class="p">,</span> <span class="n">texto</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Enviando Mail a </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;Mail&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">sh</span><span class="o">.</span><span class="n">update_cell</span><span class="p">(</span><span class="n">row_idx</span><span class="p">,</span> <span class="n">enviado_idx</span><span class="p">,</span> <span class="s1">&#39;OK&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">32.1.10. </span>Bonus<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Usar la siguiente función para conseguir las  tendencias de Google para el tema de cada persona</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pytrends
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pytrends in /usr/local/lib/python3.6/dist-packages (4.7.3)
+Requirement already satisfied: lxml in /usr/local/lib/python3.6/dist-packages (from pytrends) (4.2.6)
+Requirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (from pytrends) (2.23.0)
+Requirement already satisfied: pandas&gt;=0.25 in /usr/local/lib/python3.6/dist-packages (from pytrends) (1.0.5)
+Requirement already satisfied: chardet&lt;4,&gt;=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;pytrends) (3.0.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;pytrends) (2020.6.20)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;pytrends) (1.24.3)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.6/dist-packages (from requests-&gt;pytrends) (2.10)
+Requirement already satisfied: pytz&gt;=2017.2 in /usr/local/lib/python3.6/dist-packages (from pandas&gt;=0.25-&gt;pytrends) (2018.9)
+Requirement already satisfied: python-dateutil&gt;=2.6.1 in /usr/local/lib/python3.6/dist-packages (from pandas&gt;=0.25-&gt;pytrends) (2.8.1)
+Requirement already satisfied: numpy&gt;=1.13.3 in /usr/local/lib/python3.6/dist-packages (from pandas&gt;=0.25-&gt;pytrends) (1.18.5)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.6/dist-packages (from python-dateutil&gt;=2.6.1-&gt;pandas&gt;=0.25-&gt;pytrends) (1.15.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>                        
+<span class="kn">from</span> <span class="nn">pytrends.request</span> <span class="kn">import</span> <span class="n">TrendReq</span>
+
+<span class="k">def</span> <span class="nf">get_trends</span><span class="p">(</span><span class="n">query</span><span class="p">):</span>
+    <span class="n">pytrend</span> <span class="o">=</span> <span class="n">TrendReq</span><span class="p">()</span>
+    <span class="n">pytrend</span><span class="o">.</span><span class="n">build_payload</span><span class="p">(</span><span class="n">kw_list</span><span class="o">=</span><span class="p">[</span><span class="n">query</span><span class="p">])</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pytrend</span><span class="o">.</span><span class="n">interest_by_region</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="n">query</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+<span class="n">tendencias</span> <span class="o">=</span> <span class="n">get_trends</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tendencias</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Afghanistan&#39;: 0,
+ &#39;Albania&#39;: 0,
+ &#39;Algeria&#39;: 0,
+ &#39;American Samoa&#39;: 0,
+ &#39;Andorra&#39;: 0,
+ &#39;Angola&#39;: 0,
+ &#39;Anguilla&#39;: 0,
+ &#39;Antarctica&#39;: 0,
+ &#39;Antigua &amp; Barbuda&#39;: 0,
+ &#39;Argentina&#39;: 1,
+ &#39;Armenia&#39;: 0,
+ &#39;Aruba&#39;: 0,
+ &#39;Australia&#39;: 4,
+ &#39;Austria&#39;: 3,
+ &#39;Azerbaijan&#39;: 0,
+ &#39;Bahamas&#39;: 0,
+ &#39;Bahrain&#39;: 0,
+ &#39;Bangladesh&#39;: 2,
+ &#39;Barbados&#39;: 0,
+ &#39;Belarus&#39;: 3,
+ &#39;Belgium&#39;: 3,
+ &#39;Belize&#39;: 0,
+ &#39;Benin&#39;: 0,
+ &#39;Bermuda&#39;: 0,
+ &#39;Bhutan&#39;: 0,
+ &#39;Bolivia&#39;: 0,
+ &#39;Bosnia &amp; Herzegovina&#39;: 0,
+ &#39;Botswana&#39;: 0,
+ &#39;Bouvet Island&#39;: 0,
+ &#39;Brazil&#39;: 1,
+ &#39;British Indian Ocean Territory&#39;: 0,
+ &#39;British Virgin Islands&#39;: 0,
+ &#39;Brunei&#39;: 0,
+ &#39;Bulgaria&#39;: 2,
+ &#39;Burkina Faso&#39;: 0,
+ &#39;Burundi&#39;: 0,
+ &#39;Cambodia&#39;: 0,
+ &#39;Cameroon&#39;: 0,
+ &#39;Canada&#39;: 4,
+ &#39;Cape Verde&#39;: 0,
+ &#39;Caribbean Netherlands&#39;: 0,
+ &#39;Cayman Islands&#39;: 0,
+ &#39;Central African Republic&#39;: 0,
+ &#39;Chad&#39;: 0,
+ &#39;Chile&#39;: 2,
+ &#39;China&#39;: 100,
+ &#39;Christmas Island&#39;: 0,
+ &#39;Cocos (Keeling) Islands&#39;: 0,
+ &#39;Colombia&#39;: 2,
+ &#39;Comoros&#39;: 0,
+ &#39;Congo - Brazzaville&#39;: 0,
+ &#39;Congo - Kinshasa&#39;: 0,
+ &#39;Cook Islands&#39;: 0,
+ &#39;Costa Rica&#39;: 0,
+ &#39;Croatia&#39;: 3,
+ &#39;Cuba&#39;: 0,
+ &#39;Curaçao&#39;: 0,
+ &#39;Cyprus&#39;: 0,
+ &#39;Czechia&#39;: 4,
+ &#39;Côte d’Ivoire&#39;: 0,
+ &#39;Denmark&#39;: 4,
+ &#39;Djibouti&#39;: 0,
+ &#39;Dominica&#39;: 0,
+ &#39;Dominican Republic&#39;: 0,
+ &#39;Ecuador&#39;: 1,
+ &#39;Egypt&#39;: 1,
+ &#39;El Salvador&#39;: 0,
+ &#39;Equatorial Guinea&#39;: 0,
+ &#39;Eritrea&#39;: 0,
+ &#39;Estonia&#39;: 0,
+ &#39;Eswatini&#39;: 0,
+ &#39;Ethiopia&#39;: 0,
+ &#39;Falkland Islands (Islas Malvinas)&#39;: 0,
+ &#39;Faroe Islands&#39;: 0,
+ &#39;Fiji&#39;: 0,
+ &#39;Finland&#39;: 4,
+ &#39;France&#39;: 3,
+ &#39;French Guiana&#39;: 0,
+ &#39;French Polynesia&#39;: 0,
+ &#39;French Southern Territories&#39;: 0,
+ &#39;Gabon&#39;: 0,
+ &#39;Gambia&#39;: 0,
+ &#39;Georgia&#39;: 0,
+ &#39;Germany&#39;: 4,
+ &#39;Ghana&#39;: 0,
+ &#39;Gibraltar&#39;: 0,
+ &#39;Greece&#39;: 2,
+ &#39;Greenland&#39;: 0,
+ &#39;Grenada&#39;: 0,
+ &#39;Guadeloupe&#39;: 0,
+ &#39;Guam&#39;: 0,
+ &#39;Guatemala&#39;: 0,
+ &#39;Guernsey&#39;: 0,
+ &#39;Guinea&#39;: 0,
+ &#39;Guinea-Bissau&#39;: 0,
+ &#39;Guyana&#39;: 0,
+ &#39;Haiti&#39;: 0,
+ &#39;Heard &amp; McDonald Islands&#39;: 0,
+ &#39;Honduras&#39;: 0,
+ &#39;Hong Kong&#39;: 6,
+ &#39;Hungary&#39;: 2,
+ &#39;Iceland&#39;: 0,
+ &#39;India&#39;: 5,
+ &#39;Indonesia&#39;: 1,
+ &#39;Iran&#39;: 1,
+ &#39;Iraq&#39;: 0,
+ &#39;Ireland&#39;: 4,
+ &#39;Isle of Man&#39;: 0,
+ &#39;Israel&#39;: 9,
+ &#39;Italy&#39;: 1,
+ &#39;Jamaica&#39;: 0,
+ &#39;Japan&#39;: 3,
+ &#39;Jersey&#39;: 0,
+ &#39;Jordan&#39;: 0,
+ &#39;Kazakhstan&#39;: 1,
+ &#39;Kenya&#39;: 2,
+ &#39;Kiribati&#39;: 0,
+ &#39;Kosovo&#39;: 0,
+ &#39;Kuwait&#39;: 0,
+ &#39;Kyrgyzstan&#39;: 0,
+ &#39;Laos&#39;: 0,
+ &#39;Latvia&#39;: 0,
+ &#39;Lebanon&#39;: 0,
+ &#39;Lesotho&#39;: 0,
+ &#39;Liberia&#39;: 0,
+ &#39;Libya&#39;: 0,
+ &#39;Liechtenstein&#39;: 0,
+ &#39;Lithuania&#39;: 0,
+ &#39;Luxembourg&#39;: 0,
+ &#39;Macao&#39;: 0,
+ &#39;Madagascar&#39;: 0,
+ &#39;Malawi&#39;: 0,
+ &#39;Malaysia&#39;: 2,
+ &#39;Maldives&#39;: 0,
+ &#39;Mali&#39;: 0,
+ &#39;Malta&#39;: 0,
+ &#39;Marshall Islands&#39;: 0,
+ &#39;Martinique&#39;: 0,
+ &#39;Mauritania&#39;: 0,
+ &#39;Mauritius&#39;: 0,
+ &#39;Mayotte&#39;: 0,
+ &#39;Mexico&#39;: 1,
+ &#39;Micronesia&#39;: 0,
+ &#39;Moldova&#39;: 0,
+ &#39;Monaco&#39;: 0,
+ &#39;Mongolia&#39;: 0,
+ &#39;Montenegro&#39;: 0,
+ &#39;Montserrat&#39;: 0,
+ &#39;Morocco&#39;: 2,
+ &#39;Mozambique&#39;: 0,
+ &#39;Myanmar (Burma)&#39;: 0,
+ &#39;Namibia&#39;: 0,
+ &#39;Nauru&#39;: 0,
+ &#39;Nepal&#39;: 0,
+ &#39;Netherlands&#39;: 4,
+ &#39;New Caledonia&#39;: 0,
+ &#39;New Zealand&#39;: 4,
+ &#39;Nicaragua&#39;: 0,
+ &#39;Niger&#39;: 0,
+ &#39;Nigeria&#39;: 2,
+ &#39;Niue&#39;: 0,
+ &#39;Norfolk Island&#39;: 0,
+ &#39;North Korea&#39;: 0,
+ &#39;North Macedonia&#39;: 0,
+ &#39;Northern Mariana Islands&#39;: 0,
+ &#39;Norway&#39;: 4,
+ &#39;Oman&#39;: 0,
+ &#39;Pakistan&#39;: 2,
+ &#39;Palau&#39;: 0,
+ &#39;Palestine&#39;: 0,
+ &#39;Panama&#39;: 0,
+ &#39;Papua New Guinea&#39;: 0,
+ &#39;Paraguay&#39;: 0,
+ &#39;Peru&#39;: 1,
+ &#39;Philippines&#39;: 2,
+ &#39;Pitcairn Islands&#39;: 0,
+ &#39;Poland&#39;: 2,
+ &#39;Portugal&#39;: 3,
+ &#39;Puerto Rico&#39;: 0,
+ &#39;Qatar&#39;: 0,
+ &#39;Romania&#39;: 2,
+ &#39;Russia&#39;: 3,
+ &#39;Rwanda&#39;: 0,
+ &#39;Réunion&#39;: 0,
+ &#39;Samoa&#39;: 0,
+ &#39;San Marino&#39;: 0,
+ &#39;Saudi Arabia&#39;: 1,
+ &#39;Senegal&#39;: 0,
+ &#39;Serbia&#39;: 2,
+ &#39;Seychelles&#39;: 0,
+ &#39;Sierra Leone&#39;: 0,
+ &#39;Singapore&#39;: 9,
+ &#39;Sint Maarten&#39;: 0,
+ &#39;Slovakia&#39;: 2,
+ &#39;Slovenia&#39;: 4,
+ &#39;Solomon Islands&#39;: 0,
+ &#39;Somalia&#39;: 0,
+ &#39;South Africa&#39;: 3,
+ &#39;South Georgia &amp; South Sandwich Islands&#39;: 0,
+ &#39;South Korea&#39;: 8,
+ &#39;South Sudan&#39;: 0,
+ &#39;Spain&#39;: 2,
+ &#39;Sri Lanka&#39;: 3,
+ &#39;St. Barthélemy&#39;: 0,
+ &#39;St. Helena&#39;: 12,
+ &#39;St. Kitts &amp; Nevis&#39;: 0,
+ &#39;St. Lucia&#39;: 0,
+ &#39;St. Martin&#39;: 0,
+ &#39;St. Pierre &amp; Miquelon&#39;: 0,
+ &#39;St. Vincent &amp; Grenadines&#39;: 0,
+ &#39;Sudan&#39;: 0,
+ &#39;Suriname&#39;: 0,
+ &#39;Svalbard &amp; Jan Mayen&#39;: 0,
+ &#39;Sweden&#39;: 4,
+ &#39;Switzerland&#39;: 5,
+ &#39;Syria&#39;: 0,
+ &#39;São Tomé &amp; Príncipe&#39;: 0,
+ &#39;Taiwan&#39;: 5,
+ &#39;Tajikistan&#39;: 0,
+ &#39;Tanzania&#39;: 0,
+ &#39;Thailand&#39;: 1,
+ &#39;Timor-Leste&#39;: 0,
+ &#39;Togo&#39;: 0,
+ &#39;Tokelau&#39;: 0,
+ &#39;Tonga&#39;: 0,
+ &#39;Trinidad &amp; Tobago&#39;: 0,
+ &#39;Tunisia&#39;: 3,
+ &#39;Turkey&#39;: 1,
+ &#39;Turkmenistan&#39;: 0,
+ &#39;Turks &amp; Caicos Islands&#39;: 0,
+ &#39;Tuvalu&#39;: 0,
+ &#39;U.S. Outlying Islands&#39;: 0,
+ &#39;U.S. Virgin Islands&#39;: 0,
+ &#39;Uganda&#39;: 0,
+ &#39;Ukraine&#39;: 2,
+ &#39;United Arab Emirates&#39;: 2,
+ &#39;United Kingdom&#39;: 4,
+ &#39;United States&#39;: 5,
+ &#39;Uruguay&#39;: 0,
+ &#39;Uzbekistan&#39;: 0,
+ &#39;Vanuatu&#39;: 0,
+ &#39;Vatican City&#39;: 0,
+ &#39;Venezuela&#39;: 0,
+ &#39;Vietnam&#39;: 1,
+ &#39;Wallis &amp; Futuna&#39;: 0,
+ &#39;Western Sahara&#39;: 0,
+ &#39;Yemen&#39;: 0,
+ &#39;Zambia&#39;: 0,
+ &#39;Zimbabwe&#39;: 0,
+ &#39;Åland Islands&#39;: 0}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mi_nombre</span> <span class="o">=</span> <span class="s1">&#39;Matías Grinberg&#39;</span>
+<span class="n">plantilla</span> <span class="o">=</span> <span class="s1">&#39;¡Hola! </span><span class="si">{nombre}</span><span class="s1">. Tu búsqueda de &lt;b&gt;&quot;</span><span class="si">{tema}</span><span class="s1">&quot;&lt;/b&gt; trajo los siguientes resultados: </span><span class="se">\n</span><span class="s1"> </span><span class="si">{resultados}</span><span class="s1"> </span><span class="se">\n</span><span class="s1"> ¡Saludos! MatiBot&#39;</span>
+
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">tendencias</span> <span class="o">=</span> <span class="n">get_trends</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Tema&#39;</span><span class="p">])</span>  
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">plantilla</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Primer Nombre&#39;</span><span class="p">],</span> <span class="n">tema</span><span class="o">=</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;Tema&#39;</span><span class="p">],</span> <span class="n">resultados</span><span class="o">=</span><span class="n">tendencias</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Nombre&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">mi_nombre</span><span class="p">:</span>
+        <span class="n">mandar_mail</span><span class="p">(</span><span class="s2">&quot;ejemplo.cuenta.246@gmail.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Ejemplo246&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;Mail&#39;</span><span class="p">],</span> <span class="s2">&quot;Tema&quot;</span><span class="p">,</span> <span class="n">texto</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Enviando Mail a </span><span class="si">{</span><span class="n">d</span><span class="p">[</span><span class="s2">&quot;Mail&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Eso es todo por hoy!</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Automatizacion/Otros"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../Expresiones_Regulares/expresiones_regulares.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">31. </span>Expresiones Regulares</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="organizando_pdfs.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">33. </span>Ejercicio: Organizando PDFs</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

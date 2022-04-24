@@ -1,0 +1,2255 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>42. Práctica: Scraping Avanzado 2: &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="44. Argenprop" href="ejercicio/apis-ocultas.html" />
+    <link rel="prev" title="38. Encontrando APIs ocultas" href="scraping_http_avanzado.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   1. Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   2. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   7. Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   17. Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   18. Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   21. Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   22. Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   23. Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   24. Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   25. Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   26. Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   27. Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   29. Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   30. Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   31. Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   32. Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   33. Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   34. Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   35. Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_HTTP_Inicial/web_scraping_http_inicial.html">
+   36. Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_HTTP_Inicial/ejercicio/spinetta.html">
+   37. Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scraping_http_avanzado.html">
+   38. Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   42. Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicio/apis-ocultas.html">
+   44. Argenprop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="scraping_extra_tips.html">
+   46. Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   47. Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   48. APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   49. APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   50. APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   51. APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   52. APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   53. Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   54. Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   55. Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   56. Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   57. Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   58. Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   59. Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   60. Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   61. Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   62. Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   63. Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   64. Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   65. Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   66. Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   68. Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   69. Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   70. Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   71. Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   72. Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   73. Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   74. Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   75. Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   76. Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Scraping/2_HTTP_Avanzado/scraping_avanzado_2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/cursos-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/cursos-python/issues/new?title=Issue%20on%20page%20%2FScraping/2_HTTP_Avanzado/scraping_avanzado_2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/cursos-python/libro?urlpath=tree/Scraping/2_HTTP_Avanzado/scraping_avanzado_2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   42. Práctica: Scraping Avanzado 2:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pyautogui-selenium-requests">
+     42.1. Pyautogui, Selenium, Requests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos">
+   43. Ejemplos
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modo-1-pyautogui">
+     43.1. Modo 1: pyautogui
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chromedevtools">
+     43.2. ChromeDevTools
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crawling-y-scraping">
+     43.3. Crawling y Scraping
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cookies-wto">
+     43.4. Cookies WTO
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursos-extra">
+     43.5. Recursos extra:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scheduling">
+       43.5.1. Scheduling
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recursos-utiles">
+       43.5.2. Recursos útiles
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#herramientas-utiles">
+       43.5.3. Herramientas útiles
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Práctica: Scraping Avanzado 2:</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   42. Práctica: Scraping Avanzado 2:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pyautogui-selenium-requests">
+     42.1. Pyautogui, Selenium, Requests
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejemplos">
+   43. Ejemplos
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modo-1-pyautogui">
+     43.1. Modo 1: pyautogui
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chromedevtools">
+     43.2. ChromeDevTools
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#crawling-y-scraping">
+     43.3. Crawling y Scraping
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cookies-wto">
+     43.4. Cookies WTO
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#recursos-extra">
+     43.5. Recursos extra:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#scheduling">
+       43.5.1. Scheduling
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#recursos-utiles">
+       43.5.2. Recursos útiles
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#herramientas-utiles">
+       43.5.3. Herramientas útiles
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/2_HTTP_Avanzado/scraping_2.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg"></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="practica-scraping-avanzado-2">
+<h1><span class="section-number">42. </span>Práctica: Scraping Avanzado 2:<a class="headerlink" href="#practica-scraping-avanzado-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ChromeDevTools</p></li>
+<li><p>Cookies</p></li>
+<li><p>Crawling</p></li>
+<li><p>Regex, XPath</p></li>
+</ul>
+<div class="section" id="pyautogui-selenium-requests">
+<h2><span class="section-number">42.1. </span>Pyautogui, Selenium, Requests<a class="headerlink" href="#pyautogui-selenium-requests" title="Permalink to this headline">¶</a></h2>
+<p>Ahora que vimos <code class="docutils literal notranslate"><span class="pre">requests</span></code> podemos entender que es una manera protocolar de conseguir un recurso en lugar de interactuar a través del sistema operativo con mousse y teclado como con <code class="docutils literal notranslate"><span class="pre">pyautogui</span></code>.</p>
+<p>La web está hecha con la tríada de lenguajes: HTML, JS, y CSS. Javascript modifica el contenido dinámicamente, ejecutando código del lado del cliente. Requests no ejecuta el código javascript, por lo que en ese caso es necesario usar una alternativa que sí lo haga. Desde “alto nivel” hacia “bajo nivel” sería: automatizando la interacción con el navegador desde el sistema operativo (pyautogui), automatizando el navegador (selenium), o encontrando una <strong>API oculta o visible para usar requests.</strong>.</p>
+<p>Cuando una compañia desarrolla un sitio web muchas veces separa lo que se dice el <em>frontend</em>, que es la parte visible del sitio y la cual se ejecuta en tu navegador, del <em>backend</em>, la parte del sitio que realiza el computo mas pesado y se ejecuta en servidores/computadoras de la compañia.</p>
+<p>Para comunicar el <em>backend</em> con el <em>frontend</em> una forma popular es desarrollar REST APIs, a veces estas son públicas pero a veces están ocultas y las utilizamos sin darnos cuenta cuando interactuamos con un sitio web.</p>
+<p>Ejemplo de un sitio web y su API: <a class="reference external" href="http://numbersapi.com/">http://numbersapi.com/</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="ejemplos">
+<h1><span class="section-number">43. </span>Ejemplos<a class="headerlink" href="#ejemplos" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modo-1-pyautogui">
+<h2><span class="section-number">43.1. </span>Modo 1: pyautogui<a class="headerlink" href="#modo-1-pyautogui" title="Permalink to this headline">¶</a></h2>
+<p>Lo queremos evitar, es frágil y <em>ad hoc</em> (<strong>y no anda en Colab!</strong>)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install pyautogui
+<span class="kn">import</span> <span class="nn">pyautogui</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> <span class="k">as</span> <span class="nn">rq</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.lanacion.com.ar/&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pyautogui</span><span class="o">.</span><span class="n">hotkey</span><span class="p">(</span><span class="s1">&#39;ctrl&#39;</span><span class="p">,</span> <span class="s1">&#39;t&#39;</span><span class="p">)</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pyautogui</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pyautogui</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="s1">&#39;enter&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Modo 2:</p>
+<p>Emulando un navegador con Selenium</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Esta celda instala selenium y chromedriver en Colab</span>
+<span class="o">!</span>pip install selenium
+<span class="o">!</span>apt-get update # to update ubuntu to correctly run apt install
+<span class="o">!</span>apt install chromium-chromedriver
+<span class="o">!</span>cp /usr/lib/chromium-browser/chromedriver/usr/bin
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;/usr/lib/chromium-browser/chromedriver&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;https://www.lanacion.com.ar/&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="n">chrome_options</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">ChromeOptions</span><span class="p">()</span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--headless&#39;</span><span class="p">)</span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-sandbox&#39;</span><span class="p">)</span> <span class="c1"># necesarios en colab </span>
+<span class="n">chrome_options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--disable-dev-shm-usage&#39;</span><span class="p">)</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">chrome_options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># *vamos* a un sitio</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># el driver ahora &quot;está&quot; en ese sitio</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">page_source</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejercicio: usar xpath para encontrar los títulos</span>
+<span class="n">patron</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="c1"># completar</span>
+<span class="n">titulos</span> <span class="o">=</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements_by_xpath</span><span class="p">(</span><span class="n">patron</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titulos</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Reuniones sin acuerdo. Tironeos, negociaciones y un negocio millonario detrás de la falta de gasoil&#39;,
+ &#39;Disputa. La Nación y la Ciudad volvieron a reunirse por la coparticipación: hablan de un “principio de avance”&#39;,
+ &#39;Tregua. Fernández almorzó con Pablo Moyano y dieron una señal de unidad en medio de la interna oficialista&#39;,
+ &#39;A las piñas por Gasoil. Un camionero empezó una brutal pelea con un playero por el cupo al combustible&#39;,
+ &#39;¿Secuestro en Puerto Madero? Un policía retirado mató a un ladrón que tenía encerrada en el baúl a una víctima&#39;,
+ &#39;&quot;Fútbol parásito&quot;. Las despiadadas críticas para el estilo de Simeone y la respuesta de Koke para Guardiola&#39;,
+ &#39;Temas del día:&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tercer modo: requests</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> 
+<span class="c1"># para pasar del string con el html a un DOM y usar xpath</span>
+<span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">html</span>
+<span class="c1"># alternativa </span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.lanacion.com.ar/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora parseo:</p>
+<ul class="simple">
+<li><p>BeautifulSoup: funciones importantes son .find(), .find_all(), .get()</p></li>
+<li><p>XPATH: un mini lenguaje para recorrer archivos en formato <a class="reference external" href="https://www.w3schools.com/xml/xpath_intro.asp">XML</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">e</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h2 class=&quot;com-subhead --twoxs&quot;&gt;&lt;a href=&quot;/sociedad/provincia-desde-manana-dejara-de-ser-obligatorio-el-uso-de-tapabocas-en-escuelas-trabajos-y-espacios-nid06042022/&quot; title=&quot;Así lo anunció el ministro de Salud bonaerense, Nicolás Kreplak, que indicó que ellos continúan recomendando el uso; en el transporte público seguirá siendo obligatorio&quot;&gt;Así lo anunció el ministro de Salud bonaerense, Nicolás Kreplak, que indicó que ellos continúan recomendando el uso; en el transporte público seguirá siendo obligatorio&lt;/a&gt;&lt;/h2&gt;,
+ &lt;h2 class=&quot;com-title --xs&quot;&gt;&lt;a class=&quot;com-link&quot; href=&quot;/politica/una-vecina-de-recoleta-indignada-por-la-muerte-de-su-padre-por-covid-es-buscada-por-pagar-los-nid06042022/&quot; title=&#39;&quot;Asesina&quot;. Una vecina de Recoleta indignada por la muerte de su padre es buscada por pagar los afiches contra Cristina&#39;&gt;&lt;em class=&quot;com-lead&quot;&gt;&quot;Asesina&quot;. &lt;/em&gt;Una vecina de Recoleta indignada por la muerte de su padre es buscada por pagar los afiches contra Cristina&lt;/a&gt;&lt;/h2&gt;,
+ &lt;h2 class=&quot;com-title --xs&quot;&gt;&lt;a class=&quot;com-link&quot; href=&quot;/deportes/futbol/champions-league-karim-benzema-el-delantero-que-deslumbra-al-mundo-es-una-noche-magica-como-contra-nid06042022/&quot; title=&#39;&quot;Casi se queda afuera&quot;. Otra noche mágica en la Champions de Karim Benzema, el delantero que deslumbra al mundo&#39;&gt;&lt;em class=&quot;com-lead&quot;&gt;&quot;Casi se queda afuera&quot;. &lt;/em&gt;Otra noche mágica en la Champions de Karim Benzema, el delantero que deslumbra al mundo&lt;/a&gt;&lt;/h2&gt;,
+ &lt;h2 class=&quot;com-title --xs&quot;&gt;&lt;a class=&quot;com-link&quot; href=&quot;/economia/escasez-de-gasoil-las-petroleras-negocian-quien-debe-dejar-de-exportar-para-abastecer-el-mercado-nid06042022/&quot; title=&quot;Reuniones sin acuerdo. Tironeos y un negocio millonario detrás de la falta de gasoil&quot;&gt;&lt;em class=&quot;com-lead&quot;&gt;Reuniones sin acuerdo. &lt;/em&gt;Tironeos y un negocio millonario detrás de la falta de gasoil&lt;/a&gt;&lt;/h2&gt;,
+ &lt;h2 class=&quot;com-title --xs&quot;&gt;&lt;a class=&quot;com-link&quot; href=&quot;/politica/juzgan-al-exjefe-del-ejercito-de-cristina-kirchner-por-enriquecimiento-ilicito-nid06042022/&quot; title=&#39;&quot;Un bolso chiquito&quot;. Juzgan al exjefe del Ejército de Cristina Kirchner por enriquecimiento ilícito&#39;&gt;&lt;em class=&quot;com-lead&quot;&gt;&quot;Un bolso chiquito&quot;. &lt;/em&gt;Juzgan al exjefe del Ejército de Cristina Kirchner por enriquecimiento ilícito&lt;/a&gt;&lt;/h2&gt;,
+ &lt;h2 class=&quot;com-title --xs&quot;&gt;&lt;a class=&quot;com-link&quot; href=&quot;/sociedad/viajes-que-aerolineas-ya-no-exigen-el-uso-de-barbijo-en-los-vuelos-nid06042022/&quot; title=&quot;Viajes. Las aerolíneas que ya no exigen el uso de barbijo en los vuelos&quot;&gt;&lt;em class=&quot;com-lead&quot;&gt;Viajes. &lt;/em&gt;Las aerolíneas que ya no exigen el uso de barbijo en los vuelos&lt;/a&gt;&lt;/h2&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dom</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="c1"># con XPATH</span>
+<span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">itertext</span><span class="p">())</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">dom</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="s1">&#39;//h2&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Así lo anunció el ministro de Salud bonaerense, Nicolás Kreplak, que indicó que ellos continúan recomendando el uso; en el transporte público seguirá siendo obligatorio&#39;,
+ &#39;&quot;Asesina&quot;. Una vecina de Recoleta indignada por la muerte de su padre es buscada por pagar los afiches contra Cristina&#39;,
+ &#39;&quot;Casi se queda afuera&quot;. Otra noche mágica en la Champions de Karim Benzema, el delantero que deslumbra al mundo&#39;,
+ &#39;Reuniones sin acuerdo. Tironeos y un negocio millonario detrás de la falta de gasoil&#39;,
+ &#39;&quot;Un bolso chiquito&quot;. Juzgan al exjefe del Ejército de Cristina Kirchner por enriquecimiento ilícito&#39;,
+ &#39;Viajes. Las aerolíneas que ya no exigen el uso de barbijo en los vuelos&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cualquier elemento cuyo atributo &quot;class&quot; contenga &quot;title&quot;</span>
+<span class="n">patron</span> <span class="o">=</span> <span class="s1">&#39;//*[contains(@class, &quot;title&quot;)]&#39;</span>
+<span class="p">[</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">itertext</span><span class="p">())</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">dom</span><span class="o">.</span><span class="n">xpath</span><span class="p">(</span><span class="n">patron</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Desde mañana. El uso de tapabocas en escuelas dejará de ser obligatorio en la provincia&#39;,
+ &#39;&quot;Asesina&quot;. Una vecina de Recoleta indignada por la muerte de su padre es buscada por pagar los afiches contra Cristina&#39;,
+ &#39;&quot;Casi se queda afuera&quot;. Otra noche mágica en la Champions de Karim Benzema, el delantero que deslumbra al mundo&#39;,
+ &#39;Reuniones sin acuerdo. Tironeos y un negocio millonario detrás de la falta de gasoil&#39;,
+ &#39;&quot;Un bolso chiquito&quot;. Juzgan al exjefe del Ejército de Cristina Kirchner por enriquecimiento ilícito&#39;,
+ &#39;Viajes. Las aerolíneas que ya no exigen el uso de barbijo en los vuelos&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Buenas puntas:</p>
+<ul class="simple">
+<li><p>sitemap</p></li>
+<li><p>robots.txt</p></li>
+</ul>
+<p>¿Cómo encuentro el sitemap? Ejemplo de “Google Hacking”: uso de operadores en google para mejores búsquedas.</p>
+<p><code class="docutils literal notranslate"><span class="pre">inurl:sitemap</span> <span class="pre">site:lanacion.com.ar</span></code></p>
+</div>
+<div class="section" id="chromedevtools">
+<h2><span class="section-number">43.2. </span>ChromeDevTools<a class="headerlink" href="#chromedevtools" title="Permalink to this headline">¶</a></h2>
+<p>El navegador de Chrome nos ofrece herramientas para analizar elementos de la web. Para eso, vamos a abrir las “Herramientas de Desarrollador” en el menú o con <em>CTRL + SHIFT + I</em>.</p>
+<p>Ahí hay dos pestañas que van a ser de nuestro interés:</p>
+<p>En <strong>Elements</strong> vamos a poder inspeccionar el código HTML, para ubicar los datos de nuestro interés. Para identificar la ubicación de uno, podemos posicionarnos con el cursor sobre el sitio, hacer click derecho, y seleccionar “Inspeccionar elemento”.</p>
+<p>En la solapa <strong>Network</strong> podemos ver todos los paquetes HTTP que realiza nuestro navegador interactuando con un sitio. Identificando los paquetes de las APIs que traen los datos, podemos <em>scrapear</em> datos más facilmente.</p>
+<p>Posibles estrategias:</p>
+<ul class="simple">
+<li><p>Tomar una parte de la info que buscamos del sitio y ponerla en el buscador en <em>Network</em></p></li>
+<li><p>Buscar en el HTML dónde se ubica la info que necesitamos</p></li>
+<li><p>Buscar en HTML o con DevTools las llamadas de javascript</p></li>
+</ul>
+<img src='https://i2.wp.com/abodeqa.com/wp-content/uploads/2019/02/Inspect-Element-Using-Select-Tool.gif'>
+<p><strong>Ejemplo Bytes:</strong></p>
+<p>Base de Datos de Comercio Exterior del Instituto Nacional de Estadística de Bolivia</p>
+<p>Vamos a ingresar al siguiente sitio web:</p>
+<p><a class="reference external" href="http://web2.ine.gob.bo:8081/IneComex/BasesComex.aspx">http://web2.ine.gob.bo:8081/IneComex/BasesComex.aspx</a></p>
+<p>Pasos:</p>
+<ul class="simple">
+<li><p>Ingresar al sitio en una nueva pestaña</p></li>
+<li><p>Abrir la pestaña “Network” en las herramientas de desarrollador del navegador</p></li>
+<li><p>Llenar el formulario y descargar la base de datos</p></li>
+<li><p>Observar el paquete HTTP que realizó el pedido</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>wget http://web2.ine.gob.bo:8081/IneComex/BD/exp2020.rar
+<span class="o">!</span>unrar x exp2020.rar ./
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-04-06 21:53:55--  http://web2.ine.gob.bo:8081/IneComex/BD/exp2020.rar
+Resolving web2.ine.gob.bo (web2.ine.gob.bo)... 200.105.137.5
+Connecting to web2.ine.gob.bo (web2.ine.gob.bo)|200.105.137.5|:8081... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 161096 (157K) [application/octet-stream]
+Saving to: ‘exp2020.rar’
+
+exp2020.rar         100%[===================&gt;] 157.32K   306KB/s    in 0.5s    
+
+2022-04-06 21:53:57 (306 KB/s) - ‘exp2020.rar’ saved [161096/161096]
+
+
+UNRAR 5.50 freeware      Copyright (c) 1993-2017 Alexander Roshal
+
+
+Extracting from exp2020.rar
+
+Extracting  ./exp2020.txt                                                 20% 40% 60% 81% 99%  OK 
+All OK
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podríamos bajarlo directo con Python. Las descargas de distintos archivos de formatos distintos a texto (.txt, .csv, .json…) son iguales, escribiendo a disco en modo “write bytes” (‘wb’)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo bytes</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/HTML_logo.png/250px-HTML_logo.png&#39;</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;imagen.png&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+  <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># vemos la primera parte de la base de datos</span>
+<span class="o">!</span>head exp2020.txt 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GESTION|MES|Departamento|NANDINA|des_nandina|des_Pais|des_Medio_Sal|des_Via_Sal|CUCIR3|GCE|CIIU3|CODACT|TNT|Peso_Bruto_Kg|Peso_Neto_Kg|Valor_FOB_Sus
+2020.0|7.0|2.0|2106906100| PREPARACIONES ALIMENTICIAS MEJORADORES DE PANIFICACION A BASE DE ESTEVIA|ZONA FRANCA DE BOLIVIA|CARRETERA|ZONAS FRANCAS|0989|122|1549|D6|34.0|53|50|4023
+2020.0|10.0|2.0|2106906100| PREPARACIONES ALIMENTICIAS MEJORADORES DE PANIFICACION A BASE DE ESTEVIA|ZONA FRANCA DE BOLIVIA|CARRETERA|ZONAS FRANCAS|0989|122|1549|D6|34.0|53|50|4023
+2020.0|6.0|2.0|2208500000|&quot;GIN&quot; Y GINEBRA|COSTA RICA|AEREA|AEREA|1124|122|1551|D3|13.0|70|34|272
+2020.0|1.0|2.0|2208500000|&quot;GIN&quot; Y GINEBRA|PERU|CARRETERA|DESAGUADERO|1124|122|1551|D3|13.0|11230|6300|42750
+2020.0|1.0|2.0|2208500000|&quot;GIN&quot; Y GINEBRA|CHILE|CARRETERA|ARICA - CHARANA - TAMBO QUEMADO|1124|122|1551|D3|13.0|4500|2520|15480
+2020.0|6.0|2.0|2208500000|&quot;GIN&quot; Y GINEBRA|COSTA RICA|CARRETERA|ARICA - CHARANA - TAMBO QUEMADO|1124|122|1551|D3|13.0|755|412|3334
+2020.0|7.0|2.0|2208500000|&quot;GIN&quot; Y GINEBRA|CHILE|CARRETERA|ARICA - CHARANA - TAMBO QUEMADO|1124|122|1551|D3|13.0|20070|11340|66420
+2020.0|8.0|2.0|2208500000|&quot;GIN&quot; Y GINEBRA|PAISES BAJOS|CARRETERA|ARICA - CHARANA - TAMBO QUEMADO|1124|122|1551|D3|13.0|4500|2520|16200
+2020.0|12.0|2.0|2208500000|&quot;GIN&quot; Y GINEBRA|GUATEMALA|CARRETERA|ARICA - CHARANA - TAMBO QUEMADO|1124|122|1551|D3|13.0|1125|630|6300
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lo podemos cargar con pandas para análisis de datos</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;exp2020.txt&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-443aa9bb-e2a1-46d3-ad48-f136d05aa55a">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>GESTION</th>
+      <th>MES</th>
+      <th>Departamento</th>
+      <th>NANDINA</th>
+      <th>des_nandina</th>
+      <th>des_Pais</th>
+      <th>des_Medio_Sal</th>
+      <th>des_Via_Sal</th>
+      <th>CUCIR3</th>
+      <th>GCE</th>
+      <th>CIIU3</th>
+      <th>CODACT</th>
+      <th>TNT</th>
+      <th>Peso_Bruto_Kg</th>
+      <th>Peso_Neto_Kg</th>
+      <th>Valor_FOB_Sus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020.0</td>
+      <td>7.0</td>
+      <td>2.0</td>
+      <td>2106906100</td>
+      <td>PREPARACIONES ALIMENTICIAS MEJORADORES DE PAN...</td>
+      <td>ZONA FRANCA DE BOLIVIA</td>
+      <td>CARRETERA</td>
+      <td>ZONAS FRANCAS</td>
+      <td>989</td>
+      <td>122</td>
+      <td>1549</td>
+      <td>D6</td>
+      <td>34.0</td>
+      <td>53</td>
+      <td>50</td>
+      <td>4023</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020.0</td>
+      <td>10.0</td>
+      <td>2.0</td>
+      <td>2106906100</td>
+      <td>PREPARACIONES ALIMENTICIAS MEJORADORES DE PAN...</td>
+      <td>ZONA FRANCA DE BOLIVIA</td>
+      <td>CARRETERA</td>
+      <td>ZONAS FRANCAS</td>
+      <td>989</td>
+      <td>122</td>
+      <td>1549</td>
+      <td>D6</td>
+      <td>34.0</td>
+      <td>53</td>
+      <td>50</td>
+      <td>4023</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020.0</td>
+      <td>6.0</td>
+      <td>2.0</td>
+      <td>2208500000</td>
+      <td>GIN Y GINEBRA</td>
+      <td>COSTA RICA</td>
+      <td>AEREA</td>
+      <td>AEREA</td>
+      <td>1124</td>
+      <td>122</td>
+      <td>1551</td>
+      <td>D3</td>
+      <td>13.0</td>
+      <td>70</td>
+      <td>34</td>
+      <td>272</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2020.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2208500000</td>
+      <td>GIN Y GINEBRA</td>
+      <td>PERU</td>
+      <td>CARRETERA</td>
+      <td>DESAGUADERO</td>
+      <td>1124</td>
+      <td>122</td>
+      <td>1551</td>
+      <td>D3</td>
+      <td>13.0</td>
+      <td>11230</td>
+      <td>6300</td>
+      <td>42750</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2020.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2208500000</td>
+      <td>GIN Y GINEBRA</td>
+      <td>CHILE</td>
+      <td>CARRETERA</td>
+      <td>ARICA - CHARANA - TAMBO QUEMADO</td>
+      <td>1124</td>
+      <td>122</td>
+      <td>1551</td>
+      <td>D3</td>
+      <td>13.0</td>
+      <td>4500</td>
+      <td>2520</td>
+      <td>15480</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-443aa9bb-e2a1-46d3-ad48-f136d05aa55a')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-443aa9bb-e2a1-46d3-ad48-f136d05aa55a button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-443aa9bb-e2a1-46d3-ad48-f136d05aa55a');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Ejercicio:</p>
+<ul class="simple">
+<li><p>Descargar el archivo con Python</p></li>
+<li><p>Hacer un búcle que descargue exportaciones desde el 2016 al 2020</p></li>
+</ul>
+<p>Pista: usar un for, f-strings, <code class="docutils literal notranslate"><span class="pre">.content</span></code> y ```
+with open(…</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con un loop podemos cambiar el año y descargar todas</span>
+
+<span class="n">anios</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2016</span><span class="p">,</span> <span class="mi">2021</span><span class="p">):</span>
+  <span class="n">nombre</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;exp</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">.rar&quot;</span>
+  <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;http://web2.ine.gob.bo:8081/IneComex/BD/</span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s1">&#39;</span>
+
+  <span class="n">obj</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+  <span class="c1"># guardar el contenido de obj en archivo de nombre &#39;nombre&#39;</span>
+
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Guardando&#39;</span><span class="p">,</span> <span class="n">nombre</span><span class="p">)</span>
+  <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Guardando exp2016.rar
+Guardando exp2017.rar
+Guardando exp2018.rar
+Guardando exp2019.rar
+Guardando exp2020.rar
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="crawling-y-scraping">
+<h2><span class="section-number">43.3. </span>Crawling y Scraping<a class="headerlink" href="#crawling-y-scraping" title="Permalink to this headline">¶</a></h2>
+<p>Podemos de un sitio inicial tomar todos los links que aparecen, y entrar para extraer la información de cada uno.</p>
+<p>Ejercicio:</p>
+<p>Extraer todos los links de <a class="reference external" href="http://www.sice.oas.org">http://www.sice.oas.org</a> .</p>
+<ul class="simple">
+<li><p>Usar ChromeDevTools para ver dónde se encuentran los datos</p></li>
+<li><p>Usar requests y BeautifulSoup</p></li>
+<li><p>Filtrar los links que no sean nulos, contengan “/Trade/” y terminen con .asp</p></li>
+</ul>
+<p>En una aplicación real, uno tiene que considerar como se diseña la arquitectura del servicio. Se podrían tener procesos “trabajadores” o <em>Workers</em> que hacen rastreo de nuevos links (<em>crawling</em>) alimentando una cola o (<em>Queue</em>), mientras otros que se ocupan de ir tomando de estos links y extraer los datos (<em>Scraping</em>).</p>
+<p><a class="reference external" href="https://scrapy.org/">Scrapy</a> es una librería que nos ofrece abstracciones para fácilmente produccionalizar (<em>deploy</em>) productos escalables de crawling y scraping.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="k">def</span> <span class="nf">codigo_html</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;recibe una URL y devuelve el .text de la Response&#39;&#39;&#39;</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://www.sice.oas.org/agreements_s.asp&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extraer los links con BS, Regex o XPATH</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alternativa con Expresiones Regulares</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">patron</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="c1"># Buscamos todo lo que coincida con nuestro patrón</span>
+<span class="n">subs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">patron</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">subs</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/Trade/PAC_ALL/Index_Pacific_Alliance_s.asp&#39;,
+ &#39;/Trade/BOL_MEX_66/BOL_MEX_Ind_s.asp&#39;,
+ &#39;/Trade/CAFTA/CAFTADR/CAFTADRin_s.asp&#39;,
+ &#39;/Trade/CAN_EFTA_FTA/canefta_in.asp&#39;,
+ &#39;/Trade/chican_s/CAN_CHL_Index_2019_s.asp&#39;,
+ &#39;/Trade/CAN_KOR/English/CAN_KOR_index_e.asp&#39;,
+ &#39;/Trade/cancr/Spanish/indice.asp&#39;,
+ &#39;/Trade/can-isr/can-isr.asp&#39;,
+ &#39;/Trade/can-isr/CAN_ISR_2018_index_e.asp&#39;,
+ &#39;/Trade/CAN_JOR_FTA/index_e.asp&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cookies-wto">
+<h2><span class="section-number">43.4. </span>Cookies WTO<a class="headerlink" href="#cookies-wto" title="Permalink to this headline">¶</a></h2>
+<p>Vamos a buscar nuevos acuerdos comerciales en el sitio de la World Trade Organization:</p>
+<p><a class="reference external" href="https://rtais.wto.org/">https://rtais.wto.org/</a></p>
+<p>Los acuerdos están indexados por ID, por ejemplo:</p>
+<p><a class="reference external" href="https://rtais.wto.org/UI/PublicShowRTAIDCard.aspx?rtaid=1093">https://rtais.wto.org/UI/PublicShowRTAIDCard.aspx?rtaid=1093</a></p>
+<p>Observen que en la URL hay un parámetro que es una identificación (ID) numérica</p>
+<p>Mientras el usuario navega por un sitio, se acumula información sobre su actividad como pequeños archivos o strings denominados <em>cookies</em>, que sirven, por ejemplo, para mantener una sesión iniciada.</p>
+<p>La clase Session de requests permite almacenar cookies</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span> 
+
+<span class="nb">id</span> <span class="o">=</span> <span class="mi">1093</span>
+
+<span class="c1"># Creamos una nueva sesión</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://rtais.wto.org/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Al ingresar primero a este sitio, nos otorgan las cookies</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">rq</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;https://rtais.wto.org/UI/PublicShowRTAIDCard.aspx?rtaid=</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sin esos <em>cookies</em>, y los siguientes headers, el sitio no devuelve la información.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Referer&#39;</span><span class="p">:</span> <span class="sa">f</span><span class="s1">&#39;https://rtais.wto.org/UI/PublicShowRTAIDCard.aspx?rtaid=</span><span class="si">{</span><span class="nb">id</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">}</span>
+
+<span class="c1"># Hacemos un GET pero usando la Sesión que instanciamos</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://rtais.wto.org/WEBCONTROL/ExportRTAIDCard.aspx&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r2</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="n">r2</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table id="tblbasicInfo" cellspacing="0" cellpadding="0" align="center" border="1" width="100%">
+	<tr>
+		<th class="subheadingwhite" align="left">
+                                        <span id="lblBasicInfo">Basic Information</span>
+                                    </th>
+	</tr>
+	<tr>
+		<td>
+                                        <fieldset>
+                                            <table cellspacing="2" cellpadding="2" align="center" border="1" width="100%">
+                                                <tbody>
+                                                    <tr id="trRTAEngName" class="table1" align="center">
+			<td class="PublicShowField" align="right" width="15%" nowrap="nowrap">
+                                                            <span id="lblEngAgrName">Agreement name:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left" colspan="3">
+                                                            <span id="txtEngAgrName">EU - Pacific States - Accession of Samoa</span>
+                                                        </td>
+		</tr>
+		
+                                                    
+                                                    
+                                                    <tr id="trRTACoverageType">
+			<td class="PublicShowField" align="right" width="15%">
+                                                            <span id="lblCoverage">Coverage:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" width="35%">
+                                                            <span id="selCoverage">Goods</span>
+                                                        </td>
+			<td class="PublicShowField" align="right" width="15%">
+                                                            <span id="lblType">Type:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" width="35%">
+                                                            <span id="selType">Free Trade Agreement</span>
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trRTAStatusLegalCover">
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblStatus">Status:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue">
+                                                            <span id="selStatus" title="The RTA is, or will soon be, in force." class="showHand">In Force</span>
+                                                        </td>
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblLegalCover">Notification under:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue">
+                                                            <span id="selLegalcover">GATT Art. XXIV</span>
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trRTAGSDDON">
+			<td class="PublicShowField" nowrap="nowrap" align="right">
+                                                            <span id="lblGSD">Date of signature:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left">
+                                                            <span id="txtGSD">21-Dec-2018</span>
+                                                        </td>
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblDON">Date of notification:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left">
+                                                            <span id="txtDON">26-Oct-2020</span>
+                                                        </td>
+		</tr>
+		
+                                                    
+                                                    <tr id="trRTADOEGDOFI">
+			<td class="PublicShowField" valign="middle" nowrap="nowrap" align="right">
+                                                            <span id="lblDOE">Date of entry into force:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" valign="middle" align="left">
+                                                            <span id="txtDOE">31-Dec-2018</span>
+                                                        </td>
+			<td class="PublicShowField" valign="middle" nowrap="nowrap" align="right">
+                                                            <span id="lblGDOFI">End of implementation period:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" valign="middle" align="left">
+                                                            <span id="txtGDOFI">01-Jan-2037</span>
+                                                        </td>
+		</tr>
+		
+                                                    
+                                                    <tr id="trDOER">
+			<td class="PublicShowField" align="Right">
+                                                            <span id="lblDOERemarks">Remarks:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left">
+                                                            <span id="txtDOERemarks">Official Journal of the European Union: L 333 of 28-Dec-2018.
+The EU and Samoa are provisionally applying the Agreement since 31-Dec-18.
+The United Kingdom was a Member State of the European Union until 31 January 2020. The European Union and the United Kingdom have agreed a Withdrawal Agreement pursuant to Article 50 of the Treaty on European Union, which provides for a time-limited transition period during which European Union law, with limited exceptions as provided for in the Withdrawal Agreement will apply to and in the United Kingdom. Further details are available in the communication from the United Kingdom (WT/GC/206) dated 1 February 2020 and the note verbal from the European Union (WT/LET/1462) dated 27 January 2020 notifying WTO members that the United Kingdom is treated as a member State of the European Union for the purposes of relevant international agreements for the duration of the transition period. </span>
+                                                        </td>
+			<td class="PublicShowField" align="right">
+                                                            
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left">
+                                                            
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trISAccession">
+			<td class="PublicShowField" align="Right">
+                                                            <span id="lblISAccession">Accession</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left">
+                                                            <span id="chkIsAccession">Yes</span>
+                                                        </td>
+			<td class="PublicShowField" align="right">&nbsp;
+                                                        </td>
+			<td class="PublicShowFieldValue">&nbsp;
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trCurrSig">
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblCurrentSign">Current signatories:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" colspan="3">
+                                                            <span id="lbltxtCurrSign" style="display:inline-block;width:100%;">Austria; Belgium; Bulgaria; Croatia; Cyprus; Czech Republic; Denmark; Estonia; Finland; France; Germany; Greece; Hungary; Ireland; Italy; Latvia; Lithuania; Luxembourg; Malta; Netherlands; Poland; Portugal; Romania; Slovak Republic; Slovenia; Spain; Sweden; Fiji; Papua New Guinea; Samoa.</span>
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trOrigSig">
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblOrigSign">Original signatories:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" colspan="3">
+                                                            <span id="lbltxtOrigSign">Austria; Belgium; Bulgaria; Croatia; Cyprus; Czech Republic; Denmark; Estonia; Fiji; Finland; France; Germany; Greece; Hungary; Ireland; Italy; Latvia; Lithuania; Luxembourg; Malta; Netherlands; Papua New Guinea; Poland; Portugal; Romania; Samoa; Slovak Republic; Slovenia; Spain; Sweden; United Kingdom.</span>
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trRTAComposition">
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblComposition">RTA Composition:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" colspan="3">
+                                                            <span id="txtComposition">Plurilateral;One Party is an RTA.</span>
+
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trRTARegionCategory">
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblRegion">Region:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue">
+                                                            <span id="txtRegion"> Europe; Oceania.</span>
+                                                        </td>
+			<td class="PublicShowField" nowrap="nowrap" align="right">
+                                                            <!--<span id="lblCatogorisation">Membership Categorization:</span> -->
+                                                        </td>
+			<td class="PublicShowFieldValue">
+                                                            <!--<span id="txtCatogorisation"> Developed economies ; Developing economies</span> -->
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trRTAWtoMemberCrossRegion">
+			<td class="PublicShowField" nowrap="nowrap" align="right">
+                                                            <span id="lblWTOMember">All Parties WTO members?</span>
+                                                        </td>
+			<td class="PublicShowFieldValue">
+                                                            <span id="txtWTOMember">Yes</span>
+                                                        </td>
+			<td class="PublicShowField" nowrap="nowrap" align="right">
+                                                            <span id="lblICrossRegion">Cross-Regional:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue">
+                                                            <span id="chkCrossRegion"> Yes</span>
+                                                        </td>
+		</tr>
+		
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+	</tr>
+	<tr>
+		<td valign="top">
+                                        <fieldset id="fldOffWebAdd">
+                                            <table cellspacing="0" cellpadding="0" width="100%" align="left" border="1">
+                                                <tbody>
+                                                    <tr class="table1" align="center">
+                                                        <th class="subheadingwhite" align="left" colspan="4">
+                                                            <span id="lblOffWebAdd">Official Web Address</span>
+                                                        </th>
+                                                    </tr>
+                                                    <tr align="center">
+                                                        <td align="left" colspan="4">
+                                                            
+                                                                    <table border="1" width="100%" cellpadding="2" cellspacing="2">
+                                                                
+                                                                    <tr class="PublicShowFieldValue">
+                                                                        <td colspan="4">
+                                                                            https://ec.europa.eu/ 
+                                                                        </td>
+                                                                    </tr>
+                                                                
+                                                                    </table>
+                                                                
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                    </td>
+	</tr>
+	<tr>
+		<td width="100%">
+                                        <table id="tblRelAgr" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+			<tr>
+				<th class="subheadingwhite" align="left" colspan="2">
+                                                    <span id="lblRelAgreements">Related agreements</span>
+                                                </th>
+			</tr>
+			<tr align="center">
+				<td align="left">
+                                                    
+                                                            <table border="1" width="100%">
+                                                        
+                                                            <tr class="PublicShowFieldValue">
+                                                                <td colspan="4">&nbsp;&nbsp; 
+                                                                    EU - Pacific States'
+                                                                </td>
+                                                            </tr>
+                                                        
+                                                            <tr class="PublicShowFieldValue">
+                                                                <td colspan="4">&nbsp;&nbsp; 
+                                                                    EU - Pacific States - Accession of Solomon Islands'
+                                                                </td>
+                                                            </tr>
+                                                        
+                                                            </table>
+                                                        
+                                                </td>
+			</tr>
+		</table>
+		
+                                    </td>
+	</tr>
+</table>
+<table id="tblWTOProcess" cellspacing="0" cellpadding="0" align="center" border="1" width="100%">
+	<tr>
+		<th class="subheadingwhite" align="left">
+                                        <span id="lblWTOProcess">WTO Consideration Process</span>
+                                    </th>
+	</tr>
+	<tr>
+		<td>
+                                        <fieldset>
+                                            <table cellspacing="2" cellpadding="2" border="1" width="100%">
+                                                <tbody>
+                                                    <tr id="trConStatus" class="table1">
+			<td class="PublicShowField" align="right" width="15%">
+                                                            <span id="lblGConsiderationStatus">Consideration status:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left" width="25%">
+                                                            <span id="selGConsiderationStatus">Factual Presentation currently being drafted</span>
+                                                        </td>
+			<td id="tdSCinsiderationStatsLable" class="PublicShowField" align="right" width="25%">
+                                                            
+                                                        </td>
+			<td id="tdSCinsiderationStatsVal" class="PublicShowFieldValue" align="left" width="25%">
+                                                            
+                                                        </td>
+		</tr>
+		
+                                                    <tr id="trDocSeries">
+			<td class="PublicShowField" align="right">
+                                                            <span id="lblDocSeries">Document series:</span>
+                                                        </td>
+			<td class="PublicShowFieldValue" align="left" colspan="3">
+                                                            <span id="lbltxtDocSeries">WT/REG408</span>
+                                                        </td>
+		</tr>
+		
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </fieldset>
+                                        <table id="tblRelDocs" cellspacing="2" cellpadding="0" border="1" width="100%" align="Left">
+			<tr class="table1">
+				<th class="subheadingwhite" align="left" colspan="4">
+                                                        <span id="lblRelDocs">Related documents</span>
+                                                    </th>
+			</tr>
+			<tr align="center">
+				<td align="left" colspan="4">
+                                                        
+                                                                <table border="1" width="100%" cellpadding="2" cellspacing="2">
+                                                                    <tr class="PublicShowFieldValue">
+                                                                        <th align="left">
+                                                                            <span id="rptRelDocumentList_lblDocType">Document type</span></th>
+                                                                        <th align="left" colspan="3">
+                                                                            <span id="rptRelDocumentList_lblSymbol">Symbol</span></th>
+                                                                    </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="PublicShowFieldValue" align="left">
+                                                                        Notification  
+                                                                    </td>
+                                                                    <td class="PublicShowFieldValue" colspan="3" align="left">
+                                                                        WT/REG408/N/1
+                                                                    </td>
+                                                                </tr>
+                                                            
+                                                                <tr>
+                                                                    <td class="PublicShowFieldValue" align="left">
+                                                                        Notification / Inactive Agreements  
+                                                                    </td>
+                                                                    <td class="PublicShowFieldValue" colspan="3" align="left">
+                                                                        WT/REG/GEN/N/10
+                                                                    </td>
+                                                                </tr>
+                                                            
+                                                                </table>
+                                                            
+
+                                                    </td>
+			</tr>
+		</table>
+		
+                                    </td>
+	</tr>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.xls&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+  <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r2</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejercicio:</p>
+<ul class="simple">
+<li><p>Extraigan los IDs de <a class="reference external" href="https://rtais.wto.org/">https://rtais.wto.org/</a> y descarguen los .xls para cada uno.</p></li>
+<li><p>Con la librería OS, creen una carpeta con el nombre de la fecha de hoy, y guarden los archivos ahí</p></li>
+</ul>
+<p>Muchas veces las páginas web obtienen sus ingresos a partir del uso de usuarios tradicionales (humanos) pero no de los scrapers (máquinas). Por lo que estos no generan ganancias al sitio y encima pueden causar congestión en los servidores (Pudiendo causar incluso la rotura del sitio similar a lo que pasa con los <a class="reference external" href="https://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio">ataques DDOS</a>).</p>
+<p>Por esta razón los sitios webs suelen tener una pagina <a class="reference external" href="https://es.wikipedia.org/wiki/Est%C3%A1ndar_de_exclusi%C3%B3n_de_robots">/robots.txt</a> donde especifican que tipo de scrapeo prefieren evitar.</p>
+<p>Pueden ver, como ejemplos:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.google.com/robots.txt">https://www.google.com/robots.txt</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/robots.txt">https://en.wikipedia.org/robots.txt</a></p></li>
+</ul>
+<p>Ejercicio para la casa:</p>
+<p>Descargar PDFs de <a class="reference external" href="https://www.markiteconomics.com/Public/Release/PressReleases">https://www.markiteconomics.com/Public/Release/PressReleases</a></p>
+<p>Ejemplo con curl2python: identificamos el paquete, y con la herramienta armamos el paquete de requests:</p>
+<p>Datos de la OECD <a class="reference external" href="https://stats.oecd.org/Index.aspx?DataSetCode=ULC_EEQ%20">https://stats.oecd.org/Index.aspx?DataSetCode=ULC_EEQ </a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./unit_labour_costs_and_labour_productivity_(employment_based).csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-10df32d3-f8a3-482e-bab9-a652104cec96">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>LOCATION</th>
+      <th>Country</th>
+      <th>SUBJECT</th>
+      <th>Subject</th>
+      <th>MEASURE</th>
+      <th>Measure</th>
+      <th>FREQUENCY</th>
+      <th>Frequency</th>
+      <th>TIME</th>
+      <th>Time</th>
+      <th>Unit Code</th>
+      <th>Unit</th>
+      <th>PowerCode Code</th>
+      <th>PowerCode</th>
+      <th>Reference Period Code</th>
+      <th>Reference Period</th>
+      <th>Value</th>
+      <th>Flag Codes</th>
+      <th>Flags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>IXOB</td>
+      <td>Index</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2010-Q1</td>
+      <td>Q1-2010</td>
+      <td>IDX</td>
+      <td>Index</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>2015_100</td>
+      <td>2015=100</td>
+      <td>89.491630</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>IXOB</td>
+      <td>Index</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2010-Q2</td>
+      <td>Q2-2010</td>
+      <td>IDX</td>
+      <td>Index</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>2015_100</td>
+      <td>2015=100</td>
+      <td>93.900680</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>IXOB</td>
+      <td>Index</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2010-Q3</td>
+      <td>Q3-2010</td>
+      <td>IDX</td>
+      <td>Index</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>2015_100</td>
+      <td>2015=100</td>
+      <td>93.225730</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>IXOB</td>
+      <td>Index</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2010-Q4</td>
+      <td>Q4-2010</td>
+      <td>IDX</td>
+      <td>Index</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>2015_100</td>
+      <td>2015=100</td>
+      <td>96.757190</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AUS</td>
+      <td>Australia</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>IXOB</td>
+      <td>Index</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2011-Q1</td>
+      <td>Q1-2011</td>
+      <td>IDX</td>
+      <td>Index</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>2015_100</td>
+      <td>2015=100</td>
+      <td>89.183420</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6521</th>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>GYSA</td>
+      <td>Quarterly change on the same quarter of the pr...</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2019-Q4</td>
+      <td>Q4-2019</td>
+      <td>PC</td>
+      <td>Percentage</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.780829</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6522</th>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>GYSA</td>
+      <td>Quarterly change on the same quarter of the pr...</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2020-Q1</td>
+      <td>Q1-2020</td>
+      <td>PC</td>
+      <td>Percentage</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.607855</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6523</th>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>GYSA</td>
+      <td>Quarterly change on the same quarter of the pr...</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2020-Q2</td>
+      <td>Q2-2020</td>
+      <td>PC</td>
+      <td>Percentage</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-0.717307</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6524</th>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>GYSA</td>
+      <td>Quarterly change on the same quarter of the pr...</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2020-Q3</td>
+      <td>Q3-2020</td>
+      <td>PC</td>
+      <td>Percentage</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>9.567170</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6525</th>
+      <td>TUR</td>
+      <td>Turkey</td>
+      <td>ULQELP01</td>
+      <td>GDP per person employed</td>
+      <td>GYSA</td>
+      <td>Quarterly change on the same quarter of the pr...</td>
+      <td>Q</td>
+      <td>Quarterly</td>
+      <td>2020-Q4</td>
+      <td>Q4-2020</td>
+      <td>PC</td>
+      <td>Percentage</td>
+      <td>0</td>
+      <td>Units</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>10.071380</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>6526 rows × 19 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-10df32d3-f8a3-482e-bab9-a652104cec96')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-10df32d3-f8a3-482e-bab9-a652104cec96 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-10df32d3-f8a3-482e-bab9-a652104cec96');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</div>
+<div class="section" id="recursos-extra">
+<h2><span class="section-number">43.5. </span>Recursos extra:<a class="headerlink" href="#recursos-extra" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scheduling">
+<h3><span class="section-number">43.5.1. </span>Scheduling<a class="headerlink" href="#scheduling" title="Permalink to this headline">¶</a></h3>
+<p>Scheduling es configurar una ejecución automáticamente en el tiempo.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://tecadmin.net/crontab-in-linux-with-20-examples-of-cron-schedule/">Crontab para Linux o Mac</a></p></li>
+<li><p><a class="reference external" href="https://stackoverflow.com/questions/132971/what-is-the-windows-version-of-cron">Schedule en Windows</a></p></li>
+</ul>
+</div>
+<div class="section" id="recursos-utiles">
+<h3><span class="section-number">43.5.2. </span>Recursos útiles<a class="headerlink" href="#recursos-utiles" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=twuhocLtGCg">Tutorial de Indian Pythonista sobre APIs ocultas</a></p></li>
+</ul>
+</div>
+<div class="section" id="herramientas-utiles">
+<h3><span class="section-number">43.5.3. </span>Herramientas útiles<a class="headerlink" href="#herramientas-utiles" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://curl.trillworks.com/">curl2python</a></p></li>
+<li><p><a class="reference external" href="http://jsonviewer.stack.hu/">Visualizador de JSONs</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Scraping/2_HTTP_Avanzado"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="scraping_http_avanzado.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">38. </span>Encontrando APIs ocultas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ejercicio/apis-ocultas.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">44. </span>Argenprop</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

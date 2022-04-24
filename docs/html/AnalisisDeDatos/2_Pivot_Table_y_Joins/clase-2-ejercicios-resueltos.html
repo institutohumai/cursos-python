@@ -1,0 +1,2771 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clase 2: ejercicios prácticos resueltos &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   1. Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   2. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   7. Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   17. Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   18. Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   19. Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   20. Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   21. Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   22. Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   23. Automatización:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   25. Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   26. Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   27. Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   28. Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   29. Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   30. Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   33. Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   34. Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   35. Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   36. Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   40. Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   42. Argenprop
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   44. Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   45. Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   46. APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   47. APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   48. APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   49. APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   50. APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   51. Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Indexing/Indexing.html">
+   57. Tabla de Contenidos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase-2.html">
+   63. Clase 2: Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="clase-2-ejercicios.html">
+   64. Clase 2: ejercicios prácticos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   65. Agrupación y agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   68. Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   71. Ejercicio: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Visualizacion/Visualizacion.html">
+   73. Visualización con Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Visualizacion/Visualizacion_Pandas.html">
+   74. Visualización con Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Visualizacion/Visualizacion_Plotly.html">
+   75. Visualizaciones avanzadas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   76. Ejercicios extra visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   78. Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios-resueltos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/cursos-python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/cursos-python/issues/new?title=Issue%20on%20page%20%2FAnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios-resueltos.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/cursos-python/libro?urlpath=tree/docs/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios-resueltos.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parametros-y-extraccion-de-datos">
+   Parámetros y extracción de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1">
+   Ejercicio 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#produccion-total-anual">
+     Producción total anual
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rendimiento-promedio-de-la-soja-por-departamento">
+   Rendimiento promedio de la soja por departamento
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tabla-de-evolucion-de-produccion-por-cultivo">
+     Tabla de evolución de producción por cultivo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Clase 2: ejercicios prácticos resueltos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parametros-y-extraccion-de-datos">
+   Parámetros y extracción de datos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio-1">
+   Ejercicio 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#produccion-total-anual">
+     Producción total anual
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rendimiento-promedio-de-la-soja-por-departamento">
+   Rendimiento promedio de la soja por departamento
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tabla-de-evolucion-de-produccion-por-cultivo">
+     Tabla de evolución de producción por cultivo
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios-resueltos.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div>
+<div class="tex2jax_ignore mathjax_ignore section" id="clase-2-ejercicios-practicos-resueltos">
+<h1>Clase 2: ejercicios prácticos resueltos<a class="headerlink" href="#clase-2-ejercicios-practicos-resueltos" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="parametros-y-extraccion-de-datos">
+<h2>Parámetros y extracción de datos<a class="headerlink" href="#parametros-y-extraccion-de-datos" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ESTIMACIONES_URL</span> <span class="o">=</span> <span class="s2">&quot;http://datos.agroindustria.gob.ar/dataset/9e1e77ba-267e-4eaa-a59f-3296e86b5f36/resource/95d066e6-8a0f-4a80-b59d-6f28f88eacd5/download/estimaciones-agricolas-al-30-09-2019.csv&quot;</span>
+<span class="n">ESTIMACIONES_URL_S3</span> <span class="o">=</span> <span class="s2">&quot;https://datasets-humai.s3.amazonaws.com/datasets/estimaciones_agricolas.zip&quot;</span>
+<span class="n">ESTIMACIONES_PATH</span> <span class="o">=</span> <span class="s2">&quot;data/estimaciones-agricolas.csv&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">converters</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;id_provincia&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="s2">&quot;id_departamento&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="c1">#estimaciones = pd.read_csv(ESTIMACIONES_URL, encoding=&quot;latin1&quot;, converters=converters)estimaciones = pd.read_csv(ESTIMACIONES_URL, encoding=&quot;latin1&quot;, converters=converters)</span>
+<span class="n">estimaciones</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">ESTIMACIONES_URL_S3</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf8&quot;</span><span class="p">,</span> <span class="n">converters</span><span class="o">=</span><span class="n">converters</span><span class="p">)</span>
+<span class="c1">#estimaciones.to_csv(ESTIMACIONES_PATH, encoding=&quot;utf8&quot;, index=False)</span>
+<span class="c1">#estimaciones = pd.read_csv(ESTIMACIONES_PATH, converters=converters)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio-1">
+<h2>Ejercicio 1<a class="headerlink" href="#ejercicio-1" title="Permalink to this headline">¶</a></h2>
+<p>Explorar descriptivamente el dataset de estimaciones agrícolas (<a class="reference external" href="https://datos.gob.ar/dataset/agroindustria-agricultura---estimaciones-agricolas">https://datos.gob.ar/dataset/agroindustria-agricultura—estimaciones-agricolas</a>) usando los elementos aprendidos en la clase 2, respondiendo las siguientes preguntas o mostrando:</p>
+<ul class="simple">
+<li><p>¿Cuál es la producción total en toneladas estimada de todos los cultivos en la Argentina, cada año?</p></li>
+<li><p>¿Cómo se distribuye el rendimiento (kg por hectárea) estimado promedio del cultivo de soja entre los departamentos que la siembran? ¿Qué tipo de distribución probabilística tiene? ¿Cuál es (y en qué departamento está) el rendimiento mínimo, mediano y máximo? ¿Cuál es el rendimiento promedio? ¿Hay valores potencialmente anómalos?</p></li>
+<li><p>Generá una tabla donde cada cultivo sea una columna, cada fila un año (una campaña) y los valores sean la producción total.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_provincia</th>
+      <th>provincia</th>
+      <th>id_departamento</th>
+      <th>departamento</th>
+      <th>id_cultivo</th>
+      <th>cultivo</th>
+      <th>id_campaña</th>
+      <th>campaña</th>
+      <th>sup_sembrada</th>
+      <th>sup_cosechada</th>
+      <th>produccion</th>
+      <th>rendimiento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>06</td>
+      <td>BUENOS AIRES</td>
+      <td>854</td>
+      <td>25 DE MAYO</td>
+      <td>1</td>
+      <td>Ajo</td>
+      <td>1</td>
+      <td>1969/1970</td>
+      <td>3</td>
+      <td>3</td>
+      <td>10</td>
+      <td>3333</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>06</td>
+      <td>BUENOS AIRES</td>
+      <td>854</td>
+      <td>25 DE MAYO</td>
+      <td>1</td>
+      <td>Ajo</td>
+      <td>2</td>
+      <td>1970/1971</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>3000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>06</td>
+      <td>BUENOS AIRES</td>
+      <td>014</td>
+      <td>ADOLFO GONZALES CHAVES</td>
+      <td>1</td>
+      <td>Ajo</td>
+      <td>1</td>
+      <td>1969/1970</td>
+      <td>15</td>
+      <td>15</td>
+      <td>82</td>
+      <td>5467</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>06</td>
+      <td>BUENOS AIRES</td>
+      <td>014</td>
+      <td>ADOLFO GONZALES CHAVES</td>
+      <td>1</td>
+      <td>Ajo</td>
+      <td>2</td>
+      <td>1970/1971</td>
+      <td>10</td>
+      <td>10</td>
+      <td>55</td>
+      <td>5500</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>06</td>
+      <td>BUENOS AIRES</td>
+      <td>014</td>
+      <td>ADOLFO GONZALES CHAVES</td>
+      <td>1</td>
+      <td>Ajo</td>
+      <td>3</td>
+      <td>1971/1972</td>
+      <td>8</td>
+      <td>8</td>
+      <td>44</td>
+      <td>5500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id_provincia&#39;, &#39;provincia&#39;, &#39;id_departamento&#39;, &#39;departamento&#39;,
+       &#39;id_cultivo&#39;, &#39;cultivo&#39;, &#39;id_campaña&#39;, &#39;campaña&#39;, &#39;sup_sembrada &#39;,
+       &#39;sup_cosechada&#39;, &#39;produccion &#39;, &#39;rendimiento&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Algunos campos tienen espacios al final, es mejor tener nombres de campos sin espacios.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="produccion-total-anual">
+<h3>Producción total anual<a class="headerlink" href="#produccion-total-anual" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="p">[[</span><span class="s2">&quot;campania_inicio&quot;</span><span class="p">,</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">campaña</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_inicio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_inicio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pasamos los valores a millones</span>
+<span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;produccion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">produccion</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1000000</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produccion_anual</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s2">&quot;produccion&quot;</span><span class="p">,</span>
+    <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produccion_anual</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>produccion</th>
+    </tr>
+    <tr>
+      <th>campania_fin</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015</th>
+      <td>124.498769</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>126.571125</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>246.923268</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>116.768681</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>30.468652</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produccion_anual</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Producción agrícola total anual (tn)&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdab1412e80&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-2-ejercicios-resueltos_17_1.png" src="../../_images/clase-2-ejercicios-resueltos_17_1.png" />
+</div>
+</div>
+<p>¿Está bien ese pico en la campaña 2016/2017? Hay que buscar algún control. <a class="reference external" href="https://www.invenomica.com.ar/desempeno-de-la-cosecha-agricola-argentina-2017-2018/">https://www.invenomica.com.ar/desempeno-de-la-cosecha-agricola-argentina-2017-2018/</a> Parece que los datos de 2016/2017 están duplicados! Busquemos cuál es el error en el dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="p">[</span><span class="n">estimaciones</span><span class="o">.</span><span class="n">campaña</span> <span class="o">==</span> <span class="s2">&quot;2016/2017&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">produccion</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>141.203713
+</pre></div>
+</div>
+</div>
+</div>
+<p>En realidad los datos de la campaña 2016/2017 parecen estar bien… el problema se da cuando sumamos por el el año de fin de campaña y 2017 aparece duplicado. Tal vez haya un error en los rótulos de las campañas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="p">[[</span><span class="s2">&quot;campaña&quot;</span><span class="p">,</span> <span class="s2">&quot;campania_fin&quot;</span><span class="p">]][</span>
+    <span class="n">estimaciones</span><span class="o">.</span><span class="n">campania_fin</span> <span class="o">&gt;</span> <span class="mi">2000</span>
+<span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>campaña</th>
+      <th>campania_fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>643</th>
+      <td>2000/2001</td>
+      <td>2001</td>
+    </tr>
+    <tr>
+      <th>690</th>
+      <td>2001/2002</td>
+      <td>2002</td>
+    </tr>
+    <tr>
+      <th>691</th>
+      <td>2002/2003</td>
+      <td>2003</td>
+    </tr>
+    <tr>
+      <th>692</th>
+      <td>2003/2004</td>
+      <td>2004</td>
+    </tr>
+    <tr>
+      <th>693</th>
+      <td>2004/2005</td>
+      <td>2005</td>
+    </tr>
+    <tr>
+      <th>694</th>
+      <td>2005/2006</td>
+      <td>2006</td>
+    </tr>
+    <tr>
+      <th>695</th>
+      <td>2006/2007</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>696</th>
+      <td>2007/2008</td>
+      <td>2008</td>
+    </tr>
+    <tr>
+      <th>697</th>
+      <td>2008/2009</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>698</th>
+      <td>2009/2010</td>
+      <td>2010</td>
+    </tr>
+    <tr>
+      <th>700</th>
+      <td>2011/2012</td>
+      <td>2012</td>
+    </tr>
+    <tr>
+      <th>701</th>
+      <td>2012/2013</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>702</th>
+      <td>2013/2014</td>
+      <td>2014</td>
+    </tr>
+    <tr>
+      <th>703</th>
+      <td>2014/2015</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <th>704</th>
+      <td>2015/2016</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>699</th>
+      <td>2010/2017</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>705</th>
+      <td>2016/2017</td>
+      <td>2017</td>
+    </tr>
+    <tr>
+      <th>706</th>
+      <td>2017/2018</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>707</th>
+      <td>2018/2019</td>
+      <td>2019</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Parece que la campaña 2010/2011 está incorrectamente rotulada como 2010/2017. Antes de seguir adelante, hay que hacer esa corrección.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campaña&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">campaña</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;2010/2017&quot;</span><span class="p">,</span> <span class="s2">&quot;2010/2011&quot;</span><span class="p">)</span>
+
+<span class="n">estimaciones</span><span class="p">[[</span><span class="s2">&quot;campania_inicio&quot;</span><span class="p">,</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">campaña</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_inicio&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_inicio&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="p">[</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produccion_anual</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;campania_fin&quot;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s2">&quot;produccion&quot;</span><span class="p">,</span>
+    <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produccion_anual</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Producción agrícola total anual (tn)&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fdab0696cc0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/clase-2-ejercicios-resueltos_25_1.png" src="../../_images/clase-2-ejercicios-resueltos_25_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produccion_anual</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>produccion</th>
+    </tr>
+    <tr>
+      <th>campania_fin</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015</th>
+      <td>124.498769</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>126.571125</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>141.203713</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>116.768681</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>30.468652</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>La camapaña 2018/2019 está incompleta (el dataset fue actualizado en septiembre de 2019 por última vez) así que también debemos excluirla.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="p">[</span><span class="n">estimaciones</span><span class="o">.</span><span class="n">campaña</span> <span class="o">!=</span> <span class="s2">&quot;2018/2019&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rendimiento-promedio-de-la-soja-por-departamento">
+<h2>Rendimiento promedio de la soja por departamento<a class="headerlink" href="#rendimiento-promedio-de-la-soja-por-departamento" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones</span><span class="o">.</span><span class="n">cultivo</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Ajo&#39;, &#39;Alpiste&#39;, &#39;Avena&#39;, &#39;Cártamo&#39;, &#39;Cebada cervecera&#39;,
+       &#39;Cebada forrajera&#39;, &#39;Cebada total&#39;, &#39;Cebolla total&#39;, &#39;Centeno&#39;,
+       &#39;Colza&#39;, &#39;Girasol&#39;, &#39;Limón&#39;, &#39;Lino&#39;, &#39;Maíz&#39;, &#39;Mandarina&#39;, &#39;Maní&#39;,
+       &#39;Mijo&#39;, &#39;Naranja&#39;, &#39;Papa total&#39;, &#39;Pomelo&#39;, &#39;Poroto seco&#39;,
+       &#39;Soja total&#39;, &#39;Sorgo&#39;, &#39;Trigo candeal&#39;, &#39;Trigo total&#39;, &#39;Algodón&#39;,
+       &#39;Jojoba&#39;, &#39;Arroz&#39;, &#39;Caña de azúcar&#39;, &#39;Banana&#39;, &#39;Té&#39;, &#39;Tung&#39;,
+       &#39;Yerba mate&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ya que nos piden hacer una comparación de rendimientos de la soja entre departamentos, nos conviene realizar los filtros al principio y quedarnos con la muestra que nos interesa en una sola variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">estimaciones</span><span class="o">.</span><span class="n">cultivo</span> <span class="o">==</span> <span class="s2">&quot;Soja total&quot;</span><span class="p">)</span> <span class="o">&amp;</span>
+    <span class="p">(</span><span class="n">estimaciones</span><span class="o">.</span><span class="n">campaña</span> <span class="o">==</span> <span class="s2">&quot;2017/2018&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">departamento</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>234
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hay 234 departamentos que producen Soja, y sobre los cuales hay que hacer el análisis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">rendimiento</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/clase-2-ejercicios-resueltos_35_0.png" src="../../_images/clase-2-ejercicios-resueltos_35_0.png" />
+</div>
+</div>
+<p>Los valores que se separan mucho del histograma, a primera vista podrían sospecharse como anómalos (ie. departamentos con rendimientos superiores a los 4000 kg. por hectárea deberían analizarse más profundamente).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">rendimiento</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count     264.000000
+mean     2233.602273
+std       660.090901
+min       500.000000
+25%      1811.250000
+50%      2326.000000
+75%      2679.000000
+max      5100.000000
+Name: rendimiento, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span><span class="p">[</span><span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">rendimiento</span> <span class="o">==</span> <span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">rendimiento</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_provincia</th>
+      <th>provincia</th>
+      <th>id_departamento</th>
+      <th>departamento</th>
+      <th>id_cultivo</th>
+      <th>cultivo</th>
+      <th>id_campaña</th>
+      <th>campaña</th>
+      <th>sup_sembrada</th>
+      <th>sup_cosechada</th>
+      <th>produccion</th>
+      <th>rendimiento</th>
+      <th>campania_inicio</th>
+      <th>campania_fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>129988</th>
+      <td>86</td>
+      <td>SANTIAGO DEL ESTERO</td>
+      <td>182</td>
+      <td>SARMIENTO</td>
+      <td>25</td>
+      <td>Soja total</td>
+      <td>49</td>
+      <td>2017/2018</td>
+      <td>500</td>
+      <td>500</td>
+      <td>0.00255</td>
+      <td>5100</td>
+      <td>2017</td>
+      <td>2018</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span> <span class="o">=</span> <span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">estimaciones_soja</span><span class="p">[</span><span class="s1">&#39;diferencia_mediana&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">rendimiento</span> <span class="o">-</span> <span class="n">estimaciones_soja</span><span class="p">[</span><span class="s1">&#39;rendimiento&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span><span class="p">[</span><span class="n">estimaciones_soja</span><span class="p">[</span><span class="s1">&#39;rendimiento&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">estimaciones_soja</span><span class="p">[</span><span class="s1">&#39;rendimiento&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_provincia</th>
+      <th>provincia</th>
+      <th>id_departamento</th>
+      <th>departamento</th>
+      <th>id_cultivo</th>
+      <th>cultivo</th>
+      <th>id_campaña</th>
+      <th>campaña</th>
+      <th>sup_sembrada</th>
+      <th>sup_cosechada</th>
+      <th>produccion</th>
+      <th>rendimiento</th>
+      <th>campania_inicio</th>
+      <th>campania_fin</th>
+      <th>diferencia_mediana</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span><span class="p">[</span><span class="n">estimaciones_soja</span><span class="p">[</span><span class="s1">&#39;diferencia_mediana&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">estimaciones_soja</span><span class="p">[</span><span class="s1">&#39;diferencia_mediana&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_provincia</th>
+      <th>provincia</th>
+      <th>id_departamento</th>
+      <th>departamento</th>
+      <th>id_cultivo</th>
+      <th>cultivo</th>
+      <th>id_campaña</th>
+      <th>campaña</th>
+      <th>sup_sembrada</th>
+      <th>sup_cosechada</th>
+      <th>produccion</th>
+      <th>rendimiento</th>
+      <th>campania_inicio</th>
+      <th>campania_fin</th>
+      <th>diferencia_mediana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>33503</th>
+      <td>06</td>
+      <td>BUENOS AIRES</td>
+      <td>609</td>
+      <td>PEHUAJO</td>
+      <td>25</td>
+      <td>Soja total</td>
+      <td>49</td>
+      <td>2017/2018</td>
+      <td>138790</td>
+      <td>132090</td>
+      <td>0.303828</td>
+      <td>2300</td>
+      <td>2017</td>
+      <td>2018</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>108891</th>
+      <td>66</td>
+      <td>SALTA</td>
+      <td>042</td>
+      <td>CHICOANA</td>
+      <td>25</td>
+      <td>Soja total</td>
+      <td>49</td>
+      <td>2017/2018</td>
+      <td>220</td>
+      <td>220</td>
+      <td>0.000506</td>
+      <td>2300</td>
+      <td>2017</td>
+      <td>2018</td>
+      <td>26.0</td>
+    </tr>
+    <tr>
+      <th>123308</th>
+      <td>82</td>
+      <td>SANTA FE</td>
+      <td>021</td>
+      <td>CASTELLANOS</td>
+      <td>25</td>
+      <td>Soja total</td>
+      <td>49</td>
+      <td>2017/2018</td>
+      <td>251000</td>
+      <td>239000</td>
+      <td>0.562100</td>
+      <td>2352</td>
+      <td>2017</td>
+      <td>2018</td>
+      <td>26.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">estimaciones_soja</span><span class="p">[</span><span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">rendimiento</span> <span class="o">==</span> <span class="n">estimaciones_soja</span><span class="o">.</span><span class="n">rendimiento</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id_provincia</th>
+      <th>provincia</th>
+      <th>id_departamento</th>
+      <th>departamento</th>
+      <th>id_cultivo</th>
+      <th>cultivo</th>
+      <th>id_campaña</th>
+      <th>campaña</th>
+      <th>sup_sembrada</th>
+      <th>sup_cosechada</th>
+      <th>produccion</th>
+      <th>rendimiento</th>
+      <th>campania_inicio</th>
+      <th>campania_fin</th>
+      <th>diferencia_mediana</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>90520</th>
+      <td>42</td>
+      <td>LA PAMPA</td>
+      <td>070</td>
+      <td>GUATRACHE</td>
+      <td>25</td>
+      <td>Soja total</td>
+      <td>49</td>
+      <td>2017/2018</td>
+      <td>1500</td>
+      <td>1000</td>
+      <td>0.0005</td>
+      <td>500</td>
+      <td>2017</td>
+      <td>2018</td>
+      <td>1826.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="tabla-de-evolucion-de-produccion-por-cultivo">
+<h3>Tabla de evolución de producción por cultivo<a class="headerlink" href="#tabla-de-evolucion-de-produccion-por-cultivo" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">produccion_cultivo_evolucion</span> <span class="o">=</span> <span class="n">estimaciones</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s2">&quot;campaña&quot;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;cultivo&quot;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s2">&quot;produccion&quot;</span><span class="p">,</span>
+    <span class="n">aggfunc</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span>
+<span class="p">)</span>
+<span class="n">produccion_cultivo_evolucion</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>cultivo</th>
+      <th>Ajo</th>
+      <th>Algodón</th>
+      <th>Alpiste</th>
+      <th>Arroz</th>
+      <th>Avena</th>
+      <th>Banana</th>
+      <th>Caña de azúcar</th>
+      <th>Cebada cervecera</th>
+      <th>Cebada forrajera</th>
+      <th>Cebada total</th>
+      <th>...</th>
+      <th>Papa total</th>
+      <th>Pomelo</th>
+      <th>Poroto seco</th>
+      <th>Soja total</th>
+      <th>Sorgo</th>
+      <th>Trigo candeal</th>
+      <th>Trigo total</th>
+      <th>Tung</th>
+      <th>Té</th>
+      <th>Yerba mate</th>
+    </tr>
+    <tr>
+      <th>campaña</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1969/1970</th>
+      <td>0.049110</td>
+      <td>0.458200</td>
+      <td>0.107000</td>
+      <td>0.407000</td>
+      <td>0.425000</td>
+      <td>0.223440</td>
+      <td>9.700000</td>
+      <td>0.499500</td>
+      <td>0.070486</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.332170</td>
+      <td>0.130995</td>
+      <td>0.039388</td>
+      <td>0.026800</td>
+      <td>3.820000</td>
+      <td>NaN</td>
+      <td>7.019726</td>
+      <td>0.148600</td>
+      <td>0.111000</td>
+      <td>0.076788</td>
+    </tr>
+    <tr>
+      <th>1970/1971</th>
+      <td>0.049214</td>
+      <td>0.285000</td>
+      <td>0.039300</td>
+      <td>0.288000</td>
+      <td>0.359960</td>
+      <td>0.224800</td>
+      <td>10.260000</td>
+      <td>0.318500</td>
+      <td>0.048478</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.954034</td>
+      <td>0.143584</td>
+      <td>0.058920</td>
+      <td>0.059000</td>
+      <td>4.660000</td>
+      <td>NaN</td>
+      <td>4.919767</td>
+      <td>0.110000</td>
+      <td>0.129000</td>
+      <td>0.090460</td>
+    </tr>
+    <tr>
+      <th>1971/1972</th>
+      <td>0.050746</td>
+      <td>0.292200</td>
+      <td>0.026200</td>
+      <td>0.294000</td>
+      <td>0.475000</td>
+      <td>0.312700</td>
+      <td>12.870000</td>
+      <td>0.476000</td>
+      <td>0.077000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.336735</td>
+      <td>0.139854</td>
+      <td>0.057923</td>
+      <td>0.078000</td>
+      <td>2.360000</td>
+      <td>NaN</td>
+      <td>5.439840</td>
+      <td>0.170000</td>
+      <td>0.131000</td>
+      <td>0.126714</td>
+    </tr>
+    <tr>
+      <th>1972/1973</th>
+      <td>0.054545</td>
+      <td>0.424000</td>
+      <td>0.035000</td>
+      <td>0.260000</td>
+      <td>0.566000</td>
+      <td>0.352160</td>
+      <td>16.870000</td>
+      <td>0.760000</td>
+      <td>0.120000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.532375</td>
+      <td>0.179230</td>
+      <td>0.072791</td>
+      <td>0.271904</td>
+      <td>4.960000</td>
+      <td>NaN</td>
+      <td>7.896787</td>
+      <td>0.025000</td>
+      <td>0.128600</td>
+      <td>0.150963</td>
+    </tr>
+    <tr>
+      <th>1973/1974</th>
+      <td>0.066821</td>
+      <td>0.418400</td>
+      <td>0.034000</td>
+      <td>0.316000</td>
+      <td>0.561000</td>
+      <td>0.399400</td>
+      <td>15.536000</td>
+      <td>0.608000</td>
+      <td>0.124000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.171698</td>
+      <td>0.177000</td>
+      <td>0.115150</td>
+      <td>0.495880</td>
+      <td>5.900000</td>
+      <td>NaN</td>
+      <td>6.559916</td>
+      <td>0.136000</td>
+      <td>0.140000</td>
+      <td>0.134529</td>
+    </tr>
+    <tr>
+      <th>1974/1975</th>
+      <td>0.067621</td>
+      <td>0.541000</td>
+      <td>0.025400</td>
+      <td>0.351000</td>
+      <td>0.327000</td>
+      <td>0.374300</td>
+      <td>15.600000</td>
+      <td>0.365000</td>
+      <td>0.065000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.347890</td>
+      <td>0.185000</td>
+      <td>0.108535</td>
+      <td>0.485000</td>
+      <td>4.830000</td>
+      <td>NaN</td>
+      <td>5.969991</td>
+      <td>0.061000</td>
+      <td>0.165000</td>
+      <td>0.142308</td>
+    </tr>
+    <tr>
+      <th>1975/1976</th>
+      <td>0.068525</td>
+      <td>0.445000</td>
+      <td>0.032800</td>
+      <td>0.309000</td>
+      <td>0.432900</td>
+      <td>0.277500</td>
+      <td>14.310000</td>
+      <td>0.447800</td>
+      <td>0.074900</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.525481</td>
+      <td>0.180000</td>
+      <td>0.170390</td>
+      <td>0.695000</td>
+      <td>5.060000</td>
+      <td>NaN</td>
+      <td>8.570000</td>
+      <td>0.118000</td>
+      <td>0.133000</td>
+      <td>0.121135</td>
+    </tr>
+    <tr>
+      <th>1976/1977</th>
+      <td>0.072925</td>
+      <td>0.522000</td>
+      <td>0.039000</td>
+      <td>0.320000</td>
+      <td>0.530000</td>
+      <td>0.220000</td>
+      <td>16.000000</td>
+      <td>0.670000</td>
+      <td>0.090000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.768320</td>
+      <td>0.170000</td>
+      <td>0.154798</td>
+      <td>1.400000</td>
+      <td>6.600000</td>
+      <td>0.582000</td>
+      <td>11.000000</td>
+      <td>0.100000</td>
+      <td>0.168000</td>
+      <td>0.127167</td>
+    </tr>
+    <tr>
+      <th>1977/1978</th>
+      <td>0.078900</td>
+      <td>0.786200</td>
+      <td>0.060000</td>
+      <td>0.310000</td>
+      <td>0.570000</td>
+      <td>0.128700</td>
+      <td>13.600000</td>
+      <td>0.290000</td>
+      <td>0.063000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.592350</td>
+      <td>0.145000</td>
+      <td>0.132720</td>
+      <td>2.500000</td>
+      <td>7.200000</td>
+      <td>0.353100</td>
+      <td>5.299995</td>
+      <td>0.082400</td>
+      <td>0.103000</td>
+      <td>0.133436</td>
+    </tr>
+    <tr>
+      <th>1978/1979</th>
+      <td>0.080920</td>
+      <td>0.572500</td>
+      <td>0.051000</td>
+      <td>0.312000</td>
+      <td>0.676000</td>
+      <td>0.144000</td>
+      <td>14.120000</td>
+      <td>0.470000</td>
+      <td>0.084000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.693285</td>
+      <td>0.134000</td>
+      <td>0.235000</td>
+      <td>3.700000</td>
+      <td>6.200000</td>
+      <td>0.369400</td>
+      <td>8.100000</td>
+      <td>0.058300</td>
+      <td>0.125000</td>
+      <td>0.135200</td>
+    </tr>
+    <tr>
+      <th>1979/1980</th>
+      <td>0.094932</td>
+      <td>0.485400</td>
+      <td>0.042000</td>
+      <td>0.266000</td>
+      <td>0.522000</td>
+      <td>0.146200</td>
+      <td>17.200000</td>
+      <td>0.286000</td>
+      <td>0.053000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.567615</td>
+      <td>0.164000</td>
+      <td>0.146000</td>
+      <td>3.500000</td>
+      <td>2.960000</td>
+      <td>0.217800</td>
+      <td>8.100000</td>
+      <td>0.081000</td>
+      <td>0.153000</td>
+      <td>0.134813</td>
+    </tr>
+    <tr>
+      <th>1980/1981</th>
+      <td>0.068939</td>
+      <td>0.265300</td>
+      <td>0.035200</td>
+      <td>0.286300</td>
+      <td>0.433000</td>
+      <td>0.077000</td>
+      <td>15.500000</td>
+      <td>0.170000</td>
+      <td>0.047000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.246470</td>
+      <td>0.150000</td>
+      <td>0.224000</td>
+      <td>3.770000</td>
+      <td>7.550000</td>
+      <td>0.194700</td>
+      <td>7.779990</td>
+      <td>0.048600</td>
+      <td>0.098000</td>
+      <td>0.139745</td>
+    </tr>
+    <tr>
+      <th>1981/1982</th>
+      <td>0.037680</td>
+      <td>0.491000</td>
+      <td>0.032300</td>
+      <td>0.437200</td>
+      <td>0.338970</td>
+      <td>0.088700</td>
+      <td>15.046000</td>
+      <td>0.115800</td>
+      <td>0.015700</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.816780</td>
+      <td>0.147600</td>
+      <td>0.254000</td>
+      <td>4.150000</td>
+      <td>7.999925</td>
+      <td>0.069600</td>
+      <td>8.299810</td>
+      <td>0.080500</td>
+      <td>0.142000</td>
+      <td>0.161371</td>
+    </tr>
+    <tr>
+      <th>1982/1983</th>
+      <td>0.048083</td>
+      <td>0.373300</td>
+      <td>0.063000</td>
+      <td>0.337100</td>
+      <td>0.636970</td>
+      <td>0.126100</td>
+      <td>15.070000</td>
+      <td>0.180000</td>
+      <td>0.031400</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.013080</td>
+      <td>0.147000</td>
+      <td>0.216500</td>
+      <td>4.000000</td>
+      <td>8.099900</td>
+      <td>0.097700</td>
+      <td>15.000000</td>
+      <td>0.039400</td>
+      <td>0.175500</td>
+      <td>0.136210</td>
+    </tr>
+    <tr>
+      <th>1983/1984</th>
+      <td>0.050574</td>
+      <td>0.610000</td>
+      <td>0.050000</td>
+      <td>0.480400</td>
+      <td>0.592970</td>
+      <td>0.161000</td>
+      <td>15.440000</td>
+      <td>0.140000</td>
+      <td>0.026000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.105580</td>
+      <td>0.145000</td>
+      <td>0.191200</td>
+      <td>7.000000</td>
+      <td>6.899865</td>
+      <td>0.111400</td>
+      <td>12.999720</td>
+      <td>0.066700</td>
+      <td>0.178400</td>
+      <td>0.181625</td>
+    </tr>
+    <tr>
+      <th>1984/1985</th>
+      <td>0.036588</td>
+      <td>0.536100</td>
+      <td>0.053000</td>
+      <td>0.400000</td>
+      <td>0.717000</td>
+      <td>0.163400</td>
+      <td>14.105000</td>
+      <td>0.200000</td>
+      <td>0.024000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.243180</td>
+      <td>0.173700</td>
+      <td>0.198300</td>
+      <td>6.500000</td>
+      <td>6.199700</td>
+      <td>0.078600</td>
+      <td>13.600000</td>
+      <td>0.066500</td>
+      <td>0.200000</td>
+      <td>0.154469</td>
+    </tr>
+    <tr>
+      <th>1985/1986</th>
+      <td>0.031695</td>
+      <td>0.376600</td>
+      <td>0.023500</td>
+      <td>0.438600</td>
+      <td>0.400000</td>
+      <td>0.190000</td>
+      <td>14.465000</td>
+      <td>0.100000</td>
+      <td>0.018000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.057540</td>
+      <td>0.177900</td>
+      <td>0.210500</td>
+      <td>7.100000</td>
+      <td>3.999875</td>
+      <td>0.042800</td>
+      <td>8.700000</td>
+      <td>0.039500</td>
+      <td>0.178000</td>
+      <td>0.155740</td>
+    </tr>
+    <tr>
+      <th>1986/1987</th>
+      <td>0.041696</td>
+      <td>0.322800</td>
+      <td>0.057500</td>
+      <td>0.371000</td>
+      <td>0.495000</td>
+      <td>0.243000</td>
+      <td>14.479000</td>
+      <td>0.114900</td>
+      <td>0.025000</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.103300</td>
+      <td>0.174193</td>
+      <td>0.135255</td>
+      <td>6.666400</td>
+      <td>2.996630</td>
+      <td>0.056500</td>
+      <td>8.700000</td>
+      <td>0.058700</td>
+      <td>0.194850</td>
+      <td>0.131995</td>
+    </tr>
+    <tr>
+      <th>1987/1988</th>
+      <td>0.035992</td>
+      <td>0.849400</td>
+      <td>0.048000</td>
+      <td>0.383400</td>
+      <td>0.718000</td>
+      <td>0.323600</td>
+      <td>13.939000</td>
+      <td>0.262000</td>
+      <td>0.019700</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.859030</td>
+      <td>0.176100</td>
+      <td>0.172300</td>
+      <td>9.900000</td>
+      <td>3.200000</td>
+      <td>0.101200</td>
+      <td>9.000000</td>
+      <td>0.063500</td>
+      <td>0.136800</td>
+      <td>0.137401</td>
+    </tr>
+    <tr>
+      <th>1988/1989</th>
+      <td>0.033100</td>
+      <td>0.619350</td>
+      <td>0.059500</td>
+      <td>0.490000</td>
+      <td>0.450000</td>
+      <td>0.209937</td>
+      <td>10.780000</td>
+      <td>0.322500</td>
+      <td>0.006300</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.064575</td>
+      <td>0.154700</td>
+      <td>0.124800</td>
+      <td>6.500000</td>
+      <td>1.500000</td>
+      <td>0.056900</td>
+      <td>8.540000</td>
+      <td>0.094530</td>
+      <td>0.213226</td>
+      <td>0.144838</td>
+    </tr>
+    <tr>
+      <th>1989/1990</th>
+      <td>0.040330</td>
+      <td>0.922950</td>
+      <td>0.056900</td>
+      <td>0.428100</td>
+      <td>0.666600</td>
+      <td>0.200558</td>
+      <td>12.093000</td>
+      <td>0.361100</td>
+      <td>0.003670</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.598121</td>
+      <td>0.166580</td>
+      <td>0.207845</td>
+      <td>10.700000</td>
+      <td>2.050000</td>
+      <td>0.055700</td>
+      <td>10.000000</td>
+      <td>0.073821</td>
+      <td>0.217224</td>
+      <td>0.155830</td>
+    </tr>
+    <tr>
+      <th>1990/1991</th>
+      <td>0.073964</td>
+      <td>0.789400</td>
+      <td>0.042200</td>
+      <td>0.347600</td>
+      <td>0.275000</td>
+      <td>0.194200</td>
+      <td>14.416500</td>
+      <td>0.323400</td>
+      <td>0.003200</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.749842</td>
+      <td>0.203900</td>
+      <td>0.241578</td>
+      <td>10.861200</td>
+      <td>2.252400</td>
+      <td>0.044200</td>
+      <td>10.992400</td>
+      <td>0.058650</td>
+      <td>0.198173</td>
+      <td>0.160761</td>
+    </tr>
+    <tr>
+      <th>1991/1992</th>
+      <td>0.092340</td>
+      <td>0.651960</td>
+      <td>0.032120</td>
+      <td>0.700700</td>
+      <td>0.210000</td>
+      <td>0.182680</td>
+      <td>12.827500</td>
+      <td>0.570100</td>
+      <td>0.003260</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>1.628460</td>
+      <td>0.191900</td>
+      <td>0.210410</td>
+      <td>11.308100</td>
+      <td>2.767000</td>
+      <td>0.114500</td>
+      <td>9.884000</td>
+      <td>0.032970</td>
+      <td>0.199603</td>
+      <td>0.172455</td>
+    </tr>
+    <tr>
+      <th>1992/1993</th>
+      <td>0.076467</td>
+      <td>0.430588</td>
+      <td>0.033242</td>
+      <td>0.608300</td>
+      <td>0.600200</td>
+      <td>0.181220</td>
+      <td>10.304400</td>
+      <td>0.580100</td>
+      <td>0.003100</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.104907</td>
+      <td>0.196540</td>
+      <td>0.164440</td>
+      <td>11.043400</td>
+      <td>2.859700</td>
+      <td>0.121500</td>
+      <td>9.874400</td>
+      <td>0.047381</td>
+      <td>0.235395</td>
+      <td>0.221321</td>
+    </tr>
+    <tr>
+      <th>1993/1994</th>
+      <td>0.088193</td>
+      <td>0.705880</td>
+      <td>0.023059</td>
+      <td>0.607600</td>
+      <td>0.436540</td>
+      <td>0.142190</td>
+      <td>10.853645</td>
+      <td>0.455602</td>
+      <td>0.003837</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.422577</td>
+      <td>0.228671</td>
+      <td>0.195626</td>
+      <td>11.719900</td>
+      <td>2.148000</td>
+      <td>0.078000</td>
+      <td>9.658300</td>
+      <td>0.004602</td>
+      <td>0.219324</td>
+      <td>0.240414</td>
+    </tr>
+    <tr>
+      <th>1994/1995</th>
+      <td>0.073596</td>
+      <td>1.125147</td>
+      <td>0.022717</td>
+      <td>0.926200</td>
+      <td>0.357286</td>
+      <td>0.171084</td>
+      <td>12.850209</td>
+      <td>0.341340</td>
+      <td>0.003352</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.427742</td>
+      <td>0.195918</td>
+      <td>0.236285</td>
+      <td>12.133000</td>
+      <td>1.649482</td>
+      <td>0.100120</td>
+      <td>11.306210</td>
+      <td>0.006741</td>
+      <td>0.221422</td>
+      <td>0.260718</td>
+    </tr>
+    <tr>
+      <th>1995/1996</th>
+      <td>0.091571</td>
+      <td>1.346940</td>
+      <td>0.017697</td>
+      <td>0.986000</td>
+      <td>0.260280</td>
+      <td>0.117350</td>
+      <td>11.814002</td>
+      <td>0.384705</td>
+      <td>0.001143</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>2.274945</td>
+      <td>0.166784</td>
+      <td>0.218313</td>
+      <td>12.448200</td>
+      <td>2.131720</td>
+      <td>0.097300</td>
+      <td>9.445015</td>
+      <td>0.006911</td>
+      <td>0.202425</td>
+      <td>0.269970</td>
+    </tr>
+    <tr>
+      <th>1996/1997</th>
+      <td>0.116598</td>
+      <td>1.029866</td>
+      <td>0.024976</td>
+      <td>1.205140</td>
+      <td>0.309500</td>
+      <td>0.160800</td>
+      <td>16.553272</td>
+      <td>0.532700</td>
+      <td>0.003743</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>3.011328</td>
+      <td>0.232766</td>
+      <td>0.268279</td>
+      <td>11.004890</td>
+      <td>2.499000</td>
+      <td>0.193103</td>
+      <td>15.913600</td>
+      <td>0.030620</td>
+      <td>0.232794</td>
+      <td>0.281573</td>
+    </tr>
+    <tr>
+      <th>1997/1998</th>
+      <td>0.148120</td>
+      <td>0.986230</td>
+      <td>0.029493</td>
+      <td>1.011135</td>
+      <td>0.512100</td>
+      <td>0.172850</td>
+      <td>17.088781</td>
+      <td>0.921200</td>
+      <td>0.004590</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>3.406761</td>
+      <td>NaN</td>
+      <td>0.303245</td>
+      <td>18.732172</td>
+      <td>3.762335</td>
+      <td>0.286590</td>
+      <td>14.800230</td>
+      <td>0.014140</td>
+      <td>0.245798</td>
+      <td>0.286770</td>
+    </tr>
+    <tr>
+      <th>1998/1999</th>
+      <td>NaN</td>
+      <td>0.617542</td>
+      <td>0.023917</td>
+      <td>1.658200</td>
+      <td>0.383395</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.534758</td>
+      <td>0.003650</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.340214</td>
+      <td>20.000000</td>
+      <td>3.221750</td>
+      <td>0.157600</td>
+      <td>12.443000</td>
+      <td>0.010772</td>
+      <td>0.293402</td>
+      <td>0.703448</td>
+    </tr>
+    <tr>
+      <th>1999/2000</th>
+      <td>NaN</td>
+      <td>0.417680</td>
+      <td>0.022217</td>
+      <td>0.903410</td>
+      <td>0.554708</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.414160</td>
+      <td>0.005396</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.297157</td>
+      <td>20.135800</td>
+      <td>3.344493</td>
+      <td>0.176100</td>
+      <td>15.302560</td>
+      <td>0.002051</td>
+      <td>0.319383</td>
+      <td>0.670399</td>
+    </tr>
+    <tr>
+      <th>2000/2001</th>
+      <td>NaN</td>
+      <td>0.509405</td>
+      <td>0.019255</td>
+      <td>0.873184</td>
+      <td>0.644150</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.717300</td>
+      <td>0.005190</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.262985</td>
+      <td>27.266253</td>
+      <td>2.908775</td>
+      <td>0.187270</td>
+      <td>15.959352</td>
+      <td>0.012010</td>
+      <td>0.305880</td>
+      <td>0.684597</td>
+    </tr>
+    <tr>
+      <th>2001/2002</th>
+      <td>NaN</td>
+      <td>0.218159</td>
+      <td>0.016660</td>
+      <td>0.709297</td>
+      <td>0.644760</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.521150</td>
+      <td>0.008895</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.278100</td>
+      <td>29.991616</td>
+      <td>2.804725</td>
+      <td>0.136160</td>
+      <td>15.291660</td>
+      <td>0.005720</td>
+      <td>0.303041</td>
+      <td>0.695400</td>
+    </tr>
+    <tr>
+      <th>2002/2003</th>
+      <td>NaN</td>
+      <td>0.201505</td>
+      <td>0.018216</td>
+      <td>0.717632</td>
+      <td>0.487510</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.543420</td>
+      <td>0.006410</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.215552</td>
+      <td>34.818550</td>
+      <td>2.663550</td>
+      <td>0.097600</td>
+      <td>12.301442</td>
+      <td>0.009861</td>
+      <td>0.300502</td>
+      <td>0.775591</td>
+    </tr>
+    <tr>
+      <th>2003/2004</th>
+      <td>NaN</td>
+      <td>0.353802</td>
+      <td>0.017456</td>
+      <td>1.060083</td>
+      <td>0.331993</td>
+      <td>NaN</td>
+      <td>17.823478</td>
+      <td>1.001730</td>
+      <td>0.003730</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.151278</td>
+      <td>31.576752</td>
+      <td>2.121733</td>
+      <td>0.147220</td>
+      <td>14.562955</td>
+      <td>0.006861</td>
+      <td>0.302752</td>
+      <td>0.749200</td>
+    </tr>
+    <tr>
+      <th>2004/2005</th>
+      <td>NaN</td>
+      <td>0.448315</td>
+      <td>0.016502</td>
+      <td>0.956255</td>
+      <td>0.536091</td>
+      <td>NaN</td>
+      <td>18.799055</td>
+      <td>0.886260</td>
+      <td>0.008350</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.169257</td>
+      <td>38.303289</td>
+      <td>2.894250</td>
+      <td>0.179590</td>
+      <td>15.925025</td>
+      <td>0.012901</td>
+      <td>0.291920</td>
+      <td>0.782801</td>
+    </tr>
+    <tr>
+      <th>2005/2006</th>
+      <td>NaN</td>
+      <td>0.417771</td>
+      <td>0.014704</td>
+      <td>1.193492</td>
+      <td>0.226910</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.796190</td>
+      <td>0.003233</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.322775</td>
+      <td>40.537368</td>
+      <td>2.327865</td>
+      <td>0.128580</td>
+      <td>12.593396</td>
+      <td>NaN</td>
+      <td>0.314971</td>
+      <td>0.787900</td>
+    </tr>
+    <tr>
+      <th>2006/2007</th>
+      <td>NaN</td>
+      <td>0.545382</td>
+      <td>0.008930</td>
+      <td>1.080071</td>
+      <td>0.242960</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.265660</td>
+      <td>0.002805</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.327689</td>
+      <td>47.482787</td>
+      <td>2.794967</td>
+      <td>0.114985</td>
+      <td>14.547960</td>
+      <td>NaN</td>
+      <td>0.404630</td>
+      <td>0.816600</td>
+    </tr>
+    <tr>
+      <th>2007/2008</th>
+      <td>NaN</td>
+      <td>0.489633</td>
+      <td>0.009050</td>
+      <td>1.255015</td>
+      <td>0.472420</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.474510</td>
+      <td>0.007180</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.336779</td>
+      <td>46.238890</td>
+      <td>2.940788</td>
+      <td>0.138810</td>
+      <td>16.354091</td>
+      <td>0.005470</td>
+      <td>0.349021</td>
+      <td>0.730190</td>
+    </tr>
+    <tr>
+      <th>2008/2009</th>
+      <td>NaN</td>
+      <td>0.386676</td>
+      <td>0.010023</td>
+      <td>1.338865</td>
+      <td>0.290525</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.681880</td>
+      <td>0.008205</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.312998</td>
+      <td>30.989474</td>
+      <td>1.475870</td>
+      <td>0.135565</td>
+      <td>8.376452</td>
+      <td>0.006812</td>
+      <td>0.342657</td>
+      <td>0.741686</td>
+    </tr>
+    <tr>
+      <th>2009/2010</th>
+      <td>NaN</td>
+      <td>0.753503</td>
+      <td>0.009765</td>
+      <td>1.243259</td>
+      <td>0.181990</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.355801</td>
+      <td>0.009648</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.338120</td>
+      <td>54.247538</td>
+      <td>3.637427</td>
+      <td>0.100261</td>
+      <td>9.023139</td>
+      <td>0.003443</td>
+      <td>0.423800</td>
+      <td>0.804458</td>
+    </tr>
+    <tr>
+      <th>2010/2011</th>
+      <td>NaN</td>
+      <td>1.032545</td>
+      <td>0.027421</td>
+      <td>1.748076</td>
+      <td>0.660200</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.964075</td>
+      <td>0.018978</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.332782</td>
+      <td>48.880986</td>
+      <td>4.458442</td>
+      <td>0.192278</td>
+      <td>15.875653</td>
+      <td>NaN</td>
+      <td>0.415364</td>
+      <td>0.775600</td>
+    </tr>
+    <tr>
+      <th>2011/2012</th>
+      <td>NaN</td>
+      <td>0.708650</td>
+      <td>0.023280</td>
+      <td>1.567971</td>
+      <td>0.414990</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.085772</td>
+      <td>0.016459</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.361153</td>
+      <td>40.100197</td>
+      <td>4.252310</td>
+      <td>0.182958</td>
+      <td>14.500519</td>
+      <td>NaN</td>
+      <td>0.384711</td>
+      <td>0.718190</td>
+    </tr>
+    <tr>
+      <th>2012/2013</th>
+      <td>NaN</td>
+      <td>0.543008</td>
+      <td>0.018204</td>
+      <td>1.563450</td>
+      <td>0.495940</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.158190</td>
+      <td>0.014750</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.095741</td>
+      <td>49.353642</td>
+      <td>3.635837</td>
+      <td>0.109414</td>
+      <td>8.024996</td>
+      <td>NaN</td>
+      <td>0.382566</td>
+      <td>0.692770</td>
+    </tr>
+    <tr>
+      <th>2013/2014</th>
+      <td>NaN</td>
+      <td>1.019654</td>
+      <td>0.052970</td>
+      <td>1.581810</td>
+      <td>0.444820</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.705160</td>
+      <td>0.024790</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.429832</td>
+      <td>53.397720</td>
+      <td>3.466410</td>
+      <td>0.126710</td>
+      <td>9.188339</td>
+      <td>NaN</td>
+      <td>0.376212</td>
+      <td>0.849825</td>
+    </tr>
+    <tr>
+      <th>2014/2015</th>
+      <td>NaN</td>
+      <td>0.795345</td>
+      <td>0.031657</td>
+      <td>1.558100</td>
+      <td>0.524716</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.901495</td>
+      <td>0.023308</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.604817</td>
+      <td>61.398276</td>
+      <td>3.098148</td>
+      <td>0.213347</td>
+      <td>13.930078</td>
+      <td>NaN</td>
+      <td>0.371044</td>
+      <td>0.809100</td>
+    </tr>
+    <tr>
+      <th>2015/2016</th>
+      <td>NaN</td>
+      <td>0.673145</td>
+      <td>0.029479</td>
+      <td>1.404980</td>
+      <td>0.553435</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.938723</td>
+      <td>0.014510</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.366588</td>
+      <td>58.799259</td>
+      <td>3.029330</td>
+      <td>0.256276</td>
+      <td>11.314952</td>
+      <td>NaN</td>
+      <td>0.382618</td>
+      <td>0.806936</td>
+    </tr>
+    <tr>
+      <th>2016/2017</th>
+      <td>NaN</td>
+      <td>0.616160</td>
+      <td>0.044354</td>
+      <td>1.328340</td>
+      <td>0.784981</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.308384</td>
+      <td>NaN</td>
+      <td>3.308384</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.413605</td>
+      <td>54.972546</td>
+      <td>2.526931</td>
+      <td>0.162426</td>
+      <td>18.395106</td>
+      <td>NaN</td>
+      <td>0.366159</td>
+      <td>0.690100</td>
+    </tr>
+    <tr>
+      <th>2017/2018</th>
+      <td>NaN</td>
+      <td>0.813692</td>
+      <td>0.022278</td>
+      <td>1.367968</td>
+      <td>0.491713</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.721034</td>
+      <td>NaN</td>
+      <td>3.741158</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.473389</td>
+      <td>37.787927</td>
+      <td>1.563445</td>
+      <td>0.181718</td>
+      <td>18.518045</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>49 rows × 33 columns</p>
+</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "conda_python3",
+            path: "./AnalisisDeDatos/2_Pivot_Table_y_Joins"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'conda_python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

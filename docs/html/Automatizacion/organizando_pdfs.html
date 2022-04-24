@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Organizando PDFs &#8212; Inteligencia Artificial Moderna</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Inteligencia Artificial Moderna</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/tipos-datos.html">
+   1. Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   6. 1- Cambiar un texto
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   8. Clase II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   16. El contador de palabras
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/Automatizacion/organizando_pdfs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/institutohumai/libro"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/institutohumai/libro/issues/new?title=Issue%20on%20page%20%2FAutomatizacion/organizando_pdfs.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/institutohumai/libro/libro?urlpath=tree/docs/Automatizacion/organizando_pdfs.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Organizando PDFs</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div align="center"><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/organizando_pdfs.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg'/> </a> <br> Recordá abrir en una nueva pestaña </div><div class="section" id="organizando-pdfs">
+<h1>Organizando PDFs<a class="headerlink" href="#organizando-pdfs" title="Permalink to this headline">¶</a></h1>
+<p>Supongamos que tenemos una carpeta con muchos artículos científicos bajados de ArXiv como <a class="reference external" href="https://arxiv.org/abs/hep-th/9711200">este</a> de Maldacena, el renombrado físico argentino. En esta notebook vamos a usar <a class="reference external" href="https://textract.readthedocs.io/en/stable/">textract</a> para leer textos de PDFs y así:</p>
+<ul class="simple">
+<li><p>Reemplazar el título de algo como “9711200.pdf” al título del trabajo</p></li>
+<li><p>Categorizar los trabajos</p></li>
+<li><p>Crear carpetas por categoría</p></li>
+<li><p>Mover los artículos a cada una de las carpetas</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instalamos la librería que vamos a utilizar</span>
+<span class="o">!</span>pip install textract
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">textract</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">shutil</span> <span class="kn">import</span> <span class="n">copyfile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># descargamos los papers ejemplo</span>
+<span class="o">!</span>wget https://unket.s3.sa-east-1.amazonaws.com/data/papers.zip
+<span class="c1"># si ejecutan localmente o no tienen unzip en la terminal, descomprimir a mano</span>
+<span class="o">!</span>unzip papers.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2021-10-06 19:35:31--  https://unket.s3.sa-east-1.amazonaws.com/data/papers.zip
+Resolving unket.s3.sa-east-1.amazonaws.com (unket.s3.sa-east-1.amazonaws.com)... 52.95.165.122
+Connecting to unket.s3.sa-east-1.amazonaws.com (unket.s3.sa-east-1.amazonaws.com)|52.95.165.122|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 50053476 (48M) [application/zip]
+Saving to: ‘papers.zip’
+
+papers.zip          100%[===================&gt;]  47,73M  3,56MB/s    in 24s     
+
+2021-10-06 19:35:55 (2,03 MB/s) - ‘papers.zip’ saved [50053476/50053476]
+
+Archive:  papers.zip
+   creating: papers/
+  inflating: papers/1907.12461.pdf   
+  inflating: papers/1909.06349.pdf   
+  inflating: papers/2002.07655.pdf   
+  inflating: papers/2009.11423.pdf   
+  inflating: papers/1508.06576.pdf   
+  inflating: papers/1601.00670.pdf   
+  inflating: papers/1603.07285v1.pdf  
+  inflating: papers/1606.05908.pdf   
+  inflating: papers/1606.07873.pdf   
+  inflating: papers/1611.03673.pdf   
+  inflating: papers/1611.08024 (1).pdf  
+  inflating: papers/1706.03762.pdf   
+  inflating: papers/1903.01458.pdf   
+  inflating: papers/barratt1959.pdf  
+  inflating: papers/eysenck1977.pdf  
+  inflating: papers/eysenck1985.pdf  
+  inflating: papers/fpsyg-02-00086.pdf  
+  inflating: papers/langenecker2007.pdf  
+  inflating: papers/li2009.pdf       
+  inflating: papers/luengo1991.pdf   
+  inflating: papers/patmethenysongbook.pdf  
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># la ruta a la carpeta con los trabajos</span>
+<span class="n">pdf_dir</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;./papers&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># listamos todos los archivos de esa carpeta</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">pdf_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creamos un directorio para cada una de las 3 categorías, “Neuro”, “Deep” (para Deep Learning) y “Otros”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ruta_neuro</span> <span class="o">=</span> <span class="s1">&#39;Neuro&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ruta_neuro</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ruta_deep</span> <span class="o">=</span> <span class="s1">&#39;Deep&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ruta_deep</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ruta_otros</span> <span class="o">=</span> <span class="s1">&#39;Otros&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">ruta_otros</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a necesitar una función para extraer el título. Como no queremos usar regex todavía (se ve próximamente), vamos a usar también esta siguiente función para limpiar un renglón para ver si tiene el largo suficiente para ser un título.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">limpiar</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Función para limpiar los renglones quitando los caracteres que no queremos considerar&quot;&quot;&quot;</span>
+    
+    <span class="c1"># \w+ significa &quot;1 o más de un caracter alfanumérico&quot;. Ver más en la clase </span>
+    <span class="c1"># de regex</span>
+    
+    <span class="c1"># versión sin regex:</span>
+    <span class="c1"># no_valen = &#39;0123456789-:\.&#39;</span>
+    <span class="c1"># return &#39;&#39;.join([i for i in string if i not in no_valen])</span>
+    
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;\w+&#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_title</span><span class="p">(</span><span class="n">texto</span><span class="p">,</span> <span class="n">largo_min</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Función para extraer un título. Podríamos mejorar la lógica o usar distintos enfoques&quot;&quot;&quot;</span>  
+    <span class="n">renglones</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">texto</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">limpiar</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">&gt;</span> <span class="n">largo_min</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">renglones</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">renglones</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, recorremos cada archivo y para cada uno vamos a:</p>
+<ul class="simple">
+<li><p>Leer el texto con textract</p></li>
+<li><p>Extraer el título</p></li>
+<li><p>Estimar la categoría</p></li>
+<li><p>Mover y renombrarlo</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="c1"># ruta completa al archivo</span>
+    <span class="n">full_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pdf_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="c1"># de pdf a texto</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">textract</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">full_name</span><span class="p">,</span> <span class="n">language</span><span class="o">=</span><span class="s1">&#39;eng&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+    <span class="c1"># asumimos que el título está en los primeros 1000 caracteres</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">text</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+    
+    <span class="c1"># vamos a intentar extraer el titulo con nuestra función</span>
+    <span class="c1"># si no encontramos un sub-string que cumpla con las condiciones, </span>
+    <span class="c1"># mantenemos el nombre original</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">get_title</span><span class="p">(</span><span class="n">top</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">title</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        
+    <span class="c1"># para categorizar los textos, vamos a usar esta lógica sencilla:</span>
+    <span class="c1"># nos fijamos si contiene alguno de los siguientes términos clave</span>
+    <span class="n">is_deep</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;deep learning&#39;</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;statistic&#39;</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    <span class="n">is_neuro</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;neuro&#39;</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="s1">&#39;brain&#39;</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+    
+    <span class="c1"># para cada texto, lo vamos a mover a su carpeta y vamos a mostrar su categoría</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_neuro</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Neuro&#39;</span><span class="p">)</span>
+        <span class="n">copyfile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pdf_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ruta_neuro</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">is_deep</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Deep&#39;</span><span class="p">)</span>
+        <span class="n">copyfile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pdf_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ruta_deep</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Otros&#39;</span><span class="p">)</span>
+        <span class="n">copyfile</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">pdf_dir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ruta_otros</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2">.pdf&quot;</span><span class="p">)</span>    
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Variational Inference: A Review for Statisticians
+Neuro
+
+arXiv:1603.07285v1 [stat.ML] 23 Mar 2016
+Deep
+
+Person. indiuid. D# Vol. 12, No. 7. pp. 657-667. 1991
+Neuro
+
+Perceptual alzd Motor Skills, 1959, 9, 191-198. @ Southern Universities Press 1959
+Deep
+
+Deep Learning for Cognitive Neuroscience
+Neuro
+
+Under review as a conference paper at ICLR 2017
+Neuro
+
+Br. J. soc. d i n . Psychol. (1977), 16, 57-68
+Neuro
+
+patmethenysongbook
+Otros
+
+Task-Oriented Dialogue as Dataflow Synthesis
+Neuro
+
+This article was downloaded by: [University of Newcastle (Australia)]
+Neuro
+
+arXiv:2002.07655v1 [q-bio.NC] 18 Feb 2020
+Neuro
+
+Tutorial on Variational Autoencoders
+Deep
+
+A Neural Algorithm of Artistic Style
+Neuro
+
+Leveraging Pre-trained Checkpoints for Sequence Generation Tasks
+Deep
+
+Person. indiuid. Off. Vol. 6. No. 5, pp. 613419,
+Neuro
+
+Slice-based Learning: A Programming Model for
+Deep
+
+arXiv:1706.03762v5 [cs.CL] 6 Dec 2017
+Neuro
+
+Hypothesis and Theory Article
+Neuro
+
+Human Brain Mapping 31:410–423 (2010)
+Neuro
+
+EEGNet: A Compact Convolutional Neural Network
+Neuro
+
+arXiv:1606.07873v1 [cs.CV] 25 Jun 2016
+Deep
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Automatizacion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
