@@ -1,0 +1,1783 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulos y Algorítmos &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ejercicios III" href="ejercicio/ejercicio.html" />
+    <link rel="prev" title="Ejercicios Adicionales II" href="../2_Listas_Y_Funciones/ejercicio/adicionales.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/4_Funciones/Funciones2.html">
+   Funciones 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MatematicasParaML/7_Probabilidad/Probabilidad.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Audio
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/README.html">
+   Talleres de Audio
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_I.html">
+   Audio I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_II.html">
+   Audio II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Audio/Audio_III.html">
+   Audio III
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Talleres
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/README.html">
+   Talleres
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/automatizacion.html">
+   🤖 Taller de Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/Periodismo_de_datos.html">
+   Introducción al Periodismo de Datos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Talleres/DL_Generacion_de_Texto.html">
+   Generación de texto
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Ingenieria de Datos con GCP
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/1_Introducci%C3%B3n_a_GCP_y_Cloud_Computing/Introducci%C3%B3n_a_GCP_y_Cloud_Computing.html">
+   Introducción a GCP y Cloud Computing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../IngenieriaDeDatosGCP/2_BigQuery%20y%20SQL/BigQuery_y_SQL.html">
+   BigQuery y SQL
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/deep_learning_ok.html">
+   Deep Learning I
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Introduccion/3_Modulos_Funciones/modulos-funciones.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FIntroduccion/3_Modulos_Funciones/modulos-funciones.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-y-algoritmos">
+   Funciones y algoritmos
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-1-palindromos">
+     Algoritmo 1: Palíndromos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-2-secuencia-de-fibonacci">
+     Algoritmo 2. Secuencia de Fibonacci
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-3-merge-sorted-array">
+     Algoritmo 3. “Merge sorted array”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-4-ordenando-listas">
+     Algoritmo 4. Ordenando listas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#librerias-o-modulos">
+   Librerías o módulos
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulos-de-python-nativo">
+     1 Módulos de “Python nativo”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulos-propios">
+     2. Módulos propios
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulos-de-terceros">
+     3. Módulos de terceros
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-pip">
+       Ejemplo de uso de pip
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Módulos y Algorítmos</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funciones-y-algoritmos">
+   Funciones y algoritmos
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-1-palindromos">
+     Algoritmo 1: Palíndromos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-2-secuencia-de-fibonacci">
+     Algoritmo 2. Secuencia de Fibonacci
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-3-merge-sorted-array">
+     Algoritmo 3. “Merge sorted array”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-4-ordenando-listas">
+     Algoritmo 4. Ordenando listas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#librerias-o-modulos">
+   Librerías o módulos
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulos-de-python-nativo">
+     1 Módulos de “Python nativo”
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulos-propios">
+     2. Módulos propios
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulos-de-terceros">
+     3. Módulos de terceros
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-uso-de-pip">
+       Ejemplo de uso de pip
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/3_Modulos_Funciones/modulos-funciones.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div><div class="section" id="modulos-y-algoritmos">
+<h1>Módulos y Algorítmos<a class="headerlink" href="#modulos-y-algoritmos" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="#Librer%C3%ADas-o-m%C3%B3dulos">Librerias</a></p></li>
+<li><p><a class="reference external" href="#Entornos-virtuales">Entornos virtuales</a></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="funciones-y-algoritmos">
+<h1>Funciones y algoritmos<a class="headerlink" href="#funciones-y-algoritmos" title="Permalink to this headline">¶</a></h1>
+<p>Un algoritmo es una serie de pasos o instrucciones definidas con el objetivo de llevar a cabo una tarea. En esta clase vamos a profundizar en los temas vistos previamente mientras aprendemos a programar algunos algoritmos clásicos.</p>
+<div class="section" id="algoritmo-1-palindromos">
+<h2>Algoritmo 1: Palíndromos<a class="headerlink" href="#algoritmo-1-palindromos" title="Permalink to this headline">¶</a></h2>
+<p>Un palíndromo es una palabra o frase que se lee de igual manera en ambos sentidos. Por ejemplo, Ana. Otro ejemplo es un expresidente argentino de la década del 90.</p>
+<p>Hay distintas formas de resolver este problema, vamos a ver primero dos formas que hacen uso de la versatilidad de Python y luego una manera algo más compleja pero que nos va a permitir pensar el problema desde otra óptica.</p>
+<p>Vamos a definir tres funciones llamadas es_palindromo y para testear su funcionamiento vamos a chequear que:</p>
+<p>1- es_palindromo(“ana”) == True</p>
+<p>2- es_palindromo(“barrilete cósmico”) != True</p>
+<p>3- es_palindromo(“yo hago yoga hoy”) == True</p>
+<p>4- es_palindromo(“arriba la birra”) == True</p>
+<p>5- es_palindromo(“arriba la barra”) != True</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto_1</span> <span class="o">=</span> <span class="s2">&quot;ana&quot;</span>
+<span class="n">texto_2</span> <span class="o">=</span> <span class="s2">&quot;barrilete cosmico&quot;</span>
+<span class="n">texto_3</span> <span class="o">=</span> <span class="s2">&quot;yo hago yoga hoy&quot;</span>
+<span class="n">texto_4</span> <span class="o">=</span> <span class="s2">&quot;arriba la birra&quot;</span>
+<span class="n">texto_5</span> <span class="o">=</span> <span class="s2">&quot;arriba la barra&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>1- Una manera de resolver el problema es recordar que un string es un iterable y que, por lo tanto, lo podemos recorrer es sentido inverso. De esta manera podemos tener un código compacto.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recordemos el slicing:</span>
+<span class="n">texto_1</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;ana&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿Qué pasa en este ejemplo?</span>
+<span class="n">texto_3</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;yoh agoy ogah oy&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>En los palíndromos (al menos acá) nos interesa el sonido, con lo cual vamos a omitir los espacios en el análisis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1: usar slicing</span>
+<span class="k">def</span> <span class="nf">es_palindromo</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">texto</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="c1"># vean cómo podemos hacer slicing por un string, en sentido inverso, recorriendo la lista de atrás para adelante.</span>
+    <span class="k">return</span> <span class="n">texto</span> <span class="o">==</span> <span class="n">texto</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assert nos permite controlar que una condición se cumpla, si no da True devuelve un AssertionError con el mensaje de la derecha</span>
+<span class="k">assert</span> <span class="n">es_palindromo</span><span class="p">(</span><span class="n">texto_1</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;falló el test&quot;</span>
+<span class="k">assert</span> <span class="n">es_palindromo</span><span class="p">(</span><span class="n">texto_2</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;falló el test&quot;</span>
+<span class="k">assert</span> <span class="n">es_palindromo</span><span class="p">(</span><span class="n">texto_3</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;falló el test&quot;</span>
+<span class="k">assert</span> <span class="n">es_palindromo</span><span class="p">(</span><span class="n">texto_4</span><span class="p">)</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;falló el test&quot;</span>
+<span class="k">assert</span> <span class="n">es_palindromo</span><span class="p">(</span><span class="n">texto_5</span><span class="p">)</span> <span class="o">!=</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;falló el test&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Python cuenta con una serie de funciones built-in entre las cuales se encuentra <strong>reversed</strong>. Esta función devuelve un iterable con el input (que puede ser cualquier secuencia) con su orden reverso.</p>
+<p>Ejercicio: escribir una función es_palindromo usando reversed. ¡Pueden googlear! Tip: la función join los puede ayudar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">es_palindromo</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+    <span class="c1"># aquí sucede la magia</span>
+    <span class="k">return</span> <span class="n">texto</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="algoritmo-2-secuencia-de-fibonacci">
+<h2>Algoritmo 2. Secuencia de Fibonacci<a class="headerlink" href="#algoritmo-2-secuencia-de-fibonacci" title="Permalink to this headline">¶</a></h2>
+<p>La secuencia de Fibonacci es la famosa secuencia que se define como:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_0 = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_1 = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(F_n = F_{n-1} + F_{n-2}\)</span> para <span class="math notranslate nohighlight">\(n&gt;1\)</span></p></li>
+</ul>
+<p>Esto nos da como resultado:</p>
+<p>0, 1, 1, 2, 3, 5, 8, 13, 21, 34, …</p>
+<p>Ahora bien, ¿cómo podemos programar un algoritmo que compute esta serie hasta el número de Fibonacci en la posición n?
+Noten, que para obtener el número de Fibonacci n debemos antes computar el n-1 y el n-2, es decir, para tener un valor de la secuencia de Fibonacci debemos computar los previos. Cuando una función requiere llamarse a sí misma para poder realizar un cómputo decimos que la función es recursiva.</p>
+<p>Entonces, tratemos de encarar el problema “traduciendo” la definición de la secuencia a código Python…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 1: solución recursiva.</span>
+<span class="k">def</span> <span class="nf">F_n</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># sigamos la definición de la secuencia de Fibonacci</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># Si n es 0 entonces devuelvo 0 </span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span> <span class="c1"># Si n es 1 entonces devuelvo 1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">F_n</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F_n</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># En cualquier otro caso devuelvo la suma de los dos números de Fibonacci preivos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>La recursividad es esta propiedad por la cual una función se llama a sí misma. Toda función recursiva necesita tener un punto de corte, para ponerle un fin a esta llamada. De lo contrario vamos a tener un error.</p>
+<p>Más adelante vamos a ejecutar varias veces la función F_n, generando la lista de valores de Fibonacci… ¿qué creen que va a pasar?</p>
+<p>Pero antes, vamos a charlar un poco más sobre recursividad. Como dijimos, se necesita un punto de corte, de lo contrario veamos qué pasa…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># borro las condiciones</span>
+    <span class="k">return</span> <span class="n">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejecuten la siguiente celda y vean que vamos a obtener el error:</p>
+<p><strong>RecursionError</strong>: maximum recursion depth exceeded</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_n_2</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">RecursionError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">23</span><span class="o">-</span><span class="mf">48749e03940</span><span class="n">f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">F_n_2</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-22-92343644e179&gt;</span> in <span class="ni">F_n_2</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># borro las condiciones</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="o">...</span> <span class="n">last</span> <span class="mi">1</span> <span class="n">frames</span> <span class="n">repeated</span><span class="p">,</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">frame</span> <span class="n">below</span> <span class="o">...</span>
+
+<span class="nn">&lt;ipython-input-22-92343644e179&gt;</span> in <span class="ni">F_n_2</span><span class="nt">(n)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c1"># borro las condiciones</span>
+<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="k">return</span> <span class="n">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">F_n_2</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="ne">RecursionError</span>: maximum recursion depth exceeded
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora sí, vamos a generar la serie de Fibonacci</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">F_n</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> [F_n(i) for i in range(10)]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>26.4 µs ± 1.35 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> [F_n(i) for i in range(20)]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.31 ms ± 52.9 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> [F_n(i) for i in range(30)]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>399 ms ± 1.44 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> [F_n(i) for i in range(33)]
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.69 s ± 10.4 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Qué notan o qué opinan de la solución recursiva? ¿Qué creen que necesitamos hacer para resolver este problema?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Opción 2: armamos loop while que va a iterar n veces, donde n es la cantidad de elementos de la secuencia</span>
+
+<span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Inicializo a y b. En este caso &quot;a&quot; sería F_n-2 (F_0 al inicializarse) </span>
+<span class="sd">    y &quot;b&quot; F_n-1 (F_1 al inicializarse)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="n">secuencia</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">a</span>
+    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">b</span>
+    
+    <span class="n">n_actual</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># número de iteración</span>
+    <span class="k">while</span> <span class="n">n_actual</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">n_actual</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># sumo 1 a la iteración actual</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="c1"># Este truquito es importante! </span>
+        <span class="n">secuencia</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># guardo el nuevo b</span>
+    <span class="k">return</span> <span class="n">secuencia</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fibo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> fibo(10)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>893 ns ± 5.6 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> fibo(20)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.88 µs ± 13.5 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> fibo(30)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.99 µs ± 90.9 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> fibo(33)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.26 µs ± 73.8 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Qué ven al comparar los resultados?</p>
+</div>
+<div class="section" id="algoritmo-3-merge-sorted-array">
+<h2>Algoritmo 3. “Merge sorted array”<a class="headerlink" href="#algoritmo-3-merge-sorted-array" title="Permalink to this headline">¶</a></h2>
+<p>Este algoritmo consiste en combinar dos listas ordenadas en una tercera lista, también ordenada.</p>
+<p>La forma más eficiente de resolver este problema, es ir eliminando los elementos más chicos y guardándolos en una variable de resultado.
+Mientras recorremos los elementos y los vamos removiendo de la lista se pueden dar 3 situaciones:</p>
+<ul class="simple">
+<li><p>Que las dos listas tengan elementos, en cuyo caso hay que elegir el menor.</p></li>
+<li><p>Que sólo la primera lista tenga elementos, en cuyo caso hay que elegir el menor de la primera lista.</p></li>
+<li><p>Que sólo la segunda lista tenga elementos, en cuyo caso hay que elegir el menor de la segunda lista.</p></li>
+</ul>
+<p>Como las listas vinieron ordenadas, elegir el menor es fácil. Alcanza con consultar la posición con el índice 0.
+Para leer y a continuación eliminar el primer elemento de cada lista, vamos a usar el método pop con el índice 0.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de uso de pop</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El método pop() devolvió el valor de la posición 0 y continuación lo borró de la lista</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[9]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Después de invocar 2 veces el método pop(), la lista a queda vacía.</span>
+<span class="n">a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora resolvamos el problema de combinar listas ordenadas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">merge_sorted</span><span class="p">(</span><span class="n">lista_1</span><span class="p">,</span><span class="n">lista_2</span><span class="p">):</span>
+    <span class="n">resultado</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># mientras alguna lista tenga valores</span>
+        <span class="c1"># Vamos a recorrer las listas hasta que no queden más elementos en ninguna.</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># si la primera lista tiene valores</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista_2</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Este es el caso donde quedan elementos en las dos listas. </span>
+                <span class="c1"># Aquí elegimos el menor de los primeros elementos</span>
+                <span class="k">if</span> <span class="n">lista_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">lista_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">resultado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lista_1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">resultado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lista_2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Este es el caso donde lista_1 todavía tiene elementos pero lista_2 no</span>
+                <span class="n">resultado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lista_1</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Si no quedan elementos en la lista_1 pero seguimos dentro del while loop, </span>
+            <span class="c1"># es porque quedan elementos en la lista2</span>
+            <span class="n">resultado</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lista_2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">resultado</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">lista2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merge_sorted</span><span class="p">(</span><span class="n">lista1</span><span class="p">,</span><span class="n">lista2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 3, 4, 5, 5, 6, 8, 9]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="algoritmo-4-ordenando-listas">
+<h2>Algoritmo 4. Ordenando listas<a class="headerlink" href="#algoritmo-4-ordenando-listas" title="Permalink to this headline">¶</a></h2>
+<p>En el caso anterior vimos cómo juntar dos listas ordenadas. Ahora, vamos a ver cómo ordenar una lista. Para eso hay muchos algoritmos:</p>
+<ul class="simple">
+<li><p>Selection Sort (Fuerza Bruta)</p></li>
+<li><p>Bubble Sort</p></li>
+<li><p>Merge Sort</p></li>
+<li><p>Quicksort</p></li>
+<li><p>Timsort</p></li>
+<li><p>Insertion Sort</p></li>
+</ul>
+<p>Hay lindas animaciones que nos muestran como funcionan: <a class="reference external" href="https://www.youtube.com/watch?v=ZZuD6iUe3Pc">https://www.youtube.com/watch?v=ZZuD6iUe3Pc</a></p>
+<p>Cada una de ellas elige distinos enfoques para ordenar la lista con diferentes técnicas algorítmicas (iterativas o recursivas). Eso logra que cada uno de ellos tenga distintas complejidades algorítmicas y sean mas rápidos unos que otros.</p>
+<p>Vamos empezar programando la estrategia del <code class="docutils literal notranslate"><span class="pre">Selection</span> <span class="pre">Sort</span></code>, la misma consta de una técnica de fuerza bruta que lo que hace es ir recorriendo la lista buscando el mínimo elemento en cada paso e ir guardandolo en una nueva lista ordena. Los pasos serían:</p>
+<p>1- Empezar a recorrer la lista hasta quedarme con el valor mínimo.</p>
+<p>2- Guardar ese mínimo en una nueva lista ordenada y sacarlo de la lista original (lista modificada).</p>
+<p>3- Volver a realizar el primer y segundo paso sobre la lista sin ese valor (la lista modificada).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def selection_sort(lista):
+    
+    # Inicializamos una lista_ordenada donde iremos poniendo los elementos ordenados
+    n = len(lista)
+    lista_ordenada = []
+
+    # Vamos a recorrer la lista, puede ser útil saber la longitud
+    # COMPLETAR
+    while ? &lt; n:
+        
+        # Necesitamos un valor para comenzar a comparar
+        # COMPLETAR
+        minimo = ?
+        indice_minimo = ?
+        
+        # Empezamos a recorrer la lista
+        for (i,elemento) in enumerate(lista):
+            
+            # Vamos a comparar cada uno con el mínimo, si es menor, tenemos nuevo mínimo!
+            # COMPLETAR
+            
+        # Agregamos el mínimo y lo sacamos de la lista
+        # COMPLETAR
+    
+    return lista_ordenada
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selection_sort</span><span class="p">(</span><span class="n">lista_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Porqué usamos un While? ¿Se podría cambiar por un For? ¡Sí! Y también podemos agregarle un parámetro booleano que nos permita elegir si lo queremos en orden ascendiente o descendiente.
+Observen que paso con la lista original:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Desapareció! Esto es porque las modificaciones las hicimos sobre la misma lista. Si no queremos perderla vamos a necesitar crear una copia nueva y para eso podemos hacerlo usando el método <code class="docutils literal notranslate"><span class="pre">copy()</span></code>.</p>
+<p>Veamos un ejemplo con otro enfoque, vamos a programar el Bubble Sort… ¡y me van a ayudar ustedes! Tomamos la imagen y nos inspiramos de este blog (donde pueden encontrar otros algoritmos): <a class="reference external" href="https://realpython.com/sorting-algorithms-python/#the-insertion-sort-algorithm-in-python">https://realpython.com/sorting-algorithms-python/#the-insertion-sort-algorithm-in-python</a>
+La idea del algoritmo es la siguiente… vamos a hacer una recorrida por la lista de izquierda a derecha y comparar un par de valores adyacentes, por ejemplo, el primero contra el segundo, si el primero es mayor al segundo los damos vuelta, y si no no hacemos nada. Luego, tomamos el valor en la segunda posición y el valor en la tercera posición y los comparamos… así sucesivamente hasta el final. Al cabo de la primera “pasada” el valor más alto va a estar a la derecha de todo. Luego, empezamos otra vez desde el comienzo. Sin embargo, como ya acomodamos el valor más alto podemos frenar una posición antes. Y así, damos tantas pasadas sobre la lista como sea necesario hasta que no haya ni un cambio de lugar en toda la recorrida.</p>
+<p>Veamos qué pasa con el 8 en la imagen de abajo… Primero comparamos el 8 con el 2, como el 8 es mayor los cambiamos de lugar. Ahora comparamos el valor en la 2da posición (que es el 8, no el 2, porque los dimos vuelta) y en la 3era posición, como el 8 es mayor al 6 los cambiamos de lugar, y así hasta el final. Como el 8 es el valor más alto termina a la derecha del todo. En la siguiente pasada no va a ser necesario volver a chequear contra este valor.</p>
+<p>Entonces, pensemos qué vamos a necesitar:</p>
+<p>1- Por un lado necesitamos saber en qué iteración nos encontramos. Como máximo vamos a hacer tantas pasadas como el largo de la lista. Vamos a hacer un loop desde el comienzo hasta el último elemento.</p>
+<p>2- Por otra parte, necesitamos saber si en esta “pasada” ya modificamos algún lugar o no, para saber cuándo frenar el algoritmo.</p>
+<p>3- Vamos a iterar desde el primer valor hasta el último que corresponde a esta iteración (recuerden que en cada iteración ya ordenamos el valor más alto). Para ésto vamos a usar el índice que nos da el loop del punto 1.</p>
+<p>4- Un punto de corte, cuando en una ‘pasada’ no haya cambio o ya no queden ‘pasadas’.</p>
+<img style="width:300px" src="https://files.realpython.com/media/python-sorting-algorithms-bubble-sort.216ab9a52018.png"/><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bubble_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    <span class="c1"># n igual al largo de la lista</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span>
+    
+    <span class="c1"># Vamos a realizar una &#39;pasada&#39; por cada elemento que tenemos en la lista.</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
+        
+        <span class="c1"># Creamos una variable que sirve como &#39;flag&#39; para indicar si tuvimos que ordenar o no en la pasada actual</span>
+        <span class="c1"># Esto lo podemos usar para terminar el algoritmo antes, ya que si no tuvimos que cambiar nada</span>
+        <span class="c1"># en una pasada, tampoco lo vamos a tener que hacer en la siguiente</span>
+        
+        <span class="n">ordenado</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        <span class="c1"># Vamos a comenzar recorriendo la lista de IZQUIERDA a DERECHA pero no hasta el final</span>
+        <span class="c1"># Recordemos que con cada &#39;pasada&#39; vamos a haber encontrado el valor más alto aún sin ordenar</span>
+        <span class="c1"># Con lo cual, vamos a recorrer la lista desde el comienzo hasta el final menos los valores que ya ordenamos antes</span>
+        <span class="c1"># Tip: recuerden que el índice de una lista tiene como máximo el valor de la longitud - 1 porque arranca en 0</span>
+        
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># COMPLETAR: argumento de la función range()</span>
+
+            <span class="k">if</span> <span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span> <span class="c1"># COMPLETAR: si el valor de la IZQUIERDA es mayor al de la derecha</span>
+                
+                <span class="c1"># Si es mayor, entonces vamos a intercambiar la posición del valor de la derecha con el de la izquierda</span>
+                
+                <span class="c1"># COMPLETAR: cambiar el valor de la izquierda por el de la derecha</span>
+                <span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">lista</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+                <span class="c1"># Como tuvimos que ordenar un par de elementos entonces tenemos que cambiar el flag</span>
+                <span class="c1"># COMPLETAR: cambiar ordenado a False</span>
+                <span class="n">ordenado</span> <span class="o">=</span> <span class="kc">False</span>
+
+
+        <span class="c1"># Si no tuvimos que ordenar, salimos del loop</span>
+        <span class="k">if</span> <span class="n">ordenado</span><span class="p">:</span>
+            <span class="c1"># COMPLETAR: frenar loop</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">lista</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Y no se olviden de probarlo!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bubble_sort</span><span class="p">(</span><span class="n">lista_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 10, 10, 22]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Probemos cual es más rápido! ¿Cuál creen?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lista_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">32</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> selection_sort(lista_1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> bubble_sort(lista_1)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="librerias-o-modulos">
+<h1>Librerías o módulos<a class="headerlink" href="#librerias-o-modulos" title="Permalink to this headline">¶</a></h1>
+<p>Los módulos son archivos de Python que contienen funciones y variables. Podemos importar los módulos y acceder a las funciones y variables con el operador “.” (punto) o agregándolos a nuestro <strong>namespace</strong>. Contamos con las siguientes maneras de importar funciones de un módulo:</p>
+<ol class="simple">
+<li><p>Importar todo el módulo con el mismo nombre que tiene</p></li>
+</ol>
+<p><code>import datetime</code></p>
+<ol class="simple">
+<li><p>Importar el módulo con un alias más corto (por comodidad)</p></li>
+</ol>
+<p><code>import datetime as dt</code></p>
+<ol class="simple">
+<li><p>Importar únicamente un sub-módulo</p></li>
+</ol>
+<p><code>from datetime import datetime</code></p>
+<ol class="simple">
+<li><p>Importar directamente todos los nombres de funciones (en general no recomendado)</p></li>
+</ol>
+<p><code>from datetime import *</code></p>
+<div class="section" id="modulos-de-python-nativo">
+<h2>1 Módulos de “Python nativo”<a class="headerlink" href="#modulos-de-python-nativo" title="Permalink to this headline">¶</a></h2>
+<p>Cuando instalamos Python, hay algunos módulos que contienen funcionalidad básica y para poder utilizarlos los tenemos que importar explícitamente.</p>
+<p>Hay módulos para trabajar con fechas (datetime), para interactuar con el sistema operativo donde nuestro programa está corriendo (os), para generar números aleatorios (random), para hacer operaciones matemáticas (math) y muchos otros más.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ejemplo de uso de datetime</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-06-07 20:21:19.556445
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-06-07 20:21:19.586078
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">misfunciones</span>
+<span class="n">misfunciones</span><span class="o">.</span><span class="n">misuma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sumando!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-06-07 20:21:19.600951
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2020-06-07 20:21:19.606798
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong><code class="docutils literal notranslate"><span class="pre">math</span></code> Modulo</strong></p>
+<p>Nos permite hacer tener acceso a funciones matemáticas, que originalmente, estan programadas en C.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;acos&#39;, &#39;acosh&#39;, &#39;asin&#39;, &#39;asinh&#39;, &#39;atan&#39;, &#39;atan2&#39;, &#39;atanh&#39;, &#39;ceil&#39;, &#39;copysign&#39;, &#39;cos&#39;, &#39;cosh&#39;, &#39;degrees&#39;, &#39;e&#39;, &#39;erf&#39;, &#39;erfc&#39;, &#39;exp&#39;, &#39;expm1&#39;, &#39;fabs&#39;, &#39;factorial&#39;, &#39;floor&#39;, &#39;fmod&#39;, &#39;frexp&#39;, &#39;fsum&#39;, &#39;gamma&#39;, &#39;gcd&#39;, &#39;hypot&#39;, &#39;inf&#39;, &#39;isclose&#39;, &#39;isfinite&#39;, &#39;isinf&#39;, &#39;isnan&#39;, &#39;ldexp&#39;, &#39;lgamma&#39;, &#39;log&#39;, &#39;log10&#39;, &#39;log1p&#39;, &#39;log2&#39;, &#39;modf&#39;, &#39;nan&#39;, &#39;pi&#39;, &#39;pow&#39;, &#39;radians&#39;, &#39;sin&#39;, &#39;sinh&#39;, &#39;sqrt&#39;, &#39;tan&#39;, &#39;tanh&#39;, &#39;tau&#39;, &#39;trunc&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">log_21</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">log_21</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.044522437723423
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coseno_pi</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coseno_pi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modulos-propios">
+<h2>2. Módulos propios<a class="headerlink" href="#modulos-propios" title="Permalink to this headline">¶</a></h2>
+<p>Cuando estemos creando aplicaciones grandes y complejas, será necesario llevar alguna de la funcionalidad que desarrollemos a módulos.</p>
+<p>Para eso es necesario escribir archivos que tengan nuestro código, y luego importar los módulos localmente.||</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;misfunciones.py&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;def misuma(a,b):</span>
+<span class="s2">        print(&#39;Sumando!&#39;)</span>
+<span class="s2">        return a+b&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">misfunciones</span> <span class="kn">import</span> <span class="n">misuma</span>
+
+<span class="n">misuma</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sumando!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modulos-de-terceros">
+<h2>3. Módulos de terceros<a class="headerlink" href="#modulos-de-terceros" title="Permalink to this headline">¶</a></h2>
+<p>Cada lenguaje de programación tiene su propio sistema de gestión de paquetes donde la comunidad contribuye con distintos módulos. En el caso de Python este sistema es <a href = 'https://pypi.org/project/pip/'> PyPI </a>. Los organizadores de este proyecto se encargan de fijar estándares de calidad para las librerías que se distribuyan a través del mismo.</p>
+<p>Los entornos (como collab) que tienen instalado python, en general, también tienen instalado un software que se llama python-pip. Este nos permite ejecutar el comando pip para descargar librerías desde PyPI.</p>
+<p>Este comando lo podemos ejecutar desde una terminal, o desde la propia jupyter notebook si utilizamos la sintaxis “!” para cada línea o el comando %%bash para cada celda.</p>
+<p>La sintaxis es:</p>
+<p><code> pip install [nombre del paquete]</code></p>
+<p>Opcionalmente podemos especificar una versión de ese paquete. Si no lo hacemos, va a descargar la última que encuentre para la versión de python-pip que tenemos instalada.</p>
+<p><code> pip install [nombre del paquete][==version]</code></p>
+<p>Cuando desarrollamos aplicaciones en Python, es muy importante tener en cuenta el manejo de versiones. Para que nuestro código funcione adecuadamente, el ambiente donde la aplicación corre tiene que tener las mismas versiones de librerías que usamos al momento de desarrollar.</p>
+<p>Esto generalmente se maneja a través de un archivo, <strong>requirements.txt</strong>,  que contiene todos los paquetes que la aplicación necesita con sus respectivas versiones.</p>
+<div class="section" id="ejemplo-de-uso-de-pip">
+<h3>Ejemplo de uso de pip<a class="headerlink" href="#ejemplo-de-uso-de-pip" title="Permalink to this headline">¶</a></h3>
+<p>La librería seaborn por ejemplo, se usa para hacer gráficos.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install <span class="nv">seaborn</span><span class="o">==</span><span class="m">0</span>.9.0
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: seaborn==0.9.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (0.9.0)
+Requirement already satisfied: numpy&gt;=1.9.3 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from seaborn==0.9.0) (1.14.3)
+Requirement already satisfied: matplotlib&gt;=1.4.3 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from seaborn==0.9.0) (3.0.3)
+Requirement already satisfied: scipy&gt;=0.14.0 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from seaborn==0.9.0) (1.1.0)
+Requirement already satisfied: pandas&gt;=0.15.2 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from seaborn==0.9.0) (0.24.2)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from matplotlib&gt;=1.4.3-&gt;seaborn==0.9.0) (2.7.3)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from matplotlib&gt;=1.4.3-&gt;seaborn==0.9.0) (1.0.1)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from matplotlib&gt;=1.4.3-&gt;seaborn==0.9.0) (2.2.0)
+Requirement already satisfied: cycler&gt;=0.10 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from matplotlib&gt;=1.4.3-&gt;seaborn==0.9.0) (0.10.0)
+Requirement already satisfied: pytz&gt;=2011k in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from pandas&gt;=0.15.2-&gt;seaborn==0.9.0) (2018.4)
+Requirement already satisfied: six&gt;=1.5 in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from python-dateutil&gt;=2.1-&gt;matplotlib&gt;=1.4.3-&gt;seaborn==0.9.0) (1.11.0)
+Requirement already satisfied: setuptools in /home/ec2-user/anaconda3/envs/python3/lib/python3.6/site-packages (from kiwisolver&gt;=1.0.1-&gt;matplotlib&gt;=1.4.3-&gt;seaborn==0.9.0) (39.1.0)
+<span class=" -Color -Color-Yellow">You are using pip version 10.0.1, however version 20.2b1 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Con este comando podemos consultar la versión de cualquier módulo.</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.9.0&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/modulos-funciones_83_0.png" src="../../_images/modulos-funciones_83_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Introduccion/3_Modulos_Funciones"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../2_Listas_Y_Funciones/ejercicio/adicionales.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ejercicios Adicionales II</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ejercicio/ejercicio.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejercicios III</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

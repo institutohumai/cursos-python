@@ -6,9 +6,6 @@ __pycache__/
 # C extensions
 *.so
 
-# Borradores o extras
-_*
-
 # Distribution / packaging
 .Python
 build/
@@ -70,9 +67,6 @@ instance/
 
 # Scrapy stuff:
 .scrapy
-
-# Sphinx documentation
-docs/_build/
 
 # PyBuilder
 .pybuilder/
