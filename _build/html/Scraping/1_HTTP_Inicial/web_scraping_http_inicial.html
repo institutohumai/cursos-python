@@ -1,0 +1,1756 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Scraping: Extrayendo datos de Internet &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Descargar letras de canciones" href="ejercicio/spinetta.html" />
+    <link rel="prev" title="Minería Web con Python" href="../README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicio/spinetta.html">
+   Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Grográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Introducción
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/Scraping/1_HTTP_Inicial/web_scraping_http_inicial.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FScraping/1_HTTP_Inicial/web_scraping_http_inicial.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-el-web-scraping">
+   <strong>
+    ¿Qué es el web scraping?
+   </strong>
+   🤔
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antes-de-empezar">
+   <strong>
+    Antes de empezar
+   </strong>
+   ⚠️
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conceptos-basicos-sobre-la-web">
+   <strong>
+    Conceptos básicos sobre la web
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#html-css-y-javascript-son-los-tres-lenguajes-principales-con-los-que-esta-hecho-la-parte-de-la-web-que-vemos-front-end">
+     HTML, CSS y JavaScript son los tres lenguajes principales con los que está hecho la parte de la web que vemos (
+     <em>
+      front-end
+     </em>
+     ).
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-html">
+   Introducción a HTML
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dom-document-object-model">
+   DOM (Document Object Model)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-consigo-el-codigo-html">
+   ¿Cómo consigo el código HTML?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-acabamos-de-hacer">
+     ¿Qué acabamos de hacer?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#protocolo-http">
+     Protocolo HTTP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentacion">
+     Documentación
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-extraigo-datos-utiles-del-codigo-html">
+   ¿Cómo extraigo datos útiles del código HTML?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodo-1-expresiones-regulares">
+     <strong>
+      Método 1: Expresiones regulares
+     </strong>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#aplicandolo-a-la-web">
+       Aplicandolo a la web
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-1-usamos-regex-para-extraer-los-titulos-del-diario-la-prensa">
+         Ejemplo 1: Usamos regex para extraer los títulos del diario La Prensa.
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#font-color-red-ejercicio-font">
+       <font color="red">
+        Ejercicio
+       </font>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modifiquen-la-regla-de-busqueda-para-que-descargue-los-links-a-las-notas-en-vez-del-titulo">
+       Modifiquen la regla de búsqueda para que descargue los links a las notas en vez del título
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodo-2-beautifulsoup">
+     <strong>
+      Método 2: BeautifulSoup
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalidades">
+   Generalidades
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-2-cortazar">
+     Ejemplo 2: Cortazar
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practica-mercadolibre">
+   Práctica: Mercadolibre
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usando-cookies">
+   Usando cookies 🍪
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entonces-me-puedo-descargar-todo-internet">
+   ¿Entonces me puedo descargar todo internet?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Web Scraping: Extrayendo datos de Internet</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-el-web-scraping">
+   <strong>
+    ¿Qué es el web scraping?
+   </strong>
+   🤔
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#antes-de-empezar">
+   <strong>
+    Antes de empezar
+   </strong>
+   ⚠️
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conceptos-basicos-sobre-la-web">
+   <strong>
+    Conceptos básicos sobre la web
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#html-css-y-javascript-son-los-tres-lenguajes-principales-con-los-que-esta-hecho-la-parte-de-la-web-que-vemos-front-end">
+     HTML, CSS y JavaScript son los tres lenguajes principales con los que está hecho la parte de la web que vemos (
+     <em>
+      front-end
+     </em>
+     ).
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion-a-html">
+   Introducción a HTML
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dom-document-object-model">
+   DOM (Document Object Model)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-consigo-el-codigo-html">
+   ¿Cómo consigo el código HTML?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-acabamos-de-hacer">
+     ¿Qué acabamos de hacer?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#protocolo-http">
+     Protocolo HTTP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentacion">
+     Documentación
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-extraigo-datos-utiles-del-codigo-html">
+   ¿Cómo extraigo datos útiles del código HTML?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodo-1-expresiones-regulares">
+     <strong>
+      Método 1: Expresiones regulares
+     </strong>
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#aplicandolo-a-la-web">
+       Aplicandolo a la web
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#ejemplo-1-usamos-regex-para-extraer-los-titulos-del-diario-la-prensa">
+         Ejemplo 1: Usamos regex para extraer los títulos del diario La Prensa.
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#font-color-red-ejercicio-font">
+       <font color="red">
+        Ejercicio
+       </font>
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modifiquen-la-regla-de-busqueda-para-que-descargue-los-links-a-las-notas-en-vez-del-titulo">
+       Modifiquen la regla de búsqueda para que descargue los links a las notas en vez del título
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metodo-2-beautifulsoup">
+     <strong>
+      Método 2: BeautifulSoup
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generalidades">
+   Generalidades
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejemplo-2-cortazar">
+     Ejemplo 2: Cortazar
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#practica-mercadolibre">
+   Práctica: Mercadolibre
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usando-cookies">
+   Usando cookies 🍪
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#entonces-me-puedo-descargar-todo-internet">
+   ¿Entonces me puedo descargar todo internet?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/web_scraping_http_inicial.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" data-canonical-src="https://colab.research.google.com/assets/colab-badge.svg"></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="web-scraping-extrayendo-datos-de-internet">
+<h1>Web Scraping: Extrayendo datos de Internet<a class="headerlink" href="#web-scraping-extrayendo-datos-de-internet" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="que-es-el-web-scraping">
+<h2><strong>¿Qué es el web scraping?</strong>  🤔<a class="headerlink" href="#que-es-el-web-scraping" title="Permalink to this headline">¶</a></h2>
+<p><em>La práctica de <strong>recopilar datos</strong> a través de cualquier medio que no sea un programa que interactúa con una API o un humano que usa un navegador web. <strong>Normalmente mediante un programa automatizado</strong> que consulta un servidor web, solicita datos (generalmente en forma de HTML y otros archivos que componen las páginas web) y luego analiza esos datos para extraer la información necesaria.</em></p>
+<br>
+<center>
+<img src="https://images-na.ssl-images-amazon.com/images/I/517z2NUzcEL._SX198_BO1,204,203,200_QL40_ML2_.jpg">
+</center>
+<br>
+<p><em>Por otro lado, el <strong>web crawling o indexación</strong> se utiliza para indexar la información de la página mediante bots también conocidos como crawlers (lo que hacen los motores de búsqueda). Se trata de ver una página como un todo e indexarla. Cuando un bot rastrea un sitio web, <strong>recorre todas las páginas y todos los enlaces</strong>, hasta la última línea del sitio web, en busca de <strong>CUALQUIER información</strong>.</em></p>
+</div>
+<div class="section" id="antes-de-empezar">
+<h2><strong>Antes de empezar</strong> ⚠️<a class="headerlink" href="#antes-de-empezar" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p><em>Aspectos éticos y legales del web scraping</em></p></li>
+</ol>
+<ul class="simple">
+<li><p>El web scraping es una forma automática de guardar información que se presenta en nuestro navegador muy utilizada tanto en la industria como en la academia, sus aspectos legales dependerán de cada sitio y de cada estado. Respecto a la ética es importante que nos detengamos a pensar si estamos o no generando algun perjuicio. En ambos casos el debate está abierto y hay mucha bibliografía al respecto como por ejemplo <a class="reference external" href="https://www.researchgate.net/profile/Vlad-Krotov/publication/324907302_Legality_and_Ethics_of_Web_Scraping/links/5aea622345851588dd8287dc/Legality-and-Ethics-of-Web-Scraping.pdf">este trabajo</a></p></li>
+</ul>
+<ol class="simple">
+<li><p><em>No reinventar la rueda</em></p></li>
+</ol>
+<ul class="simple">
+<li><p>Emprender un proyecto de web scraping a veces es rapido y sencillo, pero normalmente requiere tiempo y esfuerzo. Siempre es aconsejable asegurarse de que valga la pena y antes iniciar hacerse algunas preguntas:<br></p>
+<ul>
+<li><p>¿La informacion que necesito ya se encuentra disponible? (ej: APIs)</p></li>
+<li><p>¿Vale la pena automatizarlo o es algo que lleva poco trabajo a mano?</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="conceptos-basicos-sobre-la-web">
+<h2><strong>Conceptos básicos sobre la web</strong><a class="headerlink" href="#conceptos-basicos-sobre-la-web" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="html-css-y-javascript-son-los-tres-lenguajes-principales-con-los-que-esta-hecho-la-parte-de-la-web-que-vemos-front-end">
+<h3>HTML, CSS y JavaScript son los tres lenguajes principales con los que está hecho la parte de la web que vemos (<em>front-end</em>).<a class="headerlink" href="#html-css-y-javascript-son-los-tres-lenguajes-principales-con-los-que-esta-hecho-la-parte-de-la-web-que-vemos-front-end" title="Permalink to this headline">¶</a></h3>
+<center>
+<img src="https://www.nicepng.com/png/detail/142-1423886_html5-css3-js-html-css-javascript.png" width="400">
+<img src="https://geekflare.com/wp-content/uploads/2019/12/css-gif.gif" width="243">
+</center>
+<br>
+<br>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>ESTRUCTURA</p></th>
+<th class="head"><p>ESTILO</p></th>
+<th class="head"><p>FUNCIONALIDAD</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HTML</p></td>
+<td><p>CSS</p></td>
+<td><p>JAVASCRIPT</p></td>
+</tr>
+</tbody>
+</table>
+<font color="gray">
+Fuente de las imágenes: <br>
+https://geekflare.com/es/css-formatting-optimization-tools/ <br>
+https://www.nicepng.com/ourpic/u2q8i1o0e6q8r5t4_html5-css3-js-html-css-javascript/
+</font>
+</div>
+</div>
+<div class="section" id="introduccion-a-html">
+<h2>Introducción a HTML<a class="headerlink" href="#introduccion-a-html" title="Permalink to this headline">¶</a></h2>
+<p>El lenguaje principal de la internet es HTML, cuando nosotros vemos algo así:</p>
+<p><img alt="" src="https://github.com/institutohumai/cursos-python/blob/master/Scraping/1_HTTP_Inicial/multimedia/hello-world.jpeg?raw=1" /></p>
+<p>Eso se genera a partir de una código que luce así</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Web Scraping - Instituto Humai<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>¡Hola!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Esto es un sitio web<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><strong><em>Nota</em></strong>: Para saber más sobre HTML podés consultar <a class="reference external" href="https://www.w3schools.com/TAGS/default.ASP">acá</a> la lista de etiquetas de este lenguaje.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Mi primer pagina<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;titulo&#39;</span><span class="p">&gt;</span>Hola<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">style</span><span class="o">=</span><span class="s">&#39;color:red;&#39;</span><span class="p">&gt;</span>Subtitulo en rojo<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Primer parrafo<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://i.pinimg.com/564x/8f/14/25/8f142555ef5006abd82d8c5c7f9f8570.jpg&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;gato&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">400</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<center>
+<img src="https://i.ibb.co/9pqvGSv/HTML-gatito.png"  width=800> <br>
+<h3>Probar el código: <a>https://codepen.io/GEJ1/pen/GRmVNPb</a></h3>
+</center>
+</div>
+<div class="section" id="dom-document-object-model">
+<h2>DOM (Document Object Model)<a class="headerlink" href="#dom-document-object-model" title="Permalink to this headline">¶</a></h2>
+<p>Interfaz independiente del lenguaje que trata un documento XML o HTML como una estructura de tipo <strong>árbol</strong></p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/DOM-model.svg/330px-DOM-model.svg.png" width="500">
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My title<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>A heading<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="p">&gt;</span>Link text<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</figure>
+<p><font color="gray"> Fuente: <a class="reference external" href="https://en.wikipedia.org/wiki/Document_Object_Model">https://en.wikipedia.org/wiki/Document_Object_Model</a>
+<br>Autor: Birger Eriksson
+</font></p>
+</div>
+<div class="section" id="como-consigo-el-codigo-html">
+<h2>¿Cómo consigo el código HTML?<a class="headerlink" href="#como-consigo-el-codigo-html" title="Permalink to this headline">¶</a></h2>
+<p>Ahora que sabemos cuál es el componente principal de los sitios webs podemos intentar programar a nuestra computadora para leer HTML y extraer información útil.</p>
+<p>Para conseguir el código de un sitio web podemos presionar <code class="docutils literal notranslate"><span class="pre">ctrl+u</span></code> en el navegador.</p>
+<p>Para hacer lo mismo desde Python podemos hacer lo siguiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Importamos la libreria necesaria</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">un_sitio_web</span> <span class="o">=</span> <span class="s2">&quot;https://es.wikipedia.org/wiki/HTML&quot;</span>
+
+<span class="c1"># esto descarga la información del sitio web</span>
+<span class="c1"># Es similar a lo que hace un navegador web antes de mostrar el contenido de forma amigable para un humano</span>
+<span class="n">resultado</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">un_sitio_web</span><span class="p">)</span>
+
+<span class="c1"># accedemos al código a través del atributo &quot;text&quot; del resultado</span>
+<span class="n">codigo_html</span> <span class="o">=</span> <span class="n">resultado</span><span class="o">.</span><span class="n">text</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">codigo_html</span><span class="p">[:</span><span class="mi">1000</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
+&lt;html class=&quot;client-nojs&quot; lang=&quot;es&quot; dir=&quot;ltr&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;/&gt;
+&lt;title&gt;HTML - Wikipedia, la enciclopedia libre&lt;/title&gt;
+&lt;script&gt;document.documentElement.className=&quot;client-js&quot;;RLCONF={&quot;wgBreakFrames&quot;:!1,&quot;wgSeparatorTransformTable&quot;:[&quot;,\t.&quot;,&quot; \t,&quot;],&quot;wgDigitTransformTable&quot;:[&quot;&quot;,&quot;&quot;],&quot;wgDefaultDateFormat&quot;:&quot;dmy&quot;,&quot;wgMonthNames&quot;:[&quot;&quot;,&quot;enero&quot;,&quot;febrero&quot;,&quot;marzo&quot;,&quot;abril&quot;,&quot;mayo&quot;,&quot;junio&quot;,&quot;julio&quot;,&quot;agosto&quot;,&quot;septiembre&quot;,&quot;octubre&quot;,&quot;noviembre&quot;,&quot;diciembre&quot;],&quot;wgRequestId&quot;:&quot;29fc7366-2b54-483e-82ab-b76ae6eb8438&quot;,&quot;wgCSPNonce&quot;:!1,&quot;wgCanonicalNamespace&quot;:&quot;&quot;,&quot;wgCanonicalSpecialPageName&quot;:!1,&quot;wgNamespaceNumber&quot;:0,&quot;wgPageName&quot;:&quot;HTML&quot;,&quot;wgTitle&quot;:&quot;HTML&quot;,&quot;wgCurRevisionId&quot;:138298734,&quot;wgRevisionId&quot;:138298734,&quot;wgArticleId&quot;:1366,&quot;wgIsArticle&quot;:!0,&quot;wgIsRedirect&quot;:!1,&quot;wgAction&quot;:&quot;view&quot;,&quot;wgUserName&quot;:null,&quot;wgUserGroups&quot;:[&quot;*&quot;],&quot;wgCategories&quot;:[&quot;Wikipedia:Artículos con datos por trasladar a Wikidata&quot;,&quot;Wikipedia:Artículos con identificadores BNE&quot;,&quot;Wikipedia:Artículos con identificadores BNF&quot;,&quot;Wikipedia:Artícu
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="que-acabamos-de-hacer">
+<h3>¿Qué acabamos de hacer?<a class="headerlink" href="#que-acabamos-de-hacer" title="Permalink to this headline">¶</a></h3>
+<p>Veamos algunos detalles más sobre cómo descargar el contenido de un sitio web (O cómo se le suele decir en la jerga de la programación <em>realizar un request</em>). Como dijimos, en python se puede utilizar la función get de la libreria requests para hacer esto, veamos con mayor profundidad cómo se utiliza.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># httpbin es una pagina para testear pedidos HTTP, en particular la siguiente URL nos devuelve nuestro header.</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://httpbin.org/headers&#39;</span> 
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Respuesta sin headers&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Respuesta con headers&#39;</span><span class="p">)</span>
+<span class="n">nuestros_headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&#39;</span>
+    <span class="p">}</span>
+<span class="n">resp_con_headers</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">nuestros_headers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">resp_con_headers</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------------------------------
+Respuesta sin headers
+{
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;, 
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;python-requests/2.23.0&quot;, 
+    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-61561f08-0c46c3b434fb43e715333b44&quot;
+  }
+}
+
+------------------------------
+Respuesta con headers
+{
+  &quot;headers&quot;: {
+    &quot;Accept&quot;: &quot;*/*&quot;, 
+    &quot;Accept-Encoding&quot;: &quot;gzip, deflate&quot;, 
+    &quot;Host&quot;: &quot;httpbin.org&quot;, 
+    &quot;User-Agent&quot;: &quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&quot;, 
+    &quot;X-Amzn-Trace-Id&quot;: &quot;Root=1-61561f08-4afb069b3aab2efa415e83a7&quot;
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>A parte de la <em>url</em>, muchas veces se especifican los <em>headers</em>, estos son objetos que proveen datos sobre nuestro <em>request</em>, por ejemplo en el campo user-agent brindamos detalles sobre quienes somos (Nuestro sistema operativo, navegador web y demás). En este caso, como no estamos usando un navegador sino que hacemos el <em>request</em> desde Python normalmente se omite este campo, o en caso de ser obligatorio se puede inventar, ya que algunos sitios nos van a ignorar a menos que especifiquemos este campo.</p>
+<p>Pueden ver más en esta <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_HTTP_header_fields">Lista de Headers</a></p>
+<ul class="simple">
+<li><p>Consultas</p>
+<ul>
+<li><p>¿Por qué los sitios te podrían bloquear/ignorar?</p></li>
+<li><p>¿De donde saco un user-agent?</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="protocolo-http">
+<h3>Protocolo HTTP<a class="headerlink" href="#protocolo-http" title="Permalink to this headline">¶</a></h3>
+<p>La web utiliza ampliamente el protocolo HTTP (de <em>Hypertext Transfer Protocol</em>) para interactuar con sus recursos. Este protocolo indica cómo estructurar un mensaje de texto que describa la petición (<strong>request</strong>) del usuario a un servidor. Hay distintos tipos de peticios que un usuario puede realizar, algunas de ellas son:</p>
+<ul class="simple">
+<li><p><strong>GET</strong>: Solicita una representación de un recurso alojado en el servidor.</p></li>
+<li><p><strong>POST</strong>: Envía datos al servidor para crear un recurso nuevo.</p></li>
+<li><p><strong>PUT</strong>: Crea o modifica un recurso del servidor.</p></li>
+<li><p><strong>DELETE</strong>: Elimina un recurso del servidor.</p></li>
+</ul>
+<p>Existen otros métodos que no nos van a ser relevantes por ahora.</p>
+<p>Cada vez que vamos al navegador y escribimos la dirección de una página web, <strong>estamos haciendo un GET request</strong> a un servidor.
+Esto es una petición para adquirir el código de un recurso que queremos visualizar en el navegador.</p>
+<p>Como vimos antes la función <code class="docutils literal notranslate"><span class="pre">get</span></code> retorna un objeto, el cual llamamos <em>resp</em>, este es un elemento de la clase <strong><em>Response</em></strong> y tiene distintos atributos a los que podemos acceder.</p>
+<p>El objeto <strong><em>Response</em></strong> de requests tiene los siguientes elementos principales:</p>
+<ul class="simple">
+<li><p><strong>.text</strong>: devuelve el contenido como string.</p></li>
+<li><p><strong>.content</strong>: devuelve el contenido en bytes.</p></li>
+<li><p><strong>.json()</strong>: el contenido en formato JSON, si es posible.</p></li>
+<li><p><strong>.status_code</strong>: el código de respuesta.</p></li>
+</ul>
+<p>El código de status (<em>status code</em>) nos informa del estado de nuestra <em>request</em></p>
+<p>Códigos posibles:</p>
+<ul class="simple">
+<li><p>1xx Mensaje de información</p></li>
+<li><p>2xx Éxito</p></li>
+<li><p>3xx Redirigir a otra URL</p></li>
+<li><p>4xx Error del cliente</p></li>
+<li><p>5xx Error del servidor</p></li>
+</ul>
+<center>
+<img alt="http-status-codes" src="https://miro.medium.com/max/1400/1*w_iicbG7L3xEQTArjHUS6g.jpeg" width="500"> <br>
+<font color='gray'>Fuente: https://www.youtube.com/watch?v=LtNSd_4txVc
+</font>
+</center>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vemos el código de estado</span>
+<span class="c1"># 200 es que esta todo bien, 5xx o 4xx es que esta todo mal (Por ejemplo el clasico 404)</span>
+<span class="n">resp</span><span class="o">.</span><span class="n">status_code</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Vemos los headers que enviamos</span>
+<span class="n">resp</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;user-agent&#39;: &#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&#39;, &#39;Accept-Encoding&#39;: &#39;gzip, deflate&#39;, &#39;Accept&#39;: &#39;*/*&#39;, &#39;Connection&#39;: &#39;keep-alive&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>El atributo que nos interesa particularmente es resp.text, que guardan el contenido de la página.</p>
+<p>Como vamos a descargar el codigo de un sitio frecuentemente armamos una funcion para no reescribir lo mismo muchas veces</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">codigo_html</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36&#39;</span>
+        <span class="p">}</span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">resp</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tambien podemos scrapear otro tipo de a que no sea texto</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># defino la URL</span>
+<span class="n">image_url</span> <span class="o">=</span> <span class="s1">&#39;https://www.octoparse.com/media/7179/find-data.jpg&#39;</span>
+
+<span class="c1"># Hago una peticion y guardo la respuesta</span>
+<span class="n">image_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_url</span><span class="p">)</span>
+
+<span class="c1"># Accedemos al contenido de la imagen en bytes</span>
+<span class="n">image_response_content</span> <span class="o">=</span> <span class="n">image_response</span><span class="o">.</span><span class="n">content</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Este es el contenido en bytes: </span><span class="se">\n</span><span class="s1"> </span><span class="si">{</span><span class="n">image_response_content</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos librerias para manejar imagenes (no tienen nada que ver con el scrapeo)</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+
+<span class="c1"># Mostramos la imagen</span>
+<span class="n">image_from_url</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">image_response_content</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Esta imagen la bajamos de internet usando Python! </span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">)</span>
+<span class="n">image_from_url</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="documentacion">
+<h3>Documentación<a class="headerlink" href="#documentacion" title="Permalink to this headline">¶</a></h3>
+<p>La función get y la clase Response fueron desarrolladas por lxs programadores que crearon la librería requests. Si quieren saber mas sobre algún detalle siempre es recomendable buscar en la <a class="reference external" href="https://docs.python-requests.org/en/latest/">documentación oficial de la librería</a>.</p>
+</div>
+</div>
+<div class="section" id="como-extraigo-datos-utiles-del-codigo-html">
+<h2>¿Cómo extraigo datos útiles del código HTML?<a class="headerlink" href="#como-extraigo-datos-utiles-del-codigo-html" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Veamos un ejemplo inspeccionando con chrome un sitio web:</p></li>
+</ul>
+<ol class="simple">
+<li><p>Nos posicionamos sobre el elemento que nos interesa.</p></li>
+<li><p>Presionamos click derecho -&gt; <em>inspeccionar elemento</em> para abrir las <em>herramientas de desarrollo</em> (o presionando <code class="docutils literal notranslate"><span class="pre">CTRL</span> <span class="pre">+</span> <span class="pre">SHIFT</span> <span class="pre">+</span> <span class="pre">I</span></code>)</p></li>
+<li><p>Esto nos da acceso al codigo de HTML correspondiente al elemento de la pagina que nos interesa.</p></li>
+</ol>
+<img src="https://i.ibb.co/1RSNcs5/inspect.png" alt="inspect" width="1100">
+<hr>
+<br>
+<br>
+<p>En <strong>Elements</strong> vamos a poder inspeccionar el código HTML, para ubicar los datos de nuestro interés. Para identificar la ubicación de uno, podemos posicionarnos con el cursor sobre el sitio, hacer click derecho, y seleccionar “Inspeccionar elemento”.</p>
+<p>En la solapa <strong>Network</strong> podemos ver todos los paquetes HTTP que realiza nuestro navegador interactuando con un sitio. Identificando los paquetes de las APIs que traen los datos, podemos <em>scrapear</em> datos más facilmente. <strong>[Esto lo verán en la clase de APIs]</strong></p>
+<br>
+<br>
+<img src='https://i2.wp.com/abodeqa.com/wp-content/uploads/2019/02/Inspect-Element-Using-Select-Tool.gif'>
+<div class="section" id="metodo-1-expresiones-regulares">
+<h3><strong>Método 1: Expresiones regulares</strong><a class="headerlink" href="#metodo-1-expresiones-regulares" title="Permalink to this headline">¶</a></h3>
+<p>RegEx para los amigos. Son un mini lenguaje de programación diseñado para realizar búsquedas en strings.</p>
+<p>Las funciones principales de la librería re son:</p>
+<ul class="simple">
+<li><p>re.findall(pattern, string) para encontrar todos los resultados de una búsqueda</p></li>
+<li><p>re.search(pattern, string) para encontrar el primer resultado que coincida</p></li>
+<li><p>re.sub(pattern, replace, string) para substituir un texto por otro</p></li>
+</ul>
+<p>Recursos útiles</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://regex101.com/">Testeo de regex online</a></p></li>
+<li><p><a class="reference external" href="https://www.dataquest.io/wp-content/uploads/2019/03/python-regular-expressions-cheat-sheet.pdf">CheatSheet</a></p></li>
+</ul>
+<div class="section" id="aplicandolo-a-la-web">
+<h4>Aplicandolo a la web<a class="headerlink" href="#aplicandolo-a-la-web" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="ejemplo-1-usamos-regex-para-extraer-los-titulos-del-diario-la-prensa">
+<h5>Ejemplo 1: Usamos regex para extraer los títulos del diario La Prensa.<a class="headerlink" href="#ejemplo-1-usamos-regex-para-extraer-los-titulos-del-diario-la-prensa" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;entry__title&quot;</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://www.laprensa.com.ar/491843-Dilemas-de-la-batalla-cultural-I.note.aspx&quot;</span> <span class="na">target</span><span class="o">=</span><span class="s">&quot;_self&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;javascript:if(typeof(_gaq)!=&#39;undefined&#39;){_gaq.push([&#39;_trackEvent&#39;, &#39;Notas&#39;, &#39;Cultura&#39;, &#39;Dilemas de la batalla cultural (I)&#39;])};&quot;</span><span class="p">&gt;</span>Dilemas de la batalla cultural (I)<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Usamos el navegador para identificar la estructura de los datos que queremos extraer y creamos el patrón de búsqueda</span>
+<span class="n">regla_de_busqueda</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;_self&quot;&gt;(.+)&lt;/a&gt;&lt;/h2&gt;&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Usamos findall para encontrar todas las coincidencias</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regla_de_busqueda</span><span class="p">,</span> <span class="n">codigo_html</span><span class="p">(</span><span class="s2">&quot;http://www.laprensa.com.ar/&quot;</span><span class="p">))]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">titles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Vidal cuestionó los &quot;parches y manotazos de ahogado&quot; del Gobierno &#39;, &#39;Tres gobiernos, ningún gobierno&#39;, &#39;Insultaron y agredieron a Leandro Santoro en un café cerca del Cabildo&#39;, &#39;El Gobierno elimina las retenciones a las exportaciones de servicios a partir de 2022&#39;, &#39;Libros aburridos&#39;, &#39;El ataque al Convento de las Catalinas&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="font-color-red-ejercicio-font">
+<h4><font color='red'> Ejercicio </font><a class="headerlink" href="#font-color-red-ejercicio-font" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="modifiquen-la-regla-de-busqueda-para-que-descargue-los-links-a-las-notas-en-vez-del-titulo">
+<h4>Modifiquen la regla de búsqueda para que descargue los links a las notas en vez del título<a class="headerlink" href="#modifiquen-la-regla-de-busqueda-para-que-descargue-los-links-a-las-notas-en-vez-del-titulo" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resolución</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metodo-2-beautifulsoup">
+<h3><strong>Método 2: BeautifulSoup</strong><a class="headerlink" href="#metodo-2-beautifulsoup" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Esta librería provee un <em>parser</em> de html, o sea un programa que entiende el código, permitiendonos hacer consultas más sofisticadas de forma simple, por ejemplo “buscame todos los titulos h2 del sitio”.</p></li>
+<li><p>Se usa para extraer los datos de archivos HTML. Crea un árbol de análisis a partir del código fuente de la página que se puede utilizar para extraer datos de forma jerárquica y más legible.</p></li>
+</ul>
+<center>
+<img alt="" width="700" role="presentation" src="https://miro.medium.com/max/700/0*ETFzXPCNHkPpqNv_.png"> <br>
+<font color="gray">
+Fuente: https://medium.com/milooproject/python-simple-crawling-using-beautifulsoup-8247657c2de5
+<font>
+</center></div>
+</div>
+<div class="section" id="generalidades">
+<h2>Generalidades<a class="headerlink" href="#generalidades" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="c1"># Vamos a jugar un poco con la pagina de Exactas</span>
+<span class="n">url_base</span> <span class="o">=</span> <span class="s1">&#39;https://exactas.uba.ar/&#39;</span>
+<span class="n">endpoint_calendario</span> <span class="o">=</span> <span class="s1">&#39;calendario-academico/&#39;</span>
+<span class="n">html_obtenido</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url_base</span> <span class="o">+</span> <span class="n">endpoint_calendario</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_obtenido</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+<span class="c1"># print(soup)</span>
+<span class="c1"># print(type(soup))</span>
+<span class="c1"># print(soup.prettify())</span>
+
+<span class="c1">## Tambien podemos mostrar renderizar el html aca en Colab :D</span>
+<span class="c1"># HTML(html_obtenido.text)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Si queremos quedarnos con un tag</span>
+
+<span class="c1"># El método &quot;find&quot; busca el primer elemento de la pagina con ese tag</span>
+<span class="n">primer_h3</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">primer_h3</span><span class="p">)</span>
+
+<span class="c1"># equivalente a:</span>
+<span class="c1"># print(soup.h3.text)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h3&gt;CURSO DE VERANO 2021 (7 semanas)&lt;/h3&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># El método &quot;find_all&quot; busca TODOS los elementos de la pagina con ese tag y devuelve una lista que los contiene (en realidad devuelve un objeto de la clase &quot;bs4.element.ResultSet&quot;)</span>
+<span class="n">h3_todos</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">h3_todos</span><span class="p">)</span>
+
+<span class="c1"># Si usamos el parametro limit = 1, emulamos al metodo find:</span>
+<span class="c1"># h3_uno_solo = soup.find_all(&#39;h3&#39;,limit=1)</span>
+<span class="c1"># print(h3_uno_solo)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3&gt;CURSO DE VERANO 2021 (7 semanas)&lt;/h3&gt;, &lt;h3&gt;INSCRIPCIÓN PRIMER CUATRIMESTRE 2021&lt;/h3&gt;, &lt;h3&gt;EXÁMENES DE FEBRERO-MARZO 2021&lt;/h3&gt;, &lt;h3&gt;PRIMER BIMESTRE 2021 (8 semanas)&lt;/h3&gt;, &lt;h3&gt;SEGUNDO BIMESTRE 2021 (8 semanas)&lt;/h3&gt;, &lt;h3&gt;CURSO DE INVIERNO 2021&lt;/h3&gt;, &lt;h3&gt;INSCRIPCIÓN SEGUNDO CUATRIMESTRE 2021&lt;/h3&gt;, &lt;h3&gt;INSCRIPCIÓN A DOCTORADO 2021&lt;/h3&gt;, &lt;h3&gt;SEMANAS DE LAS CIENCIAS&lt;/h3&gt;, &lt;h3&gt;ACTOS DE COLACIÓN DE GRADO Y POSGRADO&lt;/h3&gt;, &lt;h3&gt;&lt;strong&gt;FERIADOS&lt;/strong&gt;&lt;/h3&gt;, &lt;h3 class=&quot;widget-title&quot;&gt;&lt;a href=&quot;https://exactas.uba.ar/agenda/&quot;&gt;Agenda →&lt;/a&gt;&lt;/h3&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># podemos iterar sobre el objeto</span>
+<span class="k">for</span> <span class="n">fecha</span> <span class="ow">in</span> <span class="n">h3_todos</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+  <span class="c1"># Extraemos el texto que se encuentra dentro del tag</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">fecha</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CURSO DE VERANO 2021 (7 semanas)
+INSCRIPCIÓN PRIMER CUATRIMESTRE 2021
+EXÁMENES DE FEBRERO-MARZO 2021
+PRIMER BIMESTRE 2021 (8 semanas)
+SEGUNDO BIMESTRE 2021 (8 semanas)
+CURSO DE INVIERNO 2021
+INSCRIPCIÓN SEGUNDO CUATRIMESTRE 2021
+INSCRIPCIÓN A DOCTORADO 2021
+SEMANAS DE LAS CIENCIAS
+ACTOS DE COLACIÓN DE GRADO Y POSGRADO
+FERIADOS
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Busco por clase, escribo class_ porque &quot;class&quot; es una palabra reservada en Python</span>
+<span class="n">eventos_proximos</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;aside&#39;</span><span class="p">,</span> <span class="n">class_</span> <span class="o">=</span> <span class="s1">&#39;widget_my_calendar_upcoming_widget&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">evento</span> <span class="ow">in</span> <span class="n">eventos_proximos</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">evento</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Agenda →
+
+30 septiembre, 2021,  : Becas de ayuda económica Sarmiento  | + INFO
+30 septiembre, 2021,  : Concurso de cargo técnico IGEBA CONICET  | + INFO
+30 septiembre, 2021, 14.00: Coloquio del Departamento de Física  | + INFO
+30 septiembre, 2021, 15.00: Charlas virtuales de carrera de septiembre-octubre  | + INFO
+1 octubre, 2021,  : Proyectos UBACYT de Desarrollo Estratégico 2022  | + INFO
+1 octubre, 2021, 13.00: Coloquio de los viernes &quot;Cannabis Medicinal: Mitos y realidades de la marihuana en el siglo XXI&quot;  | + INFO
+1 octubre, 2021, 17.00: Coloquios del DCAO/CIMA  | + INFO
+3 octubre, 2021,  : Meteorología del Espacio  | + INFO
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Todos los links. Esto podría ser útil para seguir scrapeando todo el sitio haciendo requests en ellos</span>
+<span class="n">a_todos</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">a_todos</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Podemos tambien scrapear un tabla y traernos los feriados</span>
+<span class="n">tabla_feriados</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+
+<span class="c1"># Con &#39;attr&#39; podemos acceder a cualquier atributo de a etiqueta usando un diccionario</span>
+<span class="n">dias</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;style&#39;</span><span class="p">:</span><span class="s1">&#39;width: 74px;&#39;</span><span class="p">})</span> 
+<span class="n">fechas</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;style&#39;</span><span class="p">:</span><span class="s1">&#39;width: 127px;&#39;</span><span class="p">})</span> 
+<span class="n">eventos</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;style&#39;</span><span class="p">:</span><span class="s1">&#39;width: 438px;&#39;</span><span class="p">})</span> 
+<span class="c1"># print(tabla_feriados)</span>
+
+<span class="k">for</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dias</span><span class="p">)):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Dia: </span><span class="si">{</span><span class="n">dias</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2"> | fecha: </span><span class="si">{</span><span class="n">fechas</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2"> | evento: </span><span class="si">{</span><span class="n">eventos</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> Dia: Viernes | fecha: 1 de enero | evento: Año Nuevo 
+ Dia: Lunes | fecha: 15 de febrero | evento: Carnaval 
+ Dia: Martes | fecha: 16 de febrero | evento: Carnaval 
+ Dia: Miércoles | fecha: 24 de marzo | evento: Día Nacional de la Memoria por la Verdad y la Justicia 
+ Dia: Domingo | fecha: 28 de marzo | evento: Pascua Judía 
+ Dia: Lunes | fecha: 29 de marzo | evento: Pascua Judía 
+ Dia: Jueves | fecha: 1 de abril | evento: Jueves Santo 
+ Dia: Viernes | fecha: 2 de abril | evento: Viernes Santo y Día del Veterano y de los Caídos en la Guerra de Malvinas 
+ Dia: Sábado | fecha: 3 de abril | evento: Pascua Judía 
+ Dia: Domingo | fecha: 4 de abril | evento: Pascua Judía 
+ Dia: Sábado | fecha: 24 de abril | evento: Día de Acción por la Tolerancia y el Respeto entre los Pueblos 
+ Dia: Sábado | fecha: 1 de mayo | evento: Día del Trabajador 
+ Dia: Jueves | fecha: 13 de mayo | evento: Fiesta de la Ruptura del Ayuno del Sagrado Mes de Ramadán 
+ Dia: Lunes | fecha: 24 de mayo | evento: Feriado con fines turísticos 
+ Dia: Martes | fecha: 25 de mayo | evento: Día de la Revolución de Mayo 
+ Dia: Domingo | fecha: 20 de junio | evento: Paso a la Inmortalidad del General Belgrano 
+ Dia: Lunes | fecha: 21 de junio | evento: Paso a la Inmortalidad del General Güemes 
+ Dia: Viernes | fecha: 9 de julio | evento: Día de la Independencia 
+ Dia: Martes | fecha: 20 de julio | evento: Fiesta del Sacrificio 
+ Dia: Domingo | fecha: 8 de agosto | evento: Año Nuevo Islámico 
+ Dia: Lunes | fecha: 16 de agosto | evento: Paso a la Inmortalidad del General San Martín 
+ Dia: Martes | fecha: 7 de septiembre | evento: Año Nuevo Judío 
+ Dia: Miércoles | fecha: 8 de septiembre | evento: Año Nuevo Judío 
+ Dia: Jueves | fecha: 16 de septiembre | evento: Día del Perdón 
+ Dia: Martes | fecha: 21 de septiembre | evento: Día del Estudiante 
+ Dia: Viernes | fecha: 8 de octubre | evento: Feriado con fines turísticos 
+ Dia: Lunes | fecha: 11 de octubre | evento: Día del Respeto a la Diversidad Cultural 
+ Dia: Sábado | fecha: 20 de noviembre | evento: Día de la Soberanía Nacional 
+ Dia: Lunes | fecha: 22 de noviembre | evento: Feriado con fines turísticos 
+ Dia: Miércoles | fecha: 8 de diciembre | evento: Inmaculada Concepción de María 
+ Dia: Sábado | fecha: 25 de diciembre | evento: Navidad 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtener la última actualización</span>
+
+<span class="c1"># Para exprresiones regulares</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="c1"># Para manejo de fechas</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span> <span class="nf">calendario_ultima_actualizacion</span><span class="p">():</span>
+  <span class="n">ultima_actualizacion</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;#post-256&#39;</span><span class="p">)</span> 
+  <span class="n">ultima_actualizacion</span><span class="o">=</span> <span class="n">ultima_actualizacion</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span>
+  <span class="c1"># Expresion que busca algo del estilo x/x/xxxx (donde x es un número)</span>
+  <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d/\d/\d</span><span class="si">{4}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ultima_actualizacion</span><span class="p">)</span>
+  <span class="n">fecha</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+  <span class="n">fecha_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">fecha</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%Y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">fecha_datetime</span>
+
+<span class="n">fecha_datetime</span> <span class="o">=</span> <span class="n">calendario_ultima_actualizacion</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Última actualización: </span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span>
+
+<span class="c1"># Ahora podemos crear un programa que nos avise si se actualiza el calendario</span>
+
+<span class="k">def</span> <span class="nf">avisame_si_actualizaron</span><span class="p">(</span><span class="n">fecha_previa</span><span class="p">):</span>
+  <span class="c1"># Esto esta solo para cortar el while</span>
+  <span class="n">contador_anti_explosion</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">fecha_datetime</span> <span class="o">=</span> <span class="n">calendario_ultima_actualizacion</span><span class="p">()</span>
+  <span class="n">fecha_previa</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fecha_previa</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fecha_previa</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fecha_previa</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1">&#39;</span>
+
+  <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">fecha_actual</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1">&#39;</span>
+
+    <span class="k">if</span> <span class="n">fecha_actual</span> <span class="o">==</span> <span class="n">fecha_previa</span> <span class="ow">and</span> <span class="n">contador_anti_explosion</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+      <span class="n">url_base</span> <span class="o">=</span> <span class="s1">&#39;https://exactas.uba.ar/&#39;</span>
+      <span class="n">endpoint_calendario</span> <span class="o">=</span> <span class="s1">&#39;calendario-academico/&#39;</span>
+      <span class="n">html_obtenido</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url_base</span> <span class="o">+</span> <span class="n">endpoint_calendario</span><span class="p">)</span>
+      <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_obtenido</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
+      <span class="n">fecha_datetime</span> <span class="o">=</span> <span class="n">calendario_ultima_actualizacion</span><span class="p">()</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;igual&#39;</span><span class="p">)</span>
+      <span class="n">contador_anti_explosion</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">else</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actualizaron!! </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+      <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">output</span>
+      <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Se actualizo el: </span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">day</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">month</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">fecha_datetime</span><span class="o">.</span><span class="n">year</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+      <span class="c1"># Para que ladre un perro avisandonos </span>
+      <span class="n">output</span><span class="o">.</span><span class="n">eval_js</span><span class="p">(</span><span class="s1">&#39;new Audio(&quot;https://assets.mixkit.co/sfx/preview/mixkit-dog-barking-twice-1.mp3&quot;).play()&#39;</span><span class="p">)</span>
+      <span class="k">break</span>
+
+<span class="n">fecha_previa</span> <span class="o">=</span> <span class="n">calendario_ultima_actualizacion</span><span class="p">()</span>
+
+<span class="c1"># Corremos la funcion</span>
+<span class="n">avisame_si_actualizaron</span><span class="p">(</span><span class="n">fecha_previa</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Última actualización: 3/6/2021 
+igual
+igual
+igual
+igual
+igual
+Actualizaron!! 
+
+Se actualizo el: 3/6/2021
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color='red'>Ejercicio</font></p>
+<ul class="simple">
+<li><p>Generar diccionario cuyas claves sean los nombres de las carreras de grado vigentes en Exactas y sus valores el link asociado a cada una de ellas. <a class="reference external" href="https://exactas.uba.ar/ensenanza/carreras-de-grado/">https://exactas.uba.ar/ensenanza/carreras-de-grado/</a></p></li>
+</ul>
+<p><strong>¡A trabajar!</strong></p>
+<img src="https://img.icons8.com/ios/452/spade.png" width="80" height="auto"/>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resolución</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejemplo-2-cortazar">
+<h3>Ejemplo 2: Cortazar<a class="headerlink" href="#ejemplo-2-cortazar" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creo carpeta donde voy a guardar los cuentos</span>
+<span class="o">!</span>mkdir -p multimedia/cortazar/
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">codigo_html_crudo</span> <span class="o">=</span> <span class="n">codigo_html</span><span class="p">(</span><span class="s1">&#39;http://ciudadseva.com/autor/julio-cortazar/cuentos/&#39;</span><span class="p">)</span>
+
+<span class="n">regla_para_url_de_un_cuento</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;(https://ciudadseva.com/texto/.+/)&#39;</span>
+
+<span class="k">for</span> <span class="n">url_de_un_cuento</span> <span class="ow">in</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regla_para_url_de_un_cuento</span><span class="p">,</span> <span class="n">codigo_html_crudo</span><span class="p">):</span>
+    <span class="n">codigo_html_interpretado</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">codigo_html</span><span class="p">(</span><span class="n">url_de_un_cuento</span><span class="p">),</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">elem</span> <span class="o">=</span> <span class="n">codigo_html_interpretado</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="s2">&quot;class&quot;</span> <span class="p">:</span> <span class="s2">&quot;text-justify&quot;</span> <span class="p">})</span>
+    <span class="n">cuento</span> <span class="o">=</span> <span class="n">elem</span><span class="o">.</span><span class="n">text</span>
+    
+    <span class="c1"># Asi podemos guardar los resultados</span>
+    <span class="n">nombre_del_archivo</span> <span class="o">=</span> <span class="n">url_de_un_cuento</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">with</span> <span class="nb">open</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;multimedia/cortazar/</span><span class="si">{</span><span class="n">nombre_del_archivo</span><span class="si">}</span><span class="s2">.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">out</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Guardando </span><span class="si">{</span><span class="n">nombre_del_archivo</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">cuento</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="practica-mercadolibre">
+<h2>Práctica: Mercadolibre<a class="headerlink" href="#practica-mercadolibre" title="Permalink to this headline">¶</a></h2>
+<p><font color='red'> Ejercicio </font></p>
+<p>Descargá y calculá el promedio de los precios que aparecen en la primer página de mercado libre al buscar gibson</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Resolución</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">precios_gibson</span><span class="p">():</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://listado.mercadolibre.com.ar/gibson&quot;</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">codigo_html</span><span class="p">(</span><span class="n">url</span><span class="p">),</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">prices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># COMPLETAR</span>
+
+    <span class="k">return</span> <span class="n">prices</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="usando-cookies">
+<h2>Usando cookies 🍪<a class="headerlink" href="#usando-cookies" title="Permalink to this headline">¶</a></h2>
+<p>Las <a class="reference external" href="https://es.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)"><em>cookies</em></a> son bloques de datos creados por un servidor con información enviada por un sitio web y almacenada en el navegador del usuario, de manera que el sitio web puede consultar la actividad previa del navegador.</p>
+<p>Sus principales funciones son:</p>
+<ul class="simple">
+<li><p>Recordar accesos para saber si ya se ha visitado la página (ejemplo: cuando nos <em>loggeamos</em> se guardan cookies).</p></li>
+<li><p>Conocer información sobre los hábitos de navegación.</p></li>
+</ul>
+<p>También hay otro tipo de información que se guarda en algunas páginas que son las <em>sessions</em>, básicamente es un dato similar a una cookie pero que se guarda en el servidor en lugar de hacerlo en el cliente (nuestro navegador).</p>
+<p>Para algunos proyectos de <em>web scraping</em> puede ser útil interactuar con ellas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.kaggle.com/&#39;</span><span class="p">)</span>
+
+<span class="c1"># Obtenemos el atributo cookies</span>
+<span class="n">cookies</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">cookies</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">cookies</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">cookies</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iteramos sobre las cookies en el cookie jar</span>
+<span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;domain: &#39;</span> <span class="p">,</span><span class="n">cookie</span><span class="o">.</span><span class="n">domain</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;name: &#39;</span><span class="p">,</span> <span class="n">cookie</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;value: &#39;</span><span class="p">,</span> <span class="n">cookie</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;------------------------&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>domain:  www.kaggle.com
+name:  CLIENT-TOKEN
+value:  eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpc3MiOiJrYWdnbGUiLCJhdWQiOiJjbGllbnQiLCJzdWIiOm51bGwsIm5idCI6IjIwMjEtMDktMzBUMjE6MDI6MjAuMzMyMDM2M1oiLCJpYXQiOiIyMDIxLTA5LTMwVDIxOjAyOjIwLjMzMjAzNjNaIiwianRpIjoiNDg1OGYzYzYtY2FlOS00YjBkLWIzYWUtNTAwOTNhOTAyMjdiIiwiZXhwIjoiMjAyMS0xMC0zMFQyMTowMjoyMC4zMzIwMzYzWiIsImFub24iOnRydWUsImZmIjpbIkdpdEh1YlByaXZhdGVBY2Nlc3MiLCJEb2NrZXJNb2RhbFNlbGVjdG9yIiwiR2Nsb3VkS2VybmVsSW50ZWciLCJLZXJuZWxFZGl0b3JDb3JnaU1vZGUiLCJDYWlwRXhwb3J0IiwiQ2FpcE51ZGdlIiwiS2VybmVsc0ZpcmViYXNlTG9uZ1BvbGxpbmciLCJLZXJuZWxzUHJldmVudFN0b3BwZWRUb1N0YXJ0aW5nVHJhbnNpdGlvbiIsIktlcm5lbHNQb2xsUXVvdGEiLCJLZXJuZWxzUXVvdGFNb2RhbHMiLCJEYXRhc2V0c0RhdGFFeHBsb3JlclYzVHJlZUxlZnQiLCJBdmF0YXJQcm9maWxlUHJldmlldyIsIkRhdGFzZXRzRGF0YUV4cGxvcmVyVjNDaGVja0ZvclVwZGF0ZXMiLCJEYXRhc2V0c0RhdGFFeHBsb3JlclYzQ2hlY2tGb3JVcGRhdGVzSW5CYWNrZ3JvdW5kIiwiS2VybmVsc1N0YWNrT3ZlcmZsb3dTZWFyY2giLCJLZXJuZWxzTWF0ZXJpYWxMaXN0aW5nIiwiRGF0YXNldHNNYXRlcmlhbERldGFpbCIsIkRhdGFzZXRzTWF0ZXJpYWxMaXN0Q29tcG9uZW50IiwiQ29tcGV0aXRpb25EYXRhc2V0cyIsIkRpc2N1c3Npb25zVXB2b3RlU3BhbVdhcm5pbmciLCJUYWdzTGVhcm5BbmREaXNjdXNzaW9uc1VJIiwiS2VybmVsc1N1Ym1pdEZyb21FZGl0b3IiLCJOb1JlbG9hZEV4cGVyaW1lbnQiLCJOb3RlYm9va3NMYW5kaW5nUGFnZSIsIkRhdGFzZXRzRnJvbUdjcyIsIlRQVUNvbW1pdFNjaGVkdWxpbmciLCJFbXBsb3llckluZm9OdWRnZXMiLCJFbWFpbFNpZ251cE51ZGdlcyIsIkJvb2ttYXJrc1VJIiwiQm9va21hcmtzQ29tcHNVSSIsIkZyb250ZW5kQ29uc29sZUVycm9yUmVwb3J0aW5nIiwiS2VybmVsVmlld2VySGlkZUZha2VFeGl0TG9nVGltZSIsIkRhdGFzZXRMYW5kaW5nUGFnZVJvdGF0aW5nU2hlbHZlcyIsIkxvd2VyRGF0YXNldEhlYWRlckltYWdlTWluUmVzIiwiTmV3RGlzY3Vzc2lvbnNMYW5kaW5nIiwiRGlzY3Vzc2lvbkxpc3RpbmdJbXByb3ZlbWVudHMiLCJSZWdpc3RyYXRpb25OZXdzRW1haWxTaWdudXBJc09wdE91dCIsIlNjaGVkdWxlZE5vdGVib29rcyIsIlRhZ1BhZ2VzRGVwcmVjYXRlIiwiRmlsdGVyRm9ydW1JbWFnZXMiLCJQaG9uZVZlcmlmeUZvckNvbW1lbnRzIiwiUGhvbmVWZXJpZnlGb3JOZXdUb3BpYyJdLCJmZmQiOnsiS2VybmVsRWRpdG9yQXV0b3NhdmVUaHJvdHRsZU1zIjoiMzAwMDAiLCJGcm9udGVuZEVycm9yUmVwb3J0aW5nU2FtcGxlUmF0ZSI6IjAuMTAifSwicGlkIjoia2FnZ2xlLTE2MTYwNyIsInN2YyI6IndlYi1mZSIsInNkYWsiOiJBSXphU3lBNGVOcVVkUlJza0pzQ1pXVnotcUw2NTVYYTVKRU1yZUUiLCJibGQiOiI5MjlhYzYxNjdlOTgyMTUyMGY1YmY1ZWFmNGM1MjZhMWY3YzRhYWZiIn0.
+------------------------
+domain:  www.kaggle.com
+name:  CSRF-TOKEN
+value:  CfDJ8LdUzqlsSWBPr4Ce3rb9VL8ZAvOxaIXRSNBQa4LDjb5ajR4LbGFqXlsl1yHPrV3-4aCQ9zQJsspddpRP-u_1VB_mh9mhEOlCPyuF7C5tzGyPmO5005DM4S1KXCGe9Su9jvie5MPmMzGhJmDcYEyVtVM
+------------------------
+domain:  www.kaggle.com
+name:  GCLB
+value:  CJXT5cu1xKWCJQ
+------------------------
+domain:  www.kaggle.com
+name:  XSRF-TOKEN
+value:  CfDJ8LdUzqlsSWBPr4Ce3rb9VL8ngJLc_OhYwFZd-CQxmyZnGEOVwga5FCx9v39D0ziPmJK1gV_aBrZQjwCPaxqiYKpKgUbfyo9OoBPYTjY5jbRdrq2xMpa8bso__32bhpu0nD7dsPqMG_tdxfdClHPO1Rs
+------------------------
+domain:  www.kaggle.com
+name:  ka_sessionid
+value:  f87ccffa4c82c115675514b69dac9406
+------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos enviar cookies junto con nuestro request. Esto puede ser util para ciertos sitios que usan la ausencia de cookies como criterio para bloquear el acceso.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.kaggle.com/&#39;</span>
+
+<span class="n">mis_cookies</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;mi nombre&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;password&#39;</span><span class="p">:</span><span class="s1">&#39;superSeguro1234&#39;</span>
+    <span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mis_cookies</span><span class="p">)</span>
+
+<span class="c1"># Mando mis propias cookies</span>
+<span class="n">respuesta</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">mis_cookies</span><span class="p">)</span>
+
+<span class="n">respuesta</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;mi nombre&#39;, &#39;password&#39;: &#39;superSeguro1234&#39;}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="entonces-me-puedo-descargar-todo-internet">
+<h2>¿Entonces me puedo descargar todo internet?<a class="headerlink" href="#entonces-me-puedo-descargar-todo-internet" title="Permalink to this headline">¶</a></h2>
+<p>En la próximas clases veremos algunas limitaciones de este método y sus alternativas. Mas allá de eso es importante ponerse de vez en cuando en el lugar del sitio del cual estamos descargando datos.</p>
+<p>Muchas veces las páginas web obtienen sus ingresos a partir del uso de usuarios tradicionales (humanos) pero no de los scrapers (máquinas). Por lo que estos no generan ganancias al sitio y encima pueden causar congestión en los servidores (Pudiendo causar incluso la rotura del sitio similar a lo que pasa con los <a class="reference external" href="https://es.wikipedia.org/wiki/Ataque_de_denegaci%C3%B3n_de_servicio">ataques DDOS</a>).</p>
+<p>Por esta razón los sitios webs suelen tener una pagina <a class="reference external" href="https://es.wikipedia.org/wiki/Est%C3%A1ndar_de_exclusi%C3%B3n_de_robots">/robots.txt</a> donde especifican que tipo de scrapeo prefieren evitar para poder mantener su sitio funcionando correctamente sin problemas.</p>
+<p>Pueden ver, como ejemplos:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.google.com/robots.txt">https://www.google.com/robots.txt</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/robots.txt">https://en.wikipedia.org/robots.txt</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Scraping/1_HTTP_Inicial"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Minería Web con Python</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ejercicio/spinetta.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Descargar letras de canciones</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

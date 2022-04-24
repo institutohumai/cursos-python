@@ -1,0 +1,1693 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ensambles: Bagging &amp; Boosting" href="../6_Ensamble/Bagging%26Boosting.html" />
+    <link rel="prev" title="Regularización - Optimización - Feature Engineering - Pipelines" href="../3_Regularizacion/Regularizacion.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Grográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Introducción
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FMachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seteo-de-librerias">
+   Seteo de librerias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#knn">
+   1. KNN
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduccion-fronteras-de-decision">
+     1.1 Introducción: Fronteras de decisión
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjunto-de-datos-de-cancer-de-mama">
+   1.2 Conjunto de datos de cáncer de mama
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting-cantidad-de-vecinos-y-pesos">
+   1.3 Overfitting: cantidad de vecinos y pesos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efectos-de-escala">
+   1.4 Efectos de escala
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arboles-de-decision">
+   2. Árboles de decisión
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mi-primer-arbolito">
+   2.1 Mi primer arbolito
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-importance">
+   2.2 Feature importance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#desbalance-de-clases">
+   2.3 Desbalance de clases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion">
+   2.4 Visualización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting-profundidad-del-arbol-y-post-pruning">
+   2.5 Overfitting: profundidad del árbol y post-pruning
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#seteo-de-librerias">
+   Seteo de librerias
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#knn">
+   1. KNN
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduccion-fronteras-de-decision">
+     1.1 Introducción: Fronteras de decisión
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conjunto-de-datos-de-cancer-de-mama">
+   1.2 Conjunto de datos de cáncer de mama
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting-cantidad-de-vecinos-y-pesos">
+   1.3 Overfitting: cantidad de vecinos y pesos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#efectos-de-escala">
+   1.4 Efectos de escala
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arboles-de-decision">
+   2. Árboles de decisión
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mi-primer-arbolito">
+   2.1 Mi primer arbolito
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-importance">
+   2.2 Feature importance
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#desbalance-de-clases">
+   2.3 Desbalance de clases
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion">
+   2.4 Visualización
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting-profundidad-del-arbol-y-post-pruning">
+   2.5 Overfitting: profundidad del árbol y post-pruning
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div><div class="tex2jax_ignore mathjax_ignore section" id="modelos-no-parametricos-k-nearest-neighbours-y-arboles-de-decision">
+<h1>Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión<a class="headerlink" href="#modelos-no-parametricos-k-nearest-neighbours-y-arboles-de-decision" title="Permalink to this headline">¶</a></h1>
+<p>Documentación:</p>
+<ul class="simple">
+<li><p>KNN para clasificación: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier</a></p></li>
+<li><p>KNN para regresión: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html#sklearn.neighbors.KNeighborsRegressor">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsRegressor.html#sklearn.neighbors.KNeighborsRegressor</a></p></li>
+<li><p>Árboles para clasificación: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html">https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html</a></p></li>
+<li><p>Árboles para regresión: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html">https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeRegressor.html</a></p></li>
+</ul>
+<div class="section" id="seteo-de-librerias">
+<h2>Seteo de librerias<a class="headerlink" href="#seteo-de-librerias" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">ListedColormap</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span><span class="p">,</span> <span class="n">make_blobs</span><span class="p">,</span> <span class="n">load_breast_cancer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
+
+<span class="c1"># modelos</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">plot_tree</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">accuracy_score</span>
+
+<span class="n">DISPLAY_PRECISION</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.precision&quot;</span><span class="p">,</span> <span class="n">DISPLAY_PRECISION</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="knn">
+<h2>1. KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduccion-fronteras-de-decision">
+<h3>1.1 Introducción: Fronteras de decisión<a class="headerlink" href="#introduccion-fronteras-de-decision" title="Permalink to this headline">¶</a></h3>
+<p>Para familirizarnos con este modelo y podervisualizar como quedan las fronteras de decisión empezaremos con un problema de clasificación binaria con dos features con un dataset de juguete que generaremos nosotros con la función <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_classification.html">make_classification</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># construyamos el dataset para un problema de clasificación binaria de dos dimensiones</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                           <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">class_sep</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span>
+<span class="c1"># scatter plot, colores por etiquetas</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">y</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">}</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
+    <span class="n">group</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">key</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_6_0.png" src="../../_images/KNN_Arboles_6_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instanciemos y entrenemos el modelo</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
+                     metric_params=None, n_jobs=None, n_neighbors=10, p=2,
+                     weights=&#39;uniform&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualicemos las predicciones</span>
+
+<span class="c1"># elegimos algunos colores de la lista de colores</span>
+<span class="n">cmap_light</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FFAAAA&#39;</span><span class="p">,</span> <span class="s1">&#39;#AAFFAA&#39;</span><span class="p">,</span> <span class="s1">&#39;#AAAAFF&#39;</span><span class="p">])</span>
+<span class="n">cmap_bold</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#00FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">])</span>
+
+<span class="c1"># tenemos que armar una grilla y setear un step</span>
+<span class="n">h</span> <span class="o">=</span> <span class="o">.</span><span class="mi">02</span> 
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+
+<span class="c1"># usamos un pcolormesh</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_light</span><span class="p">)</span>
+
+<span class="c1"># ploteamos también los puntos de entrenamiento</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_bold</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xx</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">yy</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2-Class classification (k = </span><span class="si">%i</span><span class="s2">, weights = &#39;</span><span class="si">%s</span><span class="s2">&#39;)&quot;</span>
+          <span class="o">%</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;uniform&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_8_0.png" src="../../_images/KNN_Arboles_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
+                     metric_params=None, n_jobs=None, n_neighbors=200, p=2,
+                     weights=&#39;uniform&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualicemos las predicciones</span>
+
+<span class="c1"># elegimos algunos colores de la lista de colores</span>
+<span class="n">cmap_light</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FFAAAA&#39;</span><span class="p">,</span> <span class="s1">&#39;#AAFFAA&#39;</span><span class="p">,</span> <span class="s1">&#39;#AAAAFF&#39;</span><span class="p">])</span>
+<span class="n">cmap_bold</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#00FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">])</span>
+
+<span class="c1"># tenemos que armar una grilla y setear un step</span>
+<span class="n">h</span> <span class="o">=</span> <span class="o">.</span><span class="mi">02</span> 
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+
+<span class="c1"># usamos un pcolormesh</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_light</span><span class="p">)</span>
+
+<span class="c1"># ploteamos también los puntos de entrenamiento</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_bold</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xx</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">yy</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2-Class classification (k = </span><span class="si">%i</span><span class="s2">, weights = &#39;</span><span class="si">%s</span><span class="s2">&#39;)&quot;</span>
+          <span class="o">%</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;uniform&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_10_0.png" src="../../_images/KNN_Arboles_10_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span><span class="n">weights</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>KNeighborsClassifier(algorithm=&#39;auto&#39;, leaf_size=30, metric=&#39;minkowski&#39;,
+                     metric_params=None, n_jobs=None, n_neighbors=200, p=2,
+                     weights=&#39;distance&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualicemos las predicciones</span>
+
+<span class="c1"># elegimos algunos colores de la lista de colores</span>
+<span class="n">cmap_light</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FFAAAA&#39;</span><span class="p">,</span> <span class="s1">&#39;#AAFFAA&#39;</span><span class="p">,</span> <span class="s1">&#39;#AAAAFF&#39;</span><span class="p">])</span>
+<span class="n">cmap_bold</span> <span class="o">=</span> <span class="n">ListedColormap</span><span class="p">([</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="s1">&#39;#00FF00&#39;</span><span class="p">,</span> <span class="s1">&#39;#0000FF&#39;</span><span class="p">])</span>
+
+<span class="c1"># tenemos que armar una grilla y setear un step</span>
+<span class="n">h</span> <span class="o">=</span> <span class="o">.</span><span class="mi">02</span> 
+<span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">xx</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">ravel</span><span class="p">()])</span>
+
+<span class="c1"># usamos un pcolormesh</span>
+<span class="n">Z</span> <span class="o">=</span> <span class="n">Z</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_light</span><span class="p">)</span>
+
+<span class="c1"># ploteamos también los puntos de entrenamiento</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap_bold</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">xx</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">yy</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;2-Class classification (k = </span><span class="si">%i</span><span class="s2">, weights = &#39;</span><span class="si">%s</span><span class="s2">&#39;)&quot;</span>
+          <span class="o">%</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_12_0.png" src="../../_images/KNN_Arboles_12_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conjunto-de-datos-de-cancer-de-mama">
+<h2>1.2 Conjunto de datos de cáncer de mama<a class="headerlink" href="#conjunto-de-datos-de-cancer-de-mama" title="Permalink to this headline">¶</a></h2>
+<p>El conjunto de datos etiquetado proviene de la “Base de datos (diagnóstico) de cáncer de mama de Wisconsin” disponible gratuitamente en la biblioteca sklearn de python. Para obtener más detalles, consulte:
+<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29">https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)</a></p>
+<p>Número de muestras: 569</p>
+<p>Número de funciones: 30 atributos numéricos y predictivos</p>
+<p>Número de clases: 2</p>
+<p>Las características se calculan a partir de una imagen digitalizada de una aspiración con aguja fina (FNA) de una masa mamaria. Describen las características de los núcleos celulares presentes en la imagen. Se calculan diez características de valor real para cada núcleo celular. La media, el error estándar y el “peor” o el más grande (la media de los tres valores más grandes) de estas características se calcularon para cada imagen, lo que dio como resultado 30 características. Por ejemplo, las medidas del radio son para el “radio medio”, el “error estándar del radio” y el “peor radio”. Todos los valores de las características se recodifican con cuatro dígitos significativos.</p>
+<p>Las dos clases objetivo corresponden a resultados negativos (benignos) y resultados positivos (malignos).</p>
+<p>Este conjunto de datos original se dividirá aleatoriamente en dos conjuntos para fines de entrenamiento y prueba.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">load_breast_cancer</span><span class="p">()</span>
+<span class="c1">#print(data.DESCR)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Descripción:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="c1"># dict_keys([&#39;target_names&#39;, &#39;target&#39;, &#39;feature_names&#39;, &#39;data&#39;, &#39;DESCR&#39;])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+
+<span class="c1"># Note that we need to reverse the original &#39;0&#39; and &#39;1&#39; mapping in order to end up with this mapping:</span>
+<span class="c1"># Benign = 0 (negative class)</span>
+<span class="c1"># Malignant = 1 (positive class)</span>
+
+<span class="n">data_clases</span> <span class="o">=</span> <span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="o">.</span><span class="n">target_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">data_target</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">target</span><span class="p">)]</span>
+<span class="n">data_features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Clases Target:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Clases&quot;</span><span class="p">,</span> <span class="n">data_clases</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distribución de clases n=</span><span class="si">%d</span><span class="s2">:&quot;</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_target</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data_target</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Descripción:
+dict_keys([&#39;data&#39;, &#39;target&#39;, &#39;target_names&#39;, &#39;DESCR&#39;, &#39;feature_names&#39;, &#39;filename&#39;])
+---
+Clases Target:
+Clases [&#39;benign&#39;, &#39;malignant&#39;]
+---
+Distribución de clases n=569:
+0    357
+1    212
+dtype: int64
+---
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">[:,:],</span> <span class="n">columns</span><span class="o">=</span><span class="n">data_features</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 569 entries, 0 to 568
+Data columns (total 30 columns):
+ #   Column                   Non-Null Count  Dtype  
+---  ------                   --------------  -----  
+ 0   mean radius              569 non-null    float64
+ 1   mean texture             569 non-null    float64
+ 2   mean perimeter           569 non-null    float64
+ 3   mean area                569 non-null    float64
+ 4   mean smoothness          569 non-null    float64
+ 5   mean compactness         569 non-null    float64
+ 6   mean concavity           569 non-null    float64
+ 7   mean concave points      569 non-null    float64
+ 8   mean symmetry            569 non-null    float64
+ 9   mean fractal dimension   569 non-null    float64
+ 10  radius error             569 non-null    float64
+ 11  texture error            569 non-null    float64
+ 12  perimeter error          569 non-null    float64
+ 13  area error               569 non-null    float64
+ 14  smoothness error         569 non-null    float64
+ 15  compactness error        569 non-null    float64
+ 16  concavity error          569 non-null    float64
+ 17  concave points error     569 non-null    float64
+ 18  symmetry error           569 non-null    float64
+ 19  fractal dimension error  569 non-null    float64
+ 20  worst radius             569 non-null    float64
+ 21  worst texture            569 non-null    float64
+ 22  worst perimeter          569 non-null    float64
+ 23  worst area               569 non-null    float64
+ 24  worst smoothness         569 non-null    float64
+ 25  worst compactness        569 non-null    float64
+ 26  worst concavity          569 non-null    float64
+ 27  worst concave points     569 non-null    float64
+ 28  worst symmetry           569 non-null    float64
+ 29  worst fractal dimension  569 non-null    float64
+dtypes: float64(30)
+memory usage: 133.5 KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># separamos un 25% para test/held-out</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">[:,:],</span> <span class="n">columns</span><span class="o">=</span><span class="n">data_features</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data_target</span><span class="p">)</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="overfitting-cantidad-de-vecinos-y-pesos">
+<h2>1.3 Overfitting: cantidad de vecinos y pesos<a class="headerlink" href="#overfitting-cantidad-de-vecinos-y-pesos" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># veamos como le va a nuestro modelo variando la cantidad de vecinos y el tipo de peso</span>
+<span class="n">valores_k</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">resultados_train_u</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">resultados_test_u</span>  <span class="o">=</span> <span class="p">[]</span>
+<span class="n">resultados_train_w</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">resultados_test_w</span>  <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">valores_k</span><span class="p">:</span>
+    <span class="c1"># instanciamos el modelo uniforme</span>
+    <span class="n">clf_u</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;uniform&#39;</span><span class="p">)</span>
+    <span class="n">clf_u</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">clf_u</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf_u</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">resultados_train_u</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">))</span>
+    <span class="n">resultados_test_u</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+    <span class="n">clf_w</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">&#39;distance&#39;</span><span class="p">)</span>
+    <span class="n">clf_w</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">clf_w</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf_w</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">resultados_train_w</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">))</span>
+    <span class="n">resultados_test_w</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># veamos que paso en cada caso</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valores_k</span><span class="p">,</span> <span class="n">resultados_train_u</span><span class="p">,</span> <span class="n">valores_k</span><span class="p">,</span> <span class="n">resultados_test_u</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;pesos uniformes - train&#39;</span><span class="p">,</span> <span class="s1">&#39;pesos uniformes - test&#39;</span><span class="p">]);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">);</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">valores_k</span><span class="p">,</span> <span class="n">resultados_train_w</span><span class="p">,</span> <span class="n">valores_k</span><span class="p">,</span> <span class="n">resultados_test_w</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;pesos distancia - train&#39;</span><span class="p">,</span> <span class="s1">&#39;pesos distancia - test&#39;</span><span class="p">]);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_19_0.png" src="../../_images/KNN_Arboles_19_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ahora busquemos nuestro mejor modelo usando validacion cruzada y gridsearchcv pero incluyamos otra distancia!</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+<span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_neighbors&#39;</span><span class="p">:</span> <span class="n">n_neighbors</span><span class="p">,</span> 
+              <span class="s1">&#39;weights&#39;</span><span class="p">:[</span><span class="s1">&#39;uniform&#39;</span><span class="p">,</span> <span class="s1">&#39;distance&#39;</span><span class="p">],</span> 
+              <span class="s1">&#39;metric&#39;</span><span class="p">:[</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="s1">&#39;chebyshev&#39;</span><span class="p">,</span> <span class="s1">&#39;manhattan&#39;</span><span class="p">]}</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">)</span>
+<span class="n">grid</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;metric&#39;: &#39;manhattan&#39;, &#39;n_neighbors&#39;: 10, &#39;weights&#39;: &#39;distance&#39;}
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>mean_score_time</th>
+      <th>std_score_time</th>
+      <th>param_metric</th>
+      <th>param_n_neighbors</th>
+      <th>param_weights</th>
+      <th>params</th>
+      <th>split0_test_score</th>
+      <th>split1_test_score</th>
+      <th>split2_test_score</th>
+      <th>split3_test_score</th>
+      <th>split4_test_score</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>17</th>
+      <td>0.0021</td>
+      <td>1.0687e-04</td>
+      <td>0.0027</td>
+      <td>9.7896e-05</td>
+      <td>euclidean</td>
+      <td>30</td>
+      <td>distance</td>
+      <td>{'metric': 'euclidean', 'n_neighbors': 30, 'we...</td>
+      <td>0.9651</td>
+      <td>0.8941</td>
+      <td>0.8941</td>
+      <td>0.9294</td>
+      <td>0.9176</td>
+      <td>0.9201</td>
+      <td>0.0263</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>0.0021</td>
+      <td>2.2685e-04</td>
+      <td>0.0047</td>
+      <td>8.0798e-04</td>
+      <td>chebyshev</td>
+      <td>10</td>
+      <td>uniform</td>
+      <td>{'metric': 'chebyshev', 'n_neighbors': 10, 'we...</td>
+      <td>0.9651</td>
+      <td>0.8941</td>
+      <td>0.9059</td>
+      <td>0.9059</td>
+      <td>0.9412</td>
+      <td>0.9224</td>
+      <td>0.0265</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>0.0020</td>
+      <td>9.3792e-05</td>
+      <td>0.0022</td>
+      <td>1.1450e-04</td>
+      <td>manhattan</td>
+      <td>3</td>
+      <td>distance</td>
+      <td>{'metric': 'manhattan', 'n_neighbors': 3, 'wei...</td>
+      <td>0.9767</td>
+      <td>0.8824</td>
+      <td>0.9294</td>
+      <td>0.9412</td>
+      <td>0.9529</td>
+      <td>0.9365</td>
+      <td>0.0313</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># evaluemos este clasificador usando el classification report</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">best_estimator_</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">),</span> <span class="n">target_names</span><span class="o">=</span><span class="n">data_clases</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+      benign       0.96      0.98      0.97        90
+   malignant       0.96      0.92      0.94        53
+
+    accuracy                           0.96       143
+   macro avg       0.96      0.95      0.95       143
+weighted avg       0.96      0.96      0.96       143
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="efectos-de-escala">
+<h2>1.4 Efectos de escala<a class="headerlink" href="#efectos-de-escala" title="Permalink to this headline">¶</a></h2>
+<p>Dado que KNN esta basado en distancias si no usamos una distancia que involucra la varianza entre variables como la distancia de Mahalabois, nuestro modelo se verá afectado</p>
+<p>![image.png](data:image/png;base64,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)</p>
+<p>![image.png](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAGkCAIAAACgjIjwAAAgAElEQVR4Ae2dD2gVV77HB4KoiLQFkSClBKG3xJcaLil9NQnhpvjIlmxrpc8lKxJEpChuVkK1Vn3WbLVdsYiVh+0TRPpsFWn21ZdINq8vrAkaNd11sWtfm7QiFakhGKOoJDYml/O4OeZ4MvObycydf2dmvhdpz5w5f36/z2/u+eacOXdGY/iAAAiAAAiAgAIENAVsgAkgAAIgAAIgwCBIuAhAAARAAASUIABBUiIMMAIEQAAEQACChGsABEAABEBACQIQJCXCACNAAARAAAQgSLgGQAAEQAAElCAAQVIiDDACBEAABEAAgoRrAARAAARAQAkCECQlwgAjQAAEQAAEIEi4BkAABEAABJQgAEFSIgwwAgRAAARAAIKEawAEQAAEQEAJAhCkgMKwcuXK5dKnvr7++PHjNvu+PvGxWdhmMW7PgwcPeHm5C90pmw2GWEw2WE7nYVKkOeThL6qAgFIEIEgBhWPu3Lma4bN8+fJpuz948ODMmTM7OjqmLemoALfn/v37jDFdF/IpR22GVVg2WE47tSfqHJz6i/IgoBoBCFJAEeEDZUtLy+jo6N27dz/99FOe88knn1hbsHTpUk3TPBek8+fPnzlzZmxsjDGm68LNmG7ti09nZYNlv5x2p+PgpimnXaM8CIAAY3jad1BXAR8029raRIcffvihpmnpdJox1tvbu2zZsrlz586ZM6e0tPTIkSO8WFNT07x58zRNe+mll/bt22dRUjTb2NhYW1t7/fp1xtilS5dqa2uXLVvGz544caK2tvbTTz9ljL3xxhu1tbUPHjwwdsFN7e7uzmQyc+fOLS8v/+tf/yraF4k33nhj2bJlFy9e5MVeeuml7u5ucZYxdujQobKysrlz5z777LNNTU2jo6P8bG1t7RtvvHH48OGnnnoqk8mMjY3V1tb+27/92xdffPH8888/8cQTa9asuX37dkNDwxNPPLFw4cLDhw/zimaUZEESfjHGvvrqq9qpH46CbMfIQW6KG2Dm0bQoZCxIgwAImBHADMmMjMf5RkE6ffq0pmkFBQVjY2MLFizQNG3ZsmUrVqyYMWOGpmkXL15kjNXV1c2cOVPTtLlz527YsMGipDD33Xff1TSNT7z27NnDlwl7e3sZYzU1NZqmnT9/njEmBnFdF+LUvHnzVqxYUVZWpmna008/LdoXiblz5xYUFPBipaWlmqYVFhaKs9yMmTNnvvrqq/Pnz9c0raamhp/VNG3GjBkFBQVz5sxZvXr16OiopmnzJj4rV67khefNm1daWrps2TJu/w8//GDhu/BFGM+XIvk0dO7Eh2OcP3++WTtmHHhTjDELj6xRCCZIgAAIWBOAIFnz8eysUZBu3brFR9ubN28eP35crN2tXLlS07QTJ07wvuV1pNu3b1uU5OUvXryoaRq/O8UVSNO0Q4cOjY2NFRQUCM2QB3G5CzGmHzp0iDE2OjrKh/Lh4WEdC94Cn74MDw8XFBRomsaH7/7+/oKJz7fffssYu3379sKFCzVNO3XqVG5WPvE5cOAAY+zBgwdckDRNu3TpEr+hxbWNz6hefvllTdNOnjxp4bvsi5wWBv/Xf/0XV8HTp09btENysOORBQphAxIgAALTEoAgTYvImwJ8zJKX7LhyaJqWzWZHR0dPnDixZs2aF198kY/XpCBxhTArKQwtKiqaMWPG6OjojBkzXn311RkzZtTV1Z08eVLTtA0bNvBi8sBNDsQ///yzXPL27duifTn/6tWr8uGtW7cYYydOnNA0benSpaLKxo0bNU1bu3atEKSBgQF+lgtSQUEBP+R1xXaPuro6Ic9mlGRf5DRvsLu7e/bs2Zqmff7556JHkiHJgQuStUe8UxIF7xH/BQEQsEMAgmSHkgdl+JglCxIf45555plbt24VFRXxEXz37t2ZTEYMwbodB9YlhZWNjY2apm3evFnTtAMHDtTU1MybN2/NmjXy5gh54LYYiMWEiSuN6ELkixUt3qAsSOLeFWNs27ZtmqatXr1aCBLfT8ElVtO0mTNn8sY5lrq6On4oBMnCd9kXOc0Yu3LlCr8J99577/EGLdqx4MCtMvNI16mMQiaGNAiAgDUBCJI1H8/O8kFKCNLdu3f57Zlt27YdPXpU07QVK1bwzlasWGEUpK+++ooxZl1S2NrV1aVp2lNPPaVp2rfffst3Tzz11FNPPPFENpvlxeQxlA/EvAtrpRFdWBf7xz/+oWnanDlzhIy99NJLmqbxzRp8Ciia4jOkaQXJwnfZFzl98+ZNvlTIZ2a8R4t2LDhYeyR3KsgI34WnSIAACFgTgCBZ8/HsLB+z0un00qVLy8rK+M6FoqKiW7du8b++n3766ZMnT4ptCEePHuV9v/LKK3xHwL//+79bl5Rt5dOCefPmMcb++te/cg3gExReTB5D5S7EeEpOfeQu5BZELTEK8zaLi4vXr19fVVWladpzzz3HbwvlJ0gWvsuWyGl+N07TtFdeeWXp5Gfv3r18m4aRtjUHC4/kTo0oZGhIgwAIWBCAIFnA8fIUH7P4WFxQULBgwYKGhgZ+HyWbzS5fvpyfKi4u5kttQjwOHTrE9wvU1tZal5TNXbt2raZpYuGL997S0iLKyGOo3IUYT10K0v379zds2MB1V9O02tra/v5+3nt+gmThu+yLnK6treV9yf/t6uoyo23NwcIjuVMBUGizYI4ECICANQEIkjWf4M4+ePDAbAgbHR39+eefxWqbRcm8zdV1kXc7uorZbLa/v1/8Akl3No9Dr3w3a2daDp57lAcEVAGBuBKAIMU1svALBEAABCJGAIIUsYDBXBAAARCIKwG1BOnKlSsdHR1///vf44obfoEACIAACJgRUEiQdu3aVV1dvWnTptdee+23v/3tL7/8YmY08kEABEAABOJHQBVB+v7770tKSu7cucMR//rXv25ubo4fbngEAiAAAiBgRkAVQerv7z937pywsqGhgT/rTOQgAQIgAAIgEG8CqgiSTPnatWslJSXff/+9nMnTqcmP8RRyQAAEQiEw+aXE/2NIIOArSjlBGhgYyGQyH3/8MQkilUqR+cgEARAIiwC+lWGR97vf4COrliBdvnx5yZIl4vV0RtzBAzLagBwQAAGZAL6VMo04pYOPrEKCdO7cuRdeeEE84pOMa/CASDOQGTkCTU1M01gmk/vX2Rk585U2GN9KpcPjwrjgI6uKIF2/fj2dTp8+ffrh5Gd8fNxIMnhARhuQEzkCTU05HRKfTIY1NYkjJNwSwLfSLUFV6wcfWVUEac+ePbobgn/4wx+MYQoekNEG5ESLQGfnFDXixjc1QZM8C2M+30rMWD3D72ND+UTWnTmqCJJNL4IHZNMwFFOWALlGN60gYcC0H1DH30ovZqy9vb0bN25cvnx5fX39+fPnubW9vb379u2zb7lFybt377733nurV69ub2+3KBbvU44j6xoHBMk1QjSgNgHN5Bo3y2csN3nCEp/9qDobtryYsZ46dWr+/PkHDhxoa2s7cuTI/Pnz+fvpOzo6li5dat9yi5Ll5eXbtm1raWkpLS3ljVsUjuspZ5H1goLJl9WLpv1oI3hAfniBNoMkQE6GyFGRW0WeIhvh0oW9Es6+lfnNWKUrZmxsbP78+R0dHSKvvb39+eefZ4wJQcpmsx0dHSdPnuzp6RHFbt682dLS0tbWJt6HYszhhc+fP88bZIz19PSUlpaKRhKVcBZZL9BAkLygiDYUJkBqCTkqcifIU2QjmEhxYs6GLbOZqVm+4dJqa2tbsGCBITuXwQXpwYMH6XR65cqV69evf+655959913GWG9v78KFCzdu3Lhq1aqFCxcODw8bc0SbR48eXbVqFT/MZrMFBQXibWSiTBISziLrBREIkhcU0YbaBBwph9nAqMt3NJFSG49b65wNW6S2kzRN7Pr8889ra2vJk1yQLl26tHv3bl6gra2tpqaGMfbpp58uX76cZ548ebK/v9+YI9r85JNP1q5dKw5nzJghJlUiMwkJZ5H1gggEyQuKaEN5AnzEy2Ryv0ay3vNtc8C0P5FSno1bA50NWyRfkqaJXSdPnkyn0+RJsWTX09OzefPmurq6hQsX8rtKAwMDxcXF8+bNW7lyJf+xozFHtHno0KE1a9aIw4KCgrGxMXGYnISzyHrBBYLkBUW0ESMCNgdM3YRJADDLFwXil3A8bDmasRp49ff3FxQU3Lx5U5y5efPm008/PTo6ygWpvb19wYIFn3/++cWLF9va2l5++WVR8tKlSx9++GFhYeHx48d5pjGHMfbFF1+sWLGCF7h169bs2bNFC4lKOI6sazoQJNcI0UDsCNgZMEndcrLyFB9q+Qxb9mesFKc1a9a8+uqrd+/eZYwNDw8vW7Zs5cqV4h5SY2NjfX09r7d58+bCwkLG2O7duzdu3MgzV65c+cEHHxhzRFc3b96cO3fuwMAAY2zfvn2iNVEgIYl8IusODQTJHT/UDpZAYD8PmnbAJAXJycpTsOD87C34YevBgwdvvvnm7Nmzi4qK5syZs2rVqvv37wtB+uGHHwoLC5ctW5bJZJqammbPnp3NZm/dulVWVlZZWVlVVVVZWXlr4qPLkSEdPXr0mWeeqampKS4u5sokn01IOvjIQpAScmnFwU07E5cg/VTNniB9l/sKftjivWez2fv375vtfyNPPXjwQLc9wZgjXMtms8PDw+IwgYngIwtBSuBlFg2XdZMhcjWMnKYE6d60E6kgjQmrr+CHrbA8TVq/wUcWgpS0aywa/honH5pGPKU7dEGKBk2frQx+2PLZITT/iEDwkYUg4eJTjgA5GTLbrp3AXW2qBSz4YUs1AnG1J/jIQpDiei1F2C9yawA5GSKlK8KeR9P04IetaHKKntXBRxaCFL2rJPYWk5MefktJ5zspXboyOPSbQPDDlt8eoX1OIPjIQpBw7flIQLcxwWZPZpMh/hhT0QjesydQhJsIftgK19/k9B58ZCFIybm6gvbUuDHB+pk9wj5SkPhkCLvaBCV1EnkMW/n9pSK77Pf7kHhfXRMfud9EpfOIrEs+ECSXAFGdJkDe3SGVhqyft5iRrSHTVwJOhy33wQ3gfUiMsYsXL86fP//w4cO+0lO5caeRde8LBMk9Q7RAECDv7tgXJMZym7wzmdw/s/11RK/ICoOAo2HL5V8qjLEA3ofEGDt48GBRUdFLL70EQQrymoIgBUk7QX2RGxMYy6kLPjEj4EiQ3P+lEsD7kBhjXV1dw8PDa9euhSAFeblGbHhwdOkHyRF96QiQkyHyr2NdRRxGjoCjb6XZXyRm+UYaAbwPSXQKQRIogklAkILhnLheSEEi/zpOHJrYOexIkMgLw9FfKgG8D0mECIIkUASTgCAFwzmJvbi/d51EahH02b0gOfpLJYD3IYkgQJAEimASEKRgOCe0F2xMSELgHQkSY7k39mYyj8Hk8Xsyv9+HJIyDIAkUwSQgSMFwRi8gEFsCTgXJ/RbKAN6HxKMFQQr4qoUgBQwc3YFA3AjkIUieIPD7fUieGBnpRoKPLAQp0hcMjAeB8AkEP2yF73MyLAg+shCkZFxZ8BIEfCMQ/LDlmytoeAqB4CMLQZoSAByAAAg4JRD8sOXUQpTPj0DwkYUg5Rcp1IoDAfeP+IwDBdc+BD9suTYZDdgiEHxkIUi2AoNC8SPgfvNx/Jjk51Hww1Z+dqKWUwLBRxaC5DRGKB8HAuSjAciHCMTBW599yGPYGunbP9RSdK+77l533Ujffp8NRPN5Esgjsnn2NFktBEE6c+bMZO9T/j80NPQ36XP37t0ppycOggdktAE5MSBAPhoAgpRfZJ1+K7kaDbUUiX/3uuvy6xq1fCXgNLLujQlakA4ePFhZWUnaffjw4UWLFqUnP2fPnjUWCx6Q0QbkxICA2aM8RT5uL9mPstNvpdAhOWG/O1FS9/a8u3fvvvfee6tXr25vbxdleGJsbGzt2rU//PCDyD9//vyhQ4fEoU+J/v5+XcuOLOnt7W1sbNS1wA97e3s3b96sO0Vm6so4OnQaWUeNk4WDE6Q7d+6888476XTaTJAaGxuPHTtGWikygwckukYiTgTIyZBYx8PtJUextv+tHBu8IESoYnCWlnsbidbaXcgzHa3dGd+eV15evm3btpaWltLS0s8//1x2YXR0VNO0F198UWQePXq0rs73admcOXNEjzzhyJLvvvtuw4YNuhb4YUdHx4IFC3SnyExdGUeH9iPrqFmLwsEJ0s6dO/fu3dve3m4mSDU1NT09PUNDQw8fPjSzOHhAZpYgP9IESEHi63hClmQHyfJygSSn7X8r73XXce0RaqQxbUvfk04Fyfj2vPPnzz///PM8Cj09PaWlpXJEuAyUlpbu2bOH5+sEqbu7++TJk9euXRO1stlsR0fHyZMne3p6GGO3b9/+xz/+8e2333Z0dPAyxio3b95saWlpa2sbHR1ljF26dEnTtI6Ojmw2K5q1tkTX5u3bt+UbHO3t7adOnRobGztz5gzXnlu3brW0tHR3d/P2eWZ/f//Jkyd7e3tFp/z1TsJBnS86s+Va9iMr13KTDk6QeFS6urpIQRofHy8uLq6trV2yZElxcfH27dtJr1KTH/IsMkHAPgGzaRBuL9lnyEvaH7bE9IjPjcR/Rb7Nro1vzzt69OiqVat49Ww2W1BQYJSB3t7euXPn8oU7WZCWL1+eyWQaGxufffbZEydOMMYePHiQTqdXrly5fv3655577t133+3o6Hj++efT6XRVVVU2mzVW6e3tXbhw4caNG1etWrVw4cLh4eEDBw5omrZ27dqxsTHhFxck0hJjmx0dHfPmzeMvyS0vL3/11VfXrl2byWTmzZvX0dExe/bsysrKtWvXLly4cPfu3YwxnvnSSy81NDQUFRXxNclsNrt06dKXX355/fr1Tz/99JEjR2RfvvvuO53ZwlTGmP3IyrXcpIMTJG6lmSDduHGjoaHhxo0bjLGBgYGqqqrjx48bHQsekNEG5MSGAPkwcnEbSeemWb6uWAIP7X8rxXaGLX1PCjWqGJzFBcnp1gb5yaeffPLJ2rVrBfwZM2bwaQrP4TLAGPvggw/4wp0QpLa2NrGU9/PPPz/11FPZbPbSpUt8iGeMtbW11dTUdHR0zJgxg++0Iqt8+umny5cv592dPHmS3z3SDBeNmSVkm0KQjh49unTpUt744cOHuSAJe06dOpVOp7kgzZw589atW4yxq1evPvHEE9ls9sSJE+Xl5bzu1atXZ86c+T//8z+iLmk2L5xoQRIIeGLXrl1vvfWWLjMUQEYbkBNvAuTqHLmOF28O9r3LQ5Bauwu5IAk1GmopGhu8YL9TxpgsSIcOHVqzZo2oXlBQ8Mknn9RPfA4dOiRkgDFWVla2Z88eIUiNjY3PPPPM8slPQUHB9evXGWM9PT2bN2+uq6tbuHDh0qVLOzo6/umf/om3T1YZGBgoLi6eN2/eypUrv/rqK17SQpB0lpBtCkFas2bNvn37eJs3b97kglRYWMhzzpw5wydSHR0dNTU1PJMxNmfOnG+//fbNN9989913ReZTTz21b98+4QtptihsP7KiisuEKjOka9euNTc3C2d27Njx9ttvi0ORCB6Q6BqJhBAgBYlcx0sIkGnddPqtFAt0cmLaXowFZEH64osvVqxYwcvcunVr9uzZ3d3dRyc+3d3dsiDx5bJt27bxTQ3btm2rr6+/JX1GR0fb29sXLFjw+eefX7x4sa2t7eWXX+7o6BBzFLIK7/rSpUsffvhhYWEhX+CxFiTZErJNIUgbN27csmUL7+KHH37ggiQ2NciC9PLLLwtQs2fP7u/v37hxo7xVb+7cuR9//LHwhTRbtOA0sqJi3omQBembb77hc9u+vr5FixZduXKFL9mVl5dj23feQUVFlwTMbi+5bNZ+9WhtOnc6bImtDUKQHO2vExhlQbp58+bcuXMHBgYYY/v27auvrxfFGGOyIDHG9uzZU1BQwAXpzJkzzzzzzO3btxljFy9eLCwsHBsba2xsFC1s3ry5sLBQFiSyyu7duzdu3Mg7Xbly5QcffMAY0zRNvoFkYQnZphCknp6ehQsX8rW49evXWwjSjBkz+NaMtra2Z599ljF2+vTp55577v79+zxdWFj4v//7v0KQSLMFOqeRFRXzToQsSKtXrxYTo2PHjqXT6fr6+nQ6feTIEdKl4AGRZiAz9gTI20vBeB26HDp1M49v5Ujffv6YhqGWovzUSLdkxxg7evToM888U1NTU1xczJVJOKITJMbYiy++KLZ979mzp7Cw8NVXX12wYMGpU6cYYz/88ENhYeGyZcsymUxTU9Ps2bPlQZxLmq7KrVu3ysrKKisrq6qqKisruXhUVlbOnj1b3vBmYYnRDCFIjLEDBw7MmzevsLBwxYoV8+fPl3d4yzOksonPK6+8UlRUdOnSJU7g3XffXbBgwdKlS4uKis6fPy+LK2m24JZHZEXd/BJBC1J+VopawQMSXSMBAgEQIG9WkauIARhjswt1vpXZbHZ4eNim2XIxsuL9+/flrXpyecYYWeXBgwfyZgq+QU5X0eKQbJPvUBB7u0+dOiXmN2ZNGSGYtcxbMJrN84OPLATJLKbIB4EQCJA3qyBIIURCpS6/++67BQsWfPLJJ0ePHn322WfJHch+2AtBmoZq8ICmMQink0QggFs7hn3Cj/jK+QGY4Siq+FY6wpVf4d7e3n379r333ntiIS6/dhzVCj6ymCE5ChAKJ5eAJ7d2ptUScjIkr+N5Yoa3UQx+2PLWfrRmRiD4yEKQzGKBfBB4TECWBJFLioc4a0zY0RKyTbGO54kZRsNc5kw+PgX/jyEBl9eG0+oQJKfEUD6JBIQkyM6T4iEXkNP2tcRCt9ybIZuENAioRgCCpFpEYI+KBORbOLJ9ZvlyGZ52pCVcvTKZ3NOwm5oeN2bWnVn+45pIgUAUCECQohAl2Bg2AXIyRE56zCw10wyzfLId92aQzSITBBQhAEFSJBAwQ2kCpBKQkx4zN8gWHEkaY7nZkjxh4n05MsPMPOSDgAoEIEgqRAE2RICAxa0dO9Z7pSUuzbBjKsqAQFgEIEhhkUe/0SNgdmvHpideaYlLM2xai2IgEDwBCFLwzNFjcglAS5Ibe3hugwAEyQYkFAEB7whM+9tY77pCSyAQMQIQpIgFDOZGmoBXq3aRhgDjQcCMAATJjAzyQcBjAuSeOnKzg8cdozkQiAgBCFJEAgUzo0+A3J8NQYp+YOGBZwQgSJ6hRENJJmDnzpDZb2DN8pPME74nkwAEKZlxh9deErB5Z4icDJHreF4ah7ZAIDoEIEjRiRUsVZIAqShce3TTJlKQyHU8JR2FUSDgOwEIku+I0UG8CZCKwudMmcxj1zOZRw/+MWY+LoQUCCSbAAQp2fGH964JkHeAOjtzD+rWffgMCb+N1WHBIQgIAoYvjTijZCL4NxgqiQFGKUTAbCFOnglxc8mSCnkCU0AgbAIQpLAjgP4jToCUGU1jnZ2EY8ZpE1EIWSCQVAIQpKRGHn57R8C4y47fMdL1QG5/0JXBIQgkmQAEKcnRh++eEdDdGSKnTeT2B/6WI01jmUzuHzmv8sxKNAQCahOAIKkdH1gXWQLGaZPx3XpcjeS7TeTUKrIMYDgIOCMAQXLGC6UTQkD3E6L8vNZNm4yNkIt45OzKWBc5IBA/AhCk+MUUHrklYHNy47YbRq/RQZDcg0ULESUAQYpo4GC2XwQCmLWI6Rc24/kVRbQbTQIQpGjGDVb7RoDcWeDhrEWefnFl0t1bIhXRN3fRMAgoRACCpFAwYIoKBMx+KmSW78hmndhwndOpHamIjnpBYRCIKAEIUkQDB7P9IqCTB96NTkjy7tsoNrpJEnbZ5c0WFWNAAIIUgyDCBS8JkIJkFJL8uiSnWfzBd5lM7vF3uuW7/HpBLRCIKAEVBenMmTNmNPEsOzMyyPeQgHybh03shfNKJ0i182r65SEBNAUCoRBQTpAOHjxYWVlpxgKCZEZGzhebuLz6u15uPKx0wE5xkfB81kIKUpzCFNblgX7jQUAhQbpz584777yTTqchSG6uLf/+undjlcu6cXIqTr64DCuqg4COgEKCtHPnzr1797a3t1sLUmrio3MDh5wAufhD/lUeIWLxc8qn6VeEYgpTQYAkoJAgZbNZxlhXV5e1IJFuIJMTIBd/oi5IUXcq4MVGfBdAILoEFBIkDhGC5OZiIjdxMUa8vdRNLwHXdeSUaqO/+gt0qhEL+OpCd0oRgCApFQ63xpCTIXLJy21PAda375Rqoz9JnnQnQJxTulKN2BTjcJA8AhCkWMWcHOzIJa8IuW3TKQVHf5I86U4o4VCQWCgc0Kk6BCBI6sTCG0ti+TevHacUHP0dLTZ6E34nrShIzIn5KBtDAhCkGAaV/+Xr+W9owiU1rVMKjv7kZIicl4TCVkFioXBAp+oQUE6QrNHgh7HWfJJ8VsHRnzSJnJeEEjjSPHX0MhQm6DRcAhCkcPknrnf/9nSRw2voo7+dxcawLgI1iYVFA/2qQACCpEIUkmKD36Oz3+3nF6dpFxvza9aTWmoS88Q1NBJFAhCkKEYtkjbzcVk3QyL/SHfjnt+jv85+nanWZ3WFFTn0m5gibsKMSBCAIEUiTHEwMpNh/J9wJnLbLqznE9ZnhddIgAAImBGAIJmRQb7HBDQtJ0i6D59S6DLVPOQzCZ1tYoZnfVZXC4cgAAIkAQgSiQWZ3hMg34Wqm1V436t3LZL7I4QgWZ/1zgq0BAJxJgBBinN0lfKNfB0qX7VTyk4zY6x/tWN91qxN5IMACMgEIEgyDaR9JCBu+Is+jHeVxCkFE2IyJGzjHvGlSHL+R67jiepIgAAI6AhAkHRAknsoBINcfXLPhQ/ouj1dPvXl3lpjCzpB4ouNwn5SkMRZY2vIAQEQMBKAIBmZJDFHdy+HHF7dcwmmF/d2ki3Igi3UqKnpcdlIe/fYDaRAIDwCEKTw2CvTM5ZKShkAACAASURBVLmypJsQeGWsbobkVbN+tyPEhtuvablXTMlqxFjuUCxCGs/6bSHaB4EYEIAgxSCIbl0gV5Z8EiS3toZR3yjYXG90gqTsixDluV1nZxgE0ScI2CMAQbLHKdalsEPMOrxGweZDvE6QjLpl3WwwZ8Xcjnfn02JsML6gl9gTgCDFPsTTO0hOhtQcXqd3xocSRsHmxHT5Rt3ywRZnTZJBJMPtrF2UBgF/CECQ/OEaqVbJESr44XWkb/9QS9G97rp73XUjffvNEJLFfF2VIvnwHoWRas48yCCS7ghHkACBEAlAkEKEr1DXoS/sjPTt31K3X9NYRcmFipILre/nZMkIiCzmt/HkCM4ViO9iUHYLg24OJ3ia5YsCSIBAKAQgSKFgV7FTvrwT1gNPt9Ttryi5MNRSxP9VlFzYUkdMkozFKkoukI/I093gcUncb81zaZ5ZdVJKyXU8sxaQDwJBEoAgBUkbfREExgZz8yGuRhWDsyY2VGut3YVb6nJzJrF2Z1aMS5coxjsgB2KibydZ4Qq2E0sflyU5kOt4j+sgBQLhEYAghccePU8QuNedU6OcJk2qkca0LX1P6gTJrJimMVm3BFSsSnEUEZ3biTgikSgCEKREhVtFZ4daijSN5f6b+7Hp438inxstDuUyOemauPM01FIk+4ZVKSONsBZjZUuQBgFrAhAkaz446zsBvk8hNx/qe1KITcXgLL6OJ7Y2mBXjd5VEMW6uo1UpX3fo+Y4PHYBAjAhAkGIUzGi6IpSmtbuQC1LF4KyhliK+jjc2eIG7ZVFMt6/B0Q5srGhF86qB1fEkAEGKZ1wj5xWf6OQmRt2FXI0sdtlpTNNtxstvxwG5skduBIgcTxgMAlEkAEGKYtRiaPO97rrW9+u0TGdFyQWzfQqMsXvddVv+4/Vpi9kERK7sQZBs0kMxEPCcAATJc6RoME8CHYN/rBicda+7bqilSLeNW24xwzJ/7nt92mJyFbO02U48s3yzdpAPAiDgCQEIkicY0YgHBDpZZ4ZlrBuyU8a6BfksORki1/HkWtOmsUtiWkQoAAIkAQgSiQWZIRCwIzYZlulknr1BgRQkch3PPg7skrDPCiVBQEcAgqQDgsPQCDTlXnEnvYGVMkRjHl+x3uoHObsiZY9yDnkgkHQCHn+9/caZSqX87gLth0UgwzKt3YUWT/u2M4XKw/j8duiRHZGzKwgSyQqZIGAkAEEyMkFOCARG+vZX/O6P1k/79na9zg8nzXZDmOX7YQPaBIHoEoAgRTd2sbI89wSgTKfF0759mh55C1GeDMlbG4zPI/e2X7QGAvEgEKggXb9+vaOjo6+vj2Q3NDT0N+lz9+5dYzEs2RmZBJNDvhbPk67FY7w1ponnqxqf9q3+9IixiZtgE3fB5FtT/J1J3r4OwxPyaAQEVCMQnCC1traWl5dv2rSpurr6o48+MoI4fPjwokWL0pOfs2fPGstAkIxMAsjhj+2xXk/L2wz+GO/cz12lJ6san/bt+XaGvA22rsilSEyJxHOM5MmTdQs4CwKJJRCQII2Pj6fT6StXrjDGhoaGSktLf/rpJx30xsbGY8eO6TJ1hxAkHZBgDo2vxSOf65OfMfwx3uJBdkKWxOO9GWORWK8T7vMpke7p2hAkwQcJEDAjEJAgnT59urq6WhjR0NDw2WefiUOeqKmp6enpGRoaevjwoe6UOIQgCRTBJMR6Wu75cpPvKzKup7kx5tH0q6lJSBFfu5Of9h2J9ToBwWwLg1m+qIgECCScQECC9OWXX65fv16w3rp1644dO8QhY2x8fLy4uLi2tnbJkiXFxcXbt2+Xz4p0avIjcpDwlYDZa/F0b89zY4MQJPH6Cd3TvqM1PZLvJMlYyJ8oyQWQBgEQCEiQmpubN2zYIHBvn/iIQ8bYjRs3Ghoabty4wRgbGBioqqo6fvy4XICnMUMyMrGbI+/66rT7sAOxbiZPX/jDtvlb9ez2Pl25it/9Mfe+ie5CoUZiVTBa0yMzQSJ/ojQdFZwHgWQRCEiQWltb161bJ9Bu3bp1586d4tCY2LVr11tvvWXMhyAZmdjKkXd9McbErfbpKou3EInpi3E9bbo2bJ3XmGb2tO8AtjPkJdZWfuXL26pNnAOB2BMISJB6enoqKysFzXXr1rW2topDxti1a9eam5tFzo4dO95++21xKBIQJIHCQYJcLbJ3k10IkrzpYEvfk7q35zkwxqSoxrTcb2MHZ/2573X5ad8BrNf5JB4ePgDChBmyQSBuBAISpGw2W1lZ2dXVxRj78ccfFy9ePDg4yBj75ptv+vv7GWN9fX2LFi3i2/AGBgbKy8ux7duza41cLbInSNwG3S673OuIfvdHz8yTNtEZJ0N+r9e5EGsPAaApEACBHIGABIkx1tPTU15eXl9fX1ZW1t7ezvGvXr1aTIyOHTuWTqfr6+vT6fSRI0fI+GCGRGKZJtNsd5dZvqE5/va8ipIL4u15GtM8fOo2nwbpJkMjffv5LaV73XUWr0cyGOssw7VYO+sOpUEABCwIBCdIFkbYPwVBss/qcUlyMkRODR7X0adG+vbzx57y9bQm1jTtu4v0TZgf8+d8y4L0aOudxrgKtr5fd6+7zryB/M+YibJZvv2ePL8vZb9rlASBiBKAIEU0cE7MJgWJnBo4atXG2yJstsfX5eTVOb5IyLfz5X4CVXJBbLqz2abNYiQbh2JNdOXTfSmiJ2SBQIwIQJBiFEwLV/wZIDWmTfsGIwujxClZkMRPceVtFN7+FFf069MWbVLPSOWTLUEaBEAAgpSYa4APk7oH2rjzvonlHq/gro1cbS5IvKkAfoqrM9hzsSYnnxAkHXYcgoCRgAejibFR/3JwD8k/tvm1bOc1r9O2zLdI8JtSdh5tN22DTgt4K9Zm95/M8p1ai/IgEFcCEKS4RjY4vzIs42bhTrfFjm9nyD24YfLReT79FNc/QORkiFzH888GtAwCUSQAQYpi1NSyuZN1ulm444IkdjQ82l/X1CSeDSEeJtT6ft3Y4AW1nKesIQWJXMejaiMPBJJLAIKU3Nh76LmbXeA6QeIvm9CamnIbvgdn8XfI+rfLzkMIclOe35eSG0caBOJKAIIU18gG7VfeN5N4RXmOlWGZP/e9XvGnX8k/xfXvt7E+kfL2vpRPRqJZEFCKAARJqXBE25j8doHzW1DiZ7billLF4Cz5p7jRRgPrQQAEbBCAINmAhCL2COS3C1wnSHzCJG4p2esZpUAABOJAAIIUhyiq40MeC3ca02T50emTOq7BEhAAAb8JQJD8Jpy49p0u3MmCZNzgkDh8+TqMR+flSw71FCIAQVIoGPEwxdEucK5AYkcDpkf5XQPY1JcfN9RSjQAESbWIxMEe+wt3XL34jgZMj/KLPfmTW/K3UPm1j1ogEBgBCFJgqJPVkU1N4vsg+IMeeBUxW0oWLxfekj+5hSC5IIqqoRGAIIWGPvYd23mJX4ZlRLEMy/Alu9iT8dZBs0fkmeV72ztaAwEPCUCQPISJpqYQsPP4BiFIuptJUxrCgSUBcjJEruNZNoOTIBA+AQhS+DGIsQXTLtxpTONrdFGZHim4mY0UJHIdL8ZXGlyLBwEIUjziqK4X1rvA+Z5vxphQJnU9YblX5GYyjw3MZHI5KnyUNUwFOLAhQgQgSBEKViRNtXh8A99i18SaREJlD8lFMHJ2EooXeHReKNjRqbcEIEje8kRrBAGzhTuuQ1G5e0QugqkjSAR3ZIFA1AhAkKIWsWjaS26fE3u+rZf1FPHYbNOaWb4iZsMMEIgQAQhShIIVYVPFZEj2gW9k4Bvt5Hw10+RkiFzHU9N+WAUC6hOAIKkfo5hYaNwFzgUpEtMjNrGjwbiFgVzHi0nA4AYIBE4gdoKk4LbcwIOqbIe6m0lCkJQ1WGcYNrPpgOAQBLwlEC9BwoDh7dXhQ2taRtN9Mk3STmofevS2SWxm85YnWgMBmUCMBIlczicX/mUASAdIoKmpaUKNmnK/htU6J/7lBKrJuBYWoFXoCgRAQBECMRIkcjkfgqTIhZa7ByPUqFOaJHVqWi4fmqRMoGAICIRGwANBGh8fD8z8VCpl2pfZ9luzfNOGcMJ7Ap2dXIQyE7MiSY9yySauSZ2dnd53jBZBAASiQ8CZIK1bty6VSqXT6fb2duFjcXGxSPudsBIkcjJEruP5bSXaNxDIZPi9o07NeBNpUpAy8mN5DC0gAwRAIPYEHAjSqVOn1q5dOzIycv369UWLFv3nf/4np6O0IJHreLGPqmIOTi7WaRO3jnTTI37I+P+wcKdY6GAOCARKwIEgvf7669evXxfWLVq06C9/+QtjTBVB4j8Vkf/KVufhl4JaUhOTM6RHq3NTRWlyHS+j8Y3gnayzk2H5LqnXCvxOMAEHgrRz504xK2KM3b9/P5VKXb582UNBun79ekdHR19fn1lErJbseB1syzVjF2r+5D0kUpAereNlOjP8Qavi90kZloE4hRo3dA4CgRJwIEgPHz5MpVK1tbXCwMuXL6dSKa8EqbW1tby8fNOmTdXV1R999JHoRU5ML0hy6cSmlfx18OTCXdPUfQ2Pd9nxR9txEeKh489d5c8WqhictX3wV3/ue32kb7+dwI707R9qKbrXXXevu85mFTvNogwIgIB/BBwIEmMsm83qpi/Dw8O///3v3ds3Pj6eTqevXLnCGBsaGiotLf3pp5+MzUKQjEz0OQr/OnhSk/gaXefELSX9nm8uP7IsjfTtH6l7MvfDpUzuX6Zz+pW9kb79W+r2axqrKLlQUXKh9f2cLOlB4RgEQEAxAs4Eyb8d3qdPn66urhZwGhoaPvvsM3EoEqnJj8hBYgoBclchuf9wSrXgDiY16fFdJOPmOvFCCi5LI3VPjpXMGmop4v/GSmZ1/G6WmDyRt5221O2vKLkgqlSUXNhSZ2teFRwI9AQCIGAgYCpImUzm8uXLcvnTp097tTonN8vTX3755fr160X+1q1bd+zYIQ5FAjMkgYJOkLsKVRIkxhjXEtp+KfeR5HRqXI0qBmfxt8q2dheO1D2Z+zexdsdvMsm3nbb8x+tcjeQqW+pycyas3UmAkQQB5QiYCtLWrVtTqZS4l/P73/8+lUrt3r3bJw+am5s3bNggGt8+8RGHIgFBEijohNmvgM3y6Vb8zbUpSIyxe911YyWztv/pkRRxQdrSN6FGk4Kks/XPfa9rmc6KP/2KFxZVIEg6UDgEAQUJmAoSY+zs2bOpVKqqqmrx4sVlZWXXrl3zz4HW1tZ169aJ9rdu3bpz505xKBIQJIGCTpCTIXIdj64fRK58f8i6v6GWIqZpQy1FsrpoLJfD843Vc4U1Rlbh+cYqyAEBEFCEgJUgMcYOHz7M79q0tbX5anFPT09lZaXoYt26da2treJQJCBIAgWdIAWJXMej6weRa1+Q+HaGkbont/Q9KWvSn/8jd1eJ3KfAtzPk5kNSlYrBWa3v11WUXCCrBOEz+gABELBBwFSQhoaGqqqqUqlUe3v78ePHU6lUfX29jQbzLJLNZisrK7u6uhhjP/744+LFiwcHB41tQZCMTPQ5Cu+y46ZqzPSq0/kiBKm1u5ALUk5augs7M1pOkwYv6MozxoQgyVWGWor4XjuyirER5IAACIRCwHRoqKqqeu2113755Rdu1t27d8vLy/3b1MAY6+npKS8vr6+vLysrk5+VJ3OBIMk0TNMK/zrY/g0k4Z1xl91I3ZP8R0tNrEkUkxPYZSfTQBoEokLAVJDIFbO9e/eG6xgEKVz+7nvXvTTWToO5H7e+XzhWMmusZBbTNLG/LvesKNZEvgH9XncdX6OrKLmgaQz76+xwRhkQCJ2AqSCFbhlpgI+CFNbTDcLql+Trf6b9G0iyLSN9+/kzF4Zaioxbt5tYk7FZ6ypy40iDAAgoQgCCNBGIsO67kP3GWqLs30By9A159KOliWffOaqIwiAAAuoQgCCx3KOl5WeE8+CQ29W8jRvZb2biJ56io3g9sDyPG0iChJ0EZMkOJZQBAWUJQJBYTo2M7yoNQJCM/XZ2Mk1jTVNv1AdgSVCXp9+CxP2wliU8dDWoaKMfEHBMAILEchpAfszyycJ5ZBrb5xKly4+RIBnv9OSBzWYVUpbw0FWb9FAMBEIhYDIWh2KLjU592dRAjvjkepoNCx0UMfarafT6oU6iHPShVlGfbiBZOKmTJWwHt2CFUyAQOgEIEsstkelWyZjJOp634TL2y7cz6NYPA5BGb/0yaS2Y9Tqyc951xZ9+hYeuknyQCQKKEIAgTQSC3O0WQIiM/Rq3VxhvNQVgmA9dhChI/DmtuXcj4aGrPkQWTYKAVwQgSJMk+UQkkyG2FUwW8eX/un6NEmWcvflih++NBnkDyegMHrpqZIIcEFCNAARJtYhMbkMPXhp9JhGuIIln3IX70NVY/8bM5wsIzSeAAAQpAUFWw8XgdzTIfgtBCvGhq/Gd/cqkkQaB/AlAkPJnh5r2CYR7A0nYGeIuO3JvinFfizAVCRBIIAEIUgKDHoLLeTxT1Q8rQ3zoKrk3BYLkR5TRZnQJQJCiG7soWR7uDSSZVFgPXTX7LZlZvmwz0iCQEAIQpCgEOvq3wsO9gaRCjMnJELmOp4K1sAEEQiEAQQoFu5NOo38rXJEbSE6ge1+WFCRyHc/7vtEiCESEAARJ7UCRf0KTY5vCfkCQeHCi/6eFwhcZTIsFAQiS2mEk/4SOmiCpcwMp9GDrfgYduj0wAASUIgBBUiocBmPMbnmb5RsaUCEDN5BUiAJsAAH1CUCQ1I4RORki1/FU9QPrdapGBnaBgHIEIEjKhWSKQaQgket4U6opdABBUigYMAUE1CYAQVI7Pmzi7RjyI8DJl5orvC8cN5CUv8JgIAioQgCCpEokrOywvhWu9uYtCJJVZHEOBEBAIgBBkmBEMUneTyIX+kLyDjsaQgKPbkEgegQgSNGL2RSLyftJyggSbiBNCRYOQAAELAlAkCzx+HHS2/s9Zvu/zfL98Mi8TUWeqWpuIM6AAAgoRACCFGwwPL/fQ06GyHW8YB3lveEGUhjU0ScIRJUABCnAyJE6QSqKfaPI6uQ6nv02vSuJG0gkS28nyWQXyASBKBKAIAUYNVInSEVxZJTnsy5HvZsXxg0kko2q4SKNRSYIBEoAghQgbrP7Omb59k2z3hduvx1PS0KQjDj9mCQbe0EOCESUAAQpwMCRkyFyiArQKP+6wg0kI1ufJsnGjpADAlEkEKggXb9+vaOjo6+vjyQ1NDT0N+lz9+5dY7FUKmXMjEwOKUjkEBUZl6wMxQ0kIx2zybBZvrEF5IBAjAkEJ0itra3l5eWbNm2qrq7+6KOPjEwPHz68aNGi9OTn7NmzxjLRFiSbzwEyuh3BHKzXkUEj/yaJ7ySZZIBMEDAlEJAgjY+Pp9PpK1euMMaGhoZKS0t/+uknnVGNjY3Hjh3TZeoOlROkPPZLKXm/R8fZzeFI3/6hlqI/971eMThrpG+/m6biV5cUpPhOkuMXQHjkL4GABOn06dPV1dXClYaGhs8++0wc8kRNTU1PT8/Q0NDDhw91p8RhavIjcsJMYL+Ugf5I3/6RuieZpnVmtLGSWffeL7zXXWcolegMXDWJDj+ctyQQkCB9+eWX69evF5Zs3bp1x44d4pAxNj4+XlxcXFtbu2TJkuLi4u3bt8tnRVqhGRK5zkL+ASysT0BipO7JsZJZQy1FFYOzWrsLx0pm5fQJn6kE4j5JnuotjkDANoGABKm5uXnDhg3Cqu0TH3HIGLtx40ZDQ8ONGzcYYwMDA1VVVcePH5cL8LRCgkSusyRYkMYGL9x7P6dAXI00pmlMa+0uHKl7MvcPa3fGqxk5IAACUwn4KEi7du3iGxQqKytbW1vXrVsnut66devOnTvFoTGxa9eut956y5ivkCCZ7Ysyyzc6E6+ce911fI2uYnAWVyONaVv6JtQodoKUx63DeEUb3oCALwR8FKSrV6+em/h8/fXXPT09lZWVwoN169a1traKQ8bYtWvXmpubRc6OHTvefvttcSgSCgkSORki1/GE9bFODLUUMU0baikSasQTIj823uMmUGxCCUdUI+CjIMmuZrPZysrKrq4uxtiPP/64ePHiwcFBXuCbb77p7+/v6+tbtGgR34Y3MDBQXl6u+rZvUpDIdTwZRGDpwP+G59sZRuqe3NL3pNCkisHcvobczCkuWxvIPznIayGwUKMjEIgNgYAEiTHW09NTXl5eX19fVlbW3t4uCK5evZrPjY4dO5ZOp+vr69Pp9JEjR0QBOaHQDEnlHxWF8Te8EKTW7kIuSBWDuftJfB1vbPCCHMfopsk/OSBI0Q0oLFeKQHCC5InbagkSY0zB/VKh/g0vdtkNtRRxNYrZLjuzW4Rm+Z5c9mgEBBJCAIIUu0CH+jf8ve46vkY3VjKLaVr89teRkyHyb4DYXVhwCAR8JwBB8h1x0B2Y/a1ulu+1fSN9+3Oy1F031FIUv93epCCRfwN4zRXtgUD8CUCQYhdjcsjE3/DexTmMO3TeWY+WQEBhAhAkhYOjM83mxjlSkPA3vA6mu0MFbx26cwi1QUAJAhAkJcIwvRGO/ix3VHj6vlECBEAABIIgAEEKgrLbPsgFN3ImJHrC3/ACBRIgAAIRIQBBikKgyAU3a0Gy45bNNUA7TaEMCIAACLgmAEFyjTCABsw2yJnl2zEJy3p2KKEMCIBAgAQgSAHCzrsrcjJEruPZ7IKsS/Zis0EUAwEQAAHXBCBIrhHabMDN+hgpFeQ6nk1jyLpkLzYbRDEQAAEQcE0AguQaoZ0G3K+PuW9BttNsrc8sX66LNAiAAAj4QwCC5A9XuVWv1sc83DhHToZIO2VH3KTdTBDd9Iu6IAAC0SEAQfI/Vgquj5GCRNrpCR5vp3eemIRGQAAE1CMAQfI/JmbrYGb5/luU6yEwkSAnXqQiBuM4egEBEFCVAATJz8jwdSpNY8bJBzlM+2kL0baHa4BE65NZRt+5HDY1TZbA/0EABEAgRyDxguTfvQ0xBeGzgUwmNykRH3KYFmfjlDCbCJrlx8l3+AICIOCEQLIFSWgGR6bTDCcc9WV1EyDekVin8rAjfcfqHQuvZdN0fORTSIMACCSVQIIFiRwTydEzj4vDOAHi3WkTb/eWp0p5NB6tKiRSIx9fnfJvHuyr2WgcBBJGIMGCRI6J5OiZxzVhth5llm+nC3JUJTPttBZkGf9mona8CLd3OxaiDAiAwASBBAuSmTaY5Tu6YkhhI+dkNpslR1Uy02aDARfjvmcyTNOm3Evz2wySORkdvy1B+yAAAtMRSLAgkaMSOX5NB5E4TzZOzsmIyoYs0iqdGvFKZL+G9kLOCHJWRzKPBKWQg4TuQSAEAhCkqdDJ8WtqEbtHOsFws5GBtIpsUP2h1kMsdiJhNt81y7fTJsqAAAj4QyDBghTAj0O9WqciR0++P8J4WZCFjcVCyTGb6vm3y4NUaNKMUICgUxAAAYlAsgWJMeaVZkhMvU+So6puqsF7VXyoJad6pHdeQSQbJ83wqke0AwIgkC+BpApSkLcx8o3N43pmo6pxYqH4UGs2ezPLf4zARUqn3ORSp4vmURUEQMArAokUpMBGKA9lj7SZzPTq0vCjHVJZA5jVRWIe7AdwtAkCkSKQPEEihz9yoHQZSM/VghxVyUyXlvtXneSs+KzOPxpoGQRAYCqB5AkSOfyRA+VUUs6OApM9R2bZnLHZLOaoa1HYc50WLSMBAiAQcQLJEySz2xVm+fkFOBjZc2SbTSWwWcxR17rC0ZrV6YzHIQiAgG8EkidI5GSInNC4gW4mb2b59vvKb/pCOmhEYbOYfWtREgRAAARsE4AgTaAiJzS2IRIFjWO92GJOlLadlff0hXTQaKTNYrbtRUEQAAEQsE9ARUE6c+aMmQOpVMrslIP8vId1+30Yx3rGiNf02W/QTM/IjozNyjMzeY4l5+dej2VyPZjlGztCDgiAAAjkS8BkAMq3Off1Dh48WFlZadaON4IkBndfn/Xpuey5mb4I3eJWCU3SPepUFJMDQK7jyQWQBgEQAAEvCCgkSHfu3HnnnXfS6XQQguQFu+nb4EO5V7JnNk0xy5ft40rD7RFKyRVO/qEoKUikEMqNIw0CIAACXhBQSJB27ty5d+/e9vb2+AiSFxF63AapFvanL3xWJKsRf9CDyOc9iQL8UJarx6YgBQIgAALeE1BIkLLZLGOsq6vLWpBSEx/vSajfok6QuJBomoNbU/x5rMYZm27hztuJnfpgYSEIgIAaBBQSJA5kWkFSg1tIVojpC0+I6YtIWNvFNUxXhsuPnXU/XUUcggAIgICnBMIUpF27dqUnPvKUCII0TXyFfvDpDp8hZTK5eZLxWau6tnSrc/wsr5jJ6MriEARAAAQCJhCmIF29evXcxOfrr78WbnspSHz85YN1Z6foIvIJvstAzJa4P3YEyewVUNi2EPlrAg6AQBwIhClIJD/PBCm/8Zq0KdxMo6xq2qPXOOkM090K0p0Vh6JBXt6mkonqSIAACICAPwRiKkjk3jPdpgB/gHrcKimrXFF0c77OztzPWqddteP25bdtQSgZZlQehxnNgQAI5AgoJ0jWYbH7w1hyxIycIJnJKvnycu6yf3sTSGm0jhbOggAIgIATAjEVJLNx2SzfCTJ9Wf/mDRaySsoDKWB6c/M6JluOnMDn5ToqgQAIBEYgpoJEjpXkqOqSNCkMvE33QmUmn+LeD9+vIVbqSAFz6SCvTrZMQvakOzQCAiCQSAJJEiRyVLWI+rSKQiocH6YthMqiR90pcsQXnXrSha5Hs0MLaTSrgnwQAAEQcEggpoJktr/ZPh07wz2pcLyi8Wc9pLpY20NWkTvl4iQ/eWFaEbXu0ewsaYmQRrNayAcBEAABJwTiK0huHulNDrXGQdli3qDbAscF0uYWODl+dnRRlHdUWNSyk+Cap/tFlyyNdhpBGRAAARCwJBBrQbL0Q8bRFgAADTJJREFU3OokOdQaBcmYw1XQQqisejU5Z5wGkQVtiihZ1zqT65xQO/Fkhzz01bojnAUBEEg2AQgSFX+bikIKktlTfEjBoDqfJs9sUc6miE7TuuG0bLYsjcY1SUNVZIAACICAIwIQJAoXqTTy0CwqiXkDzxGzB/GIObF2RwqGaMdmguyO17UpojY7EsVIs0k+ogoSIAACIJAXAQgShY0ccOWhWZ6mcJEQOwv4oVAOIVHuF7jMFJG3TNpMVqE8Ns3zSedM+8MJEACB5BKAIJnEXigKPy8/8M3ilCwAPC22A5j04yBbVkRRTeiQSIhTjDl4VZJcS06TzcpuyoWRBgEQAAEXBCBI5vBkRRHzG3IsFqO2tWaYd2XrzLSTFQultNUBVUi4Jp8k3ZQLIA0CIAACzgkkQJDk5TVxR8c5qUc1yLFYjNrTakbe/ZptHNcJJCmibjp1/4sul72jOgiAQGIIxF2QPJ80WEuOUCb5AtJphnzKUZpsnBRIR83aKeyHztnpF2VAAASSRCDWgkQqATms2w85WV10RJ71UDM811f7jqMkCIAACPhMINaCRCoBqRn2KZPV5Y781gxMVuwHCyVBAAQiRSDWgmS9vJZ3nKaVHGhG3mxREQRAIMEEYi1I5GxGLK+5iTokxw091AUBEAABikDyBEleXqOI6PO83aSnbx3HIAACIAACjwjEWpDcb1mednUOFxIIgAAIgIBHBOIuSAG8hMKjSKAZEAABEEg4gQQIUt4RJhf3yPtSeXeBiiAAAiAAApMEIEiTJIz/92mTnrEj5IAACIAACDCWeEGy2LNAToY82aTn65Vn4ZGv/aJxEAABEHBHINmCZL1ngRQkch3PXQy8rG3tkZc9oS0QAAEQ8JhAggWJnOvoRCha47sdjzy+ftAcCIAACHhGIMGCRM51dILkZpOezRh5uMJm0yObhqEYCIAACARLIMGCpMKeBW9nYCp4FOzli95AAATiRCDBgmScDIn5UDAR9nyFLXSPguGGXkAABGJKAII0NbDkqtfUIp4dkX2RomKzS7Iu2YvNBlEMBEAABAIkkGBBcv9gIZdx8mOFzds1QJcOojoIgAAIOCGQbEESa3SZDNM01tTkBJ3rsuSEhlzHc9QVbyEUjxzZicIgAAIgMJVA4gVpKo5Aj0hBwgpboDFAZyAAAgoRCEGQzpw5QwIYGhr6m/S5e/eusVgqlTJmRjgHK2wRDh5MBwEQ8JhA0IJ08ODByspK0onDhw8vWrQoPfk5e/assVjcBCncNUMjX+SAAAiAQHgEghOkO3fuvPPOO+l02kyQGhsbjx07Zo0ihoJk7TDOggAIgEBiCAQnSDt37ty7d297e7uZINXU1PT09AwNDT18+NCMf2ryY1YgQfkePuIhQdTgKgiAgLoEghOkbDbLGOvq6iIFaXx8vLi4uLa2dsmSJcXFxdu3byeZYYb0CAtuPpHXBzJBAASiTCA4QeKUzATpxo0bDQ0NN27cYIwNDAxUVVUdP37cCBaClGNCbg0n9+wZCSIHBEAABFQl4KMg7dq1i29QkKdEZoKk47Nr16633npLl8kYgyDlmJBbwyFIxssFOSAAApEi4KMgXb169dzE5+uvvxZMzATp2rVrzc3NotiOHTvefvttcSgSEKQcCj8e8SAQIwECIAACIRHwUZBIj4yC9M033/T39/f19S1atOjKlSt8ya68vDwp275JTNaZ5GSIXMezbifvs9hPkTc6VAQBEDAnEL4grV69ms+Njh07lk6n6+vr0+n0kSNHSJsxQ8phIQWJXMcjIbrMxH4KlwBRHQRAwIRA0IJkYobdbAjSI1JhqQI5DyMF0m5IUQ4EQAAEHhGAIEX2UgjlIarkPAyCFNmLCIaDgFIEIEhKhUN5Y7CfQvkQwUAQiC4BCFJ0YxeG5eRkiFzHC8M69AkCIBBpAhCkSIcvcONJQSLX8QI3DR2CAAhEnQAEKeoRDNz+sPZTBO4oOgQBEAiYAAQpYOCx6C6U/RSxIAcnQAAELAhAkCzg4BQIgAAIgEBwBCBIwbFGTyAAAiAAAhYEIEgWcHAKBEAABEAgOAIQpOBYoycQAAEQAAELAhAkCzg4BQIgAAIgEBwBCFJwrNETCIAACICABQEIkgUcnAIBEAABEAiOAAQpONboCQRAAARAwIIABMkCDk6BAAiAAAgERwCCFBxr9AQCIAACIGBBAIJkAQenQAAEQAAEgiMAQQqONXoCARAAARCwIABBsoCDUyAAAiAAAsERgCAFxxo9gQAIgAAIWBCAIFnAwSkQAAEQAIHgCECQgmONnkAABEAABCwIQJAs4OAUCIAACIBAcAQgSMGxRk8gAAIgAAIWBCBIFnBwCgRAAARAIDgCEKTgWKMnEAABEAABCwIQJAs4OAUCIAACIBAcAQhScKzREwiAAAiAgAUBCJIFHJwCARAAARAIjgAEKTjW6AkEQAAEQMCCAATJAg5OgQAIgAAIBEdALUG6cuVKR0fH3//+dzMAqVTK7BTyQQAEQAAEIk1AIUHatWtXdXX1pk2bXnvttd/+9re//PKLkWxcBQl+GWOtcg7ipXJ0YFt0CagiSN9//31JScmdO3c4yl//+tfNzc1GrBgIjExUzkG8VI6O0ba4xsvoKXLUJKCKIPX39587d04wamhoOHDggDgUiRQ+IAACfhIQ3zUkQCB4AqoIkuz5tWvXSkpKvv/+ezkTaRAAARAAgXgTUE6QBgYGMpnMxx9/HG/u8A4EQAAEQEBHIExB2rVrV3riU1lZyc26fPnykiVLjhw5orMShyAAAiAAArEnEKYgXb169dzE5+uvv2aMnTt37oUXXvjqq69iDx0OggAIgAAIGAmEKUiyNdevX0+n06dPn344+RkfH5cLIA0CIAACIBBvAqoI0p49e3Rbh/7whz/EGz28AwEQAAEQkAmoIkiyTUiDAAiAAAgkkAAEKYFBh8sgAAIgoCIBCJKKUYFNIAACIJBAAhETpGmfvhrpEJ45cybS9uuMv379ekdHR19fny4/HocxCxZjLN5frnhcdbH3IkqCZOfpq9EN2MGDB8XvsaLrhbC8tbW1vLx806ZN1dXVH330kciPRyJmwWKMxfvLFY+rLgleREaQbD59NYoxu3PnzjvvvJNOp2MjSOPj4+l0+sqVK4yxoaGh0tLSn376KYqhMdocv2AxxmL85TJGEDkqE4iMINl8+qrKrM1s27lz5969e9vb22MjSKdPn66urhb+NjQ0fPbZZ+Iw0on4BYsxFuMvV6QvtgQaHxlBkmMTs6evZrNZxlhXV1dsBOnLL79cv369CNnWrVt37NghDiOdiF+wdOGI2ZdL5x0OFScQPUGK69NX4yRIzc3NGzZsEJf+9omPOIxBIk7BksMR1y+X7CPSKhNQWpDi+vRVo18xmyG1trauW7dOXPdbt27duXOnOIxBIpaChEcbx+DKjLoLSgtSXJ++qvOLX0NxGuN6enrk5cd169a1trZG/asi2x+nYHG/8GhjOb5Ih0VAaUGSocT+6atxGuOy2WxlZWVXVxdj7Mcff1y8ePHg4KAczain4xQsxljsv1xRv96SY39kBCn2T1+N2RjX09NTXl5eX19fVlbW3t4es29UzIIV+y9XzC6/GLsTGUGKcQxi7Nrw8DDflhZjH+EaCICAVwQgSF6RRDsgAAIgAAKuCECQXOFDZRAAARAAAa8IQJC8Iol2QAAEQAAEXBGAILnCh8ogAAIgAAJeEYAgeUUS7YAACIAACLgiAEFyhQ+VQQAEQAAEvCIAQfKKJNoBARAAARBwRQCC5AofKoMACIAACHhFAILkFUm0AwIgAAIg4IoABMkVPlQGARAAARDwigAEySuSaAcEQAAEQMAVAQiSK3yoDAIgAAIg4BUBCJJXJJPeztmzZ998882rV69yEB9//PH27duTDgX+gwAIOCEAQXJCC2UtCaxatepf//VfGWNnzpxJpVJ/+9vfLIvjJAiAAAhMIQBBmoIDB24I9Pf3v/DCCx9++OGSJUsOHDjgpinUBQEQSCABCFICg+6jy6dOnUqlUr/5zW987ANNgwAIxJQABCmmgQ3JrePHj6dSqX/5l38ZHh4OyQR0CwIgEFUCEKSoRk5Bu3/66afFixf/93//9yuvvIIdDQoGCCaBgOIEIEiKBygy5mWz2ddff339+vWMscuXL6dSqb/85S+y9V9PfOQcpEEABEBAJgBBkmkgnT+Bjz766J//+Z8HBwd5E3xrgzj8v//7vyVLljQ3N+ffAWqCAAjEnQAEKe4RVsC/Y8eOVVdX/+Y3v4EgKRANmAAC6hKAIKkbm9hY9vXXX4+MjGzfvh2CFJuYwhEQ8IMABMkPqmiTIABBIqAgCwRAQCIAQZJgIOknAQiSn3TRNgjEgQAEKQ5RjIQPEKRIhAlGgkCIBCBIIcJPVtcQpGTFG96CgHMCECTnzFAjLwIQpLywoRIIJIgABClBwYarIAACIKAyAQiSytGBbSAAAiCQIAIQpAQFG66CAAiAgMoE/h8FRaACFadcEAAAAABJRU5ErkJggg==)</p>
+<p><a class="reference external" href="https://stats.stackexchange.com/questions/287425/why-do-you-need-to-scale-data-in-knn">https://stats.stackexchange.com/questions/287425/why-do-you-need-to-scale-data-in-knn</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">XX</span><span class="p">,</span><span class="n">yy</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span><span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                          <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                          <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">48</span><span class="p">)</span>
+
+<span class="n">XX</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">30</span> <span class="o">+</span> <span class="mi">150</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Media x: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">XX</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SD x: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">XX</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Media y: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">XX</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SD y: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">XX</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media x: 150.4912351511699
+SD x: 39.90933364722069
+Media y: 0.011031649918614495
+SD y: 1.2066153568418274
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">XX</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kf</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.885
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">XX_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">XX</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Media x: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">XX_scaled</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SD x: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">XX_scaled</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Media y: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">XX_scaled</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SD y: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">XX_scaled</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media x: 1.4210854715202004e-16
+SD x: 1.0000000000000004
+Media y: -1.1102230246251566e-17
+SD y: 0.9999999999999997
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">knn</span><span class="p">,</span> <span class="n">XX_scaled</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kf</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9675
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="arboles-de-decision">
+<h2>2. Árboles de decisión<a class="headerlink" href="#arboles-de-decision" title="Permalink to this headline">¶</a></h2>
+<p>Continuaremos trabajando con el dataset de cancer de mama para familiarizarnos con los árboles de decisión</p>
+</div>
+<div class="section" id="mi-primer-arbolito">
+<h2>2.1 Mi primer arbolito<a class="headerlink" href="#mi-primer-arbolito" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># instanciemos el modelo y entremoslo en el conjunto de autos</span>
+<span class="n">arbol</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">arbol</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9413145539906104
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># veamos que tan bien le fue a este modelo</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="o">=</span><span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.93      0.94      0.94        90
+           1       0.90      0.89      0.90        53
+
+    accuracy                           0.92       143
+   macro avg       0.92      0.92      0.92       143
+weighted avg       0.92      0.92      0.92       143
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualicemos los errores de este árbol en una matriz de confusión</span>
+<span class="n">cf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cf_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_31_0.png" src="../../_images/KNN_Arboles_31_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="feature-importance">
+<h2>2.2 Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">¶</a></h2>
+<p>Los árboles nos permiten definir una manera de medir la importancia de los features (o <em>Feature Importances</em>) basado en la ganancia de información obtenida cada vez que se utilizo cada feature para hacer un split. Para esto, una vez entrando el árbol, el método que utilizaremos es:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># arbol.feature_importances_</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculando las 5 feature importances mas altas</span>
+<span class="n">importances</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">arbol</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">importances</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7     0.8602
+23    0.0899
+20    0.0499
+29    0.0000
+13    0.0000
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f5_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">feature_names</span><span class="p">)[</span><span class="n">importances</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_list</span><span class="p">()])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">importances</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">f5_names</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_34_0.png" src="../../_images/KNN_Arboles_34_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="desbalance-de-clases">
+<h2>2.3 Desbalance de clases<a class="headerlink" href="#desbalance-de-clases" title="Permalink to this headline">¶</a></h2>
+<p>Como este dataset tiene un desbalance de clases, podes incluir eso en el modelo utilizando el parámetro class_weight que nos permite manejar directamente el desbalance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arbol</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                               <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">)</span>
+<span class="n">arbol</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9460093896713615
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="o">=</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="o">=</span><span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       1.00      0.90      0.95        90
+           1       0.85      1.00      0.92        53
+
+    accuracy                           0.94       143
+   macro avg       0.93      0.95      0.93       143
+weighted avg       0.95      0.94      0.94       143
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cf_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cf_matrix</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_38_0.png" src="../../_images/KNN_Arboles_38_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="visualizacion">
+<h2>2.4 Visualización<a class="headerlink" href="#visualizacion" title="Permalink to this headline">¶</a></h2>
+<p>Para visualizar el árbol sklearn tiene el método tree.plot_tree:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_tree</span><span class="p">(</span><span class="n">arbol</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_40_0.png" src="../../_images/KNN_Arboles_40_0.png" />
+</div>
+</div>
+<p>Podemos obtener una representación mas estilizada con la ayuda de las librerías <em>graphviz</em> + <em>dot</em>. Ref: <a class="reference external" href="https://towardsdatascience.com/visualizing-decision-trees-with-python-scikit-learn-graphviz-matplotlib-1c50b4aa68dc">https://towardsdatascience.com/visualizing-decision-trees-with-python-scikit-learn-graphviz-matplotlib-1c50b4aa68dc</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># libreria</span>
+<span class="kn">from</span> <span class="nn">sklearn.externals.six</span> <span class="kn">import</span> <span class="n">StringIO</span>  
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span> 
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">export_graphviz</span>
+<span class="kn">import</span> <span class="nn">pydotplus</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">arbol</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
+                <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/sklearn/externals/six.py:31: FutureWarning: The module is deprecated in version 0.21 and will be removed in version 0.23 since we&#39;ve dropped support for Python 2.7. Please rely on the official version of six (https://pypi.org/project/six/).
+  &quot;(https://pypi.org/project/six/).&quot;, FutureWarning)
+</pre></div>
+</div>
+<img alt="../../_images/KNN_Arboles_42_1.png" src="../../_images/KNN_Arboles_42_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="overfitting-profundidad-del-arbol-y-post-pruning">
+<h2>2.5 Overfitting: profundidad del árbol y post-pruning<a class="headerlink" href="#overfitting-profundidad-del-arbol-y-post-pruning" title="Permalink to this headline">¶</a></h2>
+<p>Dado que los árboles son modelos que tienden a overfittear tenemos que recurrir a distintas técnicas para mitigar este problema. Veamos primero el efecto de la profundidad del árbol en el trade-off sesgo varianza.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">profundidad</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">resultados_train</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">resultados_test</span>  <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">depth</span> <span class="ow">in</span> <span class="n">profundidad</span><span class="p">:</span>
+    <span class="c1"># instanciamos el modelo uniforme</span>
+    <span class="n">arbol</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="n">depth</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s2">&quot;balanced&quot;</span><span class="p">)</span>
+    <span class="n">arbol</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">resultados_train</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">))</span>
+    <span class="n">resultados_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># veamos que paso en cada caso</span>
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">profundidad</span><span class="p">,</span> <span class="n">resultados_train</span><span class="p">,</span> <span class="n">profundidad</span><span class="p">,</span> <span class="n">resultados_test</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;accuracy train&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy test&#39;</span><span class="p">]);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;profundidad&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;accuracy&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_45_0.png" src="../../_images/KNN_Arboles_45_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># veamos que pasa con un árbol sin corte de profundidad</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">2021</span><span class="p">)</span>
+<span class="n">arbol</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">arbol</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="c1">#print(classification_report(y_true=y_test,y_pred=arbol.predict(X_test)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy en entrenamiento: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy en test: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en entrenamiento: 1.000000
+Accuracy en test: 0.909091
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># grafiquemos este árbol</span>
+<span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">arbol</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
+                <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_47_0.png" src="../../_images/KNN_Arboles_47_0.png" />
+</div>
+</div>
+<p>Una técnica que nos permite mitigar el overfitting es lo que se conoce como post-prunning. El objetivo de esta técnica es <em>podar</em> el árbol entrenado, penalizando de alguna forma los árboles más complejos. El algortimo de poda que tenemos implementado en Scikit-Learn es el <a class="reference external" href="https://scikit-learn.org/stable/modules/tree.html#minimal-cost-complexity-pruning">Minimal Cost-Complexity Pruning</a>. El hiperparámetro que controla esta penalización es ccp_alpha<span class="math notranslate nohighlight">\(\geq 0\)</span>, cuando este hiperparámetro es 0, no realizamos ningún tipo de poda, y a medida que aumentamos dicho hiperparámetro penalizaremos más fuertemente la cantidad de nodos terminales del árbol.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arbol</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">arbol</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="c1">#print(classification_report(y_true=y_test,y_pred=arbol.predict(X_test)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy en entrenamiento: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy en test: </span><span class="si">%f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy en entrenamiento: 0.971831
+Accuracy en test: 0.916084
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dot_data</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span class="n">export_graphviz</span><span class="p">(</span><span class="n">arbol</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="n">dot_data</span><span class="p">,</span>  
+                <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounded</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">special_characters</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">graph</span> <span class="o">=</span> <span class="n">pydotplus</span><span class="o">.</span><span class="n">graph_from_dot_data</span><span class="p">(</span><span class="n">dot_data</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>  
+<span class="n">Image</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">create_png</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_50_0.png" src="../../_images/KNN_Arboles_50_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># veamos como afecta el rendimiento y la profundidad del árbol</span>
+<span class="n">ccp_alpha_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">resultados_train</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">resultados_test</span>  <span class="o">=</span> <span class="p">[]</span>
+<span class="n">profundidad</span>      <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">ccp</span> <span class="ow">in</span> <span class="n">ccp_alpha_vals</span><span class="p">:</span>
+    <span class="c1"># instanciamos el modelo uniforme</span>
+    <span class="n">arbol</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="n">ccp</span><span class="p">)</span>
+    <span class="n">arbol</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+    <span class="c1"># guardamos la profundidad del árbol</span>
+    <span class="n">profundidad</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arbol</span><span class="o">.</span><span class="n">tree_</span><span class="o">.</span><span class="n">max_depth</span><span class="p">)</span>
+    <span class="n">y_train_pred</span> <span class="o">=</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">arbol</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+    <span class="n">resultados_train</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">y_train_pred</span><span class="p">))</span>
+    <span class="n">resultados_test</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ccp_alpha_vals</span><span class="p">,</span> <span class="n">resultados_train</span><span class="p">,</span> <span class="n">ccp_alpha_vals</span><span class="p">,</span> <span class="n">resultados_test</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;accuracy train&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy test&#39;</span><span class="p">]);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;ccp_alpha&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">);</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ccp_alpha_vals</span><span class="p">,</span> <span class="n">profundidad</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;ccp_alpha&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Profundidad&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/KNN_Arboles_52_0.png" src="../../_images/KNN_Arboles_52_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MachineLearning/5_KNNyArbolesDeDecision"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../3_Regularizacion/Regularizacion.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Regularización - Optimización - Feature Engineering - Pipelines</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../6_Ensamble/Bagging%26Boosting.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ensambles: Bagging &amp; Boosting</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

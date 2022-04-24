@@ -1,0 +1,4141 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Wrangling Avanzado &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Ejercicio Pandas IV: Informe macroeconómico de Argentina" href="ejercicio/ejercicio.html" />
+    <link rel="prev" title="Ejercicios Pandas III" href="../3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Grográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Introducción
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FAnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-contenidos">
+   Tabla de Contenidos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-y-cadenas-de-caracteres">
+   Pandas y Cadenas de caracteres
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#count">
+     count
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     Ejercicio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contains">
+     contains
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lower-upper-y-title">
+     lower, upper y title
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split">
+     split
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-organizar-la-informacion-olap-oltp-y-tidy-data">
+   ¿Cómo organizar la información? OLAP, OLTP y Tidy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oltp-y-olap">
+     OLTP y OLAP
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tidy-data">
+   Tidy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuberculosis">
+     Tuberculosis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-1">
+       Tabla 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tablas-2-a-y-2-b">
+       Tablas 2.a y 2.b
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-3">
+       Tabla 3
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-4">
+       Tabla 4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-5">
+       Tabla 5
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#melt">
+   Melt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios">
+     Ejercicios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-de-tiempo">
+   Series de Tiempo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-y-metodos-de-manipulacion-de-series-de-tiempo">
+     Datetime y metodos de manipulacion de series de tiempo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ventanas-y-medias-moviles">
+   Ventanas y Medias moviles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shift-y-diff">
+   Shift y Diff
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Data Wrangling Avanzado</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tabla-de-contenidos">
+   Tabla de Contenidos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduccion">
+   Introducción
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-y-cadenas-de-caracteres">
+   Pandas y Cadenas de caracteres
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#count">
+     count
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicio">
+     Ejercicio
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contains">
+     contains
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lower-upper-y-title">
+     lower, upper y title
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split">
+     split
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#como-organizar-la-informacion-olap-oltp-y-tidy-data">
+   ¿Cómo organizar la información? OLAP, OLTP y Tidy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oltp-y-olap">
+     OLTP y OLAP
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tidy-data">
+   Tidy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tuberculosis">
+     Tuberculosis
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-1">
+       Tabla 1
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tablas-2-a-y-2-b">
+       Tablas 2.a y 2.b
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-3">
+       Tabla 3
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-4">
+       Tabla 4
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tabla-5">
+       Tabla 5
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#melt">
+   Melt
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ejercicios">
+     Ejercicios
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Ejercicios
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-de-tiempo">
+   Series de Tiempo
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-y-metodos-de-manipulacion-de-series-de-tiempo">
+     Datetime y metodos de manipulacion de series de tiempo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ventanas-y-medias-moviles">
+   Ventanas y Medias moviles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shift-y-diff">
+   Shift y Diff
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div><div class="tex2jax_ignore mathjax_ignore section" id="data-wrangling-avanzado">
+<h1>Data Wrangling Avanzado<a class="headerlink" href="#data-wrangling-avanzado" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tabla-de-contenidos">
+<h2>Tabla de Contenidos<a class="headerlink" href="#tabla-de-contenidos" title="Permalink to this headline">¶</a></h2>
+<p>I. Data Wrangling Avanzado</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I. Tabla de Contenidos
+</pre></div>
+</div>
+<p>II. Table of Contents</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I. Introducción
+II. Pandas y Cadenas de caracteres
+    I. count
+    II. Ejercicio
+    III. contains
+    IV. lower, upper y title
+    V. split
+</pre></div>
+</div>
+<p>III. ¿Cómo organizar la información? OLAP, OLTP y Tidy data</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I. OLTP y OLAP
+II. Tidy data
+    I. Tuberculosis
+        I. Tabla 1
+        II. Tablas 2.a y 2.b
+        III. Tabla 3
+        IV. Tabla 4
+        V. Tabla 5
+III. Melt
+    I. Ejercicios
+    II. Ejercicios
+</pre></div>
+</div>
+<p>IV. Series de Tiempo</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>I. Datetime y metodos de manipulacion de series de tiempo
+II. Ventanas y Medias moviles
+III. Shift y Diff
+</pre></div>
+</div>
+</div>
+<div class="section" id="introduccion">
+<h2>Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h2>
+<p>En esta clase vamos a ver cómo hacer manejo avanzado de datos a partir, tanto en cadenas de caracteres como en series de tiempo. El primer dataset que vamos a utilizar es del portal de datos abiertos de España.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install seaborn</span>
+<span class="c1"># !pip install numpy==1.18.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://datasets-humai.s3.amazonaws.com/datasets/parodesprov.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>Codigo</th>
+      <th>Texto</th>
+      <th>Cod_Prov</th>
+      <th>Cod_CCAA</th>
+      <th>TotalParoRegistrado</th>
+      <th>PAD_1C02</th>
+      <th>PAD_1_COD_PROV</th>
+      <th>PAD_1_COD_CCAA</th>
+      <th>Shape__Area</th>
+      <th>Shape__Length</th>
+      <th>Codigop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1001</td>
+      <td>Alegría-Dulantzi</td>
+      <td>1</td>
+      <td>16</td>
+      <td>184.0</td>
+      <td>2856.0</td>
+      <td>Araba/Álava</td>
+      <td>16.0</td>
+      <td>3.709269e+07</td>
+      <td>48191.568537</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1002</td>
+      <td>Amurrio</td>
+      <td>1</td>
+      <td>16</td>
+      <td>766.0</td>
+      <td>10260.0</td>
+      <td>Araba/Álava</td>
+      <td>16.0</td>
+      <td>1.799114e+08</td>
+      <td>90623.621986</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1003</td>
+      <td>Aramaio</td>
+      <td>1</td>
+      <td>16</td>
+      <td>18.0</td>
+      <td>1502.0</td>
+      <td>Araba/Álava</td>
+      <td>16.0</td>
+      <td>1.377066e+08</td>
+      <td>58592.914048</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1004</td>
+      <td>Artziniega</td>
+      <td>1</td>
+      <td>16</td>
+      <td>110.0</td>
+      <td>1840.0</td>
+      <td>Araba/Álava</td>
+      <td>16.0</td>
+      <td>5.130078e+07</td>
+      <td>31498.524044</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>1006</td>
+      <td>Armiñón</td>
+      <td>1</td>
+      <td>16</td>
+      <td>12.0</td>
+      <td>234.0</td>
+      <td>Araba/Álava</td>
+      <td>16.0</td>
+      <td>2.380288e+07</td>
+      <td>33293.805036</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Generalmente cuando en un dataset encontramos campos de texto es recomendable analizar si la carga se hizo con un buen criterio y no hay errores en la carga. Vamos a prestar atención a los campos Texto y PAD_1_COD_PROV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    Alegría-Dulantzi
+1             Amurrio
+2             Aramaio
+3          Artziniega
+4             Armiñón
+Name: Texto, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Noten que el primer valor incluye un “-” como separador</p>
+<p>Vamos a comenzar eliminando las filas que tienen null el campo Texto, para facilitar el análisis posterior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pandas-y-cadenas-de-caracteres">
+<h2>Pandas y Cadenas de caracteres<a class="headerlink" href="#pandas-y-cadenas-de-caracteres" title="Permalink to this headline">¶</a></h2>
+<p>Cuando una pd.Series es de tipo object Pandas permite acceder a métodos para operar sobre strings llamando al método <strong>.str</strong>.</p>
+<div class="section" id="count">
+<h3>count<a class="headerlink" href="#count" title="Permalink to this headline">¶</a></h3>
+<p>El método <strong>.str.count()</strong> permite contar cuántas ocurrencias de un patrón hay en una Series. Para ello se puede pasar una regex. Las regex o expresiones regulares son una cadena de caracteres que define una búsqueda de un patrón. En esta clase no vamos a ahondar en regex pero sí podemos mencionar que:</p>
+<ul class="simple">
+<li><p>Si pasamos un carácter en particular nos va a matchear cuántas veces aparece.</p></li>
+<li><p>El carácter . funcion como comodín, con lo cual cualquier caracter va a matchear.</p></li>
+</ul>
+<p>Entonces, si queremos saber cuántas veces aparece el símbolo “-” en cada término podemos hacer:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    1
+1    0
+2    0
+3    0
+4    0
+Name: Texto, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora, nos llama la atención que el símbolo “-” aparece en la primera fila, ¿será algo común?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    16009
+1      222
+2        4
+Name: Texto, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicio">
+<h3>Ejercicio<a class="headerlink" href="#ejercicio" title="Permalink to this headline">¶</a></h3>
+<p>1- Ver los casos que tiene 2 “-” en el nombre.</p>
+<p>2- Graficar un histograma con la cantidad de caracteres en la columna Texto usando contains. Tip: pueden usar el método .hist.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<p>3- Mostrar que el resultado obtenido en el ejercicio anterior equivale a aplicar <strong>.str.len()</strong>. Para ello usen el método <strong>pd.Series.equals()</strong> y comparen el método usado en el ejercicio anterior con aplicar .str.len()</p>
+</div>
+<div class="section" id="contains">
+<h3>contains<a class="headerlink" href="#contains" title="Permalink to this headline">¶</a></h3>
+<p>Digamos que queremos encontrar nombres de ciudades vascas. Para ello sabemos que “herri” en Euskera significa lugar, con lo que esperamos encontrar “erri” en una gran cantidad de ciudades. Vamos a filtrar trayendo solamente las ciudades que incluyen “erri” dentro de su nombre con el método <strong>.str.contains</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;erri&quot;</span><span class="p">,</span><span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># case es para considerar mayúsculas y minúsculas o no</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>Codigo</th>
+      <th>Texto</th>
+      <th>Cod_Prov</th>
+      <th>Cod_CCAA</th>
+      <th>TotalParoRegistrado</th>
+      <th>PAD_1C02</th>
+      <th>PAD_1_COD_PROV</th>
+      <th>PAD_1_COD_CCAA</th>
+      <th>Shape__Area</th>
+      <th>Shape__Length</th>
+      <th>Codigop</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>33</th>
+      <td>34</td>
+      <td>1046</td>
+      <td>Erriberagoitia/Ribera Alta</td>
+      <td>1</td>
+      <td>16</td>
+      <td>26.0</td>
+      <td>745.0</td>
+      <td>Araba/Álava</td>
+      <td>16.0</td>
+      <td>2.227260e+08</td>
+      <td>114217.030007</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>35</td>
+      <td>1047</td>
+      <td>Ribera Baja/Erribera Beitia</td>
+      <td>1</td>
+      <td>16</td>
+      <td>72.0</td>
+      <td>1353.0</td>
+      <td>Araba/Álava</td>
+      <td>16.0</td>
+      <td>4.706702e+07</td>
+      <td>42082.113185</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>163</td>
+      <td>3025</td>
+      <td>Benferri</td>
+      <td>3</td>
+      <td>10</td>
+      <td>161.0</td>
+      <td>1920.0</td>
+      <td>Alicante/Alacant</td>
+      <td>10.0</td>
+      <td>2.002354e+07</td>
+      <td>21212.706211</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2026</th>
+      <td>2027</td>
+      <td>13081</td>
+      <td>Terrinches</td>
+      <td>13</td>
+      <td>8</td>
+      <td>122.0</td>
+      <td>748.0</td>
+      <td>Ciudad Real</td>
+      <td>8.0</td>
+      <td>9.099513e+07</td>
+      <td>41739.202048</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>2506</th>
+      <td>2507</td>
+      <td>17056</td>
+      <td>Cornellà del Terri</td>
+      <td>17</td>
+      <td>9</td>
+      <td>55.0</td>
+      <td>2279.0</td>
+      <td>Girona</td>
+      <td>9.0</td>
+      <td>5.058085e+07</td>
+      <td>38058.585347</td>
+      <td>17.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;erri&quot;</span><span class="p">,</span><span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(48, 12)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lower-upper-y-title">
+<h3>lower, upper y title<a class="headerlink" href="#lower-upper-y-title" title="Permalink to this headline">¶</a></h3>
+<p>Supongamos que queremos estar seguros que las nombres están estandarizados… podemos elegir pasar todo a minúscula o a mayúscula de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    alegría-dulantzi
+1             amurrio
+2             aramaio
+3          artziniega
+4             armiñón
+Name: Texto, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    ALEGRÍA-DULANTZI
+1             AMURRIO
+2             ARAMAIO
+3          ARTZINIEGA
+4             ARMIÑÓN
+Name: Texto, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podemos aplicar mayúscula a la primera letra y al resto minúscula, con <strong>.str.title</strong>. Este método toma en consideración espacios o símbolos no alfabéticos. Es decir, va a comenzar con mayúscula los términos después de un espacio, “-” o “/”. Por ejemplo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4460     Lozoyuela-Navas-Sieteiglesias
+4809          Oroz-Betelu/Orotz-Betelu
+12630    Lozoyuela-Navas-Sieteiglesias
+12979         Oroz-Betelu/Orotz-Betelu
+Name: Texto, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="split">
+<h3>split<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h3>
+<p>En el ejemplo anterior encontramos el uso de “/”. En este caso se refiere a que el nombre de la ciudad (Oroz-Betelu/Orotz-Betelu) tiene dos nombres oficiales, uno en español y otro en vasco.</p>
+<p>Supongamos que queremos estandarizar el problema y quedarnos sólo con el nombre que aparece primero, ¿cómo podemos hacerlo?</p>
+<p>Primero veamos algunos ejemplos otros ejemplos de nombres con “/”:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Ayala/Aiara&#39;, &#39;Baños de Ebro/Mañueta&#39;, &#39;Campezo/Kanpezu&#39;,
+       &#39;Elburgo/Burgelu&#39;, &#39;Elvillar/Bilar&#39;, &#39;Labastida/Bastida&#39;,
+       &#39;Lanciego/Lantziego&#39;, &#39;Laudio/Llodio&#39;,
+       &#39;Moreda de Álava/Moreda Araba&#39;, &#39;Erriberagoitia/Ribera Alta&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nota: en un primer momento uno podría pensar que en este dataset el primer elemento debería ser siempre el nombre en, por ejemplo, español y el segundo en vasco… Sin embargo, no es así :-S</p>
+<p>Vamos a usar <strong>.str.split()</strong>, vale la pena mencionar que el método devuelve una lista con un elemento por cada separación que pudo realizar. Para ello recibe como parámetro un string que es un patrón que va a usar, justamente, para dividir la cadena de caracteres. Comúnmente sólo vamos a pasarle un elemento por el cual splitear.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1"># por default split separa por espacios en blanco</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0               [Alegría-Dulantzi]
+1                        [Amurrio]
+2                        [Aramaio]
+3                     [Artziniega]
+4                        [Armiñón]
+                   ...            
+16334                       [Biel]
+16335                   [Marracos]
+16336    [Villamayor, de, Gállego]
+16337                      [Ceuta]
+16338                    [Melilla]
+Name: Texto, Length: 16235, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Noten en el ejemplo anterior que si devuelve una lista con un solo elemento es que no matcheó y, por lo tanto, no dividió el string.</p>
+<p>Yendo a nuestro problema, separamos por el caracter ‘/’. Notar como se transforman los nombres compuestos
+MUCHO CUIDADO! Nuestros strings ahora son listas!! :o</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    [Alegría-Dulantzi]
+1             [Amurrio]
+2             [Aramaio]
+3          [Artziniega]
+4             [Armiñón]
+Name: Texto, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Entonces, nos quedamos con la primera versión del nombre al separar por “/”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto_para_split</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">][</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># guardo en una variable casos con /</span>
+
+<span class="n">texto_para_split</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="c1"># para indexar las listas tengo que usar apply</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7                   Ayala
+8           Baños de Ebro
+12                Campezo
+16                Elburgo
+18               Elvillar
+               ...       
+15372              Novelé
+15412             Sagunto
+15447          Vilallonga
+15705    Karrantza Harana
+15757              Urduña
+Name: Texto, Length: 234, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por otra parte, si quisiéramos guardar cada nombre en una columna separada podemos hacerlo usando la opción expand:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texto_para_split</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>Ayala</td>
+      <td>Aiara</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Baños de Ebro</td>
+      <td>Mañueta</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Campezo</td>
+      <td>Kanpezu</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Elburgo</td>
+      <td>Burgelu</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Elvillar</td>
+      <td>Bilar</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>15372</th>
+      <td>Novelé</td>
+      <td>Novetlè</td>
+    </tr>
+    <tr>
+      <th>15412</th>
+      <td>Sagunto</td>
+      <td>Sagunt</td>
+    </tr>
+    <tr>
+      <th>15447</th>
+      <td>Vilallonga</td>
+      <td>Villalonga</td>
+    </tr>
+    <tr>
+      <th>15705</th>
+      <td>Karrantza Harana</td>
+      <td>Valle de Carranza</td>
+    </tr>
+    <tr>
+      <th>15757</th>
+      <td>Urduña</td>
+      <td>Orduña</td>
+    </tr>
+  </tbody>
+</table>
+<p>234 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>Podemos asignar el resultado de expand de la siguiente manera:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;nombre_1&quot;</span><span class="p">,</span> <span class="s2">&quot;nombre_2&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Texto&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># usamos el df original y expandimos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;nombre_1&quot;</span><span class="p">,</span> <span class="s2">&quot;nombre_2&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># vemos que hay nulls que nombre_2 porque tienen un solo nombre</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nombre_1</th>
+      <th>nombre_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alegría-Dulantzi</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Amurrio</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Aramaio</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Artziniega</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Armiñón</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;nombre_2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span> <span class="p">[</span><span class="s2">&quot;nombre_1&quot;</span><span class="p">,</span> <span class="s2">&quot;nombre_2&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="c1"># noten el filtro booleano</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nombre_1</th>
+      <th>nombre_2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>7</th>
+      <td>Ayala</td>
+      <td>Aiara</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Baños de Ebro</td>
+      <td>Mañueta</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Campezo</td>
+      <td>Kanpezu</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Elburgo</td>
+      <td>Burgelu</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Elvillar</td>
+      <td>Bilar</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="como-organizar-la-informacion-olap-oltp-y-tidy-data">
+<h2>¿Cómo organizar la información? OLAP, OLTP y Tidy data<a class="headerlink" href="#como-organizar-la-informacion-olap-oltp-y-tidy-data" title="Permalink to this headline">¶</a></h2>
+<p>Existen diversas formas de organizar la información. En general, qué vamos a hacer con la información es clave para entender cómo organizarla. Veamos algunos conceptos habituales a la hora de trabajar con datos.</p>
+<div class="section" id="oltp-y-olap">
+<h3>OLTP y OLAP<a class="headerlink" href="#oltp-y-olap" title="Permalink to this headline">¶</a></h3>
+<p>La sigla OLTP viene de Online transaction processing y se refiere a transacciones que ocurren en tiempo real. Un ejemplo típico son los ATMs (automated teller machine), más conocidos como “cajeros automáticos”.</p>
+<p>En este aspecto transacción tiene dos acepciones y ambas son válidas: por un lado, se procesan transacciones en término de bases de datos (que vamos a ver a continuación), por otro lado, se suele aplicar a transacciones económicas en donde se intercambian entidades económicas.</p>
+<p>Sistemas OLTP son la mayoría de los sistemas tradicionales que conocemos, especialmente los sistemas bancarios. Estos son sistemas transaccionales (en la primera acepción de arriba) porque intentan cumplir 4 objetivos (<strong>ACID</strong>):</p>
+<ul class="simple">
+<li><p>Las transacciones son operaciones <strong>atómicas</strong>: se hacen por completo o no se hacen. Imagínense una transferencia bancaria, ésto requiere debitar en una cuenta y acreditar en otra. Si la operación no fuera atómica y fallara podríamos quedarnos en un estado inesperado en el cual se debite de la primera y no se acredite en la segunda. Para evitar ésto, la atomicidad garantiza que si la operación falla en alguna parte del proceso revertimos completamos la operación y no impactamos ningún cambio (hacemos <em>rollback</em>).</p></li>
+<li><p>Toda transacción debe mantener la <strong>consistencia</strong> de la base de datos, es decir, debe respetar una serie de restricciones. Por ejemplo, podemos pensar que para que una tarjeta de crédito sea de extensión de una cuenta esa cuenta debe existir previamente. Otro ejemplo, puede ser que no pueden existir dos cuentas bancarias diferentes con el mismo número.</p></li>
+<li><p>Además, los sistemas transaccionales (especialmente los sistemas OLTP) requieren garantizar el <strong>aislamiento</strong> de las operaciones. Es común que estos sistemas necesiten resolver miles de operaciones concurrentes (es decir, que suceden en simultáneo), el aislamiento consiste en que esas operaciones dejen en la base de datos el mismo estado que si las operaciones fueran secuenciales (es decir, una por vez). Incluso, si una de esas falla, no debería alterar el resultado.</p></li>
+</ul>
+<p>Para ésto, se implementan diferentes algoritmos a fin de asegurar que no se generen errores ni competencias entre usuarios que estan intentando acceder a los mismos registros a la vez.</p>
+<p>OLAP (Online Analytical Processing) por otra parte se refiere a todos los sistemas utilizados para analisis y reportes de negocios (Business Intelligence), en los cuales se realizan diferentes operaciones de agregacion sobre los datos, a fin de proveer a los usuarios con informacion relevante.</p>
+<p>Las herramientas OLAP permiten realizar análisis multidimensionales, tomando en consideración distintas dimensiones y métricas. En este sentido, está lo que se conoce como “cubo OLAP”. El cubo OLAP es un array multidimensional que permite analizar la información vista desde distintos ángulos. Por ejemplo, podemos querer ver un reporte financiero por producto, por ciudad, por tiempo, etc. Cada uno de estos términos es una dimensión del análisis.</p>
+<p>Estos sistemas generalmente requieren procesos de carga y transformaciones masivas que pueden durar horas o días, y permiten presentan la información de un modo tal que el análisis es en tiempo real, no así la información que usa.</p>
+</div>
+</div>
+<div class="section" id="tidy-data">
+<h2>Tidy data<a class="headerlink" href="#tidy-data" title="Permalink to this headline">¶</a></h2>
+<p><strong>Tidy data</strong> es un trabajo escrito por Hadley Wickham (de la empresa RStudio) que se ha difundido mucho, especialmente en la comunidad de R, sobre buenas prácticas a la hora de estructurar información tabular. Pueden consultar el trabajo acá: <a class="reference external" href="https://vita.had.co.nz/papers/tidy-data.pdf">https://vita.had.co.nz/papers/tidy-data.pdf</a></p>
+<p>La información tabular consta de <strong>filas</strong> y <strong>columnas</strong>. Las columnas siempre tienen una etiqueta y las filas sólo a veces.</p>
+<p>Los <em>datasets</em> constan de <strong>valores</strong>, éstos pueden ser numéricos o no numéricos . En el caso en que sea un valor numérico representa una cantidad, si no es numérico es una cualidad. Además, los valores miden o caracterizan un determinado atributo (altura, peso, temperatura, etc.). Este atributo se conoce como <strong>variable</strong>. Por último, esa variable se corresponde con una determinada unidad observada. Generalmente llamamos a eso simplemente <strong>observación</strong> (por ejemplo, la persona a la que se le midió la altura).</p>
+<p>Dicho ésto, Wickham define un dataset <em>tidy</em> u ordenado como aquel que cumple la tercera forma normal de bases de datos, pero con un lenguaje más cercano al campo del análisis de datos y pensando en información contenida en una tabla, y no en una base de datos con muchas tablas. Las condiciones son:</p>
+<ul class="simple">
+<li><p>Cada variable forma una columna.</p></li>
+<li><p>Cada observación forma una fila.</p></li>
+<li><p>Cada tipo de unidad observacional forma una tabla.</p></li>
+</ul>
+<p>Además, describe 5 de los errores más comunes a la hora de ordenar la información:</p>
+<ul class="simple">
+<li><p>Los nombres de columna en vez de ser nombres de variables son valores</p></li>
+<li><p>Muchas variables se guardan en una sola columna.</p></li>
+<li><p>Las variables se guardan tanto en columnas como en filas.</p></li>
+<li><p>Distintos tipos de unidades observacionales se guardan en una misma tabla.</p></li>
+<li><p>Una única unidad observacional se almacena en distintas tablas.4</p></li>
+</ul>
+<div class="section" id="tuberculosis">
+<h3>Tuberculosis<a class="headerlink" href="#tuberculosis" title="Permalink to this headline">¶</a></h3>
+<p>A continuación vamos a ver un dataset de tuberculosis representado de distintas maneras…</p>
+<div class="section" id="tabla-1">
+<h4>Tabla 1<a class="headerlink" href="#tabla-1" title="Permalink to this headline">¶</a></h4>
+<p>En esta primera representación de la información vemos que una misma columna (type) contiene dos variables (cases y population)</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>country</p></th>
+<th class="head"><p>year</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Afghanistan</p></td>
+<td><p>1999</p></td>
+<td><p>cases</p></td>
+<td><p>745</p></td>
+</tr>
+<tr class="row-odd"><td><p>Afghanistan</p></td>
+<td><p>1999</p></td>
+<td><p>population</p></td>
+<td><p>19987071</p></td>
+</tr>
+<tr class="row-even"><td><p>Afghanistan</p></td>
+<td><p>2000</p></td>
+<td><p>cases</p></td>
+<td><p>2666</p></td>
+</tr>
+<tr class="row-odd"><td><p>Afghanistan</p></td>
+<td><p>2000</p></td>
+<td><p>population</p></td>
+<td><p>20595360</p></td>
+</tr>
+<tr class="row-even"><td><p>Brazil</p></td>
+<td><p>1999</p></td>
+<td><p>cases</p></td>
+<td><p>37737</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brazil</p></td>
+<td><p>1999</p></td>
+<td><p>population</p></td>
+<td><p>172006362</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tablas-2-a-y-2-b">
+<h4>Tablas 2.a y 2.b<a class="headerlink" href="#tablas-2-a-y-2-b" title="Permalink to this headline">¶</a></h4>
+<p>En este caso separamos la tabla en dos tablas. Una donde vemosla población y otra donde vemos la cantidad de casos… ¿Cuál es el problema acá?</p>
+<p>Si bien ésto puede parecer correcto noten que la unidad observacional en realidad es un país en un año determinado… Con lo cual, lo que estamos haciendo acá es tener la misma unidad observacional en dos tablas. Además, los valores de la variable year están como nombres de columnas…</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>country</p></th>
+<th class="head"><p>1999</p></th>
+<th class="head"><p>2000</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Afghanistan</p></td>
+<td><p>745</p></td>
+<td><p>2666</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brazil</p></td>
+<td><p>37737</p></td>
+<td><p>80488</p></td>
+</tr>
+<tr class="row-even"><td><p>China</p></td>
+<td><p>212258</p></td>
+<td><p>213766</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>country</p></th>
+<th class="head"><p>1999</p></th>
+<th class="head"><p>2000</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Afghanistan</p></td>
+<td><p>19987071</p></td>
+<td><p>20595360</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brazil</p></td>
+<td><p>172006362</p></td>
+<td><p>174504898</p></td>
+</tr>
+<tr class="row-even"><td><p>China</p></td>
+<td><p>1272915272</p></td>
+<td><p>1280428583</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tabla-3">
+<h4>Tabla 3<a class="headerlink" href="#tabla-3" title="Permalink to this headline">¶</a></h4>
+<p>En este caso, perdimos las variables cases y population y calculamos un ratio. Si bien ésto cumple con ser “ordenado” estamos perdiendo las variables originales.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>country</p></th>
+<th class="head"><p>year</p></th>
+<th class="head"><p>rate</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Afghanistan</p></td>
+<td><p>1999</p></td>
+<td><p>745/19987071</p></td>
+</tr>
+<tr class="row-odd"><td><p>Afghanistan</p></td>
+<td><p>2000</p></td>
+<td><p>2666/20595360</p></td>
+</tr>
+<tr class="row-even"><td><p>Brazil</p></td>
+<td><p>1999</p></td>
+<td><p>37737/172006362</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brazil</p></td>
+<td><p>2000</p></td>
+<td><p>80488/174504898</p></td>
+</tr>
+<tr class="row-even"><td><p>China</p></td>
+<td><p>1999</p></td>
+<td><p>212258/1272915272</p></td>
+</tr>
+<tr class="row-odd"><td><p>China</p></td>
+<td><p>2000</p></td>
+<td><p>213766/1280428583</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tabla-4">
+<h4>Tabla 4<a class="headerlink" href="#tabla-4" title="Permalink to this headline">¶</a></h4>
+<p>En la tabla 4 vemos que la variable <em>year</em>, <em>cases</em> y <em>population</em> se juntaron, con lo cual los valores de <em>year</em> pasan a formar parte de los nombres de las columnas.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>country</p></th>
+<th class="head"><p>cases_1999</p></th>
+<th class="head"><p>cases_2000</p></th>
+<th class="head"><p>population_1999</p></th>
+<th class="head"><p>population_2000</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Afghanistan</p></td>
+<td><p>745</p></td>
+<td><p>19987071</p></td>
+<td><p>2666</p></td>
+<td><p>20595360</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brazil</p></td>
+<td><p>37737</p></td>
+<td><p>172006362</p></td>
+<td><p>80488</p></td>
+<td><p>174504898</p></td>
+</tr>
+<tr class="row-even"><td><p>China</p></td>
+<td><p>212258</p></td>
+<td><p>1272915272</p></td>
+<td><p>213766</p></td>
+<td><p>1280428583</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="tabla-5">
+<h4>Tabla 5<a class="headerlink" href="#tabla-5" title="Permalink to this headline">¶</a></h4>
+<p>Finalmente, la tabla <em>tidy</em> es:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>country</p></th>
+<th class="head"><p>year</p></th>
+<th class="head"><p>cases</p></th>
+<th class="head"><p>population</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Afghanistan</p></td>
+<td><p>1999</p></td>
+<td><p>745</p></td>
+<td><p>19987071</p></td>
+</tr>
+<tr class="row-odd"><td><p>Afghanistan</p></td>
+<td><p>2000</p></td>
+<td><p>2666</p></td>
+<td><p>20595360</p></td>
+</tr>
+<tr class="row-even"><td><p>Brazil</p></td>
+<td><p>1999</p></td>
+<td><p>37737</p></td>
+<td><p>172006362</p></td>
+</tr>
+<tr class="row-odd"><td><p>Brazil</p></td>
+<td><p>2000</p></td>
+<td><p>80488</p></td>
+<td><p>174504898</p></td>
+</tr>
+<tr class="row-even"><td><p>China</p></td>
+<td><p>1999</p></td>
+<td><p>212258</p></td>
+<td><p>1272915272</p></td>
+</tr>
+<tr class="row-odd"><td><p>China</p></td>
+<td><p>2000</p></td>
+<td><p>213766</p></td>
+<td><p>1280428583</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="melt">
+<h2>Melt<a class="headerlink" href="#melt" title="Permalink to this headline">¶</a></h2>
+<p>Una de los métodos más útiles de Pandas para pasar de un formato <em>wide</em> o <em>ancho</em> como el de la tabla 4 a uno <em>largo</em> como el de la tabla 5 es <strong>.melt</strong>.</p>
+<p>Para aplicar este método vamos a obtener un dataset de Billboard sobre las canciones mas escuchadas del 2000.</p>
+<p>Vamos a agregar la opcion de encoding para solucionar un problema con los caracteres usados.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">billboard</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/hadley/tidy-data/master/data/billboard.csv&#39;</span><span class="p">,</span> <span class="n">warn_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;iso-8859-1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ejercicios">
+<h3>Ejercicios<a class="headerlink" href="#ejercicios" title="Permalink to this headline">¶</a></h3>
+<p>1- Analicen el dataset, vean cuáles son las variables, qué es la observación. ¿Es necesario separarlo en dos tablas? Nota: lo que se está midiendo en las columnas x1st.week a x76th.week es la posición en el ranking de las 100 canciones más escuchadas en esa semana. Es decir, x1st.week es la posición en el ranking durante la primera semana que esa canción fue top 100.</p>
+<p>2- ¿Por qué creen que hay tantas columnas con valores nulos?</p>
+<p>3- ¿Cómo podríamos hacer este dataset más ordenado? (no miren la continuación de la notebook :-S)</p>
+<p>Veamos primero como luce el dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">billboard</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>artist.inverted</th>
+      <th>track</th>
+      <th>time</th>
+      <th>genre</th>
+      <th>date.entered</th>
+      <th>date.peaked</th>
+      <th>x1st.week</th>
+      <th>x2nd.week</th>
+      <th>x3rd.week</th>
+      <th>...</th>
+      <th>x67th.week</th>
+      <th>x68th.week</th>
+      <th>x69th.week</th>
+      <th>x70th.week</th>
+      <th>x71st.week</th>
+      <th>x72nd.week</th>
+      <th>x73rd.week</th>
+      <th>x74th.week</th>
+      <th>x75th.week</th>
+      <th>x76th.week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>Destiny's Child</td>
+      <td>Independent Women Part I</td>
+      <td>3:38</td>
+      <td>Rock</td>
+      <td>2000-09-23</td>
+      <td>2000-11-18</td>
+      <td>78</td>
+      <td>63.0</td>
+      <td>49.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000</td>
+      <td>Santana</td>
+      <td>Maria, Maria</td>
+      <td>4:18</td>
+      <td>Rock</td>
+      <td>2000-02-12</td>
+      <td>2000-04-08</td>
+      <td>15</td>
+      <td>8.0</td>
+      <td>6.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000</td>
+      <td>Savage Garden</td>
+      <td>I Knew I Loved You</td>
+      <td>4:07</td>
+      <td>Rock</td>
+      <td>1999-10-23</td>
+      <td>2000-01-29</td>
+      <td>71</td>
+      <td>48.0</td>
+      <td>43.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000</td>
+      <td>Madonna</td>
+      <td>Music</td>
+      <td>3:45</td>
+      <td>Rock</td>
+      <td>2000-08-12</td>
+      <td>2000-09-16</td>
+      <td>41</td>
+      <td>23.0</td>
+      <td>18.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000</td>
+      <td>Aguilera, Christina</td>
+      <td>Come On Over Baby (All I Want Is You)</td>
+      <td>3:38</td>
+      <td>Rock</td>
+      <td>2000-08-05</td>
+      <td>2000-10-14</td>
+      <td>57</td>
+      <td>47.0</td>
+      <td>45.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 83 columns</p>
+</div></div></div>
+</div>
+<p>Lo que querríamos es poder mantener todas las columnas excepto las columnas que incluyen “week” en el nombre. Para poder tener un formato “tidy” u “ordenado” deberíamos tener, por un lado, una columna week que indique el número de la semana (y preferentemente que sea un entero), y por otro lado una columna ranking con el valor del ranking en esa semana.</p>
+<p>Para lograr ésto, vamos a usar la función <strong>.melt</strong>. Esta función recibe el DataFrame y vamos a usar el parámetro id_vars para pasarle la lista de columnas que van a ser constantes, es decir, que no van a variar. Con las demás columnas .melt va a:</p>
+<p>1- tomar los nombres de columnas no incluídas en id_vars y convertirlos en una columna</p>
+<p>2- va a tomar los valores de esas columnas y convertirlos en una segunda columna.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">billboard</span><span class="p">,</span>
+        <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;artist.inverted&quot;</span><span class="p">,</span> <span class="s2">&quot;track&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;genre&quot;</span><span class="p">,</span> <span class="s2">&quot;date.entered&quot;</span><span class="p">,</span> <span class="s2">&quot;date.peaked&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>artist.inverted</th>
+      <th>track</th>
+      <th>time</th>
+      <th>genre</th>
+      <th>date.entered</th>
+      <th>date.peaked</th>
+      <th>variable</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>Destiny's Child</td>
+      <td>Independent Women Part I</td>
+      <td>3:38</td>
+      <td>Rock</td>
+      <td>2000-09-23</td>
+      <td>2000-11-18</td>
+      <td>x1st.week</td>
+      <td>78.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000</td>
+      <td>Santana</td>
+      <td>Maria, Maria</td>
+      <td>4:18</td>
+      <td>Rock</td>
+      <td>2000-02-12</td>
+      <td>2000-04-08</td>
+      <td>x1st.week</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000</td>
+      <td>Savage Garden</td>
+      <td>I Knew I Loved You</td>
+      <td>4:07</td>
+      <td>Rock</td>
+      <td>1999-10-23</td>
+      <td>2000-01-29</td>
+      <td>x1st.week</td>
+      <td>71.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000</td>
+      <td>Madonna</td>
+      <td>Music</td>
+      <td>3:45</td>
+      <td>Rock</td>
+      <td>2000-08-12</td>
+      <td>2000-09-16</td>
+      <td>x1st.week</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000</td>
+      <td>Aguilera, Christina</td>
+      <td>Come On Over Baby (All I Want Is You)</td>
+      <td>3:38</td>
+      <td>Rock</td>
+      <td>2000-08-05</td>
+      <td>2000-10-14</td>
+      <td>x1st.week</td>
+      <td>57.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora, querríamos que variable se llame week y value se llame ranking, para eso hacemos…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">billboard_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">billboard</span><span class="p">,</span> 
+                      <span class="n">id_vars</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;artist.inverted&quot;</span><span class="p">,</span> <span class="s2">&quot;track&quot;</span><span class="p">,</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;genre&quot;</span><span class="p">,</span> <span class="s2">&quot;date.entered&quot;</span><span class="p">,</span> <span class="s2">&quot;date.peaked&quot;</span><span class="p">],</span> 
+                      <span class="n">var_name</span><span class="o">=</span><span class="s2">&quot;week&quot;</span><span class="p">,</span> 
+                      <span class="n">value_name</span><span class="o">=</span><span class="s2">&quot;ranking&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">billboard_2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>artist.inverted</th>
+      <th>track</th>
+      <th>time</th>
+      <th>genre</th>
+      <th>date.entered</th>
+      <th>date.peaked</th>
+      <th>week</th>
+      <th>ranking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2000</td>
+      <td>Destiny's Child</td>
+      <td>Independent Women Part I</td>
+      <td>3:38</td>
+      <td>Rock</td>
+      <td>2000-09-23</td>
+      <td>2000-11-18</td>
+      <td>x1st.week</td>
+      <td>78.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2000</td>
+      <td>Santana</td>
+      <td>Maria, Maria</td>
+      <td>4:18</td>
+      <td>Rock</td>
+      <td>2000-02-12</td>
+      <td>2000-04-08</td>
+      <td>x1st.week</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000</td>
+      <td>Savage Garden</td>
+      <td>I Knew I Loved You</td>
+      <td>4:07</td>
+      <td>Rock</td>
+      <td>1999-10-23</td>
+      <td>2000-01-29</td>
+      <td>x1st.week</td>
+      <td>71.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2000</td>
+      <td>Madonna</td>
+      <td>Music</td>
+      <td>3:45</td>
+      <td>Rock</td>
+      <td>2000-08-12</td>
+      <td>2000-09-16</td>
+      <td>x1st.week</td>
+      <td>41.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2000</td>
+      <td>Aguilera, Christina</td>
+      <td>Come On Over Baby (All I Want Is You)</td>
+      <td>3:38</td>
+      <td>Rock</td>
+      <td>2000-08-05</td>
+      <td>2000-10-14</td>
+      <td>x1st.week</td>
+      <td>57.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Ejercicios<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>1- Quédense sólo con la parte numérica de week sin usar regex, y conviertan a número los valores de la columna.</p>
+<p>2- Conviertan los valores de la columna ranking a entero. Tip: prueben usar pd.isna() para saber si un valor es nulo o no.</p>
+<p>3- Vean cuántas filas totales hay y eliminen las filas con nulos, ahora vuelvan a ver cuántas filas quedan.</p>
+</div>
+</div>
+<div class="section" id="series-de-tiempo">
+<h2>Series de Tiempo<a class="headerlink" href="#series-de-tiempo" title="Permalink to this headline">¶</a></h2>
+<p>Las series de tiempo representan uno de los problemas mas interesantes en la ciencia de datos ya que refiere a eventos continuos y ordenados los cuales pueden ser independientes o tener alguna correlacion entre si. En este modulo veremos los metodos mas utilizados para manipular series de tiempo en pandas</p>
+<div class="section" id="datetime-y-metodos-de-manipulacion-de-series-de-tiempo">
+<h3>Datetime y metodos de manipulacion de series de tiempo<a class="headerlink" href="#datetime-y-metodos-de-manipulacion-de-series-de-tiempo" title="Permalink to this headline">¶</a></h3>
+<p>Para esta seccion vamos a utilizar el dataset de consumo energetico de Alemania.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/jenfly/opsd/master/opsd_germany_daily.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Primeramente vamos a evaluar el dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Fecha&#39;</span><span class="p">,</span> <span class="s1">&#39;Consumo&#39;</span><span class="p">,</span> <span class="s1">&#39;Eolica&#39;</span><span class="p">,</span> <span class="s1">&#39;Solar&#39;</span><span class="p">,</span> <span class="s1">&#39;Suma&#39;</span><span class="p">]</span>
+<span class="n">df_energia</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4373</th>
+      <td>2017-12-22</td>
+      <td>1423.23782</td>
+      <td>228.773</td>
+      <td>10.065</td>
+      <td>238.838</td>
+    </tr>
+    <tr>
+      <th>4374</th>
+      <td>2017-12-23</td>
+      <td>1272.17085</td>
+      <td>748.074</td>
+      <td>8.450</td>
+      <td>756.524</td>
+    </tr>
+    <tr>
+      <th>4375</th>
+      <td>2017-12-24</td>
+      <td>1141.75730</td>
+      <td>812.422</td>
+      <td>9.949</td>
+      <td>822.371</td>
+    </tr>
+    <tr>
+      <th>4376</th>
+      <td>2017-12-25</td>
+      <td>1111.28338</td>
+      <td>587.810</td>
+      <td>15.765</td>
+      <td>603.575</td>
+    </tr>
+    <tr>
+      <th>4377</th>
+      <td>2017-12-26</td>
+      <td>1130.11683</td>
+      <td>717.453</td>
+      <td>30.923</td>
+      <td>748.376</td>
+    </tr>
+    <tr>
+      <th>4378</th>
+      <td>2017-12-27</td>
+      <td>1263.94091</td>
+      <td>394.507</td>
+      <td>16.530</td>
+      <td>411.037</td>
+    </tr>
+    <tr>
+      <th>4379</th>
+      <td>2017-12-28</td>
+      <td>1299.86398</td>
+      <td>506.424</td>
+      <td>14.162</td>
+      <td>520.586</td>
+    </tr>
+    <tr>
+      <th>4380</th>
+      <td>2017-12-29</td>
+      <td>1295.08753</td>
+      <td>584.277</td>
+      <td>29.854</td>
+      <td>614.131</td>
+    </tr>
+    <tr>
+      <th>4381</th>
+      <td>2017-12-30</td>
+      <td>1215.44897</td>
+      <td>721.247</td>
+      <td>7.467</td>
+      <td>728.714</td>
+    </tr>
+    <tr>
+      <th>4382</th>
+      <td>2017-12-31</td>
+      <td>1107.11488</td>
+      <td>721.176</td>
+      <td>19.980</td>
+      <td>741.156</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Las columnas son las siguientes:
+- Date — La fecha (yyyy-mm-dd)
+- Consumo — Electricidad Consumida en GWh
+- Eolica — Produccion de energia eolica en GWh
+- Solar — Produccion de energia solar en GWh
+- Suma — Suma de las dos anteriores GWh</p>
+<p>Antes de comenzar a explorar el dataset, veamos algunas funciones de pandas para crear fechas. El metodo to_datetime nos permite transformar un string en cierto formato a un objeto del tipo Timestamp, el cual consiste de una fecha y una hora. Podemos ver que acepta varios formatos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;2018-01-15 3:45pm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2018-01-15 15:45:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;7/8/1952&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;1952-07-08 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Vamos a convertir el dtype de nuestra columna Fecha de object a  datetime64</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 4383 entries, 0 to 4382
+Data columns (total 5 columns):
+ #   Column   Non-Null Count  Dtype  
+---  ------   --------------  -----  
+ 0   Fecha    4383 non-null   object 
+ 1   Consumo  4383 non-null   float64
+ 2   Eolica   2920 non-null   float64
+ 3   Solar    2188 non-null   float64
+ 4   Suma     2187 non-null   float64
+dtypes: float64(4), object(1)
+memory usage: 171.3+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 4383 entries, 0 to 4382
+Data columns (total 5 columns):
+ #   Column   Non-Null Count  Dtype         
+---  ------   --------------  -----         
+ 0   Fecha    4383 non-null   datetime64[ns]
+ 1   Consumo  4383 non-null   float64       
+ 2   Eolica   2920 non-null   float64       
+ 3   Solar    2188 non-null   float64       
+ 4   Suma     2187 non-null   float64       
+dtypes: datetime64[ns](1), float64(4)
+memory usage: 171.3 KB
+</pre></div>
+</div>
+</div>
+</div>
+<p>Convertir la columna <em>Fecha</em> en datetime nos permite filtrar usando la información temporal…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2006-01-01</td>
+      <td>1069.184</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2006-01-02</td>
+      <td>1380.521</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2006-01-03</td>
+      <td>1442.533</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2006-01-04</td>
+      <td>1457.217</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2006-01-05</td>
+      <td>1477.131</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos traernos los casos posteriores a 2009, por default a partir del 1ero de enero…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&quot;2009&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1097</th>
+      <td>2009-01-02</td>
+      <td>1161.911</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1098</th>
+      <td>2009-01-03</td>
+      <td>1178.078</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1099</th>
+      <td>2009-01-04</td>
+      <td>1130.021</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1100</th>
+      <td>2009-01-05</td>
+      <td>1333.041</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1101</th>
+      <td>2009-01-06</td>
+      <td>1340.896</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Con el método <strong>.between</strong> podemos filtrar por un rango de fechas…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="s2">&quot;2008&quot;</span><span class="p">,</span> <span class="s2">&quot;2010&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>730</th>
+      <td>2008-01-01</td>
+      <td>1083.424</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>731</th>
+      <td>2008-01-02</td>
+      <td>1396.483</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>2008-01-03</td>
+      <td>1523.427</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>733</th>
+      <td>2008-01-04</td>
+      <td>1512.429</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>734</th>
+      <td>2008-01-05</td>
+      <td>1355.843</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>En vez de filtrar usando años podemos pasar la fecha completa (siempre tengan presente el formato de la fecha)…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="s2">&quot;2008-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2010-01-22&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>730</th>
+      <td>2008-01-01</td>
+      <td>1083.424</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>731</th>
+      <td>2008-01-02</td>
+      <td>1396.483</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>2008-01-03</td>
+      <td>1523.427</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>733</th>
+      <td>2008-01-04</td>
+      <td>1512.429</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>734</th>
+      <td>2008-01-05</td>
+      <td>1355.843</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Y como si fuera poco también podemos filtrar sólo usando el año y el mes, sin especificar el día…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="s2">&quot;2008-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2010-02&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>730</th>
+      <td>2008-01-01</td>
+      <td>1083.424</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>731</th>
+      <td>2008-01-02</td>
+      <td>1396.483</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>732</th>
+      <td>2008-01-03</td>
+      <td>1523.427</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>733</th>
+      <td>2008-01-04</td>
+      <td>1512.429</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>734</th>
+      <td>2008-01-05</td>
+      <td>1355.843</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Fecha&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="s2">&quot;2008-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2010-02&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Fecha</th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1488</th>
+      <td>2010-01-28</td>
+      <td>1585.269</td>
+      <td>306.149</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1489</th>
+      <td>2010-01-29</td>
+      <td>1493.020</td>
+      <td>145.473</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1490</th>
+      <td>2010-01-30</td>
+      <td>1322.933</td>
+      <td>189.627</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1491</th>
+      <td>2010-01-31</td>
+      <td>1203.635</td>
+      <td>174.109</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1492</th>
+      <td>2010-02-01</td>
+      <td>1536.453</td>
+      <td>151.409</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora, vamos a convertir nuestra columna Fecha en un índice temporal… Esto va a crear un nuevo tipo de objeto llamado DatetimeIndex</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span> <span class="o">=</span> <span class="n">df_energia</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Fecha&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+    </tr>
+    <tr>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-12-22</th>
+      <td>1423.23782</td>
+      <td>228.773</td>
+      <td>10.065</td>
+      <td>238.838</td>
+    </tr>
+    <tr>
+      <th>2017-12-23</th>
+      <td>1272.17085</td>
+      <td>748.074</td>
+      <td>8.450</td>
+      <td>756.524</td>
+    </tr>
+    <tr>
+      <th>2017-12-24</th>
+      <td>1141.75730</td>
+      <td>812.422</td>
+      <td>9.949</td>
+      <td>822.371</td>
+    </tr>
+    <tr>
+      <th>2017-12-25</th>
+      <td>1111.28338</td>
+      <td>587.810</td>
+      <td>15.765</td>
+      <td>603.575</td>
+    </tr>
+    <tr>
+      <th>2017-12-26</th>
+      <td>1130.11683</td>
+      <td>717.453</td>
+      <td>30.923</td>
+      <td>748.376</td>
+    </tr>
+    <tr>
+      <th>2017-12-27</th>
+      <td>1263.94091</td>
+      <td>394.507</td>
+      <td>16.530</td>
+      <td>411.037</td>
+    </tr>
+    <tr>
+      <th>2017-12-28</th>
+      <td>1299.86398</td>
+      <td>506.424</td>
+      <td>14.162</td>
+      <td>520.586</td>
+    </tr>
+    <tr>
+      <th>2017-12-29</th>
+      <td>1295.08753</td>
+      <td>584.277</td>
+      <td>29.854</td>
+      <td>614.131</td>
+    </tr>
+    <tr>
+      <th>2017-12-30</th>
+      <td>1215.44897</td>
+      <td>721.247</td>
+      <td>7.467</td>
+      <td>728.714</td>
+    </tr>
+    <tr>
+      <th>2017-12-31</th>
+      <td>1107.11488</td>
+      <td>721.176</td>
+      <td>19.980</td>
+      <td>741.156</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2006-01-01&#39;, &#39;2006-01-02&#39;, &#39;2006-01-03&#39;, &#39;2006-01-04&#39;,
+               &#39;2006-01-05&#39;, &#39;2006-01-06&#39;, &#39;2006-01-07&#39;, &#39;2006-01-08&#39;,
+               &#39;2006-01-09&#39;, &#39;2006-01-10&#39;,
+               ...
+               &#39;2017-12-22&#39;, &#39;2017-12-23&#39;, &#39;2017-12-24&#39;, &#39;2017-12-25&#39;,
+               &#39;2017-12-26&#39;, &#39;2017-12-27&#39;, &#39;2017-12-28&#39;, &#39;2017-12-29&#39;,
+               &#39;2017-12-30&#39;, &#39;2017-12-31&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;Fecha&#39;, length=4383, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Primeramente vamos a agregar columnas que nos proporcionen mas informacion sobre las fechas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;Anio&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_energia</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;Mes&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_energia</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span>
+<span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;Dia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_energia</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day_name</span><span class="p">()</span>
+<span class="n">df_energia</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+      <th>Anio</th>
+      <th>Mes</th>
+      <th>Dia</th>
+    </tr>
+    <tr>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2008-08-23</th>
+      <td>1152.011</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2008</td>
+      <td>8</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>2013-08-08</th>
+      <td>1291.984</td>
+      <td>79.666</td>
+      <td>93.371</td>
+      <td>173.037</td>
+      <td>2013</td>
+      <td>8</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>2009-08-27</th>
+      <td>1281.057</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2009</td>
+      <td>8</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>2015-10-02</th>
+      <td>1391.050</td>
+      <td>81.229</td>
+      <td>160.641</td>
+      <td>241.870</td>
+      <td>2015</td>
+      <td>10</td>
+      <td>Friday</td>
+    </tr>
+    <tr>
+      <th>2009-06-02</th>
+      <td>1201.522</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2009</td>
+      <td>6</td>
+      <td>Tuesday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Como creamos el indice por las fechas, podemos localizar cualquier dia que querramos ahora</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017-08-10&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Consumo     1351.49
+Eolica      100.274
+Solar         71.16
+Suma        171.434
+Anio           2017
+Mes               8
+Dia        Thursday
+Name: 2017-08-10 00:00:00, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Incluso podemos buscar rangos de fechas</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2014-01-20&#39;</span><span class="p">:</span><span class="s1">&#39;2014-01-22&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+      <th>Anio</th>
+      <th>Mes</th>
+      <th>Dia</th>
+    </tr>
+    <tr>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2014-01-20</th>
+      <td>1590.687</td>
+      <td>78.647</td>
+      <td>6.371</td>
+      <td>85.018</td>
+      <td>2014</td>
+      <td>1</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>2014-01-21</th>
+      <td>1624.806</td>
+      <td>15.643</td>
+      <td>5.835</td>
+      <td>21.478</td>
+      <td>2014</td>
+      <td>1</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>2014-01-22</th>
+      <td>1625.155</td>
+      <td>60.259</td>
+      <td>11.992</td>
+      <td>72.251</td>
+      <td>2014</td>
+      <td>1</td>
+      <td>Wednesday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>O buscar por algun mes en particular</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2016-05&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+      <th>Anio</th>
+      <th>Mes</th>
+      <th>Dia</th>
+    </tr>
+    <tr>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-05-01</th>
+      <td>1078.602</td>
+      <td>179.870</td>
+      <td>147.931</td>
+      <td>327.801</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Sunday</td>
+    </tr>
+    <tr>
+      <th>2016-05-02</th>
+      <td>1405.185</td>
+      <td>81.868</td>
+      <td>197.183</td>
+      <td>279.051</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>2016-05-03</th>
+      <td>1462.935</td>
+      <td>208.678</td>
+      <td>139.151</td>
+      <td>347.829</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-04</th>
+      <td>1430.136</td>
+      <td>84.961</td>
+      <td>174.185</td>
+      <td>259.146</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-05</th>
+      <td>1111.379</td>
+      <td>150.624</td>
+      <td>212.713</td>
+      <td>363.337</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>2016-05-06</th>
+      <td>1254.051</td>
+      <td>255.574</td>
+      <td>217.569</td>
+      <td>473.143</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Friday</td>
+    </tr>
+    <tr>
+      <th>2016-05-07</th>
+      <td>1149.938</td>
+      <td>315.362</td>
+      <td>215.963</td>
+      <td>531.325</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>2016-05-08</th>
+      <td>1072.653</td>
+      <td>390.557</td>
+      <td>217.819</td>
+      <td>608.376</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Sunday</td>
+    </tr>
+    <tr>
+      <th>2016-05-09</th>
+      <td>1403.845</td>
+      <td>360.421</td>
+      <td>207.427</td>
+      <td>567.848</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>2016-05-10</th>
+      <td>1431.813</td>
+      <td>258.663</td>
+      <td>157.710</td>
+      <td>416.373</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-11</th>
+      <td>1441.717</td>
+      <td>304.436</td>
+      <td>180.639</td>
+      <td>485.075</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-12</th>
+      <td>1444.324</td>
+      <td>319.678</td>
+      <td>129.861</td>
+      <td>449.539</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>2016-05-13</th>
+      <td>1405.332</td>
+      <td>216.936</td>
+      <td>135.926</td>
+      <td>352.862</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Friday</td>
+    </tr>
+    <tr>
+      <th>2016-05-14</th>
+      <td>1168.618</td>
+      <td>387.183</td>
+      <td>132.009</td>
+      <td>519.192</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>2016-05-15</th>
+      <td>1048.215</td>
+      <td>391.687</td>
+      <td>130.935</td>
+      <td>522.622</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Sunday</td>
+    </tr>
+    <tr>
+      <th>2016-05-16</th>
+      <td>1080.327</td>
+      <td>264.281</td>
+      <td>115.660</td>
+      <td>379.941</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>2016-05-17</th>
+      <td>1406.559</td>
+      <td>193.380</td>
+      <td>113.156</td>
+      <td>306.536</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-18</th>
+      <td>1432.772</td>
+      <td>88.949</td>
+      <td>151.707</td>
+      <td>240.656</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-19</th>
+      <td>1436.909</td>
+      <td>60.078</td>
+      <td>119.795</td>
+      <td>179.873</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>2016-05-20</th>
+      <td>1415.619</td>
+      <td>179.200</td>
+      <td>144.397</td>
+      <td>323.597</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Friday</td>
+    </tr>
+    <tr>
+      <th>2016-05-21</th>
+      <td>1175.567</td>
+      <td>133.517</td>
+      <td>186.839</td>
+      <td>320.356</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>2016-05-22</th>
+      <td>1099.152</td>
+      <td>217.768</td>
+      <td>185.444</td>
+      <td>403.212</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Sunday</td>
+    </tr>
+    <tr>
+      <th>2016-05-23</th>
+      <td>1430.635</td>
+      <td>179.097</td>
+      <td>83.886</td>
+      <td>262.983</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>2016-05-24</th>
+      <td>1454.007</td>
+      <td>179.908</td>
+      <td>57.672</td>
+      <td>237.580</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-25</th>
+      <td>1426.676</td>
+      <td>27.068</td>
+      <td>100.661</td>
+      <td>127.729</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <th>2016-05-26</th>
+      <td>1221.096</td>
+      <td>21.700</td>
+      <td>169.098</td>
+      <td>190.798</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <th>2016-05-27</th>
+      <td>1313.710</td>
+      <td>37.271</td>
+      <td>143.397</td>
+      <td>180.668</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Friday</td>
+    </tr>
+    <tr>
+      <th>2016-05-28</th>
+      <td>1169.531</td>
+      <td>85.468</td>
+      <td>160.593</td>
+      <td>246.061</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Saturday</td>
+    </tr>
+    <tr>
+      <th>2016-05-29</th>
+      <td>1096.905</td>
+      <td>163.103</td>
+      <td>124.929</td>
+      <td>288.032</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Sunday</td>
+    </tr>
+    <tr>
+      <th>2016-05-30</th>
+      <td>1423.574</td>
+      <td>246.019</td>
+      <td>121.137</td>
+      <td>367.156</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <th>2016-05-31</th>
+      <td>1435.085</td>
+      <td>106.179</td>
+      <td>141.406</td>
+      <td>247.585</td>
+      <td>2016</td>
+      <td>5</td>
+      <td>Tuesday</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ahora veamos como se ve nuestra data de consumo de energia</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#! pip install seaborn</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;Consumo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/data_wrangling_avanzado_131_0.png" src="../../_images/data_wrangling_avanzado_131_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ventanas-y-medias-moviles">
+<h2>Ventanas y Medias moviles<a class="headerlink" href="#ventanas-y-medias-moviles" title="Permalink to this headline">¶</a></h2>
+<p>Las ventanas moviles se refiere a aplicar alguna operacion de agregacion, por ejemplo el promedio sobre un conjunto de datos ordenados a la vez, por ejemplo el promedio de los ultimos 6 dias sobre cada conjunto ordenado de 6 dias en el dataset. Veamos un ejemplo para entenderlo mejor</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">opsd_7d</span> <span class="o">=</span> <span class="n">df_energia</span><span class="p">[</span><span class="s2">&quot;Consumo&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">opsd_7d</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fecha
+2006-01-01            NaN
+2006-01-02            NaN
+2006-01-03            NaN
+2006-01-04            NaN
+2006-01-05            NaN
+2006-01-06    1371.668833
+2006-01-07    1410.186000
+2006-01-08    1381.430000
+2006-01-09    1395.895000
+2006-01-10    1415.844000
+Name: Consumo, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos observar como las primeras 5 mediciones son Nan, ya que utiliza los primeros 5 valores para calcular a partir del 6to dia la media. El valor en el 7mo dia va a ser calculado con los datos del 2do al 6to dia, y asi sucesivamente.</p>
+<p>Este tipo de metodos son particularmente utiles en analisis financiero.</p>
+</div>
+<div class="section" id="shift-y-diff">
+<h2>Shift y Diff<a class="headerlink" href="#shift-y-diff" title="Permalink to this headline">¶</a></h2>
+<p>La operacion de Shift, como su nombre lo dice traducido al castellano, desplazar los datos una cantidad N de periodos. Veamoslo con el ejemplo del consumo, suponiendo que quiero crear otra columna con el consumo total del periodo anterior para poder compararlo con el actual</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;ConsumoAyer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;Suma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos como quedo ahora el dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+      <th>Anio</th>
+      <th>Mes</th>
+      <th>Dia</th>
+      <th>ConsumoAyer</th>
+    </tr>
+    <tr>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-12-22</th>
+      <td>1423.23782</td>
+      <td>228.773</td>
+      <td>10.065</td>
+      <td>238.838</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Friday</td>
+      <td>266.352</td>
+    </tr>
+    <tr>
+      <th>2017-12-23</th>
+      <td>1272.17085</td>
+      <td>748.074</td>
+      <td>8.450</td>
+      <td>756.524</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Saturday</td>
+      <td>238.838</td>
+    </tr>
+    <tr>
+      <th>2017-12-24</th>
+      <td>1141.75730</td>
+      <td>812.422</td>
+      <td>9.949</td>
+      <td>822.371</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Sunday</td>
+      <td>756.524</td>
+    </tr>
+    <tr>
+      <th>2017-12-25</th>
+      <td>1111.28338</td>
+      <td>587.810</td>
+      <td>15.765</td>
+      <td>603.575</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Monday</td>
+      <td>822.371</td>
+    </tr>
+    <tr>
+      <th>2017-12-26</th>
+      <td>1130.11683</td>
+      <td>717.453</td>
+      <td>30.923</td>
+      <td>748.376</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Tuesday</td>
+      <td>603.575</td>
+    </tr>
+    <tr>
+      <th>2017-12-27</th>
+      <td>1263.94091</td>
+      <td>394.507</td>
+      <td>16.530</td>
+      <td>411.037</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Wednesday</td>
+      <td>748.376</td>
+    </tr>
+    <tr>
+      <th>2017-12-28</th>
+      <td>1299.86398</td>
+      <td>506.424</td>
+      <td>14.162</td>
+      <td>520.586</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Thursday</td>
+      <td>411.037</td>
+    </tr>
+    <tr>
+      <th>2017-12-29</th>
+      <td>1295.08753</td>
+      <td>584.277</td>
+      <td>29.854</td>
+      <td>614.131</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Friday</td>
+      <td>520.586</td>
+    </tr>
+    <tr>
+      <th>2017-12-30</th>
+      <td>1215.44897</td>
+      <td>721.247</td>
+      <td>7.467</td>
+      <td>728.714</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Saturday</td>
+      <td>614.131</td>
+    </tr>
+    <tr>
+      <th>2017-12-31</th>
+      <td>1107.11488</td>
+      <td>721.176</td>
+      <td>19.980</td>
+      <td>741.156</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Sunday</td>
+      <td>728.714</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Podemos observar como la columna ‘ConsumoAyer’ es el valor de la columna ‘Suma’ exactamente del periodo anterior. Esto se puede realizar con tantos periodos como uno desee, pero hay que tener cuidado porque al inicio de nuestro dataset van a quedar valores Nan por la cantidad de periodos que elijamos. Hay que evaluar con que valor completamos esos valores.</p>
+<p>Por ultimo supongamos que deseamos hacer la diferencia fila a fila del valor de ayer con el valor de hoy para el consumo total. Aqui nos conviene utilizar el metodo diff.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;Diferencia&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_energia</span><span class="p">[</span><span class="s1">&#39;Suma&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_energia</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Consumo</th>
+      <th>Eolica</th>
+      <th>Solar</th>
+      <th>Suma</th>
+      <th>Anio</th>
+      <th>Mes</th>
+      <th>Dia</th>
+      <th>ConsumoAyer</th>
+      <th>Diferencia</th>
+    </tr>
+    <tr>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-12-22</th>
+      <td>1423.23782</td>
+      <td>228.773</td>
+      <td>10.065</td>
+      <td>238.838</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Friday</td>
+      <td>266.352</td>
+      <td>-27.514</td>
+    </tr>
+    <tr>
+      <th>2017-12-23</th>
+      <td>1272.17085</td>
+      <td>748.074</td>
+      <td>8.450</td>
+      <td>756.524</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Saturday</td>
+      <td>238.838</td>
+      <td>517.686</td>
+    </tr>
+    <tr>
+      <th>2017-12-24</th>
+      <td>1141.75730</td>
+      <td>812.422</td>
+      <td>9.949</td>
+      <td>822.371</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Sunday</td>
+      <td>756.524</td>
+      <td>65.847</td>
+    </tr>
+    <tr>
+      <th>2017-12-25</th>
+      <td>1111.28338</td>
+      <td>587.810</td>
+      <td>15.765</td>
+      <td>603.575</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Monday</td>
+      <td>822.371</td>
+      <td>-218.796</td>
+    </tr>
+    <tr>
+      <th>2017-12-26</th>
+      <td>1130.11683</td>
+      <td>717.453</td>
+      <td>30.923</td>
+      <td>748.376</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Tuesday</td>
+      <td>603.575</td>
+      <td>144.801</td>
+    </tr>
+    <tr>
+      <th>2017-12-27</th>
+      <td>1263.94091</td>
+      <td>394.507</td>
+      <td>16.530</td>
+      <td>411.037</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Wednesday</td>
+      <td>748.376</td>
+      <td>-337.339</td>
+    </tr>
+    <tr>
+      <th>2017-12-28</th>
+      <td>1299.86398</td>
+      <td>506.424</td>
+      <td>14.162</td>
+      <td>520.586</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Thursday</td>
+      <td>411.037</td>
+      <td>109.549</td>
+    </tr>
+    <tr>
+      <th>2017-12-29</th>
+      <td>1295.08753</td>
+      <td>584.277</td>
+      <td>29.854</td>
+      <td>614.131</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Friday</td>
+      <td>520.586</td>
+      <td>93.545</td>
+    </tr>
+    <tr>
+      <th>2017-12-30</th>
+      <td>1215.44897</td>
+      <td>721.247</td>
+      <td>7.467</td>
+      <td>728.714</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Saturday</td>
+      <td>614.131</td>
+      <td>114.583</td>
+    </tr>
+    <tr>
+      <th>2017-12-31</th>
+      <td>1107.11488</td>
+      <td>721.176</td>
+      <td>19.980</td>
+      <td>741.156</td>
+      <td>2017</td>
+      <td>12</td>
+      <td>Sunday</td>
+      <td>728.714</td>
+      <td>12.442</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./AnalisisDeDatos/4_Data_Wrangling_Avanzado"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ejercicios Pandas III</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ejercicio/ejercicio.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejercicio Pandas IV: Informe macroeconómico de Argentina</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

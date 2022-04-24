@@ -1,0 +1,3695 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Series de tiempo &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Prophet" href="2.Prophet.html" />
+    <link rel="prev" title="Detección de anomalías y explicabilidad de modelos con valores SHAP" href="../8_ShapyAnomalias/anomaly-detection-shap-values.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Inteligencia Artificial Moderna
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Descargar letras de canciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Grográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Introducción
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/MachineLearning/9_SeriesDeTiempo/1.ARIMA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FMachineLearning/9_SeriesDeTiempo/1.ARIMA.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-exploratorio-y-preprocessing">
+   1) Analisis exploratorio y preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generalizando-identificamos-distintas-estructuras-de-datos">
+     Generalizando, identificamos distintas ESTRUCTURAS DE DATOS…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-basicos-para-pronosticos">
+   2) Modelos básicos para prónosticos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-media-constante">
+   2.a) Media constante
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-tendencia-lineal">
+   2.b) Tendencia lineal
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tendencia-lineal-con-un-regresor">
+     Tendencia lineal con un regresor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-random-walk">
+   2.c) Random Walk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#base-para-el-analisis-de-las-series-de-tiempo">
+   BASE para el ANÁLISIS de las SERIES de TIEMPO
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-hacemos-para-que-una-serie-de-tiempo-sea-estacionaria">
+     ¿Cómo hacemos para que una serie de tiempo sea estacionaria?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-intermedios-y-avanzados-para-pronosticos">
+   3) Modelos intermedios y avanzados para pronósticos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-i-media-movil-simple-moving-average">
+   3.a.i) Media móvil (simple moving average)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-ii-modelo-arima">
+   3.b.ii) Modelo ARIMA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelos-auto-regresivos-ar-p">
+     Modelos Auto-Regresivos - AR (p)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-de-media-movil-ma-q">
+     Modelo de media móvil - MA (q)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-arima">
+     Modelo ARIMA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelando-con-arima">
+     Modelando con ARIMA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Series de tiempo</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analisis-exploratorio-y-preprocessing">
+   1) Analisis exploratorio y preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generalizando-identificamos-distintas-estructuras-de-datos">
+     Generalizando, identificamos distintas ESTRUCTURAS DE DATOS…
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-basicos-para-pronosticos">
+   2) Modelos básicos para prónosticos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-media-constante">
+   2.a) Media constante
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-tendencia-lineal">
+   2.b) Tendencia lineal
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tendencia-lineal-con-un-regresor">
+     Tendencia lineal con un regresor
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#c-random-walk">
+   2.c) Random Walk
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#base-para-el-analisis-de-las-series-de-tiempo">
+   BASE para el ANÁLISIS de las SERIES de TIEMPO
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#como-hacemos-para-que-una-serie-de-tiempo-sea-estacionaria">
+     ¿Cómo hacemos para que una serie de tiempo sea estacionaria?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelos-intermedios-y-avanzados-para-pronosticos">
+   3) Modelos intermedios y avanzados para pronósticos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-i-media-movil-simple-moving-average">
+   3.a.i) Media móvil (simple moving average)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#b-ii-modelo-arima">
+   3.b.ii) Modelo ARIMA
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelos-auto-regresivos-ar-p">
+     Modelos Auto-Regresivos - AR (p)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-de-media-movil-ma-q">
+     Modelo de media móvil - MA (q)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-arima">
+     Modelo ARIMA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelando-con-arima">
+     Modelando con ARIMA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/1.ARIMA.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a></p>
+<div align="center"> Recordá abrir en una nueva pestaña </div><div class="tex2jax_ignore mathjax_ignore section" id="series-de-tiempo">
+<h1>Series de tiempo<a class="headerlink" href="#series-de-tiempo" title="Permalink to this headline">¶</a></h1>
+<p>El análisis de series de tiempo se suele utilizar para proyectar o pronosticar la evolución de una variable a lo largo del tiempo, a partir de información previa sobre esa misma variable. Es decir, tenemos que proyectar (plotear) una variable determinada (eje y) en función del tiempo (eje x).</p>
+<p>En este caso, nuestra variable de interés el el precio de la cebolla en India, en el dataset contamos con información desagregada por ciudad. En principio, realizaremos un análisis exploratorio para observar su evolución temporal (1) y, luego, pronosticaremos el precio para los próximos periodos de tiempo con una serie de modelos básicos (2) y con otros más avanzados (3), incluyendo el modelo ARIMA.</p>
+<div class="section" id="analisis-exploratorio-y-preprocessing">
+<h2>1) Analisis exploratorio y preprocessing<a class="headerlink" href="#analisis-exploratorio-y-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>El dataset tiene tres columnas (features o variables) son sobre la ubicación del mercado mayorista donde se vendió cebolla:</p>
+<ul class="simple">
+<li><p><strong>state</strong>: Esta es la abreviatura de 2/3 letras para el estado en India (PB es Punjab, etc.)</p></li>
+<li><p><strong>ciudad</strong>: Esta es la ciudad en India (ABOHAR, BANGALORE y así sucesivamente)</p></li>
+<li><p><strong>mercado</strong>: esta es una cadena con la combinación del estado y la ciudad</p></li>
+</ul>
+<p>Tres están relacionados con la fecha de la transacción:</p>
+<ul class="simple">
+<li><p><strong>mes</strong>: mes en enero, febrero y así sucesivamente.</p></li>
+<li><p><strong>año</strong>: año en YYYY representatión</p></li>
+<li><p><strong>fecha</strong>: la combinación de los dos anteriores.</p></li>
+</ul>
+<p>Cuatro son acerca de la cantidad y el precio en este mercado mayorista (todas numéricas).</p>
+<ul class="simple">
+<li><p><strong>cantidad</strong>: La cantidad de cebolla que llega al mercado en ese mes en quintales (100 kg)</p></li>
+<li><p><strong>priceMin</strong>: el precio mínimo en el mes en Rs./quintal</p></li>
+<li><p><strong>priceMax</strong>: el precio máximo en el mes en Rs./quintal</p></li>
+<li><p><strong>priceMod</strong>: el precio modal en el mes en Rs./quintal</p></li>
+</ul>
+<div class="section" id="generalizando-identificamos-distintas-estructuras-de-datos">
+<h3>Generalizando, identificamos distintas ESTRUCTURAS DE DATOS…<a class="headerlink" href="#generalizando-identificamos-distintas-estructuras-de-datos" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><strong>CATEGORICA</strong>: estado, ciudad, mercado</p></li>
+<li><p><strong>INTERVALO DE TIEMPO</strong>: mes, año, fecha</p></li>
+<li><p><strong>CUANTITATIVA</strong>: cantidad, precioMin, priceMax, priceModal</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="c1"># Import statsmodel</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">adfuller</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/statsmodels/tools/_testing.py:19: FutureWarning: pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+  import pandas.util.testing as tm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://datasets-humai.s3.amazonaws.com/datasets/onion_prices.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10227, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10222</th>
+      <td>YEOLA(MS)</td>
+      <td>December</td>
+      <td>2011</td>
+      <td>131326</td>
+      <td>282</td>
+      <td>612</td>
+      <td>526</td>
+      <td>MS</td>
+      <td>YEOLA</td>
+      <td>December-2011</td>
+    </tr>
+    <tr>
+      <th>10223</th>
+      <td>YEOLA(MS)</td>
+      <td>December</td>
+      <td>2012</td>
+      <td>207066</td>
+      <td>485</td>
+      <td>1327</td>
+      <td>1136</td>
+      <td>MS</td>
+      <td>YEOLA</td>
+      <td>December-2012</td>
+    </tr>
+    <tr>
+      <th>10224</th>
+      <td>YEOLA(MS)</td>
+      <td>December</td>
+      <td>2013</td>
+      <td>215883</td>
+      <td>472</td>
+      <td>1427</td>
+      <td>1177</td>
+      <td>MS</td>
+      <td>YEOLA</td>
+      <td>December-2013</td>
+    </tr>
+    <tr>
+      <th>10225</th>
+      <td>YEOLA(MS)</td>
+      <td>December</td>
+      <td>2014</td>
+      <td>201077</td>
+      <td>446</td>
+      <td>1654</td>
+      <td>1456</td>
+      <td>MS</td>
+      <td>YEOLA</td>
+      <td>December-2014</td>
+    </tr>
+    <tr>
+      <th>10226</th>
+      <td>YEOLA(MS)</td>
+      <td>December</td>
+      <td>2015</td>
+      <td>223315</td>
+      <td>609</td>
+      <td>1446</td>
+      <td>1126</td>
+      <td>MS</td>
+      <td>YEOLA</td>
+      <td>December-2015</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>market      object
+month       object
+year         int64
+quantity     int64
+priceMin     int64
+priceMax     int64
+priceMod     int64
+state       object
+city        object
+date        object
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cambiamos el formado de la columna &#39;date&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+<span class="c1"># es equivalente a datetime64</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;&lt;M8[ns]&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Podemos reindexar nuestro dataframe </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s2">&quot;date&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">PeriodIndex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1996-01</th>
+      <td>LASALGAON(MS)</td>
+      <td>January</td>
+      <td>1996</td>
+      <td>225063</td>
+      <td>160</td>
+      <td>257</td>
+      <td>226</td>
+      <td>MS</td>
+      <td>LASALGAON</td>
+      <td>1996-01-01</td>
+    </tr>
+    <tr>
+      <th>1996-02</th>
+      <td>LASALGAON(MS)</td>
+      <td>February</td>
+      <td>1996</td>
+      <td>196164</td>
+      <td>133</td>
+      <td>229</td>
+      <td>186</td>
+      <td>MS</td>
+      <td>LASALGAON</td>
+      <td>1996-02-01</td>
+    </tr>
+    <tr>
+      <th>1996-03</th>
+      <td>LASALGAON(MS)</td>
+      <td>March</td>
+      <td>1996</td>
+      <td>178992</td>
+      <td>155</td>
+      <td>274</td>
+      <td>243</td>
+      <td>MS</td>
+      <td>LASALGAON</td>
+      <td>1996-03-01</td>
+    </tr>
+    <tr>
+      <th>1996-04</th>
+      <td>LASALGAON(MS)</td>
+      <td>April</td>
+      <td>1996</td>
+      <td>192592</td>
+      <td>136</td>
+      <td>279</td>
+      <td>254</td>
+      <td>MS</td>
+      <td>LASALGAON</td>
+      <td>1996-04-01</td>
+    </tr>
+    <tr>
+      <th>1996-05</th>
+      <td>LASALGAON(MS)</td>
+      <td>May</td>
+      <td>1996</td>
+      <td>237574</td>
+      <td>154</td>
+      <td>312</td>
+      <td>269</td>
+      <td>MS</td>
+      <td>LASALGAON</td>
+      <td>1996-05-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="p">)),</span> <span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(21, array([1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006,
+        2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">city</span><span class="p">)),</span> <span class="n">pd</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">city</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(117, array([&#39;LASALGAON&#39;, &#39;NIPHAD&#39;, &#39;SAIKHEDA&#39;, &#39;SINNAR&#39;, &#39;PIMPALGAON&#39;,
+        &#39;LONAND&#39;, &#39;CHAKAN&#39;, &#39;MANMAD&#39;, &#39;BHAVNAGAR&#39;, &#39;MAHUVA&#39;, &#39;PUNE&#39;,
+        &#39;AHMEDNAGAR&#39;, &#39;HUBLI&#39;, &#39;RAHURI&#39;, &#39;DEWAS&#39;, &#39;DHAVANGERE&#39;, &#39;BOMBORI&#39;,
+        &#39;DINDIGUL&#39;, &#39;NASIK&#39;, &#39;GONDAL&#39;, &#39;INDORE&#39;, &#39;DHULIA&#39;, &#39;HASSAN&#39;,
+        &#39;RAJKOT&#39;, &#39;DELHI&#39;, &#39;KARNAL&#39;, &#39;MANDSOUR&#39;, &#39;JAIPUR&#39;, &#39;KALVAN&#39;,
+        &#39;LUCKNOW&#39;, &#39;CHICKBALLAPUR&#39;, &#39;SHIMLA&#39;, &#39;KURNOOL&#39;, &#39;SURAT&#39;, &#39;YEOLA&#39;,
+        &#39;KANPUR&#39;, &#39;KOLAR&#39;, &#39;MALEGAON&#39;, &#39;BELGAUM&#39;, &#39;PATNA&#39;, &#39;SOLAPUR&#39;,
+        &#39;KOLHAPUR&#39;, &#39;SRINAGAR&#39;, &#39;KOLKATA&#39;, &#39;BANGALORE&#39;, &#39;NAGPUR&#39;,
+        &#39;HYDERABAD&#39;, &#39;MUMBAI&#39;, &#39;CHENNAI&#39;, &#39;AMRITSAR&#39;, &#39;MADURAI&#39;,
+        &#39;GUWAHATI&#39;, &#39;JALANDHAR&#39;, &#39;RANCHI&#39;, &#39;UJJAIN&#39;, &#39;BIJAPUR&#39;, &#39;JUNNAR&#39;,
+        &#39;TRIVENDRUM&#39;, &#39;JAMMU&#39;, &#39;AHMEDABAD&#39;, &#39;SATANA&#39;, &#39;ABOHAR&#39;, &#39;AGRA&#39;,
+        &#39;VARANASI&#39;, &#39;BHUBNESWER&#39;, &#39;JALGAON&#39;, &#39;SANGALI&#39;, &#39;SANGAMNER&#39;,
+        &#39;BHOPAL&#39;, &#39;JODHPUR&#39;, &#39;SHRIRAMPUR&#39;, &#39;BHATINDA&#39;, &#39;DEVALA&#39;, &#39;PATIALA&#39;,
+        &#39;LUDHIANA&#39;, &#39;VANI&#39;, &#39;DINDORI&#39;, &#39;RAIPUR&#39;, &#39;UDAIPUR&#39;, &#39;DEORIA&#39;,
+        &#39;ALWAR&#39;, &#39;COIMBATORE&#39;, &#39;KOTA&#39;, &#39;PURULIA&#39;, &#39;BURDWAN&#39;, &#39;NEWASA&#39;,
+        &#39;RAHATA&#39;, &#39;HOSHIARPUR&#39;, &#39;PALAYAM&#39;, &#39;CHANDVAD&#39;, &#39;KOPERGAON&#39;,
+        &#39;SAGAR&#39;, &#39;RAICHUR&#39;, &#39;AJMER&#39;, &#39;KHANNA&#39;, &#39;DEHRADOON&#39;, &#39;ALIGARH&#39;,
+        &#39;BAREILLY&#39;, &#39;DEESA&#39;, &#39;NANDGAON&#39;, &#39;PHALTAN &#39;, &#39;HALDWANI&#39;,
+        &#39;SHEROAPHULY&#39;, &#39;CHALLAKERE&#39;, &#39;BALLIA&#39;, &#39;BIKANER&#39;, &#39;SRIGANGANAGAR&#39;,
+        &#39;GORAKHPUR&#39;, &#39;MEERUT&#39;, &#39;SRIRAMPUR&#39;, &#39;BIHARSHARIF&#39;, &#39;ETAWAH&#39;,
+        &#39;MIDNAPUR&#39;, &#39;JAMNAGAR&#39;, &#39;RAJAHMUNDRY&#39;, &#39;NEEMUCH&#39;, &#39;CHANDIGARH&#39;],
+       dtype=object))
+</pre></div>
+</div>
+</div>
+</div>
+<p>El precio en cada una de estas ciudades conforma una serie de tiempo. Vamos a
+ver cuál de estas ciudades tuvo mayor volumen de ventas y vamos a recortar nuestro análisis a esa ciudad.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">)[</span><span class="s1">&#39;quantity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>city
+BANGALORE     76491944
+PUNE          59470570
+LASALGAON     58765209
+PIMPALGAON    53231396
+DELHI         46305615
+Name: quantity, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nos quedamos entonces con la serie de tiempo de la ciudad de Bangalore</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">city</span> <span class="o">==</span> <span class="s1">&#39;BANGALORE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2004-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2004</td>
+      <td>227832</td>
+      <td>916</td>
+      <td>1066</td>
+      <td>991</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-01-01</td>
+    </tr>
+    <tr>
+      <th>2004-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2004</td>
+      <td>225133</td>
+      <td>741</td>
+      <td>870</td>
+      <td>793</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-02-01</td>
+    </tr>
+    <tr>
+      <th>2004-03</th>
+      <td>BANGALORE</td>
+      <td>March</td>
+      <td>2004</td>
+      <td>221952</td>
+      <td>527</td>
+      <td>586</td>
+      <td>556</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-03-01</td>
+    </tr>
+    <tr>
+      <th>2004-04</th>
+      <td>BANGALORE</td>
+      <td>April</td>
+      <td>2004</td>
+      <td>185150</td>
+      <td>419</td>
+      <td>518</td>
+      <td>465</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-04-01</td>
+    </tr>
+    <tr>
+      <th>2004-05</th>
+      <td>BANGALORE</td>
+      <td>May</td>
+      <td>2004</td>
+      <td>137390</td>
+      <td>400</td>
+      <td>516</td>
+      <td>455</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-05-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Grafiquemos ahora el precio mínimo, el máximo y la moda para cada mes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;priceMin&#39;</span><span class="p">,</span> <span class="s1">&#39;priceMod&#39;</span><span class="p">,</span> <span class="s1">&#39;priceMax&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_16_0.png" src="../../_images/1.ARIMA_16_0.png" />
+</div>
+</div>
+<p>Veamos lo que pasa si aplicamos una transformación logarítmica a la serie:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformamos a logaritmo para reducir la variablidad de la serie</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s1">&#39;priceModLog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceMod</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+      <th>priceModLog</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2004-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2004</td>
+      <td>227832</td>
+      <td>916</td>
+      <td>1066</td>
+      <td>991</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-01-01</td>
+      <td>6.898715</td>
+    </tr>
+    <tr>
+      <th>2004-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2004</td>
+      <td>225133</td>
+      <td>741</td>
+      <td>870</td>
+      <td>793</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-02-01</td>
+      <td>6.675823</td>
+    </tr>
+    <tr>
+      <th>2004-03</th>
+      <td>BANGALORE</td>
+      <td>March</td>
+      <td>2004</td>
+      <td>221952</td>
+      <td>527</td>
+      <td>586</td>
+      <td>556</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-03-01</td>
+      <td>6.320768</td>
+    </tr>
+    <tr>
+      <th>2004-04</th>
+      <td>BANGALORE</td>
+      <td>April</td>
+      <td>2004</td>
+      <td>185150</td>
+      <td>419</td>
+      <td>518</td>
+      <td>465</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-04-01</td>
+      <td>6.142037</td>
+    </tr>
+    <tr>
+      <th>2004-05</th>
+      <td>BANGALORE</td>
+      <td>May</td>
+      <td>2004</td>
+      <td>137390</td>
+      <td>400</td>
+      <td>516</td>
+      <td>455</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-05-01</td>
+      <td>6.120297</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_19_0.png" src="../../_images/1.ARIMA_19_0.png" />
+</div>
+</div>
+<p>Como la transformación logaritmo no es lineal, observamos que las fluctuaciones son más parecidas entre sí al principio y al final de la serie.</p>
+</div>
+</div>
+<div class="section" id="modelos-basicos-para-pronosticos">
+<h2>2) Modelos básicos para prónosticos<a class="headerlink" href="#modelos-basicos-para-pronosticos" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Modelo de la media constante</p></li>
+<li><p>Modelo de tendencia lineal</p></li>
+<li><p>Modelo Random Walk</p></li>
+</ul>
+<p>La serie que vamos a intentar predecir con los siguientes modelos es la moda del precio mensual de la cebolla en el mercado de Bangalore.</p>
+</div>
+<div class="section" id="a-media-constante">
+<h2>2.a) Media constante<a class="headerlink" href="#a-media-constante" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos el promedio, uniforme para todos</span>
+<span class="n">model_mean_pred</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Transformamos ese volor, inicialmente calculado en logaritmo</span>
+<span class="c1"># Lo asignamos a una columna</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;priceMean&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model_mean_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ploteamos los valores originales</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span> <span class="s2">&quot;priceMean&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_23_0.png" src="../../_images/1.ARIMA_23_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>¿Cuán bien ajusta esta estimación?</p></li>
+</ul>
+<p>Calculemos el Error Cuadrático Medio y su raíz…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">RMSE</span><span class="p">(</span><span class="n">predicted</span><span class="p">,</span> <span class="n">actual</span><span class="p">):</span>
+    <span class="n">mse</span> <span class="o">=</span> <span class="p">(</span><span class="n">predicted</span> <span class="o">-</span> <span class="n">actual</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">/</span><span class="n">mse</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">rmse</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_mean_RMSE</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceMean</span><span class="p">,</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceMod</span><span class="p">)</span>
+<span class="n">model_mean_RMSE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>683.9533483996255
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guardamos todo en un dataframe</span>
+<span class="n">dfBangResults</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Model&quot;</span><span class="p">,</span> <span class="s2">&quot;Forecast&quot;</span><span class="p">,</span> <span class="s2">&quot;RMSE&quot;</span><span class="p">])</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Mean&quot;</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;Forecast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model_mean_pred</span><span class="p">)</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;RMSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_mean_RMSE</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Forecast</th>
+      <th>RMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>884.566</td>
+      <td>683.953</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>¿Cómo interpretás este resultado?</p></li>
+</ul>
+</div>
+<div class="section" id="b-tendencia-lineal">
+<h2>2.b) Tendencia lineal<a class="headerlink" href="#b-tendencia-lineal" title="Permalink to this headline">¶</a></h2>
+<p>Continuaremos trabajando con la tendencia lineal entre priceModLog y time. Primero tenemos que crear un  indicador numérico para el período de tiempo para hacer una regresión lineal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rotomamos el subset de Bangalore</span>
+<span class="c1"># Identificamos el punto de inicio de la data</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Timestamp(&#39;2004-01-01 00:00:00&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convertimos nuestra data almacenada en &#39;date&#39; en datetime-delta, comenzando por cero</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">date</span> <span class="o">-</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+      <th>priceModLog</th>
+      <th>priceMean</th>
+      <th>timeIndex</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2004-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2004</td>
+      <td>227832</td>
+      <td>916</td>
+      <td>1066</td>
+      <td>991</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-01-01</td>
+      <td>6.898715</td>
+      <td>884.565812</td>
+      <td>0 days</td>
+    </tr>
+    <tr>
+      <th>2004-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2004</td>
+      <td>225133</td>
+      <td>741</td>
+      <td>870</td>
+      <td>793</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-02-01</td>
+      <td>6.675823</td>
+      <td>884.565812</td>
+      <td>31 days</td>
+    </tr>
+    <tr>
+      <th>2004-03</th>
+      <td>BANGALORE</td>
+      <td>March</td>
+      <td>2004</td>
+      <td>221952</td>
+      <td>527</td>
+      <td>586</td>
+      <td>556</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-03-01</td>
+      <td>6.320768</td>
+      <td>884.565812</td>
+      <td>60 days</td>
+    </tr>
+    <tr>
+      <th>2004-04</th>
+      <td>BANGALORE</td>
+      <td>April</td>
+      <td>2004</td>
+      <td>185150</td>
+      <td>419</td>
+      <td>518</td>
+      <td>465</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-04-01</td>
+      <td>6.142037</td>
+      <td>884.565812</td>
+      <td>91 days</td>
+    </tr>
+    <tr>
+      <th>2004-05</th>
+      <td>BANGALORE</td>
+      <td>May</td>
+      <td>2004</td>
+      <td>137390</td>
+      <td>400</td>
+      <td>516</td>
+      <td>455</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-05-01</td>
+      <td>6.120297</td>
+      <td>884.565812</td>
+      <td>121 days</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformamos la última columna de días a meses con timedelta</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">timeIndex</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">UFuncTypeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-22-def8fc85cfa3&gt;</span> in <span class="ni">&lt;module&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Transformamos la última columna de días a meses con timedelta</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">]</span> <span class="o">=</span>  <span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">]</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">timeIndex</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/pandas/core/ops/common.py</span> in <span class="ni">new_method</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>         <span class="n">other</span> <span class="o">=</span> <span class="n">item_from_zerodim</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span> 
+<span class="ne">---&gt; </span><span class="mi">65</span>         <span class="k">return</span> <span class="n">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span> 
+<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="k">return</span> <span class="n">new_method</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/pandas/core/ops/__init__.py</span> in <span class="ni">wrapper</span><span class="nt">(left, right)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>         <span class="n">lvalues</span> <span class="o">=</span> <span class="n">extract_array</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">extract_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>         <span class="n">rvalues</span> <span class="o">=</span> <span class="n">extract_array</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">extract_numpy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">343</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">arithmetic_op</span><span class="p">(</span><span class="n">lvalues</span><span class="p">,</span> <span class="n">rvalues</span><span class="p">,</span> <span class="n">op</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span> 
+<span class="g g-Whitespace">    </span><span class="mi">345</span>         <span class="k">return</span> <span class="n">left</span><span class="o">.</span><span class="n">_construct_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">res_name</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.7/dist-packages/pandas/core/ops/array_ops.py</span> in <span class="ni">arithmetic_op</span><span class="nt">(left, right, op)</span>
+<span class="g g-Whitespace">    </span><span class="mi">184</span>     <span class="k">if</span> <span class="n">should_extension_dispatch</span><span class="p">(</span><span class="n">lvalues</span><span class="p">,</span> <span class="n">rvalues</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rvalues</span><span class="p">,</span> <span class="n">Timedelta</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span>         <span class="c1"># Timedelta is included because numexpr will fail on it, see GH#31457</span>
+<span class="ne">--&gt; </span><span class="mi">186</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">op</span><span class="p">(</span><span class="n">lvalues</span><span class="p">,</span> <span class="n">rvalues</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span> 
+<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">pandas/_libs/tslibs/timedeltas.pyx</span> in <span class="ni">pandas._libs.tslibs.timedeltas.Timedelta.__rtruediv__</span><span class="nt">()</span>
+
+<span class="ne">UFuncTypeError</span>: ufunc &#39;true_divide&#39; cannot use operands with types dtype(&#39;float64&#39;) and dtype(&#39;&lt;m8[ns]&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Redondeamos, quitando todos los decimales</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">timeIndex</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+2015-10    141
+2015-11    142
+2015-12    143
+2016-01    144
+2016-02    145
+Freq: M, Name: timeIndex, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+      <th>priceModLog</th>
+      <th>priceMean</th>
+      <th>timeIndex</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2004-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2004</td>
+      <td>227832</td>
+      <td>916</td>
+      <td>1066</td>
+      <td>991</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-01-01</td>
+      <td>6.898715</td>
+      <td>884.565812</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2004-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2004</td>
+      <td>225133</td>
+      <td>741</td>
+      <td>870</td>
+      <td>793</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-02-01</td>
+      <td>6.675823</td>
+      <td>884.565812</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2004-03</th>
+      <td>BANGALORE</td>
+      <td>March</td>
+      <td>2004</td>
+      <td>221952</td>
+      <td>527</td>
+      <td>586</td>
+      <td>556</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-03-01</td>
+      <td>6.320768</td>
+      <td>884.565812</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2004-04</th>
+      <td>BANGALORE</td>
+      <td>April</td>
+      <td>2004</td>
+      <td>185150</td>
+      <td>419</td>
+      <td>518</td>
+      <td>465</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-04-01</td>
+      <td>6.142037</td>
+      <td>884.565812</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2004-05</th>
+      <td>BANGALORE</td>
+      <td>May</td>
+      <td>2004</td>
+      <td>137390</td>
+      <td>400</td>
+      <td>516</td>
+      <td>455</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-05-01</td>
+      <td>6.120297</td>
+      <td>884.565812</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora fiteamos nuestro modelo de regresión lineal entre priceMod y timeIndex</span>
+<span class="n">model_linear</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;priceModLog ~ timeIndex&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dfBang</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>El primer argumento corresponde a la forma funcional de nuestra estimación. <a class="reference external" href="http://www.statsmodels.org/dev/examples/notebooks/generated/formulas.html">Más detalles</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_linear</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>       <td>priceModLog</td>   <th>  R-squared:         </th> <td>   0.493</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.489</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   139.8</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sun, 05 Sep 2021</td> <th>  Prob (F-statistic):</th> <td>5.75e-23</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>23:02:37</td>     <th>  Log-Likelihood:    </th> <td> -72.317</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   146</td>      <th>  AIC:               </th> <td>   148.6</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   144</td>      <th>  BIC:               </th> <td>   154.6</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     1</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+      <td></td>         <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th> <td>    6.1121</td> <td>    0.066</td> <td>   92.830</td> <td> 0.000</td> <td>    5.982</td> <td>    6.242</td>
+</tr>
+<tr>
+  <th>timeIndex</th> <td>    0.0093</td> <td>    0.001</td> <td>   11.823</td> <td> 0.000</td> <td>    0.008</td> <td>    0.011</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 4.750</td> <th>  Durbin-Watson:     </th> <td>   0.384</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.093</td> <th>  Jarque-Bera (JB):  </th> <td>   4.739</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.405</td> <th>  Prob(JB):          </th> <td>  0.0935</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 2.648</td> <th>  Cond. No.          </th> <td>    167.</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_linear_pred</span> <span class="o">=</span> <span class="n">model_linear</span><span class="o">.</span><span class="n">predict</span><span class="p">()</span>
+<span class="n">model_linear_pred</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6.11210813, 6.12139074, 6.13067334, 6.13995594, 6.14923855])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ploteamos los resultados de la predicción</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;priceModLog&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">timeIndex</span><span class="p">,</span><span class="n">model_linear_pred</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_39_0.png" src="../../_images/1.ARIMA_39_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ploteamos los residuos de nuestra estimación</span>
+<span class="n">model_linear</span><span class="o">.</span><span class="n">resid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_40_0.png" src="../../_images/1.ARIMA_40_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>¿Tenemos un mejor modelo respecto de la media constante? ¿Cómo podemos verificarlo?</p></li>
+</ul>
+<p>En ambos gráficos vemos que el modelo de tendencia lineal es propenso a cometer un error del mismo signo durante varios períodos seguidos. Este sesgo del modelo se mide en términos estadísticos mediante la <strong>autocorrelación lag-1</strong> (se denomina así a la correlación de una variable respecto a sí misma rezagada un período de tiempo) a través del estadístico <strong>Durbin-Watson</strong>. Si no hay un patrón de tiempo, la autocorrelación lag-1 debería ser muy cercana a cero (veamos el cuadro resumen del modelo más arriba) y, por lo tanto, la estadística de Durbin-Watson debería ser  muy cercana a 2 (no es este caso). Si el modelo ha logrado extraer toda la “señal” de los datos, no debería haber ningún patrón en los errores, es decir, el error del período siguiente no debería estar correlacionado con ningún error anterior como observamos aquí. El modelo de tendencia lineal suele fallar cuando se testea la autocorrelación.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;priceLinear&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model_linear_pred</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+      <th>priceModLog</th>
+      <th>priceMean</th>
+      <th>timeIndex</th>
+      <th>priceLinear</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2004-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2004</td>
+      <td>227832</td>
+      <td>916</td>
+      <td>1066</td>
+      <td>991</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-01-01</td>
+      <td>6.898715</td>
+      <td>884.565812</td>
+      <td>0</td>
+      <td>451.289090</td>
+    </tr>
+    <tr>
+      <th>2004-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2004</td>
+      <td>225133</td>
+      <td>741</td>
+      <td>870</td>
+      <td>793</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-02-01</td>
+      <td>6.675823</td>
+      <td>884.565812</td>
+      <td>1</td>
+      <td>455.497732</td>
+    </tr>
+    <tr>
+      <th>2004-03</th>
+      <td>BANGALORE</td>
+      <td>March</td>
+      <td>2004</td>
+      <td>221952</td>
+      <td>527</td>
+      <td>586</td>
+      <td>556</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-03-01</td>
+      <td>6.320768</td>
+      <td>884.565812</td>
+      <td>2</td>
+      <td>459.745622</td>
+    </tr>
+    <tr>
+      <th>2004-04</th>
+      <td>BANGALORE</td>
+      <td>April</td>
+      <td>2004</td>
+      <td>185150</td>
+      <td>419</td>
+      <td>518</td>
+      <td>465</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-04-01</td>
+      <td>6.142037</td>
+      <td>884.565812</td>
+      <td>3</td>
+      <td>464.033127</td>
+    </tr>
+    <tr>
+      <th>2004-05</th>
+      <td>BANGALORE</td>
+      <td>May</td>
+      <td>2004</td>
+      <td>137390</td>
+      <td>400</td>
+      <td>516</td>
+      <td>455</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-05-01</td>
+      <td>6.120297</td>
+      <td>884.565812</td>
+      <td>4</td>
+      <td>468.360617</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Root Mean Squared Error (RMSE)</span>
+<span class="n">model_linear_RMSE</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceLinear</span><span class="p">,</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceMod</span><span class="p">)</span>
+<span class="n">model_linear_RMSE</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>518.5236075841487
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Añadimos estos datos a nuestro DF de resultados para comparar con el modelo anterior</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Linear&quot;</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;Forecast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model_linear_pred</span><span class="p">)</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;RMSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">model_linear_RMSE</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Forecast</th>
+      <th>RMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>884.566</td>
+      <td>683.953</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Linear</td>
+      <td>[451.28909037437916, 455.4977316072932, 459.74...</td>
+      <td>518.524</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ploteamos las dos estimaciones</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span> <span class="s2">&quot;priceMean&quot;</span><span class="p">,</span> <span class="s2">&quot;priceLinear&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_45_0.png" src="../../_images/1.ARIMA_45_0.png" />
+</div>
+</div>
+<div class="section" id="tendencia-lineal-con-un-regresor">
+<h3>Tendencia lineal con un regresor<a class="headerlink" href="#tendencia-lineal-con-un-regresor" title="Permalink to this headline">¶</a></h3>
+<p>Ahora vamos a explorar un modelo lineal que permite tener en cuenta la cantidad.
+Cuando incluimos un feature adicional (además del tiempo) en una serie de tiempo existen dos posibilidades:</p>
+<ol class="simple">
+<li><p>El regresor se conoce a la hora de pronosticar: por ejemplo la ubicación donde la empresa estará en un momento del tiempo, que ya puede estar planificada.</p></li>
+<li><p>El regresor no se conoce a la hora de pronosticar: por ejemplo la cantidad en este caso</p></li>
+</ol>
+<p>Cuando nos encontramos en el segundo escenario, tenemos que tener en cuenta que el modelo de serie de tiempo va a ser útil para entender las relaciones entre las variables recurriendo al pasado (es decir, para modelar) pero no para hacer pronósticos a futuro.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ahora estimamos una variante del modelo lineal, incluyendo el logaritmo de las cantidades como regresor</span>
+<span class="n">model_linear_quantity</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s1">&#39;priceModLog ~ timeIndex + np.log(quantity)&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">dfBang</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">model_linear_quantity</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>       <td>priceModLog</td>   <th>  R-squared:         </th> <td>   0.509</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.502</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   74.16</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Sun, 05 Sep 2021</td> <th>  Prob (F-statistic):</th> <td>8.00e-23</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>23:09:54</td>     <th>  Log-Likelihood:    </th> <td> -69.892</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>   146</td>      <th>  AIC:               </th> <td>   145.8</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>   143</td>      <th>  BIC:               </th> <td>   154.7</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     2</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+          <td></td>            <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>Intercept</th>        <td>    4.1813</td> <td>    0.881</td> <td>    4.746</td> <td> 0.000</td> <td>    2.440</td> <td>    5.923</td>
+</tr>
+<tr>
+  <th>timeIndex</th>        <td>    0.0084</td> <td>    0.001</td> <td>    9.774</td> <td> 0.000</td> <td>    0.007</td> <td>    0.010</td>
+</tr>
+<tr>
+  <th>np.log(quantity)</th> <td>    0.1529</td> <td>    0.070</td> <td>    2.198</td> <td> 0.030</td> <td>    0.015</td> <td>    0.290</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 5.097</td> <th>  Durbin-Watson:     </th> <td>   0.412</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.078</td> <th>  Jarque-Bera (JB):  </th> <td>   4.952</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td> 0.403</td> <th>  Prob(JB):          </th> <td>  0.0841</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 2.593</td> <th>  Cond. No.          </th> <td>2.29e+03</td>
+</tr>
+</table><br/><br/>Warnings:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.<br/>[2] The condition number is large, 2.29e+03. This might indicate that there are<br/>strong multicollinearity or other numerical problems.</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;priceLinearQuantity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model_linear_quantity</span><span class="o">.</span><span class="n">predict</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_linear_quantity</span><span class="o">.</span><span class="n">params</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Intercept           4.181290
+timeIndex           0.008443
+np.log(quantity)    0.152863
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos el RMSE y lo añadimos al DF de resultados</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;LinearQuantity&quot;</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;Forecast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">model_linear_quantity</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> 
+                                        <span class="n">model_linear_quantity</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">146</span> <span class="o">+</span>
+                                        <span class="n">model_linear_quantity</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">4000000</span><span class="p">))</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;RMSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceLinearQuantity</span><span class="p">,</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceMod</span><span class="p">)</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Forecast</th>
+      <th>RMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>884.566</td>
+      <td>683.953</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Linear</td>
+      <td>[451.28909037437916, 455.4977316072932, 459.74...</td>
+      <td>518.524</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LinearQuantity</td>
+      <td>2293.45</td>
+      <td>505.249</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;quantity&quot;</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span> <span class="s2">&quot;priceMean&quot;</span><span class="p">,</span> 
+                                             <span class="s2">&quot;priceLinear&quot;</span><span class="p">,</span> <span class="s2">&quot;priceLinearQuantity&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_51_0.png" src="../../_images/1.ARIMA_51_0.png" />
+<img alt="../../_images/1.ARIMA_51_1.png" src="../../_images/1.ARIMA_51_1.png" />
+</div>
+</div>
+<p>Obsrvamos que al usar la cantidad para modelar el precio el modelo puede dar mejor cuenta de las fluctuaciones.</p>
+</div>
+</div>
+<div class="section" id="c-random-walk">
+<h2>2.c) Random Walk<a class="headerlink" href="#c-random-walk" title="Permalink to this headline">¶</a></h2>
+<p>Cuando nos enfrentamos a una serie de tiempo que muestra crecimiento irregular, la mejor estrategia no es tratar de predecir directamente el nivel de la serie en cada período (es decir, el valor Yt), sino el cambio que ocurre de un período al siguiente (es decir, la diferencia Yt - Yt-1). Se observa la primera diferencia (o lag) de la serie para encontrar un patrón predecible.</p>
+<p>A los efectos del pronóstico del próximo período, puede ser tan bueno predecir el nivel como la variación, ya que el cambio predicho puede agregarse al nivel actual para generar un nivel pronosticado. El caso más simple de dicho modelo es uno que siempre predice que el siguiente cambio será cero, como si la serie tuviera la misma probabilidad de subir o bajar en el próximo período, independientemente de lo que haya sucedido en el pasado.</p>
+<p><strong>Random Walk</strong> $<span class="math notranslate nohighlight">\( \ hat {Y_t} = Y_ {t-1} + \ epsilon \\ \)</span>$</p>
+<p><strong>Random Walk with drift (derivada)</strong> $<span class="math notranslate nohighlight">\( \ hat {Y_t} = Y_ {t-1} + c + \ epsilon \\ \)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos el desplazamiento de nuestro nuestro target (lag=1)</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;priceModLogShift1&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+      <th>priceModLog</th>
+      <th>priceMean</th>
+      <th>timeIndex</th>
+      <th>priceLinear</th>
+      <th>priceLinearQuantity</th>
+      <th>priceModLogShift1</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2004-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2004</td>
+      <td>227832</td>
+      <td>916</td>
+      <td>1066</td>
+      <td>991</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-01-01</td>
+      <td>6.898715</td>
+      <td>884.565812</td>
+      <td>0</td>
+      <td>451.289090</td>
+      <td>431.410971</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2004-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2004</td>
+      <td>225133</td>
+      <td>741</td>
+      <td>870</td>
+      <td>793</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-02-01</td>
+      <td>6.675823</td>
+      <td>884.565812</td>
+      <td>1</td>
+      <td>455.497732</td>
+      <td>434.277110</td>
+      <td>6.898715</td>
+    </tr>
+    <tr>
+      <th>2004-03</th>
+      <td>BANGALORE</td>
+      <td>March</td>
+      <td>2004</td>
+      <td>221952</td>
+      <td>527</td>
+      <td>586</td>
+      <td>556</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-03-01</td>
+      <td>6.320768</td>
+      <td>884.565812</td>
+      <td>2</td>
+      <td>459.745622</td>
+      <td>437.007747</td>
+      <td>6.675823</td>
+    </tr>
+    <tr>
+      <th>2004-04</th>
+      <td>BANGALORE</td>
+      <td>April</td>
+      <td>2004</td>
+      <td>185150</td>
+      <td>419</td>
+      <td>518</td>
+      <td>465</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-04-01</td>
+      <td>6.142037</td>
+      <td>884.565812</td>
+      <td>3</td>
+      <td>464.033127</td>
+      <td>428.667281</td>
+      <td>6.320768</td>
+    </tr>
+    <tr>
+      <th>2004-05</th>
+      <td>BANGALORE</td>
+      <td>May</td>
+      <td>2004</td>
+      <td>137390</td>
+      <td>400</td>
+      <td>516</td>
+      <td>455</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2004-05-01</td>
+      <td>6.120297</td>
+      <td>884.565812</td>
+      <td>4</td>
+      <td>468.360617</td>
+      <td>413.029454</td>
+      <td>6.142037</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span> <span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;priceModLog&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;priceModLogShift1&quot;</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_55_0.png" src="../../_images/1.ARIMA_55_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ploteamos la relación entre nuestro target y el lag de un período</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;priceModLogDiff&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span> <span class="o">-</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLogShift1</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLogDiff</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_56_0.png" src="../../_images/1.ARIMA_56_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;priceRandom&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLogShift1</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+      <th>priceModLog</th>
+      <th>priceMean</th>
+      <th>timeIndex</th>
+      <th>priceLinear</th>
+      <th>priceLinearQuantity</th>
+      <th>priceModLogShift1</th>
+      <th>priceModLogDiff</th>
+      <th>priceRandom</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-10</th>
+      <td>BANGALORE</td>
+      <td>October</td>
+      <td>2015</td>
+      <td>1612160</td>
+      <td>385</td>
+      <td>3365</td>
+      <td>2215</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2015-10-01</td>
+      <td>7.703008</td>
+      <td>884.565812</td>
+      <td>141</td>
+      <td>1670.628673</td>
+      <td>1913.491280</td>
+      <td>8.051978</td>
+      <td>-0.348970</td>
+      <td>3140.0</td>
+    </tr>
+    <tr>
+      <th>2015-11</th>
+      <td>BANGALORE</td>
+      <td>November</td>
+      <td>2015</td>
+      <td>1071872</td>
+      <td>205</td>
+      <td>3138</td>
+      <td>1618</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2015-11-01</td>
+      <td>7.388946</td>
+      <td>884.565812</td>
+      <td>142</td>
+      <td>1686.208656</td>
+      <td>1812.993037</td>
+      <td>7.703008</td>
+      <td>-0.314062</td>
+      <td>2215.0</td>
+    </tr>
+    <tr>
+      <th>2015-12</th>
+      <td>BANGALORE</td>
+      <td>December</td>
+      <td>2015</td>
+      <td>513186</td>
+      <td>217</td>
+      <td>2030</td>
+      <td>1343</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2015-12-01</td>
+      <td>7.202661</td>
+      <td>884.565812</td>
+      <td>143</td>
+      <td>1701.933936</td>
+      <td>1633.680427</td>
+      <td>7.388946</td>
+      <td>-0.186285</td>
+      <td>1618.0</td>
+    </tr>
+    <tr>
+      <th>2016-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2016</td>
+      <td>507223</td>
+      <td>200</td>
+      <td>1943</td>
+      <td>1448</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2016-01-01</td>
+      <td>7.277939</td>
+      <td>884.565812</td>
+      <td>144</td>
+      <td>1717.805867</td>
+      <td>1644.591721</td>
+      <td>7.202661</td>
+      <td>0.075277</td>
+      <td>1343.0</td>
+    </tr>
+    <tr>
+      <th>2016-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2016</td>
+      <td>400359</td>
+      <td>200</td>
+      <td>1505</td>
+      <td>1101</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2016-02-01</td>
+      <td>7.003974</td>
+      <td>884.565812</td>
+      <td>145</td>
+      <td>1733.825817</td>
+      <td>1599.625994</td>
+      <td>7.277939</td>
+      <td>-0.273964</td>
+      <td>1448.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span><span class="s2">&quot;priceRandom&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_58_0.png" src="../../_images/1.ARIMA_58_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos el RMSE y almacenamos los resultados</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Random&quot;</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;Forecast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLogShift1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;RMSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceRandom</span><span class="p">,</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceMod</span><span class="p">)</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Forecast</th>
+      <th>RMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>884.566</td>
+      <td>683.953</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Linear</td>
+      <td>[451.28909037437916, 455.4977316072932, 459.74...</td>
+      <td>518.524</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LinearQuantity</td>
+      <td>2293.45</td>
+      <td>505.249</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Random</td>
+      <td>1448</td>
+      <td>323.592</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span> <span class="s2">&quot;priceMean&quot;</span><span class="p">,</span> <span class="s2">&quot;priceLinear&quot;</span><span class="p">,</span> <span class="s2">&quot;priceRandom&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_60_0.png" src="../../_images/1.ARIMA_60_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="base-para-el-analisis-de-las-series-de-tiempo">
+<h2>BASE para el ANÁLISIS de las SERIES de TIEMPO<a class="headerlink" href="#base-para-el-analisis-de-las-series-de-tiempo" title="Permalink to this headline">¶</a></h2>
+<p>La mayoría de los modelos de series de tiempo funcionan bajo el supuesto de que la serie temporal es estacionaria. Intuitivamente, podemos ver que si una serie de tiempo tiene un comportamiento particular a lo largo del tiempo, existe una gran probabilidad de que siga igual en el futuro. Además, las herramientas relacionadas con series estacionarias han sido más desarrolladas y son más fáciles de implementar que aquellas relacionadas con series que no lo son.</p>
+<p>Los models AR y MA requieren para funcionar que la serie sea estacional. La evolución de estos dos modelos, ARIMA, a diferencia de éstos puede trabajar con series no estacionales.</p>
+<p><strong>Estacionariedad estadística:</strong> una serie temporal estacionaria es aquella cuyas propiedades estadísticas tales como media, varianza, autocorrelación, etc. son todas constantes a lo largo del tiempo. La mayoría de los métodos de pronóstico estadístico se basan en la suposición de que las series de tiempo pueden ser representadas como estacionarias (es decir, “desestacionalizadas”) mediante el uso de transformaciones matemáticas. Una serie estacionaria es relativamente fácil de predecir: ¡simplemente predice que sus propiedades estadísticas serán las mismas en el futuro que en el pasado!</p>
+<p>Hay tres criterios básicos para que una serie se clasifique como serie estacionaria:</p>
+<ul class="simple">
+<li><p>La <strong> media </strong> de la serie no debe ser una función del tiempo sino una constante.</p></li>
+</ul>
+<center><img src='https://image.ibb.co/edfijG/Mean_nonstationary.png'></center>
+<ul class="simple">
+<li><p>La <strong>  varianza </strong> de la serie no debe ser una función del tiempo. Esta propiedad se conoce como homocedasticidad y representa que la serie tiene varianza homogénea a lo largo del tiempo.</p></li>
+</ul>
+<center><img src='https://image.ibb.co/n1kurw/Var_nonstationary.png'></center>
+<ul class="simple">
+<li><p>La <strong> covarianza </strong>  del primer término y el término (i + m) no deberían ser una función del tiempo.</p></li>
+</ul>
+<center><img src='https://image.ibb.co/hNCw4G/Cov_nonstationary.png'></center><div class="section" id="como-hacemos-para-que-una-serie-de-tiempo-sea-estacionaria">
+<h3>¿Cómo hacemos para que una serie de tiempo sea estacionaria?<a class="headerlink" href="#como-hacemos-para-que-una-serie-de-tiempo-sea-estacionaria" title="Permalink to this headline">¶</a></h3>
+<p>Hay 3 componentes centrales vinculados con la <strong>no estacionariedad</strong> de la serie de tiempo:</p>
+<ul class="simple">
+<li><p><strong>Tendencia (T)</strong>: existe una tendencia cuando hay un aumento o una disminución del nivel (de la variable en cuestión) a largo plazo. No tiene que ser lineal. A veces nos referiremos a un cambio en la dirección (punto de inflexión) de la serie cuando la tendencia pasa de ser creciente a decreciente.</p></li>
+<li><p><strong>Estacionalidad (S por seasonality)</strong>: existe un patrón estacional cuando una serie está influenciada por factores estacionales (por ejemplo, el trimestre del año en lo que refiere a vacaciones o zafra; el mes si contemplamos crecimiento de ventas (ligado a Navidad, por ejemplo) o el día de la semana). La estacionalidad es siempre de un período fijo y conocido.</p></li>
+<li><p><strong>Cíclico</strong>: existe un patrón cíclico cuando los datos exhibidos suben y bajan sin respetar el período fijo ligado a la estacionalidad. La duración de estas fluctuaciones suele ser de al menos 2 años. Si estuviésemos analizando el PBI de un país, los ciclos económicos con años de crecimiento seguidos de otros de recesión constituyen un buen ejemplo. Sin embargo, cuando hay poca información o las variaciones cíclicas no son muy pronunciadas, este componente puede quedar subsumido al de la tendencia.</p></li>
+</ul>
+<p>Podemos describir el comportamiento de la serie a partir de un modelo <strong>aditivo</strong>:
+$<span class="math notranslate nohighlight">\( y_t = T_t + S_t + E_t \\ \)</span><span class="math notranslate nohighlight">\(
+donde \)</span> y_t <span class="math notranslate nohighlight">\( son los datos en el período t, \)</span> T_t <span class="math notranslate nohighlight">\( es el componente del ciclo de tendencia en el período 't', \)</span> S_t <span class="math notranslate nohighlight">\( es el componente estacional en el período 't' y \)</span> E_t $ es el componente restante (o irregular o error) en el período ‘t’.</p>
+<p>Alternativamente, un modelo <strong>multiplicativo</strong> se escribiría como</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} y_t = T_t * S_t * E_t \\ \end{split}\]</div>
+<p>El modelo aditivo es más apropiado si la magnitud de las fluctuaciones estacionales o la variación en torno al ciclo de tendencia no varía con el nivel de la serie temporal. Cuando la variación en el patrón estacional, o la variación alrededor del ciclo de tendencia, parece ser proporcional al nivel de la serie temporal, entonces un modelo multiplicativo es más apropiado. Con series de tiempo económicas, los modelos multiplicativos son comunes.</p>
+<p>Una alternativa al uso de un modelo multiplicativo es transformar primero los datos hasta que la variación en la serie parezca estable a lo largo del tiempo y luego usar un modelo aditivo. Cuando se ha utilizado una transformación de registro, como por ejemplo el pasaje a escala logarítmica, esto es equivalente a usar una descomposición multiplicativa por las propiedades de esta transformación:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} log y_t = log T_t + log S_t + log E_t \\ \end{split}\]</div>
+</div>
+</div>
+<div class="section" id="modelos-intermedios-y-avanzados-para-pronosticos">
+<h2>3) Modelos intermedios y avanzados para pronósticos<a class="headerlink" href="#modelos-intermedios-y-avanzados-para-pronosticos" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="a-i-media-movil-simple-moving-average">
+<h2>3.a.i) Media móvil (simple moving average)<a class="headerlink" href="#a-i-media-movil-simple-moving-average" title="Permalink to this headline">¶</a></h2>
+<p>Como primer paso para ir más allá de los modelos básicos, podemos emplear un modelo suavizado a partir de la media móvil. El supuesto subyacente reside en que la serie temporal sea localmente estacionaria con una media que varía lentamente.
+Por lo tanto, tomamos un promedio móvil (local) para estimar el valor actual de la media y luego lo usamos como pronóstico para el futuro cercano. Esto se puede considerar como un punto medio entre el modelo de media constante y el Random Walk. La misma estrategia se puede usar para estimar y extrapolar una tendencia local. Un promedio móvil a menudo se denomina versión “suavizada” de la serie original porque el promedio a corto plazo tiene el efecto de suavizar los baches en la serie original. Al ajustar el grado de suavización (el ancho de la media móvil o la cantidad de períodos considerados para dicho cálculo), podemos esperar encontrar algún tipo de equilibrio óptimo entre los dos modelos básicos recién mencionados.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \ hat {y_t} = \ frac {y_ {t-1} + y_ {t-2} + y_ {t-3} + ... + y_ {t-m}} {m} \\ \end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos la media móvil de 12 meses para suavizar los valores y ploteamos</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s1">&#39;priceModLogMA12&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;priceModLogMA12&quot;</span><span class="p">,</span> <span class="s2">&quot;priceModLog&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_64_0.png" src="../../_images/1.ARIMA_64_0.png" />
+</div>
+</div>
+<p>¿Podemos concluir que la media varía a lo largo del tiempo?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="p">[</span><span class="s2">&quot;priceMA12&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLogMA12</span><span class="p">)</span>
+<span class="n">dfBang</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>market</th>
+      <th>month</th>
+      <th>year</th>
+      <th>quantity</th>
+      <th>priceMin</th>
+      <th>priceMax</th>
+      <th>priceMod</th>
+      <th>state</th>
+      <th>city</th>
+      <th>date</th>
+      <th>priceModLog</th>
+      <th>priceMean</th>
+      <th>timeIndex</th>
+      <th>priceLinear</th>
+      <th>priceLinearQuantity</th>
+      <th>priceModLogShift1</th>
+      <th>priceModLogDiff</th>
+      <th>priceRandom</th>
+      <th>priceModLogMA12</th>
+      <th>priceMA12</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-10</th>
+      <td>BANGALORE</td>
+      <td>October</td>
+      <td>2015</td>
+      <td>1612160</td>
+      <td>385</td>
+      <td>3365</td>
+      <td>2215</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2015-10-01</td>
+      <td>7.703008</td>
+      <td>884.565812</td>
+      <td>141</td>
+      <td>1670.628673</td>
+      <td>1913.491280</td>
+      <td>8.051978</td>
+      <td>-0.348970</td>
+      <td>3140.0</td>
+      <td>7.526074</td>
+      <td>1855.805596</td>
+    </tr>
+    <tr>
+      <th>2015-11</th>
+      <td>BANGALORE</td>
+      <td>November</td>
+      <td>2015</td>
+      <td>1071872</td>
+      <td>205</td>
+      <td>3138</td>
+      <td>1618</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2015-11-01</td>
+      <td>7.388946</td>
+      <td>884.565812</td>
+      <td>142</td>
+      <td>1686.208656</td>
+      <td>1812.993037</td>
+      <td>7.703008</td>
+      <td>-0.314062</td>
+      <td>2215.0</td>
+      <td>7.537956</td>
+      <td>1877.986866</td>
+    </tr>
+    <tr>
+      <th>2015-12</th>
+      <td>BANGALORE</td>
+      <td>December</td>
+      <td>2015</td>
+      <td>513186</td>
+      <td>217</td>
+      <td>2030</td>
+      <td>1343</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2015-12-01</td>
+      <td>7.202661</td>
+      <td>884.565812</td>
+      <td>143</td>
+      <td>1701.933936</td>
+      <td>1633.680427</td>
+      <td>7.388946</td>
+      <td>-0.186285</td>
+      <td>1618.0</td>
+      <td>7.535329</td>
+      <td>1873.061120</td>
+    </tr>
+    <tr>
+      <th>2016-01</th>
+      <td>BANGALORE</td>
+      <td>January</td>
+      <td>2016</td>
+      <td>507223</td>
+      <td>200</td>
+      <td>1943</td>
+      <td>1448</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2016-01-01</td>
+      <td>7.277939</td>
+      <td>884.565812</td>
+      <td>144</td>
+      <td>1717.805867</td>
+      <td>1644.591721</td>
+      <td>7.202661</td>
+      <td>0.075277</td>
+      <td>1343.0</td>
+      <td>7.526907</td>
+      <td>1857.351582</td>
+    </tr>
+    <tr>
+      <th>2016-02</th>
+      <td>BANGALORE</td>
+      <td>February</td>
+      <td>2016</td>
+      <td>400359</td>
+      <td>200</td>
+      <td>1505</td>
+      <td>1101</td>
+      <td>KNT</td>
+      <td>BANGALORE</td>
+      <td>2016-02-01</td>
+      <td>7.003974</td>
+      <td>884.565812</td>
+      <td>145</td>
+      <td>1733.825817</td>
+      <td>1599.625994</td>
+      <td>7.277939</td>
+      <td>-0.273964</td>
+      <td>1448.0</td>
+      <td>7.492590</td>
+      <td>1794.694278</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Incorporamos estimaciones y resultados a nuestro DF</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;Model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Moving Average 12&quot;</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;Forecast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;RMSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceMA12</span><span class="p">,</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceMod</span><span class="p">)</span>
+
+<span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Forecast</th>
+      <th>RMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>884.566</td>
+      <td>683.953</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Linear</td>
+      <td>[451.28909037437916, 455.4977316072932, 459.74...</td>
+      <td>518.524</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LinearQuantity</td>
+      <td>2293.45</td>
+      <td>505.249</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Random</td>
+      <td>1448</td>
+      <td>323.592</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Moving Average 12</td>
+      <td>1794.69</td>
+      <td>518.822</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span> <span class="s2">&quot;priceMean&quot;</span><span class="p">,</span> <span class="s2">&quot;priceLinear&quot;</span><span class="p">,</span>
+                                             <span class="s2">&quot;priceRandom&quot;</span><span class="p">,</span> <span class="s2">&quot;priceMA12&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_68_0.png" src="../../_images/1.ARIMA_68_0.png" />
+</div>
+</div>
+<p>En ambos casos, podemos rechazar la hipótesis nula y, por lo tanto, considerar la serie como estacionaria.</p>
+</div>
+<div class="section" id="b-ii-modelo-arima">
+<h2>3.b.ii) Modelo ARIMA<a class="headerlink" href="#b-ii-modelo-arima" title="Permalink to this headline">¶</a></h2>
+<p>El modelo ARIMA sin estacionalidad surge por la combinación de:</p>
+<ul class="simple">
+<li><p>un modelo Auto-Regresivo (AR, p), basado en la diferenciación o rezago de la serie y</p></li>
+<li><p>un modelo de media móvil (MA por moving average, q).</p></li>
+</ul>
+<p>Su denominación es producto de las siglas en inglés: <strong>AutoRegressive Integrated Moving Average</strong> model. “Integrated” (integrado) en este contexto refiere a revertir la diferenciación que mencionamos anteriormente. Veamos un mayor detalle de los dos modelos que componen ARIMA:</p>
+<div class="section" id="modelos-auto-regresivos-ar-p">
+<h3>Modelos Auto-Regresivos - AR (p)<a class="headerlink" href="#modelos-auto-regresivos-ar-p" title="Permalink to this headline">¶</a></h3>
+<p>En un modelo de autorregresión, pronosticamos la variable de interés usando una combinación lineal de valores pasados de la variable en cuestión. El término autoregresión indica que es una regresión de la variable contra sí misma. Por lo tanto, un modelo de <strong>orden autorregresivo (p)</strong> se puede escribir como:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} y_t = c + m_1y_ {t-1} + m_2y_ {t-2} + m_3y_ {t-3} + .. \\ \end{split}\]</div>
+<p>El Random Walk es un modelo AR (1) con $<span class="math notranslate nohighlight">\( m_1 = 1,  c = 0 \\ \)</span><span class="math notranslate nohighlight">\( El Random Walk with drift (derivada) \)</span><span class="math notranslate nohighlight">\( m_1 = 1,  c \ != 0 \\ \)</span>$</p>
+<p>Normalmente restringimos los modelos autorregresivos a datos estacionarios, también pueden ser necesarias algunas condiciones sobre los valores de los parámetros. Para un modelo AR (1): -1.</p>
+</div>
+<div class="section" id="modelo-de-media-movil-ma-q">
+<h3>Modelo de media móvil - MA (q)<a class="headerlink" href="#modelo-de-media-movil-ma-q" title="Permalink to this headline">¶</a></h3>
+<p>En lugar de utilizar valores pasados de la variable a pronosticar mediante una regresión, un modelo de media móvil usa errores de pronóstico anteriores en un modelo similar a una regresión.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} y_t = c + e_t + l_1 e_ {t-1} + l_2 e_ {t-2} + ... + l_q e_ {t-q} \\ \end{split}\]</div>
+<p>donde e es ruido blanco. Nos referimos a esto como un modelo MA <strong>(q)</strong>, donde q representa la <strong>cantidad de rezagos</strong> considerados en el modelo. Por supuesto, no observamos los valores de e (t), por lo que no es realmente regresión en el sentido habitual.</p>
+<p>Veamos que cada valor de y (t) se puede considerar como una media móvil ponderada de los últimos errores de pronóstico. Sin embargo, los modelos basados en la media móvil no deben confundirse con el suavizado del promedio móvil. Se usa un modelo de promedio móvil para pronosticar valores futuros, mientras que el suavizado promedio móvil se usa para estimar el ciclo de tendencia de valores pasados.</p>
+</div>
+<div class="section" id="modelo-arima">
+<h3>Modelo ARIMA<a class="headerlink" href="#modelo-arima" title="Permalink to this headline">¶</a></h3>
+<p>El modelo completo se puede escribir como:</p>
+<ul class="simple">
+<li><p><strong>Número de términos AR (autorregresivos) (p)</strong>: los términos AR son solo rezagos de la variable dependiente. Por ejemplo, si p es 5, los predictores para y (t) serán y (t-1) … .y (t-5).</p></li>
+<li><p><strong>Número de términos MA (promedio móvil) (q)</strong>: los términos MA son errores de pronóstico rezagados en la ecuación de predicción. Por ejemplo, si q es 5, los predictores para y (t) serán e (t-1) … .e (t-5) donde e (i) es la diferencia entre el promedio móvil en el valor instantáneo y real.</p></li>
+<li><p><strong>Número de diferencias (d)</strong>: son las diferencias no estacionales que necesitamos para la estacionariedad, es decir, en este caso tomamos la diferencia de primer orden. Entonces, o podemos pasar esa variable y poner d = 0 o pasar la variable original y poner d = 1. Ambos generarán los mismos resultados.</p></li>
+</ul>
+<p>Una preocupación importante aquí es cómo determinar el valor de ‘p’ y ‘q’. Usamos dos vías para determinar estos parámetros, veamos:</p>
+<ul class="simple">
+<li><p><strong>Función de autocorrelación (ACF)</strong>: es una medida de la correlación entre la serie y su rezago, también se conoce como la función de autocorrelación total. Por ejemplo, en el desfasaje 5, ACF compararía series en el instante instante ‘t1’ … ‘t2’ con series en el instante ‘t1-5’ … ‘t2-5’, donde t1-5 y t2 puntos finales).</p></li>
+<li><p><strong>Función de autocorrelación parcial (PACF)</strong>: mide la correlación entre la serie y su rezago después de eliminar las variaciones ya explicadas por las comparaciones intermedias. Por ejemplo, en el desfasaje 5, comprueba la correlación tras eliminar los efectos ya explicados por los rezagos 1 a 4.</p></li>
+</ul>
+<p>En el modelo MA, el ruido (shock) se desvanece rápidamente con el tiempo. En sentido opuesto, el modelo AR tiene un efecto muy duradero del shock. De ahí que, mientras el primero se enfoca en períodos cortos de tiempo, el segundo prioriza el más largo plazo.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLog</span>
+<span class="n">ts_diff</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceModLogDiff</span>
+<span class="n">ts_diff</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos plots ACF y PACF</span>
+<span class="kn">from</span> <span class="nn">statsmodels.tsa.stattools</span> <span class="kn">import</span> <span class="n">acf</span><span class="p">,</span> <span class="n">pacf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lag_acf</span> <span class="o">=</span> <span class="n">acf</span><span class="p">(</span><span class="n">ts_diff</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">lag_acf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/statsmodels/tsa/stattools.py:541: FutureWarning: fft=True will become the default in a future version of statsmodels. To suppress this warning, explicitly set fft=False.
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.        ,  0.40215445, -0.02855346, -0.21472715, -0.23756032,
+       -0.26332645, -0.22038359, -0.08576989, -0.0754398 ,  0.01497797,
+        0.12361818,  0.20862956,  0.158123  ,  0.02053933, -0.01290934,
+       -0.07097602, -0.17993659, -0.09514604, -0.04878255, -0.08854117,
+       -0.18810881])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ACF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">lag_acf</span><span class="p">)</span>
+<span class="n">ACF</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_74_0.png" src="../../_images/1.ARIMA_74_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lag_pacf</span> <span class="o">=</span> <span class="n">pacf</span><span class="p">(</span><span class="n">ts_diff</span><span class="p">,</span> <span class="n">nlags</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;ols&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">PACF</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">lag_pacf</span><span class="p">)</span>
+<span class="n">PACF</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_76_0.png" src="../../_images/1.ARIMA_76_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos qué parámetros son significativamente distintos de cero</span>
+
+<span class="c1">#Plot ACF: </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag_acf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Autocorrelation Function&#39;</span><span class="p">)</span>
+
+<span class="c1">#Plot PACF:</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lag_pacf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=-</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mf">1.96</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)),</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Partial Autocorrelation Function&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_77_0.png" src="../../_images/1.ARIMA_77_0.png" />
+</div>
+</div>
+<p>En el modelo de autocorrelación parcial el primer order es estadísticamente significativo y en los períodos siguientes el shock se licúa y los parámetros son cercanos a 0. Es por esto que vamos a elegir un modelo AR(1) y MA(1).</p>
+</div>
+<div class="section" id="modelando-con-arima">
+<h3>Modelando con ARIMA<a class="headerlink" href="#modelando-con-arima" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.tsa.arima_model</span> <span class="kn">import</span> <span class="n">ARIMA</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+2004-01    6.898715
+2004-02    6.675823
+2004-03    6.320768
+2004-04    6.142037
+2004-05    6.120297
+Freq: M, Name: priceModLog, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instancio el modelo con parámetros (p=1,d=0,q=1) según el análisis de ACF y PACF</span>
+<span class="c1"># En este caso d=0 porque trabajamos directamente con las diferencias</span>
+<span class="n">model_AR1MA</span> <span class="o">=</span> <span class="n">ARIMA</span><span class="p">(</span><span class="n">ts_diff</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Fiteo el modelo</span>
+<span class="n">results_ARIMA</span> <span class="o">=</span> <span class="n">model_AR1MA</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">results_ARIMA</span><span class="o">.</span><span class="n">fittedvalues</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+2004-02   -0.000977
+2004-03   -0.093805
+2004-04   -0.139355
+2004-05   -0.041727
+2004-06    0.002164
+Freq: M, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results_ARIMA</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                              ARMA Model Results                              
+==============================================================================
+Dep. Variable:        priceModLogDiff   No. Observations:                  145
+Model:                     ARMA(1, 1)   Log Likelihood                  12.361
+Method:                       css-mle   S.D. of innovations              0.222
+Date:                Wed, 01 Sep 2021   AIC                            -16.721
+Time:                        21:18:58   BIC                             -4.814
+Sample:                    02-29-2004   HQIC                           -11.883
+                         - 02-29-2016                                         
+=========================================================================================
+                            coef    std err          z      P&gt;|z|      [0.025      0.975]
+-----------------------------------------------------------------------------------------
+const                    -0.0010      0.029     -0.034      0.973      -0.058       0.056
+ar.L1.priceModLogDiff     0.1582      0.153      1.034      0.303      -0.142       0.458
+ma.L1.priceModLogDiff     0.3215      0.139      2.308      0.022       0.048       0.595
+                                    Roots                                    
+=============================================================================
+                  Real          Imaginary           Modulus         Frequency
+-----------------------------------------------------------------------------
+AR.1            6.3226           +0.0000j            6.3226            0.0000
+MA.1           -3.1100           +0.0000j            3.1100            0.5000
+-----------------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_diff</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">results_ARIMA</span><span class="o">.</span><span class="n">fittedvalues</span><span class="o">.</span><span class="n">plot</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_83_0.png" src="../../_images/1.ARIMA_83_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_diff</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.1052596023926915
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions_ARIMA_diff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">results_ARIMA</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">predictions_ARIMA_diff</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+2015-10    0.008537
+2015-11   -0.170970
+2015-12   -0.096505
+2016-01   -0.059154
+2016-02    0.054308
+Freq: M, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions_ARIMA_diff_cumsum</span> <span class="o">=</span> <span class="n">predictions_ARIMA_diff</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">predictions_ARIMA_diff_cumsum</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+2015-10    0.344369
+2015-11    0.173399
+2015-12    0.076894
+2016-01    0.017740
+2016-02    0.072048
+Freq: M, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6.898714534329988
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions_ARIMA_log</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">ts</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">predictions_ARIMA_log</span> <span class="o">=</span> <span class="n">predictions_ARIMA_log</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">predictions_ARIMA_diff_cumsum</span><span class="p">,</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">predictions_ARIMA_log</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>date
+2015-10    7.243083
+2015-11    7.072114
+2015-12    6.975608
+2016-01    6.916455
+2016-02    6.970763
+Freq: M, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Guardamos nuestros resultados</span>
+<span class="n">dfBang</span><span class="p">[</span><span class="s1">&#39;priceARIMA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">predictions_ARIMA_log</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Incorporamos estimaciones y resultados a nuestro DF</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Model&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;ARIMA&quot;</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;Forecast&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceARIMA</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">dfBangResults</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="s2">&quot;RMSE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">dfBang</span><span class="o">.</span><span class="n">priceARIMA</span><span class="p">,</span> <span class="n">dfBang</span><span class="o">.</span><span class="n">priceMod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBangResults</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Model</th>
+      <th>Forecast</th>
+      <th>RMSE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mean</td>
+      <td>884.566</td>
+      <td>683.953</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Linear</td>
+      <td>[451.28909037437916, 455.4977316072932, 459.74...</td>
+      <td>518.524</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LinearQuantity</td>
+      <td>2293.45</td>
+      <td>505.249</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Random</td>
+      <td>1448</td>
+      <td>323.592</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Moving Average 12</td>
+      <td>1794.69</td>
+      <td>518.822</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ARIMA</td>
+      <td>1065.04</td>
+      <td>517.544</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span> <span class="s2">&quot;priceARIMA&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_92_0.png" src="../../_images/1.ARIMA_92_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfBang</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;timeIndex&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;priceMod&quot;</span><span class="p">,</span> <span class="s2">&quot;priceRandom&quot;</span><span class="p">,</span>
+                                             <span class="s2">&quot;priceMA12&quot;</span><span class="p">,</span> <span class="s2">&quot;priceARIMA&quot;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1.ARIMA_93_0.png" src="../../_images/1.ARIMA_93_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>¿Qué modelo performa mejor? ¿Elegirías alguno? ¿Por qué?</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MachineLearning/9_SeriesDeTiempo"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../8_ShapyAnomalias/anomaly-detection-shap-values.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Detección de anomalías y explicabilidad de modelos con valores SHAP</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="2.Prophet.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Prophet</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

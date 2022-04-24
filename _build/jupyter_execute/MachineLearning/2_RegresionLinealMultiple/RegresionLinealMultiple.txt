@@ -1,0 +1,297 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import statsmodels.api as sm
+
+# Indicamos que los tipos de datos float se muestren con 2 decimales
+pd.options.display.float_format = '{:.2f}'.format
+
+# Lectura del dataset 
+df = pd.read_csv('https://datasets-humai.s3.amazonaws.com/datasets/properati_caba_2021.csv')
+
+# Definimos la semilla
+SEMILLA = 1992
+
+# Observamos los primeros registros del dataframe
+df.head()
+
+# Observamos la matriz de correlación entre las variables numéricas
+df.corr()
+
+# Graficamos algunas de estas relaciones con el precio
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(nrows=1, ncols=4, figsize=(20, 5))
+df.plot.scatter(x='surface_total', y='price', ax=ax1)
+df.plot.scatter(x='rooms', y='price', ax=ax2)
+df.plot.scatter(x='bathrooms', y='price', ax=ax3)
+df.plot.scatter(x='lon', y='price', ax=ax4);
+
+# Separamos al dataset en X (variables predictoras) e y (variable a predecir)
+X = df[['lat', 'lon', 'rooms', 'bathrooms', 'surface_total', 'surface_covered', 'property_type']]
+y = df['price']
+
+from sklearn.model_selection import train_test_split
+# Realizamos el split de X e y en los sets de entrenamiento (train) y test
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.20, random_state=SEMILLA)
+
+print(f"El dataset de entrenamiento cuenta con {len(X_train)} observaciones")
+print(f"El dataset de evaluación cuenta con {len(X_test)} observaciones")
+
+# Definimos las variables exogenas (predictores)
+variables_exogenas = ['surface_total', 'bathrooms']
+
+# Construimos la matriz de X
+X_train_modelo_sup_baños = X_train[variables_exogenas]
+X_train_modelo_sup_baños.head()
+
+# Importamos el modelo lineal
+from sklearn.linear_model import LinearRegression
+
+# Definimos una instancia del modelo lineal con scikit learn
+modelo_lineal_sup_baños = LinearRegression(fit_intercept=True)
+
+# Realizamos el proceso de estimación
+modelo_lineal_sup_baños.fit(X_train_modelo_sup_baños, y_train)
+
+# Accedemos a los coeficientes estimados
+modelo_lineal_sup_baños.coef_
+
+# Accedemos al intercepto
+modelo_lineal_sup_baños.intercept_
+
+# Creamos variables para guardar los coeficientes estimados
+coeficientes = modelo_lineal_sup_baños.coef_
+intercepto = modelo_lineal_sup_baños.intercept_
+beta_1, beta_2 = coeficientes[0], coeficientes[1] 
+
+print(f"El intercepto es {intercepto:.2f}")
+print(f"El coeficiente estimado para Beta 1 es {beta_1:.2f}")
+print(f"El coeficiente estimado para Beta 2 es {beta_2:.2f}")
+
+# Definimos una función para obtener los coeficientes en un dataframe
+def obtener_coeficientes(modelo, lista_variables):
+  '''Crea un dataframe con los coeficientes estimados de un modelo'''
+  # Creo la lista de nombres de variables
+  lista_variables = ['intercepto'] + lista_variables
+  # Intercepto
+  intercepto = modelo.intercept_
+  # Lista coeficientes excepto el intercepto
+  coeficientes = list(modelo.coef_)
+  # Lista completa coeficientes
+  lista_coeficientes = [intercepto] + coeficientes
+  return pd.DataFrame({"variable": lista_variables, "coeficiente": lista_coeficientes})
+
+# Obtenemos nuestro dataframe 
+coeficientes_modelo_sup_baños = obtener_coeficientes(modelo_lineal_sup_baños, variables_exogenas)
+coeficientes_modelo_sup_baños
+
+# Definimos las variables exogenas (predictores)
+variables_exogenas = ['surface_total', 'rooms']
+
+# Construimos la matriz de X
+X_train_modelo_sup_cuartos = X_train[variables_exogenas]
+
+# Definimos una instancia del modelo lineal con scikit learn
+modelo_lineal_sup_cuartos = LinearRegression(fit_intercept=True)
+
+# Realizamos el proceso de estimación
+modelo_lineal_sup_cuartos.fit(X_train_modelo_sup_cuartos, y_train)
+
+# Obtenemos los coeficientes en el dataframe
+coeficientes_modelo_sup_cuartos = obtener_coeficientes(modelo_lineal_sup_cuartos, variables_exogenas)
+coeficientes_modelo_sup_cuartos
+
+# Boxplot del precio por tipo de propiedad
+sns.boxplot(x='property_type', y='price', data=df);
+
+# Boxplot del precio por tipo de propiedad
+sns.boxplot(x='property_type', y='price', data=df.query("price<=1000000"));
+
+from sklearn.preprocessing import OneHotEncoder
+
+# Definimos una instancia del transformer
+one_hot_encoder = OneHotEncoder(categories=[['PH', 'Casa', 'Departamento']], drop='first')
+
+# Realizamos el fit con los datos de entrenamiento
+one_hot_encoder.fit(X_train[['property_type']])
+
+# Accedemos a las categorias del encoder
+one_hot_encoder.categories_
+
+ # Generamos las variables dummies de la variable property type (notemos que tenemos 2 columnas!)
+ matriz_dummies = one_hot_encoder.transform(X_train[['property_type']]).toarray()
+ matriz_dummies
+
+# Generamos los nombres de las variables dummies (notemos que tenemos 2 columnas!)
+nombres_dummies = one_hot_encoder.get_feature_names(['tipo'])
+nombres_dummies
+
+# Generamos el dataframe con las variables dummies con las matrices y columnas
+df_dummies = pd.DataFrame(matriz_dummies, columns=nombres_dummies, index=X_train.index)
+df_dummies.head()
+
+# Agregamos la información a nuestra matriz de variables predictoras
+X_train = X_train.join(df_dummies)
+X_train.head()
+
+# Definimos las variables exogenas (predictores)
+variables_exogenas = ['surface_total', 'tipo_Casa', 'tipo_Departamento']
+
+# Construimos la matriz de X
+X_train_modelo_sup_propiedad = X_train[variables_exogenas]
+
+# Definimos una instancia del modelo lineal con scikit learn
+modelo_lineal_sup_propiedad = LinearRegression(fit_intercept=True)
+
+# Realizamos el proceso de estimación
+modelo_lineal_sup_propiedad.fit(X_train_modelo_sup_propiedad, y_train)
+
+coeficientes_modelo_sup_propiedad = obtener_coeficientes(modelo_lineal_sup_propiedad, variables_exogenas)
+coeficientes_modelo_sup_propiedad
+
+# Creamos las dos variables de interacción
+X_train['interaccion_sup_casa'] = X_train['tipo_Casa'] * X_train['surface_total']
+X_train['interaccion_sup_depto'] = X_train['tipo_Departamento'] * X_train['surface_total']
+
+# Definimos las variables exogenas (predictores)
+variables_exogenas = ['surface_total', 'tipo_Casa', 'tipo_Departamento', 'interaccion_sup_casa', 'interaccion_sup_depto']
+
+# Construimos la matriz de X
+X_train_modelo_interaccion = X_train[variables_exogenas]
+
+# Definimos una instancia del modelo lineal con scikit learn
+modelo_lineal_interaccion = LinearRegression(fit_intercept=True)
+
+# Realizamos el proceso de estimación
+modelo_lineal_interaccion.fit(X_train_modelo_interaccion, y_train)
+
+coeficientes_modelo_interaccion = obtener_coeficientes(modelo_lineal_interaccion, variables_exogenas)
+coeficientes_modelo_interaccion
+
+# En statsmodels se le agrega el intercepto (en scikit se lo pasamos como un parametro a la instancia del modelo)
+X_train_modelo_sup_baños_stats = sm.add_constant(X_train_modelo_sup_baños)
+X_train_modelo_sup_baños_stats.head()
+
+# Construimos el modelo
+modelo_sup_baños_stats = sm.OLS(y_train, X_train_modelo_sup_baños_stats)
+
+# Guardamos los resultados
+resultados_sup_baños_stats = modelo_sup_baños_stats.fit()
+
+# Accedemos a los coeficientes estimados
+resultados_sup_baños_stats.params
+
+# Accedemos a los p valores de los tests de significancia individual
+resultados_sup_baños_stats.pvalues
+
+# Test significatividad global
+resultados_sup_baños_stats.f_pvalue
+
+# R cuadrado
+resultados_sup_baños_stats.rsquared
+
+# R cuadrado ajustado
+resultados_sup_baños_stats.rsquared_adj
+
+print(resultados_sup_baños_stats.summary())
+
+# En stats models se le agrega el intercepto 
+X_train_interaccion_stats = sm.add_constant(X_train_modelo_interaccion)
+
+#Construimos el modelo
+modelo_interaccion_stats = sm.OLS(y_train, X_train_interaccion_stats)
+
+# Estimamos los parámetros
+resultados_interaccion = modelo_interaccion_stats.fit()
+
+# Imprimimos el resumen
+print(resultados_interaccion.summary())
+
+# Importamos las métricas desde scikit-learn
+from sklearn.metrics import r2_score, mean_squared_error, mean_absolute_error
+
+# Predecimos los valores de y con nuestro modelo
+y_train_sup_baños = modelo_lineal_sup_baños.predict(X_train_modelo_sup_baños)
+y_train_sup_baños
+
+# Calculamos R cuadrado
+r2_score(y_train, y_train_sup_baños)
+
+# Calculamos MSE
+mean_squared_error(y_train, y_train_sup_baños)
+
+# Calculamos RMSE
+np.sqrt(mean_squared_error(y_train, y_train_sup_baños))
+
+# Calculamos MAE
+mean_absolute_error(y_train, y_train_sup_baños)
+
+def obtener_metricas_performance(y_verdadera, y_predicha, tipo_dataset):
+    r2 = r2_score(y_verdadera, y_predicha)
+    mse = mean_squared_error(y_verdadera, y_predicha)
+    rmse = np.sqrt(mse) 
+    mae = mean_absolute_error(y_verdadera, y_predicha)
+    return pd.DataFrame({'metrica': ['R2', 'MSE', 'RMSE', 'MAE'],
+                         'valor':[r2, mse, rmse, mae],
+                         'tipo_dataset':tipo_dataset})
+
+# Obtenemos nuestro dataframe de métricas de performance
+performance_train_sup_baños = obtener_metricas_performance(y_train, y_train_sup_baños,'entrenamiento')
+performance_train_sup_baños
+
+# Ahora observemos las métricas del modelo de interacción en entrenamiento
+y_train_interaccion = modelo_lineal_interaccion.predict(X_train_modelo_interaccion)
+performance_train_interaccion = obtener_metricas_performance(y_train, y_train_interaccion, 'entrenamiento')
+performance_train_interaccion
+
+# Creamos la matrix de X para el modelo de superficie y baños
+X_test_sup_baños = X_test[['surface_total', 'bathrooms']]
+
+# Predecimos los valores
+y_test_sup_baños =  modelo_lineal_sup_baños.predict(X_test_sup_baños)
+# Obtenemos nuestro dataframe de métricas de performance
+performance_test_sup_baños =obtener_metricas_performance(y_test, y_test_sup_baños, 'evaluacion')
+# Mostramos en conjunto las métricas para entrenamiento y evaluación
+pd.concat([performance_train_sup_baños,performance_test_sup_baños])
+
+# Generamos las variables dummies de la variable property type (notemos que tenemos 2 columnas!)
+matriz_dummies_test = one_hot_encoder.transform(X_test[['property_type']]).toarray()
+# Generamos el dataframe con las variables dummies con las matrices y columnas
+df_dummies_test = pd.DataFrame(matriz_dummies_test, columns=nombres_dummies, index=X_test.index)
+# Agregamos la información a nuestra matriz de variables predictoras
+X_test = X_test.join(df_dummies_test)
+# Creamos las dos variables de interacción
+X_test['interaccion_sup_casa'] = X_test['tipo_Casa'] * X_test['surface_total']
+X_test['interaccion_sup_depto'] = X_test['tipo_Departamento'] * X_test['surface_total']
+# Vemos el dataframe
+X_test.head()
+
+# Generamos el dataset de predictoras
+X_test_interaccion = X_test[['surface_total', 'tipo_Casa', 'tipo_Departamento', 'interaccion_sup_casa', 'interaccion_sup_depto']]
+
+# Predecimos los valores
+y_test_interaccion = modelo_lineal_interaccion.predict(X_test_interaccion)
+# Obtenemos nuestro dataframe de métricas de performance
+performance_test_interaccion = obtener_metricas_performance(y_test, y_test_interaccion, 'evaluacion')
+# Mostramos en conjunto las métricas para entrenamiento y evaluación
+pd.concat([performance_train_interaccion, performance_test_interaccion])
+
+# Calculamos los residuos para el modelo de superficie y baños
+residuos_sup_baños = y_train - y_train_sup_baños
+
+# Realizamos el gráfico
+plt.figure(figsize=(10,7))
+plt.scatter(x=y_train_sup_baños, y=residuos_sup_baños,
+            alpha=0.6, c='royalblue', edgecolor='black')
+plt.axhline(y=0, c='black', ls='--', linewidth=2.5)
+plt.title("Modelo Superficie y Baños");
+
+# Calculamos los residuos para el modelo de interacción
+residuos_interaccion =  y_train - y_train_interaccion 
+
+# Realizamos el gráfico
+plt.figure(figsize=(10,7))
+plt.scatter(x=y_train_sup_baños, y=residuos_interaccion,
+            alpha=0.6, c='green', edgecolor='black')
+plt.axhline(y=0, c='black', ls='--', linewidth=2.5)
+plt.title("Modelo Interacción");
