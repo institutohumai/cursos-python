@@ -1,0 +1,1393 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducción a Machine Learning &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Ejemplo Clasificación de Opiniones" href="sentiment.html" />
+    <link rel="prev" title="MyPersonality" href="mypersonality.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/README.html">
+   Álgebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones2.html">
+   ¿Qué es una función?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/7_Probabilidad/Probabilidad%20p18.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/NeuroIA/intro_a_ml.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FNeuroIA/intro_a_ml.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-machine-learning">
+   ¿Qué es Machine Learning?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-learning-inteligencia-artificial-y-data-science">
+     Machine Learning, Inteligencia Artificial y Data Science
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#factores-influyentes">
+     Factores influyentes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#no-es-todo-nuevo">
+       No es todo nuevo
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#machine-learning">
+       Machine Learning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algunos-ejemplos-sci-fi">
+     Algunos ejemplos sci-fi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conceptos-basicos">
+       Conceptos Básicos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tipos-de-tareas-de-ml">
+     Tipos de tareas de ML
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modelos-supervisados">
+       Modelos supervisados
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regresion-lineal">
+     Regresión Lineal
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entrenamiento">
+     Entrenamiento
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generalizacion-y-sobreajuste">
+       Generalización y sobreajuste
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelos-no-supervisados">
+     Modelos no supervisados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering">
+   Clustering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-ejemplo-kmeans-clustering">
+     Modelo ejemplo: KMeans (clustering)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluacion">
+     Evaluación
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metricas-de-evaluacion-en-problemas-supervisados">
+       Métricas de evaluación en problemas supervisados
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#en-resumen">
+   En resumen:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casos-problemas-supervisados">
+     Casos: problemas supervisados
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casos-problemas-no-supervisados">
+     Casos: problemas no supervisados
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#el-proceso-real-de-los-productos-basados-en-ml">
+       El proceso real de los productos basados en ML
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#equipo-de-data">
+       Equipo de data
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introducción a Machine Learning</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#que-es-machine-learning">
+   ¿Qué es Machine Learning?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#machine-learning-inteligencia-artificial-y-data-science">
+     Machine Learning, Inteligencia Artificial y Data Science
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#factores-influyentes">
+     Factores influyentes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#no-es-todo-nuevo">
+       No es todo nuevo
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#machine-learning">
+       Machine Learning
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algunos-ejemplos-sci-fi">
+     Algunos ejemplos sci-fi
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#conceptos-basicos">
+       Conceptos Básicos
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tipos-de-tareas-de-ml">
+     Tipos de tareas de ML
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modelos-supervisados">
+       Modelos supervisados
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regresion-lineal">
+     Regresión Lineal
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#entrenamiento">
+     Entrenamiento
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generalizacion-y-sobreajuste">
+       Generalización y sobreajuste
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelos-no-supervisados">
+     Modelos no supervisados
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#clustering">
+   Clustering
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modelo-ejemplo-kmeans-clustering">
+     Modelo ejemplo: KMeans (clustering)
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluacion">
+     Evaluación
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metricas-de-evaluacion-en-problemas-supervisados">
+       Métricas de evaluación en problemas supervisados
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#en-resumen">
+   En resumen:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casos-problemas-supervisados">
+     Casos: problemas supervisados
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#casos-problemas-no-supervisados">
+     Casos: problemas no supervisados
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#el-proceso-real-de-los-productos-basados-en-ml">
+       El proceso real de los productos basados en ML
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#equipo-de-data">
+       Equipo de data
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/neuro/NeuroIA/intro_a_ml.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a>
+<div align="center"> Recordá abrir en una nueva pestaña </div></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="introduccion-a-machine-learning">
+<h1>Introducción a Machine Learning<a class="headerlink" href="#introduccion-a-machine-learning" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>¿Qué es Machine Learning?</p>
+<ul>
+<li><p>Definiciones: ML, DL, aprendizaje, atributos, observaciones, target o label…</p></li>
+</ul>
+</li>
+<li><p>El proceso de ML</p>
+<ul>
+<li><p>Feature engineering, modelos supervisados y no supervisados, train/test split, cross validation, evaluación de modelos</p></li>
+</ul>
+</li>
+<li><p>Etapas de un proyecto de ML</p>
+<ul>
+<li><p>Framing del problema de negocio, integración de datos, modelado, puesta en producción y monitoreo.</p></li>
+</ul>
+</li>
+<li><p>Casos de Aplicación</p>
+<ul>
+<li><p>Fraude, churn, upselling, cross-selling, segmentación, clustering geográfico.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="que-es-machine-learning">
+<h1>¿Qué es Machine Learning?<a class="headerlink" href="#que-es-machine-learning" title="Permalink to this headline">¶</a></h1>
+<p>¿Cómo haríamos una serie de instrucciones para clasificar imagenes de gatos y perros? ¿O qué número aparece?</p>
+<center>
+<table><tr>
+    <td><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image4.png width=400></td>
+    <td><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image5.png width=400></td>
+    </tr>
+</table>
+<center><div class="section" id="machine-learning-inteligencia-artificial-y-data-science">
+<h2>Machine Learning, Inteligencia Artificial y Data Science<a class="headerlink" href="#machine-learning-inteligencia-artificial-y-data-science" title="Permalink to this headline">¶</a></h2>
+<p>La “Inteligencia Artificial Simbólica” dominó el paradigma de IA desde 1950 hasta la parte de los ‘80. Su pico de popularidad: boom de los “sistemas expertos”.</p>
+<p>Programación clásica (el paradigma de la IA simbólica):
+Los humanos ingresan reglas (un programa), datos a ser procesados según esas reglas, y de este proceso resultan las respuestas esperadas.</p>
+<p>Machine Learning: los humanos ingresan datos como input además de las respuestas esperadas, y las reglas surgen como output. Estas reglas pueden luego ser aplicadas a nuevos datos para producir respuestas originales.</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image7.png width=600></center><center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image6.png width=700></center><p><em>Decimos que un programa “aprende” si para cierta tarea, su performance mejora cuando crece la experiencia.</em> T. Mitchell</p>
+<p>El aprendizaje entra en juego cuando le damos a estos modelos parámetros que pueden modificarse y que se adaptan a los datos observados de manera automática; de esta forma, puede considerarse que el algoritmo aprende de los datos.
+Una vez que estos modelos han sido ajustados a datos observados previamente, pueden ser usados para predecir y entender aspectos de datos nuevos.</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image9.png width=400></center><p>¿Cuáles son algunos ejemplos de IA que no son ML?</p>
+<ul class="simple">
+<li><p>Sistemas basados en reglas</p></li>
+<li><p>Demostración automática (proof solvers)</p></li>
+<li><p>Optimización convexa en investigación de Operaciones</p></li>
+<li><p>Computer vision tradicional</p></li>
+</ul>
+<p>¿Y DS que no es ML?</p>
+<ul class="simple">
+<li><p>Visualización</p></li>
+<li><p>EDA</p></li>
+<li><p>Inferencia Estadística</p></li>
+<li><p>Análisis de audio</p></li>
+<li><p>Métodos econométricos</p></li>
+<li><p>Biometría</p></li>
+<li><p>…?</p></li>
+</ul>
+</div>
+<div class="section" id="factores-influyentes">
+<h2>Factores influyentes<a class="headerlink" href="#factores-influyentes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enorme cantidad de datos generados por minuto</p></li>
+<li><p>Posibilidad de trabajar sobre datos desestructurados</p></li>
+<li><p>Capacidad computacional</p></li>
+</ul>
+<center><img src="https://mloapwwtsct7.i.optimole.com/A6Igeow.l1xK~43710/w:auto/h:auto/q:75/https://www.bondhighplus.com/wp-content/uploads/2020/05/Internet-Minute-2021.jpg" width=400></center><center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image11.png width=600></center><div class="section" id="no-es-todo-nuevo">
+<h3>No es todo nuevo<a class="headerlink" href="#no-es-todo-nuevo" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Regla de Bayes (Bayes, 1763) de probabilidad</p></li>
+<li><p>Regresión por Mínimos Cuadrados (Gauss, 1795) de astronomía</p></li>
+<li><p>Máxima verosimilitud (Fisher, 1922) de estadística</p></li>
+<li><p>Redes neuronales artificiales (McCulloch/Pitts, 1943) de neurociencias</p></li>
+<li><p>Juegos Minimax (von Neumann, 1944) de economía</p></li>
+<li><p>Descenso de gradiente estocástico (Robbins/Monro, 1951) de optimización</p></li>
+<li><p>Búsqueda de costo uniforme (Dijkstra, 1956) de algoritmos</p></li>
+<li><p>Iteración de valores (Bellman, 1957) de teoría de control</p></li>
+</ul>
+</div>
+<div class="section" id="machine-learning">
+<h3>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this headline">¶</a></h3>
+<p>Un modelo de ML es una función matemática. El <strong>aprendizaje</strong> consiste en ajustar los parámetros del modelo de modo que el output se acerce al <em>target</em> correspondiente de cada input.</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image12.gif width=700></center>
+<p><a class="reference external" href="https://www.cs.ryerson.ca/~aharley/vis/conv/">https://www.cs.ryerson.ca/~aharley/vis/conv/</a></p>
+<p>Existen ya unos cuantos hitos acumulados de IA en los últimos años. En el programa Jeopardy! (IBM Watson, 2011), el juego Go (DeepMind, AlphaGo, 2016), el multijugador online masivo Dota 2 (OpenAI, 2019), Poker (CMU and Facebook, 2019).</p>
+<p>También contamos con sistemas que rinden de manera excepcional en lectura y comprensión de lenguaje natural, reconocimiento del discurso, reconocimiento facial, o sistemas de imagen médicos.</p>
+</div>
+</div>
+<div class="section" id="algunos-ejemplos-sci-fi">
+<h2>Algunos ejemplos sci-fi<a class="headerlink" href="#algunos-ejemplos-sci-fi" title="Permalink to this headline">¶</a></h2>
+<p>Instance segmentation</p>
+<center><img src=https://miro.medium.com/max/2472/1*QKfIOzB-N1GrhULIvVxkQg.gif width=800></center><p>Robótica</p>
+<!--<img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/boston.png width=400>
+<img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image16.gif width=400>-->
+<center><img src=https://bgr.com/wp-content/uploads/2019/10/gif.gif width=800></center><p>Nuevas posibilidades…</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image17.png width=800></center><p>Transferencia de estilo</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image18.png width=600></center><p>Speech2face</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image20.png width=800></center><p>GPT-3</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image21.gif width=800></center><p>Go</p>
+<center><img src=https://c.files.bbci.co.uk/6DFD/production/_88775182_b810d6ed99.jpg width=800></center><p>Poker</p>
+<center><img src=https://i.ytimg.com/vi/wInvN096he8/maxresdefault.jpg width=800></center><p>Volviendo a lo pragmático…</p>
+<div class="section" id="conceptos-basicos">
+<h3>Conceptos Básicos<a class="headerlink" href="#conceptos-basicos" title="Permalink to this headline">¶</a></h3>
+<p>En nuestro caso la experiencia es un conjunto de observaciones con atributos. En algunos casos, estas observaciones tienen una variable target que queremos predecir. El target es optativo.
+Para que los modelos de Machine Learning aprendan es necesario que la información esté organizada de manera matricial como a continuación:</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/basics.png width=900></center></div>
+</div>
+<div class="section" id="tipos-de-tareas-de-ml">
+<h2>Tipos de tareas de ML<a class="headerlink" href="#tipos-de-tareas-de-ml" title="Permalink to this headline">¶</a></h2>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/tipos_modelos.png width=500></center><div class="section" id="modelos-supervisados">
+<h3>Modelos supervisados<a class="headerlink" href="#modelos-supervisados" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Regresión lineal</p></li>
+<li><p>Regresión logística</p></li>
+<li><p>KNN (K nearest neighbours)</p></li>
+<li><p>Y muchos más…</p></li>
+</ul>
+<p>![image.png](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqMAAAHCCAYAAADb38AKAAAgAElEQVR4Aey9ebglRZnue/5ou7VP9/X06eH06dPjte3p9FWb1nYAGVVABQVERVQUB1RUHFBARYEGkUFlEkFEBapBAZGhUAaRQUZBxiqoCQqqoIq5KKi5alfc57fg3cTOnWtemRmZ643nWTsyIyO++OKNyMjfjsy18r8FBytgBayAFbACVsAKWAErUJEC/62iel2tFbACVsAKWAErYAWsgBUIhlEPAitgBayAFbACVsAKWIHKFDCMVia9K7YCVsAKWAErYAWsgBUwjHoMWAErYAWsgBWwAlbAClSmgGG0MuldsRWwAlbAClgBK2AFrIBh1GPAClgBK2AFrIAVsAJWoDIFDKOVSe+KrYAVsAJWwApYAStgBQyjHgNWwApYAStgBayAFbAClSlgGK1MeldsBayAFbACVsAKWAErYBj1GLACVsAKWAErYAWsgBWoTAHDaGXSu2IrYAWsgBWwAlbAClgBw6jHgBWwAlbAClgBK2AFrEBlChhGK5PeFVsBK2AFrIAVsAJWwAokB6O33j03vP+Ag8Nfbr1D+J2XbepPyRq84OWbhb99405hr4OPCPMfWOwzZIwUmHf/orDngYeFl2y7S/jj123b+vzTW98V9jn822HJY4+PkRJuqhWwAlbACpSpQFIwevCJpwZgyBCaBoS/8N82Dyef/bMyx6PrqkiBa265Lbz41du0Pff+z1Y7hDn33V+Rd67WClgBK2AFmqxAMjB65Kkz2l4IDafVwumZF1/W5HNg7Nu2YtXqnu5EvOpdHwwbN24ce70sgBWwAlbACoxWgSRg9L7FD4UXbbKFYbTkW/K9Qv6fbrZdWPb0M6MdebaWjAJnX3pFz+feb2fPScZvO2IFrIAVsALNUCAJGP3KcSf3fDHsFaCcb7Srqb5d34wTPq8Vh538o57PP6+S5ynoNCtgBayAFRhGgSRgdMsPfKLni6Ehc7SQ2auefKnMoZkK8Kx2r+PgtPMvbqYIbpUVsAJWwApUpkASMMo3dnu9GDpfNTD6po98urJB6oqLVcAwWqy+tm4FrIAVsAKdFUgCRvkpGUNmNZDZq+5b77l355Hko0kq8OBTK8O+P7spvOqo88NLDzm79fn/vv7T8IEZV4ffLn7255oMo0l2nZ2yAlbACoyNAobRRL801CsklpXPMFq/OWHeo8vDKyMIFYwq/sf/PCdcPGtRMIzWr2/tsRWwAlagSQoYRg2jPa1KG0brd9q//ZTLJ1dDBaDZ+OXfOC/sf2zvXyD0M6P1Gwf22ApYASuQugKGUcOoYTT1s3QA/+Y+8lRXEBWY7nrg0T2NAVbhDaMDdIaLWAErYAWsQEcFSofRh55aGQ679Law3YmXBJ5d44L4wtds1/PFsKzb0q5n6jOsXhnteB4ld/CKuQ/1DKNv2vfrPZ9/htHkutoOWQErYAVqr0CpMHre7QvDvz4HoFqVMYxOhb5UIdgwWq9z/fI5D/YMo2/4/GGG0Xp1r721AlbACjRKgdJglC9KxAAab3tlNH0gNYzW67w3jNarv+ytFbACVmCcFSgFRpevXtfxW72GUcPoOJ+ERbTdMFqEqrZpBayAFbACRShQCozOuHlB21VR36ZPH0R5dMAro0WcfoPZnNi4MVyx6MlwyA0LwyevmBf2unxO+PzV88MJtz8YFi5f3TJqGB1MW5eyAlbACliB8hUoBUb3+ekNhtGaf2vfMFr+yZlX4/qJjeHgGxaGnS+8K/ez60WzwlWLlwXDaJ56TrMCVsAKWIEUFSgFRt972pWGUcNoiuO/dj7NuOfhXAiN4XTXmbPCT26/v+M5Fz+z7S8w1W4Y2GErYAWsQKMUKAVGdzeM9vxtZX+bvlHn10gbs2HjxvD+X9zdFUYB0y9dPsswOlL1bcwKWAErYAWKUsAwWvMVy7Lg1bfpizoFe7f7xOp1PYEoMPrRC24zjPYurXNaAStgBaxAhQqMFEZXrtsQLn/gyXDsrYtbz7UdeN19gc+mx/2i44XR36ZP/0tMhtEKz9Lnqn5k5dqeYfSD59/a8Zzzbfrq+9MeWAErYAWswLMKjAxGf/3gU2GPS/JvIb7iWzM7XhgNo4ZRn5DdFTCMdtfIOayAFbACVqB+CowERi974MmOKzaG0fRhs9vtfq+MVn9yG0ar7wN7YAWsgBWwAqNXYGgYXbpibXjnzFmG0YY/e2oYHf3J169Fw2i/ijm/FbACVsAK1EGBoWH0u3c81BFE+TJFUSujp5xzQVuNt/3oPn19g/2lb961ZYu42yphv8fxhdBvuZTyG0bbDrXSDhhGS5PaFVkBK2AFrECJCgwNox+5bE5lMBrD2n2LHwoHHHPiwMBnGO38KIFhtMSzsk1VhtE2wjjZClgBK2AFaq3A0DC6S5s3wcQ/wl3Uymg3GD3y1BmTnfPLG25ugSqrqU8ufzr86WbbtT5sA7Fx+NghR7SOUUbhnEt/NQm6HFcAgvNWYWObv509p5Vd/ub5pWOpxoZR9Xh1sWG0Ou1dsxWwAlbAChSnwNAwGkNnu+0qYBRgBDT/4917BlY9BZ1AqFZRAVO2AcDsyijHgEjyYyMuT3doFRZIJV8MkeQn4APpepyA7XZ+xeVT3DaMFncS9mrZMNqrUs5nBayAFbACdVKgsTAKJMarmaxGav/d+36lBZd0lFY1szDKMQEncEh5wSlgii1ANQ8cKSfI5Xj8zGgnv/JspZJmGK3+tDaMVt8H9sAKWAErYAVGr0BjYRQYzAbdqgfwOB6vaMYwqm2BKvm1osk26bqFj504H8cB17iuGEa7+UX5FD+G0exoKn/fMFq+5q7RClgBK2AFilegsTAKDAKFeWAnsEReVknJIwAlZj8+xr5WRrP29AxqnM7KaAy6MYx28iu2kdq2YbT4k7FbDYbRbgr5uBWwAlbACtRRgcbCqICT5zcBO6ARSOTWup7/jG+nC0bj/LotHz8zKrAUxAKp2IvhUbbwQXUzONhu51dcPsVtw2j1p7dhtPo+sAejUeCoX945+Va+RU+u6Gg0zvvU6rXT8p583T1hp1Mun7S39fEXB9KygbLxa3C13S4/5eO6lT8b37XkyVZV8kH72fqz+9h+5ZHnT/q0xxlXhx//9t5sttz9dn59+tzrQ1797doet4WyvQa19br7Hs4t8vPZiyfbFdfBNmWz/dMpf16bVH/WtvbRlRC3u52v+EI5NFXoV1/KySeNUdmVT+3ivP6K7bXzW75mY2kZt0e+tfNBemVtlbnfWBgF6ABFBcASSARKuVXOcYEpaeyThwAwcky34knT86bkA2IV8m7TZ/PILul88vzSsVRjw6h6vLrYMFqd9q55tArEF/ssmGRrAhZ1EdWFXnkAFY7FNgA6Lq7AXRwEJtkLL/mpgwt21r78jO3HNuNtXfDbwYXyUgd5qRNwUFBdMUToWDZW3tgv7ObpQdl2bc/a7WWf9qk/vjLzltwiAqI8wJXv8bF2+amLfqS+GMr60Vq+UiYvoCF5Yt3lY6/6Ylc+ZcdQpzqzY1R5e9FYebOxtIzbI9+6jc2srTL3GwOjqUJcU/wyjJZ5WubX1WQY5e4C/wByxyEO+keRfwb7DfzTx/mH7apCCj5U1fZO9epiDxgCZe2CLqwCivhCL4jIW01UufiC3AnIOCYgjX2RnzGUxMfj7V4v+EAY7c5bEVZ9+N8pKF+eX9IlttGp7Z3qyTumutErC/bKL/1j4NQxYtLpU/nYKT86kTceJ71qrXZr/HTSi3YpqI2d8st3lZFP1NkpcBzd8KkdHKr+Thq3q0Naxu2Rb+3qa2erzHTDaKJfGEoNYg2jZZ6W+XU1GUZpMSAKkMaBx2KyafHxTtspgGAKPnTSqKpjutjqIpm9sMsvQYvyxRd6LtQxoKiMYsrEsCQwidOUlzgP4uRnHpTEZdmWj50u+BwDQtqtKApU2q2Yqc5uftFG/FHo1nbl6yWW7nl6qbyAqB2M8g8EOgiYuuWnTvKr/3vRGl/idmMDXbL/BKgd8oVy/epLGfkkH6VFNqbv47Znj7Pfi8Z55UiTlnF75FunsdnOXlnphlHDaGv1qBv8GkbLOiXb19N0GM1bBQVEeWyGwOqovmDIc9z6ZQoeg9Gz3hwnH4/SxGOaPPEjNdilPoKeJQd89by3IBIbek5ceWWX9LxV12xZ8itf9ljLgTH8E1/suTDnQYtWxAAzQaku9NyypVw7qENS1SHQjcEkT/I8UJSNUcGowCdvNVc+CRzUVqXHcTe/pJfAq1vbY9udtgU6tEP9k9d3ypd3DPs6Tjvi/Xb5RwGjAuAs6KtP5Av+9KsvZXrpN41b2tMuSJtuGncrH7dHvhlGvzWzNXEweeR9Xvia/N/r1KTvuPqfezKMtjv1y0tvOoyiZAyfglOe3dZtfGCOAHzyIQCQur2v573JL/ATCJJPYKljQKrAVc+I6/nwuF7yKJ1Y/giUW46EMPkrGvKT+gSjKp+1q7LjFOtiz4WXCyUrVln4EiSQB4Dg2qE8OkbcLmTzdAMyHccfBfnZqR7l7eWCL0jsBAW95Onml46jHUFta7cqrDZ0i7O+0S95fSegageX8k9Q3im//kmI+6UXrfParXGkesmjcYJPCvKvXb/ruPSlnHzSGJWtOFaeuFx8nO1eNc6W0760jNujejuNO5WvKvbKqFdGp6wgtQN/w2hVp+jz9Y4DjAKVWp0E9LQteNRqqPZjwEMpIBFwBDKVhzQAkLFNfgWBr1ZGlQ5Aql7S8AnwFRwLNJU/juM6SY/329mNy4/Ldnwx14pV9sKvW5VoooupLvQCiGyZWD/l0UW5FyADrGJgk595iyikxVAhHztd8LOgEfurbeWJbeuYYvnVrv1qu46r7e3age/dAjbQJs6brUc2BER5MKoy8Qplu/xoSX3UG+sqrdu1R+NE7VafsprLNmNLeeSPxglt6Fdfysgn2ZUWilVPnibKQ9leNVaZbCwt4/bIt256ZW2VuW8YNYwaRss844aoaxxgNIZLwSKSafUy+8+SYA/4zAYdA0ZlN86HfUAzC6O65R/XJTiVTY5RFttxyNpSfvJ1shvbGIdtXey1QpW9AOt2pi6oupjqQq8LO3G7oDyyQVkuxgKTvHIci4/Lz071yI58jKFJxxQLNHvJUwSMxm2TT73Gef805MET9gREefADCGb17JQfaNXjBvK1F63Jm9fnGhd6xEP7GieU69bvKhO3Qz5pjMpX+aGxlXdcefvRWGWysbSM2yPfOo27rJ2y9w2jhlHDaNln3YD1jQOMIg2QqNvbunUeQ10sn1Y8lQ/oAwhZQY3LZPOpHlZfswBJ3XoEIK4r3gZqAdTsbXrqxH+F2Ide7Kpc0+PsxV5f6tDFMruvi6ku5HkwkNUsmycPTOIyOk5dClk/lZ4Xy0e1IS9PPzDayU43v3RcQKu2DQOjusWdBUOlx/4KiDqtAsb65OXHZ/zNe76yF62x367dKs8/PRonaKYg/WLY1DFiHZe+pMkmdWaD+r2dPeWXlr1orDLZWFrG7ZFvcR9ly1W9P5YwyoWKi0i88lHlNhcpQt7KSS9+0Rba1EveQfP4Nn3Vp2oI4wKjOje1GonywB9jF3AksNKp8yaGQsEgUCoQ1K198qmMjmE3C6M6plv6HNcH0IztsToaB/mJDQL14XfsT9ZuXH5ctnUx18VZK6FAqCCEC6iCLqa60Mf5lScbqw4BQzswUbk8m7IhP5U3L5aPnS742GG1UCvCneyorXl5uvmVhZpubc+rI04DjvJWOeM0fFIQEA0Do9hq185etKZ8u3arr7GjPon9b1ev2pfVl3T5lO03acHxTqFfjdvZUn1xe+Rbp7HZzl5Z6YbRBqyMGkbLOl2qrWdcYFS31AWeUp10gBK4IxbUAYD6Ry5OBwCVnzxApPIBldlv06seYgEpdQGUAlB8Ii2b3q4ssEpefOlkNy4/Dtt5F3sumKyECQ5iYNPFNL7Qx8+U5mkmezrWDkx0XD4JXklX2qhgFBgA4HSLWHUrxkc0AHY6hU5+yQbtV+jWduVrF6tPgLi8kO0LAdGwMKq2ZFdHNR66wVWndmv1Hdv0CZoq9Ksv5eQTdcZB9ttpp7z9aKx2xX0sO9I+bo9866aXbFQR1x5GubhwoSEw4WslgttyfHQRYJsLUxy4GHFx4UJDPt3K06oGeZWmFRX2FVRXfLGKfcA+tnUhI6Y++YTfuiWJTV04+6lfF1T5hI1YE9LjC6gupP3GXhmVwtXF4wKj1SnsmstSIO9ir4sxMMYnDrqYxhd65Y+hVWXyLsi6gGdtU4ZVKdKzF/c8P1VHNpaP3S74ABp1ZW/FYk/1xUCcrSfOhwbZIMiKbXRqe7Z83j5Alaeb8spvAZf0HxZGsS/bcVt71bpTuzkmUOwHRvP0xU/5hF0F+d7unw/lI+5XY+WP68OO6oz7X751G5uxP2Vv1x5GATyADLgC4gA9toFGjgnOEFarFKTrVqDgUCsmpGODfcqyTR7BqMCOVRlgkrrIo5WU2Af8ki3d3mMfu+xnbZM+SP3ZldFYE44RBM79QqjyG0bLPjWn12cYna6JU+qpgC6YMWBwUQV48lYOdTHNXniBHfLHdoBT7GRXFylL3ixUUZYLO3Vk7ef52U5x+djtgk8d5KXOGBhUF3G3oLxxu4HbPD2w1a7t3erhuG5pdwKqbJ5Rwii+02fopdCP1nl9LjuMFY7ziXXvV1/sySeNIcYBdvFbaao3G2f1yx5nP5tHvjPOZT9Oi23It25jMy5T9natYRRgJAgkATztA6MCR4AKQNN+Fka1+kk+IJOPIAy4ZF8wqnRBI3UCkXE6PrAPjMa22Y9tc4w02cZOv/VTTwyjsiVNOA40C5blZ7+xYbQ1tCr9YxitVH5XPkIF8i72mBdMceGNgy6muujGxwAyHdfFP4Y05aWswCOOKZuXn3LyM86f3dYFPvYhm4f9GHZkW/DNcaACmOgltPMLYJQ/sZ12bY/9bLeKqT6JwTm2rW2gi/ZQ1yhhFPtqr/qpm9b6h0Pt1r58jWN0z/aP6ov1YbudvtiTT9RJaGcja5M2DaIxdaCz/Mcu7ZRGLSee+yPfsnVrv5M+sZ0it2sNo1r1ywoEkA0Ko4BqNmBLkCeIU93sA7mscsaB9DwYJU028mB0kPpjGI39Uj1ZCFZ6P7FhNO7darYNo9Xo7lqtgBWwAlagWAVqDaMCRFYns2A1KIxSLm8VUXWpHkEfq5kE9jmmdLYHgdF+61edQCzb8jPWxCujxZ5EZVk3jJaltOuxAlbACliBMhWoNYwCX0CYVhu5NQ14AYjdYFS37InJiy2BnZ7zZB/b5BHkxfnoKD0qwHGOYYugsrFtbMlX5WVftvEbmO2nfuyoDNt8Yk0Ex/JPefqNvTJa5mmZX5dhNF8Xp1oBK2AFrEC9Fag9jApA1Q2CzE4wysonQaAZAyOQpuPkEdwKGAVxgjz2saNAfgJ+kR7bZp+PbHCMfdkGRgepn3J6TIDtdprEPsuHXmPDqHq4utgwWp32eTVznvHRuZeXJ05jbuB847lwBytgBayAFXhegdrDaK8w5XzPPtuqC2K/eowDjF65aFnY58p54ehbFoXla9c/f5YksmUYHX1H6JGcXoFSHlAu/idQ6dmYx2X4B5mgc88wmlXJ+1bACoy7AobRBvzofa9gye17/bxVr2WUr+kwumbDRNj1ollh5wvvan0+c+X85IDUMDr66XpQGO3VkxhGey3jfFbACliBcVPAMDpGMCqwHCRuOoyu3TARdrt49iSMAqWpAek4wKges2GMxq/ajP+JUrp+Jk3H+GdLcEl5Hn8hjcDKZ/zcNPniusivR2xkjzTyEcgLWGKDFVHVoxXV2BZ5SKe8PtjMrozyiI6+aBj7KtuUjdPj/NlHcVpO+o8VsAJWoKYKGEajC4YuHI6fv4hKi6bDKOfvrx98Kuxy0bMroymukDYdRoEw4AxoAyK1qqh00vQMNmAmGOU4IT4GDAKNek4aGNTznZRlXFNe4BdDpW6/yz6xYJM6CHG5OB928Fv1qg2UiWFU2/Jdz5+2a4Ps4geB/PjpYAWsgBVoggKGUcPo5OqNwDMvHgcY5YS++sFlyQJp02GUVUA+CkAjsKbVTdKBMsYnUCYIBOwIcT72BXhsA4UCP/bZpjwx9gSjMUiqHHXx4ZhCXE5wG9tXvnYwSt7YHm2gjnZtIB0/Y31Uh2MrYAWsQN0VMIwaRg2jmbM4VSBtOowCj6xgZgMgBoTF/yTlwSjlWJGM82FTAJsHizFUKl9cnm1sdoJR6pUd8tOGGG4pS9BqqFZaYxhtZXjuT14bOAT0shpKHeghCI/LejsdBXgTkt6sozfdsJ99Q5LejpNNV0uyx/V2I9mMY/Jm38DTKb/KqkyntwZxTG8XwlfKxq/olL9xLN/xgaB92VFe3jwVv0kI23F9yhfH2ODNQZ3eHtSu7b287QpN5K/aKp1iP7w9GgUMo4bRKRfv7IVY++OyMqrTKkUgbTqMAljxyp9WRoE73ToXMObBqIBQt9IHXRkVPGosEHeDUeUFEPG12216fI1hVCujndqgOtAAnXybXoqkFwuCgB6BF7GAS3CG5wKefmEUsM0GwWR8TL7Eadly2lf5LHQBi4Bn/J51tSX76lbZWvTkimnAqrZKE/KqTmIFtCAv9WEnL+CjYLrda1TbtV1l22lCOrZjHagD8KXdDqNXoHEwikRM1IKoOsRcdHWrL1V/xw1GGUepAWnTYVSAxkoowAVsAYExeOmZyk4wCtipPEBK0DOjbMtGfJtet8cFvtqn7ryVTEEj9QhUVQa/sUMAOAWm+MX5jT1tc94TqAdfZTfbBspQVvnlZ6uw/ySnABDVbsUue0yANgoYRQiBlIC3HZDliSYwjCFM+YAxAI33sxOy+8qnWMAX21JbBaNaYc0DvE7HqEOw2gkQO7UdiKY9MQRjV37nAa7sZcuozY4HV8AwmsDKqGF08AFcdMmUgLTpMEpfAnb6h0xAB5gBeKQLTDkmQOM4QSuG5CO/8maPcRzoU7psyw62sz4IOFuFotvy1EmI/aZegangEpvYxy5+EzjvgVXSVKZTG+L8+Cw7LWP+k4wCWhEElvICMAcECRYFaKOCUUGigEkA1W4VMPaxE4xm2wVQAoLAdV5Qu+KVTaUJRrO+Zu1gG62UX8cFqmhJu/Ajm4e83doOBGfLUme7NmGTNlDGYbQK1B5GmcR1QdDFhDQmeFYkdIyLg9K5ACgvcuqCwWSvVRPKCxKZ+AlxGS4+uh3IMT3nhe04XRcpYnyQDbaxq4sWNtimXl0oVaculqycxPllmzJFf6paGeUb7ifc9mA47rbFlX2+fO19YZfnfn906rfsN9BFpYVxgNHSxHRFVqBABTpBWrZaAdqoYFQAVjSM0g6twmZv1WfBVW1WWwWOWp3sBZRlg1jQTHkBbbwCq7zSop397Cqo/NHqr+zEserGtsPoFKg9jAKbQCMwptthQKcAUpBIHvICi2wDhWwDeKSzckF6JxhVPUAgQRDLPjbwIbaNTQJ1qAy+US9QqfKUkW0BNGXIh5/yiW2tBskeeYoGUexXAaP3PLFyyu9+CgRTiU+4/cFW/5b1xzBaltKuxwoMp4BWPztBjWoQoI0KRgVLus3cDcjkB7HK5oGdwI08CrKdbafyZu2orYJR7ChN/sp2pzi7egn8Yycb5F87GNVxtamd37HdXvLE+b3dmwK1hlHAjqCVQ6CJQHoMiKQDbQQBIrEgjryUAQgFfhwTJApsyUO69gFG9mM/gFLsyTYAyT6frG2BpeqhDHmUzr78xX+OYU/1qo4y4ipglFXRVMAzz4+Db1jYGlNl/TGMlqW067ECwysgsAOcBDt5VgVjo4BRgVL8DKaAi9vdeZ/YN/mchUhAUcAXgyTtyVsFpk2kZ/OqrXE62/iLb8TZurOaqT2x31qhzWqovO1glPzUq+PSr5MPyhPXn/XR+/0rUGsYFajFMIYEeWBJHlYjgULlicux3S+MCoJjGM3rgnYwKjiNYVQ+yrcYfNkmrwJ2la/ouAoYXTexMRxyw8Jpv/uZB4Zlp+06c1aY9Xj+tzzVP6OODaOjVtT2rECxCgBaQIsgDOjJApOOZdPlWfa4ACsPLAHfLEgpv4BLdvNiwWie7XbltQqsW/W6RR8DsepSW2IY1THaT/1ALPWznZcvWx/l1UbKxEHp7Xw3jMZqVbtdaxhlhZAQ36pmHzgE1FhFFKR1WhlVnlHBaLzqKtv4I/gkLa4rhlHy6PY9+QTccRtJ1yMJZa2SVgGj1Z4az9b++Op14RNXzJ2yQguI/mbps19cKdNHw2iZarsuKzBaBYA0rQDGwChA6xdG2wFW1utuQBbnF4zG/nUrn33OUiuHebfd1dY8yIz9oE7yAqZZXfJWYimbl97Ndx0XxMr3uP2xX2z3kidbxvvdFag1jAJlrCQCczGgAaNaUez1mVHyAYx6rpTysi1b2KUe7ROzH6+M4gsQDDzyYVtw3AlGdWu+3TOj2MI3gaog1TDafZAPmiMlEKUNhtFBe9LlrEA6CgjIBFnZ/ayn2eMCqLJgFH+yPmR9jJ/hJC9gmBdkpxuMUpY8WcAEcPNWbeM09FHoppXAUuCcBWvZiWMBe1xPfNzbgylQexgF9IA0AuBHEDQK7EgDLJUuSGxljr6IFKdjE3vApeBT5bWfB6PYADoVBKCdVkYFlvgI3AKcCvgQ10MeBWySnzRts1/EZ9xWRlMDUfrcMKqR79gKpKtAFnCyngpmBEC67Sw4zeYH9GK46wZY2fL95Jdv2ZXBbjZUTrCY/UKTfMrCqFaK459/Ul5i5ddx8sdaxHn1eEAM6d38FjjHcByDdWxf2yqjfcejUaD2MFoEeNXNJuCc92jAKNsxTjCaIohyuhtGRzPp2YoVKFIBoJKVuhiK4vpI57iesRQwAXTZkGdL+dvZz9roJ7+gMguj2BQY5kGz/AQUaRt15gXZEPwJ3PPqoyqVAKIAACAASURBVHwM4oLNvGdRVVcWFDu1XeCc1V0+6Z8F2SaWvWyZOI+3B1PAMFrQSuIoQbCTLVZ/WT3tlGcUx8YFRvNA9N0Xzw43P1z+M6LZU9owmlXE+1YgTQUENACjwAtPBXtZoBKgxlAG4AFXAFlsQ0BUNox2q1egib/tgvLE7clrO8e1aipNpGkeJKq+bJ52Pqsf2mmY5xP1AtvZvlPdjodTwDBacxgdBWj2YmMcYLQdiN75WLnfmm93ShtG2ynjdCuQngLApKBGzzQCY4KrrMekC9aUP28Frh1gZe1pX/llMy+WT4I07cuGYvmnVV2lE1MG23k+K5/KxzDKMUBP8Cn/2Md3Ba2SZsvqOLFWT6mH0K7t2O4EtZTN9gf1t9OlVZn/DKWAYdQw2tOqatNhdGMI4TNXzp/yrXlWRFMBUc5yw+hQc50LWwErYAWsQKIKGEYNo4bREMLTazckDaLMH4bRRGdRu2UFrIAVsAJDKWAYNYwaRp87hb5+0/0tIN3952mtiOoMN4xKCcdWwApYASvQJAXGGkb1o/lF/yxSL89kpp6n6bfpOaknNm4MC5atCsvXbkjyHDeMJtktdsoKWAErYAWGVKD2MEr7B4VJvoWuH5FPHQaz/mV/6zR7fNT74wCjQ55LhRc3jBYusSuwAlbACliBChSoPYyOGrrqYs8wWsHZUnGVhtGKO8DVWwErYAWsQCEK1B5GUYXf2hScsdqpwIpp/DYk8gGb5M3mE4TG+cmjNyhl36yk1ViO89FboJQfe/EboLBFvUqXj/GboeRDHOfVi904sB+/PYpjo17x9cporHg124bRanR3rVbAClgBK1CsAo2DUb2nHlgkCMrYBxgBPQFkDIY8P6o8bAvuBJfxO+f1+k7ycRygBDT1DCrHBccCYGCU989jlyCYJY1jMYDG2+3qlX0BbpwPP0b9VibDaKvbKv1jGK1UflduBayAFbACBSnQOBjNvj8eMAPuSCcI3gR8gjqOA5bAoY4BjIJR4E4AyXEAUsfjdL0nnjTBL/kBVPaBUWKBqepqF7erV36rPbQtfiUo9UuLdrb7STeMFnQG9mHWMNqHWM5qBayAFbACtVGg8TAqWIthlG2gMQ5Ki8GSbWBU4BfnZ1vH4zKCUVYq8wIASF3YJZCf/Tww7FSvjhFru52dPNv9phlG83qz3DTDaLl6uzYrYAWsgBUoR4GxhFFWG4FFgCwGOQBR6RwTbLJNiFceBXOUyYNR0jrdfld56sMf7WfjdvXKb2LKtMuXtTfovmG0JXGlfwyjlcrvyq2AFbACVqAgBcYWRgWQxARWFdkGDLm13+mZUR3TCqdsAXpaGRUs6plRYsCVMgSBLc+0doJRYBWopc64XtnXYwhxPj0zqroHBdC4nGG01W2V/jGMViq/K7cCVsAKWIGCFBhLGAXSFAA9goBSt89J4xj7QBkgGB9TOrHKxjDKNvUAmgRi3UYnv4Ju0wsulUcg2K5ejst36hGoyq6+uCU7w8aGUSlbXWwYrU5712wFrIAVsALFKVB7GB0WsuLyAJ3Akm1AcdRQF9cXb7OaSaDeOD2VbcNocSdhr5YNo70q5XxWwApYAStQJwUMo9G76VmV1GojnciqZ1lwyG32ssB3EMA1jFZ/WhtGq+8De2AFrIAVsAKjV8AwGsHoIJA2LmUMo6M/+fq1aBjtVzHntwJWwApYgTooYBg1jPb0WIBhtPrT2TBafR/YAytgBayAFRi9AoZRw6hhdPTnVSEWi4LRN33x8J7GAHcBzvr55YW0zUatgBWwAlZgfBUwjBpGewIRr4xWP0kUBaO7HfmDnsYAMHrbPXOrF8IeWAErYAWsQKMUMIwaRnsCEcNo9ed9UTD6tZm/CX/zhrd3HQev2e3DYePGjdULYQ+sgBWwAlagUQoYRg2jXSGEFTHDaPXnfVEweuglt4Vrb70j/NFr39h2LPzV1juG+Q8sHkqEiY0bwzG3Lg4fvPSecNIdDwX2HayAFbACVsAKGEYNo20BJP6lAMNo9ZNFkTBK6xY+uCTsdfAR4V923C38yabbhj97/fbhZTu9N+z3re+ER554cmgBbn746bDzhXdNfr7928UG0qFVtQErYAWsQP0VMIwaRg2jNTmPi4bRomWY9+SqSRAVlBpIi1bd9q2AFbAC6StgGDWMGkbTP09bHtYdRmnEGXc/PA1Ij711cfAN+5oMQrtpBayAFShAAcOoYdQwWsCJVYTJfmD0QxfeFl56yNk9fY765Z1FuNvW5mmzl04D0pPveMhA2lYxH7ACVsAKNFsBw6hh1DBak3O8Hxj93C/v6QlEAdYL73qgVAVYBQU+datesYG01G5wZVbACliBZBQwjBpGDaPJnI6dHekHRg+87r6w14+v7Qqkm337orB6/YbOFRdwtB2Qfv+uJQXUZpNWwApYASuQsgKGUcOoYTTlMzTyrV8YfXzFmvCWky5tC6SvPPL8cMdDT0Q1lLsJkH7n9genrZDyXKmDFbACVsAKjI8ChlHDqGG0Jud7vzBKs1j1PPWGueH9Z1wVdjj5stbnnT+4Ihxx+R3h0WdWV95yfmuUb9TrVr1iA2nlXWMHrIAVsAKlKWAYNYwaRks73YaraBAYHa7Gckq3A9Ifz3mkHAdcixWwAlbAClSqgGHUMGoYrfQU7L3ypsIoCgCkR938wLQV0vPmP9q7QM5pBayAFbACtVTAMGoYNYzW5NRtMozSBesnNoav33S/gbQm49FuWgErYAVGpYBh1DBqGB3V2VSwncdWrZsGanrGMhsffMPCgr0pxnw7IJ153+PFVGirVsAKWAErULkChlHDqGG08tOwNwcAtd0unt0TkH7vzod6M5pgLtoJTGcB+5KF1X3zP0GZ7JIVsAJWoDEKGEYNo4bRGp3OJ+b8FFIW2tift2xVjVo13dU1GybCV6+/z0A6XRqnWAErYAUap4Bh1DBqGK3Raf3Mug1hnyvnTYO0GEh/MrcZ30JvB6RXLV5Wox6zq1bAClgBK9BNAcOoYdQw2u0sSez4qvUTgd/h3OvyOWGXi+5qgem7Zs4KB1x7b7hx6fLEvB3OHYB0v18vmALftPnqBw2kwynr0lbACliBdBQwjBpGDaPpnI/2JEeBles2hP2uMZDmSOMkK2AFrEAjFDCMGkYNo404lZvdiDwgfcdFs8Jvlj7d7Ia7dVbACliBMVAgCRh90aZv7QmIfsfgWJlO2+/12TE4HdzElBXgednPXDl/yi37XWcaSFPuM/tmBayAFehFgSRg9A/fuFtlkGXA3bQn7T/81a/3Mp6cxwoUqsDytesNpIUqbONWwApYgfIVSAJG/2z3/XoCIoNjb+BYhE5nXnxZ+aPTNVqBHAXygJQvcN352Iqc3E6yAlbACliB1BVIAkZf8pXTw+/++9YG0kQfQ3jJdu8Ia9etS30s278xUuCJ1evDJ66YO+WW/bsvnm0gHaMx4KZaASvQHAWSgNGXHnJ2+Iu9vm4YTRBGX7TJFuHaW+9ozoh3SxqjwOOr1+UC6V1eIW1MH7shVsAKjIcCycCogNQrpNXdis/e3v+rrXcMV99823icCW5lLRXIA9Ldfz47zHuy3m+gqmVn2GkrYAWswIAKJAWjACm37HmGlC818S37F75mO39K0OAPN3tzeMm2u4SX7fTesOPeXwgnnvXTsGLV6gGHlYtZgfIUWLpibfjwZXOm3LI3kJanv2uyAlbACgyrQHIwCpD6U74GO5zsLygNezK5fHUKtAPSBcu8Qlpdr7hmK2AFrEBvChhGDb8t+DeM9nbCOFe6CjwLpPdMWSH9wCV3h/uXe4U/3V6zZ1bACliBEAyjhlHDqGeCxigAeAKgO1941+THQNqY7nVDrIAVaKgChlHDqGG0oSf3uDarHZA++MyacZXE7bYCVsAKJK2AYdQw2oLRt33Pz4wmfabaub4UAEjf/4upK6R8yYlb+Q5WwApYASuQlgKlwOirjr+kBTz+YlL5X0zqVfMPnXlNWiPT3liBIRXg5534Vn18y95AOqSoLm4FrIAVKECBUmB0yx/+2jCa+Ars96+fU8DwskkrUK0C7YD0sVV+o1i1PeParYAVsALPK1AKjL79/DvCPx9+noE0USDd5IifhWWrfPvy+dPCW01SACDlVaHxCimvEuUH83sJZ815JOx1+ZxwzK2Lw4aJjb0UcR4rYAWsgBXoQ4FSYJSLwBtn3GAYTRRGZ85a1MeQcVYrUD8F7nxsxUBAuviZNVMg9tcPPlW/xttjK2AFrEDiCpQGowDpG864PvzTYecaShOB0pcdfl648K4HEh+ids8KjEaBdkC6fO36thXMenzFFBi96N7H2+b1AStgBayAFRhMgVJhFCB923m3h81OuTK84pszw//9xs/Cv/hTuAb/fvQFYctjZ7Y+Wx13cXjXD64Ix101Kzz6jH8MfLDTxqXqqsDtjz4Tdp05awpgfubK+aEdkBpG69rT9tsKWIE6KVA6jMbPbXn7+R/mLlKLU2ctqdOYtK9WoFAFfrP06Z6B1DBaaFfYuBWwAlagpYBhNHpTS5FAWKVtw6jPdiswVYE8IP38VfPDynUbpmQ0jE6RY9rO0ytWhtvnzAvnX3FNOPaMn4R9jzo+7HHAIeGtn/h8eN3uHwmb7LpH+Me3viu8ZNtdJj//suNurfTXv/9jYadP7xc+/NWvh/2/fWL47o/PCz+/5vpwz70Lw9p1vX25bJpDTrACVqCWChhGDaO1HLh22goMq8ANS5aHXS6aendiv2sWTAFSw+jzKi97+pnwi1/fEA76zvfDzvvsH/5++3eE33nZpoV8Xvhvm4eX7fTe8N79vhaOPHVG+PVvbw+r1/gXP57vDW9ZgWYpMDSMZn9UusoVQNc99cIqPc6d92izRq1bYwVGpMDVDy7rCKTjDKOr1qxpwednvnFMePnO7wsvePlmhYBnr0D7ok22CJu+96PhayecEm64/a6wYWJiRKPAZqyAFahagaFh9GvXL5zyZQABkON8MKxCF7604WAFrEC+AnlA+uVr7wtrNkyEcYPRp555Jpxx0SXhbZ/8QviDV21VKXx2g9Q/e/32rUcCLrrqWt/Wzx/aTrUCtVFgaBjld/eqACzX2RvsfvyXc/1D3bU5He1oVQr88oEnp81jX73+vnDbo89MSW/iTzuxwgjQ7fKZ/cPv//uWSQNoO0D90822Cx896BvhN3fNrmoIuV4rYAWGUGBoGOV9JAfd4NXRFOGY5+FufcSrokOcHy46RgpcsvCJKeDJOf35q+dPSWsSjC597InWLe+/feNOtQTQdmD6il3eH04866dhxSr/dN0Ynb5uas0VGBpGaT/fQD3wuvumTNopwtk4+cRvKV65aFnNh6fdtwLlKpAHpPG80QQYnb3gvtY32Ou6CtoOQrPprJZ+5biTA9DtYAWsQNoKjARGaeKGjRvDZfc/ET571dSVhHgi93Zvt9aH0Wm3i2eHb96yKPAaQwcrYAX6V+D8BY+1/ce6zjB6970Lw3u+8NVGrYJmATRvn2dfP3vEMYbS/k8Fl7ACpSkwMhiNPV61fiI8snKtPyVr8MTq9a1/CuK+8LYVsALPK3DWnEfCJ6+YF/a6fE7Hz/t+cXcukNYRRh9Y8nB43/4HVf5t+DxQLDPtxa/eJnz52JPC8hUrnh8Q3rICViAJBQqB0SRaZiesgBWwApECc59cmQuY/dyJqBOM8swkP4OU+rfiywRS6vqLLd8afvizmWHCPw0VnR3etALVKmAYrVZ/124FrEBJCix4atXQMHrT0uUleTtcNRde+evQtC8mjRpaX73bh8Idc+YPJ7RLWwErMBIFDKMjkdFGrIAVqIMCFyx4LPCWpc9dNb+vzxeuXhDOvOfhMLGR3w9JN/Blnd32PXDsngsdFFR509OXjvmu3+6U7pC2Z2OigGF0TDrazbQCVqDZClzwq2vC/9r8zQbRAV5R+q9v392rpM0+Pdy6xBUwjCbeQXbPClgBK9BJAZ4N/fghRxpCB4DQeEWVn7r61mlnhY2Jr353Ggs+ZgXqqoBhtK49Z7+tgBUYewUWPLA48CPvMVR5e9Oh9Njp0/sFXovqYAWsQHkKGEbL09o1WQErYAVGpgCv8PyTTbcdCrwMrvng+k9vfVeYNf/ekfWVDVkBK9BZAcNoZ3181ApYASuQnALcTn7ByzcziA55a74TjP/Ra98YLrn2xuT63g5ZgSYqYBhtYq+6TVbACjRSgQ0TE2HvQ482hBYIoTGg/u4rXh++d875jRxLbpQVSEkBw2hKvWFfrIAVsAJtFFi7bl3gecYYlrydf5t91LocfOKpbXrFyVbACoxCAcPoKFS0DStgBaxAgQqsXL06bLfXZwyiJa2I5sHsF795gr9pX+AYt+nxVsAwOt7979ZbASuQuAKA6Bs+9CmDaIUgKjj9xH8eZSBN/Hyxe/VUwDBaz36z11bACoyBAtyaf+OHP20QTQBEBaSskDpYASswWgUMo6PV09asgBWwAiNRYP2GDeHtn/qiQTQhEBWQHvSd74+kj23ECliBZxUwjHokWAErYAUSVOAjXzvcIJogiApITznnggRHjV2yAvVUwDBaz36z11bACjRYgcNPOc0gmjCIAqS/94rX+3dIG3wOumnlKmAYLVdv12YFrIAV6KjAuZf9yiCaOIhqdZQfxr/73oUd+9MHrYAV6K6AYbS7Rs5hBayAFShFAcDmxa/exjBaExgFSv95h3eH5StWlDI+XIkVaKoChtGm9qzbZQWsQK0UAGgAG626OS7nB+1HofPO++zvn3yq1dlmZ1NTwDCaWo/YHytgBcZSgffu9zWDaI1WRLMQe9yMs8dy3LrRVmAUChhGR6GibVgBK2AFhlBgxsxLDKI1BlHA9L+/cstw59wFQ4wCF7UC46uAYXR8+94ttwJWIAEFFj64JPBFmOxKm/frc5teffWynd4b1qxdl8CosgtWoF4KGEbr1V/21gpYgYYpsP1enzWI1nxVVDBK/NUTvtewEermWIHiFTCMFq+xa7ACVsAK5Cpw+oW/MIg2CESB0Rf+2+bhrnm+XZ874J1oBdooYBhtI4yTrYAVsAJFKvD4sqfCn71+e8Now2AUIH3tez7ib9cXefLYduMUMIw2rkvdICtgBeqgwCcPO9og2kAQ1S370y74eR2GoX20AkkoYBhNohvshBWwAuOkALdxeZ2kwMVx/b6s1K3P/mrrHcMzK1eN07B2W63AwAoYRgeWzgWtgBWwAoMp8JaPf84g2uBVUYGqv8w02PnhUuOngGF0/PrcLbYCVqBCBa6++TaD6BiAKEDKq10fW/ZUhaPNVVuBeihgGK1HP9lLK2AFGqLA1nvubRgdExgFSA845sSGjFw3wwoUp4BhtDhtbdkKWAErMEUBr4o279lQ3ZJvF//Bq7by6uiUs8A7VmC6AobR6Zo4xQpYAStQiAI77L2vV0XHaFVUgHrId08tZDzZqBVoigKG0ab0pNthBaxA0grMXnCfQXQMQRQg/fPN3xxWrVmT9Pi0c1agSgUMo1Wq77qtgBUYGwU+etA3DKNjCqMA6ffPvWBsxrobagX6VcAw2q9izm8FrIAV6FOBp1esbH2zWrdtHY/fs6Ov3u1DfY4aZ7cC46OAYXR8+tottQJWoCIFTjnnAq+KjvGqqP75uH3OvIpGoKu1AmkrYBhNu3/snRWwAg1QgFUxAYnj8VsVVZ/zClgHK2AFpitgGJ2uiVOsgBWwAiNT4N5FDxpEvSraGgP/e4u3hA0TEyMbWzZkBZqigGG0KT3pdlgBK5CkAkeceoZh1DA6OQauuPGWJMepnbICVSpgGK1SfddtBaxA4xV4xS7vnwQR3a51PL636j92yBGNH/NuoBXoVwHDaL+KOb8VsAJWoEcFHljycDIg+tI379rymtdTxjBMIoAUpw2z/csbbg7nXPqrlj2+uFXWl7e2/eg+rfYN43sZZf9q6x3Dxo0bexxBzmYFxkOBJGGUZ2quuvnW8O3Tzwr7fes74bNHHONPwRp8/qjjArcTz7/imvDMylXjMfrdSitQsALfO+f8kUHesKCkd6T/dvacKT4hwShhNPbTMJq/Auxv1Rd84tl87RRICkb5b/HUn14Y/nLrHaZMlvHk5u38yW2Uuvzhq7YOXzrmu2HFqtW1G9B22AqkpMDO++yfzFx23+KHwpGnzmjJ8x/v3nPSLxIEo6wuPrn86VYeoJVAGvOLypLGMVZaSWclVHkBXvaBUOpTYFu3p5WXY+TXPvXKL2KlK1/eHCfAJo/yk+9PN9uu5YfqJ19e+arSvvH90+WaYytgBUIIycDo2nXrwu5f/FpSE0ZVE1Uq9f77rh8IDz36mE8UK2AFBlBgYmIi/PHrtk1iTgPuCAAk0AZYap4hHVAE4ABC3VYXPAKjbAsWyYcNoBMbglHStS8b8cqo7BGTj1v5hHfv+5XJcrq9D7zKhsoJiuW32iR75CdwnG18xCfsEwS6Kl9lTFscrIAVeF6BZGD0E/95VGsSqXKCcN3TV12ZwFevWfv8iPGWFbACPSlw59wFycxpwCdwxhzHKiFgqfmOxgB0AqQY2jhGOsApUKScAA/Y41i88si+QJJY24JK1ct+7Ac2gNA8P7IArXaQX/ZUjn3sxj5RPt5XmariF796m7B+w4aexpEzWYFxUCAJGL321jsmJ5SqJgfXOx1EpYlvKY3DVOA2jlqBk35yXjLzWgxnWlEE3jjHCYBhFhZ1jHxAXwxz+jIUtoaB0RgmBaN5fgC0MQzjG4BN3ZqnBKPyLdufsf8qU2UMIDtYASvwrAJJwGhKz1VVOTmlWrd/qNnThRXoX4EPfOmQSVCq8tzWKma2BVqxJB0AjGFO/nKMdKAvvrUvm8OujObBqPzQbX98abcySrp8VTn2CfioYynG3znz3Jaf/mMFrEACz4zyrOgfvGqrpCeNFCeysn264fa7fL5YASvQhwL/9o40fl+UFcUY2pg7WCVktRTgIwCjpJMmSNUKJZDHNsdYCaUM9rQq2W1lVCuasqe5i/08GOU46Xl+qCyxVkCxwz75CdrGR3yVv7QjLl/19kcP+kbLX/+xAlYgARhN6Xf4qp6cUq7/zIsv8/liBaxAjwqsW78+vGiTLSqHH4ANiBSwaY6JIZQm6TjARn4CMEcQxLEyqsAxbGOvE4xqBRW4pA6CfGC/HYwCvaqfMu1usZOuoPzYp334pSBwVt0pxK99z0fknmMrMPYKVHab/tFnVoer5y8N37zgqsnJKYUJwj7kPzt67Bk/GfuTxQLUS4FV6yfCWXMeCafNXhqWrVlfqvN3zUvny0v9zGkAoiBToAfY9WPDefPn0KwufImJX1xwsAJWoIKV0d8ufjy87/Srwj8ccnZ46SFnh7/53Hc80dXgvc2GUU8XdVPgu7c/GHa+8K7W5xNXzA2Pr15XWhPO+2U9/8mOVz/zVlSzQOX93sCznU6LH36ktDHpiqxAygqUujJ60rX3TEIoIGoYHW4iazfBFZFuGE35NLZveQr8540LJ2EUKC0TSHl7XBHnoW3WZ87spa/4JRkHK2AFSlwZPf0381vwKQhV7JXRekyuhlFPF3VTYNbjK8KuM2dVAqT7HP5tw2gN7vj0AoxF5pkx85K6nVb21woUokApK6OLnlwR/vnQcw2jNZ6cDaOFnH82WrACNz/8dHj3xbNLB1L/XF09/skuEjR7sX34KacVfAbYvBWohwKlwOhXL/5tLoj6Nn19JmzDaD1OaHs5XYE7H1tROpC+/v0f88pojf/57gUkR5Fn36OOnz5gnWIFxlCBUmD0dd+60DBa84nZMDqGs0ODmlw2kP7LjrsZRms+540CNrvZ2OOAQxp0lrkpVmBwBQqH0WfWrGsLolWujPL7dtnAb9Hph5TjnzfhW6XdJpV+j2fr6bd82fkNo9nR4v26KVAmkP755m8e+ZxR9jlfZH38bJR++5Nx1O53RDv5EP9Waqd8KR976yc+X7fTyP5agUIUKAxG12yYCBfd+3j4zOX3JAujeRNgWZBYVj2jmogNo4WcfzZasgJlASm/ITmqc6+JdmIYbWL7em3T1nvuXfIZ4OqsQJoKFAKjdzz6TNjz0ntaXxp467m31gZG9YYQdRX7TJp6SwgAqbd8kMaH4wJLvalE+8TZN4GQP68eJi9em6egVQPS9Zo7jsVvPul1whtFvqpgdOmKteHKxcvCrxY96Y81GMkYOP3upeGdBX/LfhTnXFE2mKd0Z4i7Ppq3mHM0vzHXaA7iuOYeYvxiDovf1MRcRzqBcgrMd2pHnE49sk9e7MXzXLY8dhTiOVBlO/mk+lOMN3//x9Qsx1ZgrBUYOYzetHR5eMdFz/+cSp1glMkqBkn2mQQFo3rHM4DJ6+qYjDmuMprUtU/MBMvkSRm9Go+ycR7Vgz3S+ch2XAYb+MIPU5c9sVYBow+tWDPtiyf6EXPHz/6Yu3UYnQ6fuXJ+2Diiy0HZ52c/9TG3aA4hZp/ywKHmqnh+E4wCjOTT3KV9yuj988gnyBRAMm+xTT3YZZ8yykcZ2VI7lJ+6KENgLuR4tj7KdvJJNlOMN9l1j1bb/McKjLsCI4XRR1etC7tlfkYlZRjNdj6TriY1YiYvJkXBKPk1IXKMdI6rTB6MCio1ETKRxmVUDxOu8sS2dSGgTHy87O0qYJQVUcPW6GDLWnbXcvna4V8bunbdukrP1U5zAyCoOYd8gByBbeAwnmcATD6ag2SXPAJY0pgTtY+t7DzI3IZt/jGPbbSDUc2nAtTs3IidbNlOPqnOFGPDaGv4+Y8VCCOF0eNve/71e7rwpQyj8cSriUoToSZs8gCdTOIETbTk7wVG88YYNrP1sM8EGwf5RwzEEojlm3wuI64CRp9YvT588LnHPTSeHHcHKms0mEYHXndffPoNtV3GOTloHcwnwGMcsMX8ozmHfbZJy8Jo3u10bFGGoDlScxz7+idcPsu2ygg8NMJdEwAAIABJREFU2SevVlqVP1tnFkazx9U2lU81NoyqpxyPuwIjg9F1ExunrYpyUWwKjDKZEfpdGc2W0aSoiVpgyWTKJAz0kkegq/zEur2VnajjPEVtVwGjaLdy3YZw9xMrAm/T8ccajGIM/GDWkmkr7vtds6A11lon+Qj+FHUeDmtX847gb9CVUeaqPF+QLg9GmbP0aADl2sEo6YCy5kHy4iNpWiFlrszCKOXa+ZTnZyppW37gEyMYbTZhBeqvwMhgdN6yVdMm+DrDqCY+JjnAkMmLCVXAyHEmSI5zLN4mjcDEH0OmYJLJWhcF1YNtTbAclz1ssS1opf5xgtH6n2JuQUoKXLLwiWnz1KhBlPb+z9e+KRfWqoYg5huCgJE5h4BfbOfNb+RVHvJp7oqBVnMX+WRb+diPgVLzYFyG4/It/oef+jQHUg6b+Jgtq7ryfKpa8071+9v0raHlP1ZgdLfpee1e3u3BlFdGs/2vCY7JjsDExkQoGNVEyDHSBIxMNuRVUHnyM4FiV0F1UEb5NBFjk0DMR9BJrEAZ7Haa4Io4VtXKqNrt2AoMq0BZIIqff7HlW0s/R3s97+Nb2pqDAEHmJu3TBs1VWRilHuYs5j8CsQCUfW0LELUfz4PUI/uUwV7sV8twCK00wavSKEud+KGynXzqVZcq8r3tk19QsxxbgbFWYGQrozctXV4rGB3FxAMwAqujsJW6DcPoWM8TtW98mSCKWP/69t1rNy8Ah3Waz4BUgmA39Tk0z789Dzys1Qb/sQLjroBhdIhX1hlGx/30cfvroEDZIIomW+zxccPoEHNrHrjFaQAogVVSoDQ+VqftL37zhDqcQvbRChSugGG0wAmzTpNiN1+9Mlr4uegKClCgChClGe/6/LO/idntvPLxTWsLkqPouyNOPaOAUW+TVqB+ChhGDaM9XQwMo/U7ucfd4+seemrao0NFfFkpT+fPH3VcT+fVKIDGNuoLtD/+xeV5w8dpVmDsFDCMGkZ7umgaRsdubqh9gw+6YeEUGC0LRBHu+P86u6fzyiBZX5AcRd/deMes2p9nboAVGIUChlHDaE8XTcPoKE432yhTgTPufngSRssEUdp40VXX9nRejQJobKO+QPvIE0+WeUq4LiuQrAKGUcNoTxdNw2iy57Ada6PAho0bw5WLloVL7n8i8FKOMsO8+xf1dF4ZJJ/9/Wa+DFrFT9ZVqf8fv27bMoek67ICSStgGDWM9nTRNIwmfR7bucQUmJiYCH/4qq17OreqBKJe6+Y3QPn0mr/XfHqvfQyi/OYocCobdG2dfnJKfneL/falxE5au1OpAtXD6L7fnZx0up28Pl7d7aiTfnJepQPVlVuBuinwmt0+3Ji5rSgYzZvTszCal6cJaZ/6+jfrNqTtrxUoTIHKYfT//fJpjZmwmzBBtmvD+VdcU9ggtGEr0EQF9jr4iCTnNlYh4zctadURCCRoDhAUskqpoBVLjukNTKTph+eBVvZVhhj7yhv/LijpCqTjF+XjQBqB+vBLPpJGGb1OmTivTWpLivH3z53a1rjd3rYC46ZA5TD60kPODi987faTE2CKk4Z92jQsWvrIuJ0bbq8VGEqBH/1sZpLzGq8XBtyY17hNTgDmBHqa79gHJtmPV0azgMgxYJMfn9c29tinPMcowz7bQKh+tF4QSz69/jiul7oJpOXVq3ZQnrrJr3bIttqTWnz3vQtbbfMfK2AFwujeTX/TgK8DBUb/5J2fSXLSTm3yqsof3ibjYAWsQH8KpPolJq0mMp8I8AA3QZzmmRgKYxjVSqfyAZkEwJZ8euc8x9kXZLLPMUGjyiufysX1coxAGvUKPknH9yNPnTEJtnG7yMexuI6UttFs48Zyv1TXEtJ/rECiCiSxMvqSr5wefveV2yQ7caQ0iVXhy7W33pHo8LVbViBtBf73Fm9Jbl4DPIG1OPQDo1ngZE5iZRJYzB5jP4bPGEaB1Dh0g9Gsbc2FWYgmnbwxBCtvKvGOe38hbrq3rcDYK5AEjLI6+pef/GZ4wSten9zEncrkVZUfh59y2tifJBbACgyqwPsPODi5OS2+pT3oymi8QtltZTQPRrW6qtXMGDR7XRnVnAhIE/BDaamvjB434+xBh5TLWYFGKpAMjAKkf/Wpb4Xfe9UbJicUTSyOy/8W/Ys22aL1FplGjno3ygqUpMCMmZckN5/puU3mVaCQANABhtrmGCuVgCvb8UqjABZo1LH4mVGtcOpYJxgFILEHPKocdrFHeT4E0vLqlX8xYJM3bofspBTPXfhAy0f/sQJW4FkFkoJRgPQlB84If7rbvuH3N9txcjJKaRJpui9/vc3bwicPOzosfHCJzxErYAWGVIA37Lzg5ZslNZcJ1miabtcDpcxtgKMCxwR7+qKT9gWM5CUNmFV5QaX282AUCFXd8kMACnSyTcgCaNZ3rawSx/bUnhTn67/f/h2ttvmPFbACzyuQHIwCpPr8/UFnhb874Afh7/b7vj8Fa3D0xdeHlatXPz8yvGUFrMBIFOALgClCkX0q/44Tmu971PEjGVc2YgWapEDhMPr28++YhEtBpuPngTsVLX56u39mpEknttuSjgInnHmOYdRvupscAzfeMSudwWlPrEAiChQOoztfeFf4v9/4mYE0WvFNBUBjP2YteTKRIWk3rECzFHjo0ceSu1XvVdFqVkX/7k07+SedmnV6uzUjUqAUGH3dSVcYRhOG0a2Ouzj4F+9GdEbZjBXIUeCNH/705MqYQbAaEExB9y8fe1LO6HCSFbACpcDojufdFv7x0HMNpIkC6c/uuN9nghWwAgUqcNbPLzeM+lZ9WPDA4gJHmU1bgfoqUAqMcqt+m9OvM4wmCKOfPe9Gr4rW9/y15zVRYM3adeF/bf5mA+kYAymr4w5WwArkK1AajAKkW592XfiHQ88xlCYCpQdceHNYt2Eif2Q41QpYgZEq8MVvnmAYHWMYPfeyqW+cGungsjErUHMFSoVRgPSt594a/uM7l4V/Osy37eMvEJW1/Q+HnB3ee9qV4dp7H6750LX7VqBeCjyw5OHwe37L3FgC+Uu23SWs37ChXgPW3lqBEhUYGYze9ugzAdjs9bPTBXeGt5x9S9j2zJv8KUmD7X9yc7j14eUlDi9XZQWsQKzA+/Y/aCxhLIUvD1Xpg1//GZ8F3rYC0xUYGYw+9MyankG0V2B1vt7hvletnly9fvoocIoVsAKlKHD7nHmG0TG7Vc+zws+sXFXK+HIlVqCuCowMRhHgY7+cayDtY3W4V4AcVb7PXjW/ruPUfluBxiiw8z77G0jHCEiPOPWMxoxdN8QKFKXASGH0onsfN4wmDKNXPOAfti/qRLJdK9CrArPm3+sfwR8TGP2LLd/qVdFeTwznG2sFRgqj6yc2hi9cvcBAmiCQfuW6+8LERv+0/Vif7W58Mgr42dHx+OH74//r7GTGnB2xAikrMFIYpaFPrF4fPn3lPANpQkD6+avnh+Vr/U3OlE9E+zZeCvDN+j941Va+Xd/gFdJ/3uHdYd16P6M/Xme2WzuoAiOHURxZtX4ifO/Oh8KuF80ylFYIpe+cOSv8cNbSsMa/JTro+eFyVqAwBQ4+8VTDaINh9OfXXF/Y2LFhK9A0BQqBUYnEN7cvu/+JcOqsJeG42xb7U5IGP5y1JPB86FNr/F+5xqJjK5CaAitXrw78/mSVPznkuot5XGDHvb+Q2nCzP1YgaQUKhdGkW27nrIAVsAIVK3DpdTcaRhu2Ovo/XvOGwGMYDlbACvSugGG0d62c0wpYASswcgU+8KVDDKQNAtITzjxn5GPEBq1A0xUwjDa9h90+K2AFklbg8WVPhb/e5m0G0gYA6VYf3DtMTEwkPd7snBVIUQHDaIq9Yp+sgBUYKwUuv/43htGaw+ifbLptWLT0kbEat26sFRiVAobRUSlpO1bACliBIRT4wtHHG0hrDKRnX3rFEL3volZgvBUwjI53/7v1VsAKJKLA2nXrwmbv28tAWkMg/dTXv5nIKLIbVqCeChhG69lv9toKWIEGKrDkscfD/9lqBwNpjYCUfyD4R8LBCliBwRUwjA6unUtaAStgBUauwLW33hFetMkWBtIaAOlfbb1jeOjRx0Y+BmzQCoybAobRcetxt9cKWIHkFZgx8xLDaOIw+uJXbxNuu2du8mPJDlqBOihgGK1DL9lHK2AFxk6Bw07+kYE0USD93Ve8Pvzi1zeM3Zh0g61AUQoYRotS1natgBWwAkMqsPehRxtIEwTS0y74+ZA96+JWwArEChhGYzW8bQWsgBVISIGNGzeGPQ88zECaEJCe9JPzEhohdsUKNEMBw2gz+tGtsAJWoKEKbJiYCO/b/yADaQJAeuSpMxo6ytwsK1CtAobRavV37VbACliBrgoApHsdfISBtEIg9Ypo12HqDFZgYAUMowNL54JWwApYgfIU4Jb9Z484xkBaMpD+3iteH/h1AwcrYAWKU8AwWpy2tmwFrIAVGLkC3zrtrMC3uX+nZCgbx/r+6LVvDJded+PI+9AGrYAVmKqAYXSqHt6zAlbACiSvwHm/vCr84au2NpAWCOR/+8adwh1z5ic/FuygFWiCAobRJvSi22AFrMDYKXD7nHnh77d/h4G0ACDd6oN7h6WPPTF2Y8oNtgJVKWAYrUp512sFrIAVGFKBJ55aHt7y8c8ZSEcIpJ878tiwfsOGIXvGxa2AFehHAcNoP2o5rxWwAlYgMQUmJibCUT+YEX7/37c0lA4BpX+++ZvDBb+6JrHetTtWYDwUMIyORz+7lVbACjRcAd6T/n/f9h4D6QBA+uaPfS4seezxho8QN88KpKuAYTTdvrFnVsAKWIG+FFi9Zm348rEnhRf+2+aG0h6g9E823Tb84LyLAj+b5WAFrEB1ChhGq9PeNVsBK2AFClHgzrkLwmvf8xEDaQcg3W3fA/0lpUJGn41agf4VMIz2r5lLWAErYAWSV4DVvtMv/EX4623eZiiNoHSTXfcIV918a/L9ZwetwDgpYBgdp952W62AFRg7BZ5ZuSocfOKp4Y9ft+1YQ+nfvWmncOpPLwx84cvBCliBtBQwjKbVH/bGClgBK1CIAo8veyoccMyJ4cWv3masoPQvt94h8F75tevWFaKrjVoBKzC8AobR4TW0BStgBaxAbRTgt0kPP+W0AKQ1+RWfL9vpveFHP5tpCK3NyLSj46yAYXSce99ttwJWYGwVYKWQZ0q32OPjjYFSfkVg189+qfU+eX9DfmyHthteQwUMozXsNLtsBayAFRilAnPuuz988ZsnBJ6rrONq6ct3fl848tQZ/nb8KAeFbVmBEhUwjJYotquyAlbACqSsAKuJN94xK3z2iGPCP7zlncmC6Qtevll45Ts/GA49+YcBkHawAlag3goYRuvdf/beClgBK1CYAgseWByO/6+zwy6f2T/87y3eUimc/v327wh7HHBI69GCR554srA227AVsALlK2AYLV9z12gFrIAVqKUC8+5f1ILBfY86Pmy312cK+RIUq54v2e4dYed99g9fPeF74aeXX+lXddZytNhpK9C7AobR3rVyTitgBayAFcgowO+Yzpp/b7joqmvDd398XuvW+acP/1Z43/4HtYDy7Z/6Yth6z71bnzd86FOtNEDzg1/+z/CFo48P3/j+6eGUcy4Il11/UwB216z1TzBlJPauFWi8AobRxnexG2gFrIAVsAJWwApYgXQVMIym2zf2zApYAStgBayAFbACjVfAMNr4LnYDrYAVsAJWwApYASuQrgKG0XT7xp5ZAStgBayAFbACVqDxChhGG9/FbqAVsAJWwApYAStgBdJVwDCabt/YMytgBayAFbACVsAKNF4Bw2jju9gNtAJWwApUr8DG6l2wB1bACiSqgGE00Y6xW1bACliBpijwo9lLw64XzQr7/XpBeHrthqY0y+2wAlZgRAoYRkckpM1YAStgBazAdAUeW7Uu7HzhXZOfi+59fHomp1gBKzDWChhGx7r73XgrYAWsQLEK3Ld89SSIAqU/nvNIsRXauhWwArVTwDBauy6zw1bACliB+ihgGK1PX9lTK1CVAobRqpR3vVbACliBMVDAMDoGnewmWoEhFTCMDimgi1sBK2AFrEB7BQyj7bXxEStgBZ5VwDDqkWAFrIAVsAKFKWAYLUxaG7YCjVHAMNqYrnRDrIAVsALpKWAYTa9P7JEVSE0Bw2hqPWJ/rIAVsAINUsAw2qDOdFOsQEEKGEYLEtZmrYAVsAJWIATDqEeBFbAC3RQwjHZTyMetgBWwAlZgYAUMowNL54JWYGwUMIyOTVe7oVbACliB8hUwjJavuWu0AnVTwDBatx6zv1bACliBGilgGK1RZ9lVK1CRAobRioR3tVbACliBcVDAMDoOvew2WoHhFDCMDqefS1sBK2AFrEAHBQyjHcTxIStgBVoKGEY9EKyAFbACVqAwBQyjhUlrw1agMQoYRhvTlW6IFbACViA9BQyj6fWJPbICqSlgGE2tR+yPFbACVqBBChhGG9SZbooVKEgBw2hBwtqsFbACVsAK+EfvPQasgBXoroBhtLtGzmEFrIAVsAIDKuCV0QGFczErMEYKGEbHqLPdVCtgBaxA2QoYRstW3PVZgfopYBitX5/ZYytgBaxAbRQwjNamq+yoFahMAcNoZdK7YitgBaxA8xUwjDa/j91CKzCsAobRYRV0eStgBayAFWirgGG0rTQ+YAWswHMKGEY9FKyAFbACVqAwBQyjhUlrw1agMQoYRhvTlW6IFbACViA9BQyj6fWJPbICqSlgGE2tR+yPFbACVqBBChhGG9SZbooVKEgBw2hBwtqsFbACVqDpCmwMIZw995Fw0A0LwxWLnsxtbq8wSr7Df3N/OObWxWHZmvW5tpxoBaxAMxUwjDazX90qK2AFrEDhCtzy8NNh5wvvmvycN//RaXX2AqPznlwVdv/57Ek7x9/24DQ7TrACVqC5ChhGm9u3bpkVsAJWoFAFbliyfBIgBaVZIO0Go1kQxc43b1lUqN82bgWsQFoKGEbT6g97YwWsgBWojQITGzeGr990f0cg7QSjeSD6gUvuDg+tWFMbDeyoFbACwytgGB1eQ1uwAlbACoytAusnOgNpOxhtB6L3L189tlq64VZgXBUwjI5rz7vdVsAKWIERKdAJSPNg1CA6IuFtxgo0RAHDaEM60s2wAlbAClSpQDsgPfWuJVNu4594+4NTvqzEM6LcmveKaJW957qtQLUKGEar1d+1WwErYAUao0A7INWXm4jfNXPWFDg1iDam+90QKzCwAobRgaVzQStgBayAFcgq0AuQCk4Noln1vG8FxlOB5GD0qVVrwynXzwkfmHF12PbEX4Qtj53pT4kavPm7l4SPnPXrMOPm+WHVOv/w9HhOC261FRhOgV6A1CA6nMYubQWapEBSMHrJ3YvDJkf8LLz0kLP9SUCD133rwnDj/dN/xLpJJ4DbYgWsQDEKdAJSg2gxmtuqFairAsnAKCBqCE0Pwv/50HPDLYseq+v4tt9WwApUqEAekH74sjn+HdEK+8RVW4EUFUgCRpetWusV0QRWQtv9M7DlcReHdRsmUhy/9skKWIHEFQBIj75lUetLS5+4Ym5YumJt4h7bPStgBcpWIAkYPfm6e7wqmjCMAqkX3vVA2WPT9VkBK9AgBVau2xA2Nqg9booVsAKjUyAJGOXLSu1W5Zyexq37Ay68eXSjzpasgBWwAlbAClgBK/CcAknAKN+aN3SmAZ3t+uGDM672SWMFrIAVsAJWwApYgZErkASM8vNN7SDI6WlA6u6nXTnywWeD6SnwzaO/FXbc4W3THNvrox8L+35+32np3RKWLFkSttpy60A8qnDLLb9t2RyVPduxAlbACliBahUwjCb+rGYqMG4YrfZELav2uXPntkAP4FMQUF515VVK6jlWWcNoz5I5oxWwAlZg7BQwjBpGe1qVNoyOz9zAKuj3Tv7eZIPPPPOs1mrp008/HfiwQspqJx+OKbCqqnTycEz7xBdddNG08gcddLCKt/JSN3ljGCZDbEt5VBBfVc8gq7ey49gKWAErYAWqUcAwahg1jFZz7iVbq+BTDgJ/gCaBmH2glJVSIJDVVECT2/tsc4w8QGJ2ZTQuT17KCGixpXpUN7FWa6lDPpCXENdLXbG9Vgb/sQJWwApYgeQVMIwaRg2jyZ+m5ToogGR1ErAE/LRSmYU9oBOYZEUyXk0lP+myRUzAluCTfcpgQ8dUTyvhuT/kf89uu08mkUcwyspqvLqKvXh/spA3rIAVsAJWIFkFDKOGUcNosqdndY4JLgFBAJQgsAQE449gMYZMea4yxNqOgVMrm+THZnxMNgDM+PZ7DKNAauwL23Fe2XBsBayAFbAC6SpgGDWMGkbTPT8r80yAKSiVI8Be3heZsvmUXwBKTMiW73VlVKun2IhhtF29qt+xFbACVsAKpK+AYdQwahhN/zwt3UPdngceeWZTIX7mU8+GAoda4YyfGSWvYFQ24vKkxbf9qStvZVQ2uj0zio/Yz1uhlf+Oy1Vg9tJl4cCZt4S3nHRp4Cf8dvn+L8PRV9wZHn56VbmOuDYrYAWSVsAwahg1jCZ9ilbnHM9exs9q4gkAymok4MiHbQVAME4nL4FVTdKByWz5+PlO8uTBKDYATNmWPdXL6mp8TKuwOu64fAU2bNwYvnH5HW3nln/9+k/DebcvLN8x12gFrECSChhGDaNtLxjxb5z6p52SPH/tlBVITgFA9HPn3djTvHLStfck578dsgJWoHwFDKOG0Z4uGobR8k9O12gF6qZAPyCqf3YNpHXrZftrBUavgGHUMGoYHf15ZYtWYOwUGAREDaRjN0zcYCuQq4Bh1DBqGM09NZxoBaxArwoMA6IG0l5Vdj4r0FwFDKOGUcNoc89vt8wKFK7AKEDUQFp4N7kCK5C0AoZRw6hhNOlTtLNzy1evCydcMzu850dXhh1Ovqz12e1HvwrHXT07cMzBChSpwChB1EBaZE/ZthVIWwHDqGHUMJr2OdrWuweefCZscezMtv23+TEzw32PP/vzSm2N+IAVGFCBIkDUQDpgZ7iYFai5AoZRw2hbmNGFgdjfpk/rTJ/YuDG8/ZTLu/bdjt+7LJC3qUG/herfFi23h4sEUc07/pZ9uX3q2qxAlQoYRg2jXYHGMFrlKZpf9y2LHuup3+i7m+5/NN9IQqn8uL7esNSrW7yWlDc4dQPR2DY/nk8Zh8EVKANEDaSD949LWoE6KmAYNYz2BDVeGU3r9D7zlgU99RsX9Rk3L0jL+RxvYmDMOTxUUpG2h3KshoXLBFEDaQ0HiF22AgMqYBg1jPYENYbRAc+wgor98MZ5PfUbF3Ty9hN4ZzwAxys2WUXUiiWv6ozT9epOVhtJJy+vB2WlUq/sxEb8rvjsK0OpS6/yJOY4IX7Fp145Sn3kkW3ta2U0tk0e0rO25St18GpS2SIfdSpw+19lVT/H8upQmabHVYCogbTpo8rtswLPKtAoGP3xb+8NT61eG7Y+/uLJC/UeZ1zdammcpgmu6Jg6CYPW/ZWZt4RFT66YbEvR/naybxh99oRJ5W+RMApYCgoBUaAMcAM2BWzEut2tW9+AJQGQA/II3EqnPMewRRm2BYKyR52C3jgfQEkZ6hB8Kp/2yRPXg23s5dmOYZQ24if58Yl6sKP2YDeuv1MdrcY2+E+VIKp5yc+QNniAuWljr0DjYJQe/fnsxZMAZxg9e1ILTeqDxIbRtOaKomBUgAegKQB1wBpgpgAQApkE4C1ePSSvAmXIh13yCBA5ThplCTGMArN8FCjDvnxTuvapQ9uypzzEsW2Os0/ALwBTgWPYif3nGPl1jDJ5dchGE+MUQFRzloG0iSPMbbICITQORlkZJXz63OtbEBbDKCuNBE1s8crjTqdcHu5a8mTrODYop/yvPPL8VhlsEljp5JjqYvWS/LJLrLKtAiG09rFz3X0PKykc9cs7A2nUSzrl5C8240CdsY8co3xcZ5HbhtG4N6rfLgpGY8jMthIIY/UQINOHPKTHMArQxbe/yUuaoC5rl/0YGNmWfcXYF3CqvPYFyfiheomVHtsmD/sxJMueYo5Rn+omphyhXR0q27Q4JRDV/GYgbdooc3usQANhFKjjdr1ubwvuBJB0uia1GEbJTzmOnXzdPS3QZBvgJJ/SWXXFFkHpejxA0Cr7ykdMGvkAT/IJbAFMPgR8jf2I/aN89pjKqL4iY8Noq4uS+VMUjArw4pVRGi140y3yGFoBtBhGgT3d5lc57JInXhmNxYyBsV0++aZy2qeOOOA7MKrV1di2YJT8QGa8Miob8e170igvGFWebB1Kb1KcIohqjjOQNmmkuS1WoKEwCuwBkawc9gKjgkFiJjvKE9gHIHXbHxjEJh/sa2JUfq3GKj0Lo/JJxwFTrW4KgMmDPfLEMKp2yEeOU55ysldkbBhNa7ooCkZpZQyTgk5uXQNvACBBK4dsZ2FUz3jqmMphi2PYEswJWmPgi/NhgzzUIfgkjaB9YJTj2BaYZmFUMElMXYQYOvGJ8tQNxAquqUPt6VRHy2CD/qQMoprnDKQNGnBuytgr0Ljb9LrdDcgRFAOG2tZkJthTenY0AIAAJoAoYAUUAVTVI1sCVe0TxzCq7WwdglEdj+FS/mFLPsb2Y1CO04vYNoxme67a/SJhFDAD2IBIARqtBd5I4wPsEZMXSBO8kU8AG+cTDMY2KKMVWFZMyc9xgvZlA8gUfLYyZGCUNCCS/HGZ2Ba2YxgVEKuMVm3j9qMDH62ytqtDPjUhrgOIao4zkDZhxLkNVqChK6OaqABGQJLQCUa16qgVSZVXjA1sCUABSFYldbzXlVH8yK6eygZgST188JX0GEbzfPTK6PiewkXC6Piq6pbXCUQ1dxpIPW6tQP0VaOzKKBOVVhvpJra1ugnYcRy4ZEWT7fh5TPIBeoJCQJGQXcUEFikrkMzCrOrXrXXyYZefHPQ4AAAad0lEQVR8fNjGF4EmMT6RD7vYB07ZzvqolVK1RXmKir0ymtbJbhhNqz+a4E0dQVTznYG0CSPQbRhnBRoNo0xUACQhC5akAYOCUQGoBoPAExv6slEMmwJF8mOjHRRSB4H8lAc2FdgWlApABabkx2dglMB2Ox8FppqYi4gNo+q1NGLDaBr90BQv6gyimu8MpE0ZjW7HOCrQKBjVpDRucfaxgSLabxhNa3owjKbVH3X2Zt2GifC5826cvANTxPxRlk0DaZ1Hon0fZwUMow14HSgrs+2eRR3VRcAwmtY0YRhNqz/q6g0gutePr20EiGquM5DWdTT27vfGEMINCx8Jh192e/jE2dcFrk/+FK/BB2dcHb54wW9ajxI+vmJN7x3WQ07DaANgVJNwkbFhtIezqcQshtESxW5oVU0EUc2BBtKGDtrnHq97+3M/w6j+djyaNy32o+PLDv9pOO7q2YFHfEYRDKOG0Z5WRQyjozjdRmfDMDo6LcfRUpNBVBdUA2nzRvYVcx8K//r1n/Z0zdI4cFwsqH7ozGsC88mwwTBqGO3pxDaMDnuqjba8YXS0eo6TtXEAUQGIgbQ5I3veo8sDq3HqW8fFQmY/+n714mdfhjLMaDOMGkZ7OrkNo8OcZqMvaxgdvabjYHGcQFQXUwNpM0Z2u1+sUT87rhZO9ctBg442w6hh1DA66NlTYTnDaIXi17TqQUBUv5XMz9BlL/b6yTv9LF32eLt9/Xxdu+Ok8wsh+tm9Tvl6PWYgremgfc7t+594Ztr467Xvna8cSP3SRTcPNcgMo4bRnk5yr4wOdZ6NvLBhdOSSNtrgICDKRVwwijhsxxf2n89e3NKsDjCK3wbS+g7x/7plwZSxF49Db5cDm9103vLYmUMNsEbDKP/Nxz9e303MFI4zsfc7uZfht2F0qPNs5IUNoyOXtLEGBwVR5hXBKC/fiOdSXtZBIF3zVbuXcmCHsgq6nUd69kUgqoNYK6PZPEDwoHOegVS9UK/46CvuHLjPBx0rLtcf5P7ToecMNagMo4mtjBpGhxrPY1PYMDo2XT1UQ4cBUS7GgtGTr7tnEg5JFyzyD79gFHjUtt4Kxy15IJVAGmXJQ9A2cApw6rY/+WU/m4djWTAmTz8fA2lL/lr9OfSS2/rq437GQ7e8jOts0GMrHNO4ZswyNrvZG+R4XM8g5csqk9Wpn/1GwSgTp/7rpvP4MEDoiE7/tWtyRDgGGROjJlN1IvvYY59Y9agM9ShoQiYvk7iCBrCemWJfgTTsKqgu6mWAE0gjn3wqMx6HldFvn35W+F+bvzlsvefeYfHDj6grkowNo2l1y8TERNjzwMPCn262XdjjgEPCytWrK3dwWBBlfhGMChQ1/zD/MecxhzHfaU5jntW8RB7mP/JpPuOY8rKdBUvZjcsgJPuyi03yaX+Q2EA6uuF56Mk/DH/2+u3Dmz7y6fDok8tGZziyVDWMxuMvHm+Ma8FonD7q7bLqGdbvqMv63mwUjHL7hkkKmMz+B01nChIFmkyKgj3yU04TqPKoc9jXhEoc14Pqmhw10WIvts2krolXeTTA5Td14aP81IUAOzqGDfyUX2XFTYfRp555Jrzg5ZuF33nZpq3PP7zlnUkDqWG077mu0AK/uumWybHDGHrDhz5VKZCOAkSZWzQHMWcxTzE3MbcROCYYzc6Xmq8oAzzqH3HSNf/JdrZjmBf5MM8qD2U012le1f6gsYE0q3z/+w8//sSUcf/ynd9XCJCmBqMal1KM80JjVuMxXmyCD9hXOY1n7RNTLrt4peNxPeTjvFKIzy3VXVUsnwaJGwWjCCBwozPoJAaIJj8mUXWSoJM8DAClk5cy2cmV/RhGyaMypMf78oMBw0f5qId9+aP0eHKNYRSbwKfyAaGEol/9qfriuOkwum79+vDHr9t2ysSaMpAaRlunQjJ/Zs2/d8rYqRJIRwWinP+6GDJnaXWUOUoXQGL2NafF/yhrjmUe0z/r2FRettvNZ5TRfJvNwzwa24vnqX63DaTDnUJPr1gZXvzqbaaM/SKANDUY1ThjjIo54jGra3e8yMW5Ep9P2NA+sTiAMuxr8Yp82Xo4Rp5sPvlVVTzMaGoMjArUmOjUEXQ+g4JOJiidmAkUMMyCpPJky7CvyTFbJh4olCcof2sn+oNP8WRM/riuGEbjSV9+ZetWetFx02GULpp59XXhRZtsMWViTRVIDaPRSZXI5pGnzpgydqoA0lGCKHMKFzuC5lXmHwJzFscFo2xzjDmLbc1plJMNlSEPgXxsA5bM33zYpkx8YY/zcKGOL9LYGPZjIG11x8B/Lrzy19PmzVEDadUwmhUnPh80ruMxy3kRL3IxhknTuaDy2idut3jF+I4ZI15U0zHqHvY8GEX5rE797DcGRhGSSSpeNaTz6SQ6npD3X3t20KhDNJnG+wwI9onjzo8HCscJlG9nW/7EtinDPoOWD9vUEa8ACLjjNspG0fE4wCh9kDexpgikhtHWaZbcnyNOPaMyIB01iDKn6GKpiydzEvOs5lLmOM1XXCSZrxTiOZJtBeXBPnawocA26eTXfJvNE99tGtW8ZyBVDwwW582bowTSqmE0HsvxmIuv/fGYZYzHZThHGNvZ80n7xNjKBp0PcT3kjc8ZysR1xf6VvZ31v5/9RsEoHc4gYPLK/gdNZ2rSFGgywbLN5Ep+ylGefOwTNAnT+digc4njzo8HCscJ2I1tk45dynWDUU22GqjYUfn4QkBaWZ9xgVH67oobbwl/+Kqtp0BFakBqGG2dZkn+qQJIiwDRsuaWVOoxkA53OhUJpHWDUXih35XRbJn4vIgZI+Yc8mR5JC5X9vYwI6hRMAq86b9uOijupE7/tdO5CgwIoJROjNOxi728ziddwMhxgvYZkArYwMdOMKrnslSXgBYbpAmO8Q1fyxps4wSjaM0XUlIGUsOozqo04zKBdMPGjeFjP762tLmgrDmninri+TrNkZW2V0UBacowqoUpYl232c4ucul6TXpchh6FC3Sth1UY+1zjlQ+72maxSrbggdheFedMXOcwo7NRMBqL0vRtBmT8n1fR7R03GOWkShlIDaPDTHvllC0LSP2D4KO9Q3TpPQ+WM0AaWksRQFo1jGa7SjCof14EjoJRrsfkUWAhSmWATgUtngGjlJE9jmvxKk6nHmCVegjEfHQ3tWgO6GZf7RokNoyWeKu7W0f2epyBy39DGsC9lhsm3zjCKCdUqkBqGB1kuiu/TNFAumT5yvDPh57rVdERzuNbHXdxYLXZYXAF8oD0X9+++8A/l1cljA5z3VTZsu9kqt6y48FHTAiG0RFOYmV3fJn1VQWjx5z+47DtR/dp/RA9P0ZfxWeTXfcIv/uK1097hvTBRx4d5twbqmyKMMpvtX7ysKMr6aMqxkWvdf799u+YMnb0LfvVa559mcUwA+EHN85NFkS5rajVINqo24zt5i0u2Hx0vJcyyjvq+LeLH++5W9Zv2BAO+s73wxs//GmP/WiO5gtM8W83M+559n7JY71rq04wjI529X/U54vsqb8GiQ2jhtHJyV8DKi+uAkb5IhETWKqf3b/4tUHOuZGUSRFG9z3q+GT7KsUxxD9aw4YvXXRzT+dv3jlddFoMo73UlYXRXsoUlees6HsE3froRz+b6XHfxzz90YO+0U3SacfrDqNFjdPU7E7ruD4SDKOG0Z4uZlXA6LmX/SrpSf4tH/9cH6faaLOmCKMf+drhSfdXakD6nyf9YOhB8YXzb+rp/O120dKXKvUMG48B6cuSQCXPpZHGSmf2p5biFc92z8nRUH2pM37mDZuk6xk48rGNvyrDfvx8PD4Crlk/Rvnc3IybF7Tq7+XPcTPO9rjvA0bfve9XepF1Sh7DqFdGpwyIona2PHbmSCbUbhOujw8+oKuAUW5/7fmVQ8Ofb/7m1tuReENSFZ8/eu0bp92m/5+vfVO49e65RZ0SXe2mCKMLH1wSNn//xyrpoyrGRa91/j//MfUNNUAxtysfX/ZU137uluGEa2aPZO4UjAoYgT1AkTkT2GQ7/pYvQAgM6tc/OBbn4xh54tv0sg1c6nY8aQTyZ1dGSee4YBhfyEegPvLLD/bxMQbjYeb7axYsbdXTyx/eQrTTp/drvZ+91zExDvn+x2veMO02PXP53fcu7EXWKXkMo9Ov3QikfxiHGeujLDul0/rc8cqoV0Z7uphVAaN9juVCsi94YHH4mze8fcrKByB6052zC6mvV6Mpwmivvo9TvrwvcozyN2vnPvJUT+dvtwuOYFT5gDuCIFNQyfEs9AGEQCB5BJnkUxrbBMBS9QCVqotVT76M2Q5GOSZfsCFIJi2GT+zgi+wOGuPbmvUbWnX6z2AK3DVvQWsRIb4bAYiSPkgwjBpGBxk3fZcZ1cook+Eob9UMOpkNW06Tb5nflu/m8zjCaKogyglmGO17mim9QNEgqgbt89MbhgYwQWI8D2Cf9BgqNTepbsXkEZTKRlyOfIAkH4LyxHE7GCWPbOsn7eQH/slGDKpKGyTmS2EOgyswahDFk6pglH/GGHsE/gnSeCM9frRE/xTBIMpPmfifOI1P0smj67v2iXW+sU2I83EMH5ROLH+oXyEuM8j4H6aMfBgk9spogiujmmg1WIcZHKMqO24wOu/+RUmuiOokN4xKiTTjskCU1q9Yuz685aRLJ6FskHOeixpBZTutjJIv75XEAkXZyINR1ROvjCp/JxjFFhfZGAiyfoxiZXTfn90U/KNOraEw0J8iQBRHqoLR+JESxpdW5RmLWvgSCDKmBaNscw6Rn+O6pgOkjPe4PO3THQWddzq/4nzYUj79U8f51KmMzq2y4oEGzXOFGgWjDAR1FoOIjlTgmAYNacpHJzGoFOL/ZOL8skV+DTqVIR/pxHG9bHcCyjw7GmSyzT75VD/pnBRlDS7VM04wmjehpnBrXmOC2DAaq5HWdpkgqpY/sXLNUEAqSNTFkvlRF17mtXhe5BjzEfOS5ibKU5YyXByVrnL4KdvxBZ40AvMkdnWBZ96Jy+hiLp84HvsRX/g1Z/Ubf+68G/37oi3VB/uTN28Oc2s+9qIKGBXkETOWGNME9hnXnAM6prFGuniANMYzH9LisQtsah+bnD/kz9pjjGNT52fMEyrXrox8KjNuCTTgn8bDKAOIziIweOgYdSzpGiR0Mh8GCGnKowmUQUGgfDwJZh/gJw9lqZdJtxM4trOjiVcDL86Hz/io/5zKGmjjAqN5E2pqIMoYM4y2Tsfk/lQBohJhGCDVfKd/epljSGN+YT4UVLLP3Ma+QnwsTseWjpFXcylzGHMjgXqUrrmUY9QTl2Efe/F8mvUjBlny9/MxiLbkHvhP3rw5KhDFqSpgVP8oZUXhvODaLCbgOOcI443xrm32de7EeWN75CHoXGM/mxebOjc4rk9cLq+M8pUZx23rd7vRMBoPCia4eB+hGGxMjHFnKR95mSh1TJM1+6THtpgk2eejyZd8DJBOE2Q7O1kYxdcYPqknHrzysch4HGA0b0JNEUQZD4bRfqe64vNXCaJq3aBAGs9vRc4jKdo2iGr0DBbnzZujBFG8qgJGdU7wT0+ncStohSWyMBqvjMIJeXZon67n2IILxCUwBDbZJ8S+qFy7Mnl1FZ3WcnLAP2MFo3SaOgO92Af86Ow4AHsaBMqvgSlQjPOz3Q5GYziVLeJOdnSMWNsarLGNMrebDqMTExPhJdtNfVNOqiDKeDOMZs/AavcfWPJw+O+v3HLKry6M8lvz/bRuECDV/FbmnJJCXQbRfkbW9Lxr1q4Lf73N26aM+1GDKLVWAaOMTxanYAG2AUKAkhhg1Cq9Vi1J53pPHqBR+WADXcfFIMRiA9qn6zt5sU15ymBL+WJfKK9yncqUfY61nBrwz9jDKANNg0eDT2BJ56sz48kareOVSuWhnAYOaVmgVT7F7exo4BKTt10+2SkjbjqMPvHU8ikTasogyngwjLZOi2T+XHLtjVPGT1UgKkEGAdIy5pGU6jCIarQMHi9a+siUcV8EiOJdVTAqAJVCXOMZw/AAfKCgdMGo0mMeACABTQKxAJR9bQOh8IgC2+RVnSqvPJTrVKbs801+DxKPPYyyjK4BQ8fS2QwsBiFB/8kAlgQ6NwZYDQTK9guj7ewIRvEhW5/+25JfZQ22psMofcsP7PO7eP9nqx0q/x3R1mDr8Mcw2kGcCg6tXL06/Me792yNn0123SMsfviRCryYWqWB9Pnn67LzpEF06lgZZu9dn/9Ka9yzQsot+yJCVTCaHTfd9mEJgWm3vE08Pkzfjz2MAnf6D4eYj57zZFAp6D8RBhAAyqBTEMy2g1HBpf770SBsZ4fjqg/oFPCqPt0ekH8cl82i4nGAUfR98JFHA7eeUg+G0fR6aMPEROB2PXEqwUA6HUgNoqMfnfzzVeS8aRidPo6LutYPY3eYkdUoGB1GxLyy8X84ACqAmJevW5pWWcuAxm6+DHp8XGB0mJOpzLKG0TLVrnddBtLnL+QG0XqO5SMuv2Oga++g1zuXe/6c6VWLf3jukcJBR5hhNPqphFh0VjMBUAVAVLfN43y9bHM7XquZveRPMY9hVCMhjdgwmkY/1MULA+nZwSBal9E63U/eipXiddE+PQ+tr/vWhdM7ro8Uw2gbGPUge36QoYVhtI+zqoSshtESRG5YFeMMpAbReg/mWQPelfR1fOp1vEg99jn3hqEGmWHUMNrTf5yG0aHOs5EXNoyOXNKxMDiOQGoQbcbQfuvJw73ytkgQs+2zw9Xzlw410AyjhlHD6FCnUDWFDaPV6N6EWscJSA2iTRixz7bh+vseCTyXaPBLT4MP/dc1Qw80w6gHd08nt1dGhz7XRmrAMDpSOcfO2DgAqUG0ecP61Bv87GhqMP6m7/wiPLXq2d9PHWbEGUYNo4bRYc6gisoaRisSvkHVNhlIDaINGqiZplx41wPhlUcV/3OGqUFfiv7sffZ1kz/kn+mmvncNo4ZRw2jfp031BQyj1fdBEzxoIpAaRJswMju3YfnqdeFHN80L7z/jqrDN/9/e3bzWVYQBHP5viiIKFjcKxZVrF7pxI4hbcePSjYtWSaFSPzaKgmh1YRMiaQkopaSC9aP1A1oQTCFWoWLVQlWwxOSOHPHWQk9y7k1y57wz5ymUwL1pzswzMye/3ibNK8tp/9yi3xkM7j+ylB5+/aP03PKX6asff91+kaZ8VoyKUTE65aGJ8O5iNMIq1DGG5qfOPfLGqYnuAxFfnbl1TEK0jj1pFsMTEKNidKJPQr5mNNbNQYzGWo/SR/P7jfXig1SIlr4LjX/IAmJUjIrRAu8AYrTARQs+5JKDVIgG31yGR6BDQIyKUTHacUgiPi1GI65K+WMqMUiFaPn7zgwIiFExKkYLvA+I0QIXrZAhlxSkQrSQTWWYBDoExKgYFaMdhyTi02I04qrUM6YSglSI1rPfzISAGBWjYrTA+4AYLXDRChty5CAVooVtJsMl0CEgRsWoGO04JBGfFqMRV6W+MUUMUiFa3z4zIwJiVIyK0QLvA2K0wEUrdMiRglSIFrqJDJtAh4AYFaNitOOQRHxajEZclXrHFCFIhWi9+8vMCIhRMSpGC7wPiNECF63wIfcZpEK08M1j+AQ6BMSoGBWjHYck4tPHzq1OtG7Nj0p8+4vViFMwpgIF+ghSIVrgRjFkAlMKiFExOlHU+HGgU56sGb/7mUs/TbRuTYyurF6Z8Wh8+CEJ5AxSITqknWWuQxYQo2J0oqgRo7FuE+sbm+nBl052rt2BoyfSjb83Yg3eaIoXyBGkQrT4bWICBCYWEKNitDNomlfXxOjEZyrbO567/Eu654WFLdfv7ucX0uffX802HhcalsAsg1SIDmsvmS0BMSpGt4yZJkLHv8VozJvFd1evp6fnz6b9c4s31+reucX01PGzqXnOLwKzFJhFkArRWa6Yj00gpoAYvSW4xuHl7f8ROrYQozEPsFER6FtgL4NUiPa9mq5PoB8BMSpGb76iNg7PtrditJ8D6qoEShDYiyAVoiWstDESmI2AGBWjYnQ2Z8tHJTAogd0EqRAd1FYxWQK3CYhRMSpGbzsWHiBAYCcCOwlSIboTaX+GQF0CYlSMitG6zrTZEOhVYJogFaK9LpWLEwgjIEbFqBgNcxwNhEAdAk2QPnHszLb3lkMffp02RqM6JmwWBAjsSkCMitFtP2GMv5nJNzDt6pz5wwQGJ7A5GqWFb9bSo2+eSvv+u8/edWg+Pfnux+nTtZ8H52HCBAhsLSBGxagY3fp8eIYAgT0Q2Ngcpet/rSevg+4Bpg9BoEIBMSpGxWiFB9uUCBAgQIBAKQJiVIyK0VJOq3ESIECAAIEKBcSoGBWjFR5sUyJAgAABAqUIiFExKkZLOa3GSYAAAQIEKhQQo2JUjFZ4sE2JAAECBAiUIiBGxagYLeW0GicBAgQIEKhQIESMPvTq8kRBNP4/L719P7vX4++sVLj9TYkAAQIECBDoWyBEjD721unscSVopwvaZxY/63uvuj4BAgQIECBQoUCIGD1y+oIYDf7lAu+dv1Th9jclAgQIECBAoG+BEDH6w7U/050H5wVp0CC97/AH//70lL43q+sTIECAAAEC9QmEiNGG9bVPvhWjQWN06cLl+na+GREgQIAAAQIhBMLEaKPx8srFtC9okA3xa0zvOHg8+ef5EOfUIAgQIECAQLUCoWK0Ub545VpqvlnmgReXvFLaQ5g3fxk4cPREevbk+bT22x/VbnwTI0CAAAECBGIIhIvRGCxGQYAAAQIECBAgkENAjOZQdg0CBAgQIECAAIFWATHayuJBAgQIECBAgACBHAJiNIeyaxAgQIAAAQIECLQKiNFWFg8SIECAAAECBAjkEBCjOZRdgwABAgQIECBAoFVAjLayeJAAAQIECBAgQCCHgBjNoewaBAgQIECAAAECrQJitJXFgwQIECBAgAABAjkExGgOZdcgQIAAAQIECBBoFRCjrSweJECAAAECBAgQyCEgRnMouwYBAgQIECBAgECrgBhtZfEgAQIECBAgQIBADgExmkPZNQgQIECAAAECBFoF/gHeE9poduw/uwAAAABJRU5ErkJggg==)</p>
+<p>Modelos basados en árboles: en general los mejores predictores.</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image33.png width=600></center><p>Los modelos de Machine Learning más performantes, se basan en “ensamblar” muchos árboles simples. Sirven tanto para clasificación como para regresión.</p>
+<ul class="simple">
+<li><p>Random Forest</p></li>
+<li><p>XGBoost</p></li>
+<li><p>LightGBM</p></li>
+<li><p>Tree Gradient Boosting</p></li>
+</ul>
+<p>Los modelos de ML sólo son capaces de aprender de representaciones numéricas.
+¿Cómo podremos entonces trabajar con texto, categorías o imágenes?</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image30.png width=400></center><p>Categorías: One Hot Encoding o variables dummies</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image28.png width=800></center><p>Texto: Bag of Word</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image29.png width=900></center><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="n">textos</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Cello de madera&#39;</span><span class="p">,</span> <span class="s1">&#39;Dentífrico de Datos&#39;</span><span class="p">,</span> <span class="s1">&#39;Historia de la Mesopotamia&#39;</span><span class="p">,</span> <span class="s1">&#39;Animense a preguntar&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vec</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">vec</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">textos</span><span class="p">)</span>
+<span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;4x10 sparse matrix of type &#39;&lt;class &#39;numpy.int64&#39;&gt;&#39;
+	with 12 stored elements in Compressed Sparse Row format&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[0, 1, 0, 1, 0, 0, 0, 1, 0, 0],
+        [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 1, 0, 1, 0],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos volcar este resultado en un <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Para obtener el encabezado de las columnas, vamos a utilizar el método <code class="docutils literal notranslate"><span class="pre">get_feature_names()</span></code>, propio del vectorizador.</p>
+<p>import pandas as pd
+pd.DataFrame(data = X.todense(), columns = vec.get_feature_names())</p>
+<p>Una vez que tenemos nuestros datos ordenados, podemos ajustar nuestro modelo de ML aproximadamente así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.familia_de_modelos</span> <span class="kn">import</span> <span class="n">Modelo</span>
+<span class="n">mi_modelo</span> <span class="o">=</span> <span class="n">Modelo</span><span class="p">(</span><span class="n">hiperparámetros</span><span class="p">)</span>
+<span class="n">mi_modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">predicción</span> <span class="o">=</span> <span class="n">mi_modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">nuevo_X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para ajustar nuestros modelos de machine learning, vamos a tener nuestra matriz de features <strong>X</strong> y un vector <strong>y</strong> (en el caso de ML supervisado), donde <strong>X</strong> tiene la forma <code class="docutils literal notranslate"><span class="pre">(n_observaciones,</span> <span class="pre">n_variables)</span></code> e <strong>y</strong> <code class="docutils literal notranslate"><span class="pre">(n_observaciones)</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span> <span class="c1"># modelo = b_0 + b_1 * x</span>
+<span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="c1"># se calculanlos b_0 y b_1 optimos, de mejor ajuste</span>
+</pre></div>
+</div>
+<p>Ejemplo base:</p>
+</div>
+</div>
+<div class="section" id="regresion-lineal">
+<h2>Regresión Lineal<a class="headerlink" href="#regresion-lineal" title="Permalink to this headline">¶</a></h2>
+<p>En estadística, la regresión lineal o es un modelo matemático usado para aproximar la relación de dependencia entre una variable dependiente <span class="math notranslate nohighlight">\(Y\)</span>, y  <span class="math notranslate nohighlight">\(x\)</span>. Este modelo puede ser expresado a grandes rasgos como:</p>
+<div class="math notranslate nohighlight">
+\[Y=\beta_0+\beta_1x_1\]</div>
+<p>donde:</p>
+<ul class="simple">
+<li><p><math>Y</math> es la variable dependiente o variable de respuesta.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span>, es las variables explicativas, independientes o regresoras. Podemos tener cualquier número.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_0,\beta_1\)</span> son los parámetros del modelo, miden la influencia que las variables explicativas tienen sobre el regrediendo.</p></li>
+</ul>
+<p>el término <span class="math notranslate nohighlight">\(\beta_0\)</span> es la intersección o término “constante”, las <span class="math notranslate nohighlight">\(\beta_i \)</span> son los parámetros respectivos a cada variable independiente$.</p>
+<p><img width='600px' src='https://dphi.tech/blog/wp-content/uploads/2020/04/example-regression-simulation.gif'></img></p>
+</div>
+<div class="section" id="entrenamiento">
+<h2>Entrenamiento<a class="headerlink" href="#entrenamiento" title="Permalink to this headline">¶</a></h2>
+<p>Ya tengo mis datos representados como vectores numéricos o “features” y etiquetas o “labels”.</p>
+<p>¿Cómo entreno un modelo que capture las relaciones entre los mismos?</p>
+<div class="section" id="generalizacion-y-sobreajuste">
+<h3>Generalización y sobreajuste<a class="headerlink" href="#generalizacion-y-sobreajuste" title="Permalink to this headline">¶</a></h3>
+<p>Ya tengo un modelo que me permite predecir, clusterizar o reducir dimensiones.</p>
+<p>¿Cómo puedo saber cuán bien va a funcionar sobre datos nuevos?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">get_cmap</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PolynomialFeatures</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Función a aproximar por interpolación polinomial&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">grados</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<span class="c1"># Generamos algunos puntos de la función</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">35</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> 
+
+<span class="c1"># Puntos para plotear</span>
+<span class="n">x_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Pasamos a formato matriz</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">X_plot</span> <span class="o">=</span> <span class="n">x_plot</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">grado</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grados</span><span class="p">):</span>
+    <span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">grado</span><span class="p">)</span>
+    <span class="n">X_poly</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    
+    <span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_poly</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
+    
+    <span class="n">y_plot</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_plot</span><span class="p">))</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_plot</span><span class="p">,</span> <span class="n">y_plot</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Set1&#39;</span><span class="p">)(</span><span class="n">i</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;grado </span><span class="si">{</span><span class="n">grado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/intro_a_ml_62_0.png" src="../_images/intro_a_ml_62_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modelos-no-supervisados">
+<h2>Modelos no supervisados<a class="headerlink" href="#modelos-no-supervisados" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="clustering">
+<h1>Clustering<a class="headerlink" href="#clustering" title="Permalink to this headline">¶</a></h1>
+<p><em>Clustering</em> significa <strong>agrupar</strong> en inglés, o <strong>encontrar grupos</strong>.</p>
+<div class="section" id="modelo-ejemplo-kmeans-clustering">
+<h2>Modelo ejemplo: KMeans (clustering)<a class="headerlink" href="#modelo-ejemplo-kmeans-clustering" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Asignar centroides al azar</p></li>
+<li><p>Calcular qué punto pertenece a cada cluster</p></li>
+<li><p>Promediar todos los puntos en cada dimensión para recalcular el centroide</p></li>
+<li><p>Repetir hasta que los puntos dejen de cambiar de cluster.</p></li>
+</ul>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image34.png width=500></center>
+<p>Ver animación en:</p>
+<p><a class="reference external" href="https://stanford.edu/class/engr108/visualizations/kmeans/kmeans.html">https://stanford.edu/class/engr108/visualizations/kmeans/kmeans.html</a></p>
+<p>PCA (Reducción de dimensiones)</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image35.png width=400></center></div>
+<div class="section" id="evaluacion">
+<h2>Evaluación<a class="headerlink" href="#evaluacion" title="Permalink to this headline">¶</a></h2>
+<p>¡Cuidado! Es imposible usar el futuro para predecir el presente.</p>
+<p>Cuando los modelos incorporan información que naturalmente no debería estar disponible este problema se llama “information leak”.</p>
+<p>Aquí un caso famoso de information leak que tomó conocimiento público: <a class="reference external" href="https://liaa.dc.uba.ar/es/sobre-la-prediccion-automatica-de-embarazos-adolescentes/">https://liaa.dc.uba.ar/es/sobre-la-prediccion-automatica-de-embarazos-adolescentes/</a></p>
+<p>Cross Validation</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/cv.png width=400></center><p>Holdout sets para la evaluación (series de tiempo y datos de panel)</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image41.png width=400></center><div class="section" id="metricas-de-evaluacion-en-problemas-supervisados">
+<h3>Métricas de evaluación en problemas supervisados<a class="headerlink" href="#metricas-de-evaluacion-en-problemas-supervisados" title="Permalink to this headline">¶</a></h3>
+<p>Regresión</p>
+<img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image47.png width=400><p>Clasificación</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image42.png width=400></center><center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image43.png width=400></center><p>Matriz de confusión</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image44.png width=400></center><p>Clasificación binaria: AUC (área debajo de la curva)</p>
+<p>Modelo perfecto:
+AUC = 1</p>
+<p>Ordenamiento de los casos al azar:
+AUC = 0.5</p>
+<p>Modelo que predice exactamente lo contrario a lo real:
+AUC = 0</p>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image45.png width=400></center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image46.png width=400></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="en-resumen">
+<h1>En resumen:<a class="headerlink" href="#en-resumen" title="Permalink to this headline">¶</a></h1>
+<p>Para entrenar un modelo se necesita:</p>
+<ul class="simple">
+<li><ol class="simple">
+<li><p>Crear buenas características numéricas o “features” que representen las observaciones</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Conservar un conjunto de datos para evaluación</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Elegir un algoritmo que resuelva nuestro problema</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Evaluar los resultados</p></li>
+</ol>
+</li>
+<li><ol class="simple">
+<li><p>Desplegar el modelo “en producción”</p></li>
+</ol>
+</li>
+</ul>
+<div class="section" id="casos-problemas-supervisados">
+<h2>Casos: problemas supervisados<a class="headerlink" href="#casos-problemas-supervisados" title="Permalink to this headline">¶</a></h2>
+<p><strong>Predicción de propensión a conversión online</strong></p>
+<p>Objetivo: predecir qué tan probable es que un visitante a una app realice una conversión. Ésta puede ser una compra online, un clic, completar un formulario, etc.
+Esto se usa para decidir cuánto pagar en una subasta, asignar un precio o producto dinámicamente, etc.</p>
+<p><strong>Modelos de upselling/cross-selling</strong></p>
+<p>Objetivo: predecir la probabilidad de que un cliente compre un producto más caro (upselling) o complementario (cross-selling).
+Esto se puede integrar a un CRM o una herramienta de marketing para realizar campañas automáticamente.</p>
+<p><strong>Predicción de churn</strong></p>
+<p>Objetivo: predecir la probabilidad de que un cliente se dé de baja en determinado período.
+Sabiendo quiénes son los más propensos podemos generar un incentivo para impedirlo.</p>
+<p><strong>Detección de fraude</strong></p>
+<p>Objetivo: predecir la probabilidad de que una transacción sea fraudulenta</p>
+<p><strong>Sistemas de recomendación</strong></p>
+<p>Objetivo: optimizar qué productos ofrecer en una plataforma de ventas online</p>
+<div class="row">
+    <img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image53.png width=100>
+    <img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image54.png width=100>
+    <img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/ml-logo.png width=100>
+    <img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image56.png width=100>
+    <img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image57.jpg width=100>
+</div></div>
+<div class="section" id="casos-problemas-no-supervisados">
+<h2>Casos: problemas no supervisados<a class="headerlink" href="#casos-problemas-no-supervisados" title="Permalink to this headline">¶</a></h2>
+<p><strong>Segmentación automática</strong></p>
+<p>Generación de segmentos a partir de información demográfica y de comportamiento.
+Con esta técnica se pueden generar K segmentos automáticamente, de modo de accionar de manera distinta sobre cada uno de ellos.</p>
+<p><strong>Clustering geográfico</strong></p>
+<p>Encontrar patrones geográficos automáticamente.
+Por ejemplo: paradas de colectivos, transacciones de clientes,etc.</p>
+<img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/geo.png width=400><div class="section" id="el-proceso-real-de-los-productos-basados-en-ml">
+<h3>El proceso real de los productos basados en ML<a class="headerlink" href="#el-proceso-real-de-los-productos-basados-en-ml" title="Permalink to this headline">¶</a></h3>
+<img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image60.png width=800></div>
+<div class="section" id="equipo-de-data">
+<h3>Equipo de data<a class="headerlink" href="#equipo-de-data" title="Permalink to this headline">¶</a></h3>
+<img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image61.png width=800><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/image12.png width=800></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./NeuroIA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="mypersonality.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">MyPersonality</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="sentiment.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Ejemplo Clasificación de Opiniones</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

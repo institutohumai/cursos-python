@@ -1,0 +1,2578 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matrices &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Factorización de matrices" href="../3_Factorizacion/Factorizacion.html" />
+    <link rel="prev" title="Ejercicios Vectores" href="../1_Vectores/Ejercicios.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Álgebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Funciones/Funciones2.html">
+   ¿Qué es una función?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_Probabilidad/Probabilidad%20p18.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/MatematicasParaML/2_Matrices/Matrices.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FMatematicasParaML/2_Matrices/Matrices.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-en-python">
+   Matrices en python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tamano">
+   Tamaño
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexacion-de-elementos">
+   Indexación de elementos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-cuadradas-triangulares-diagonales-e-identidad">
+   Matrices cuadradas, triangulares, diagonales e identidad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sumando-matrices">
+   Sumando matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">
+   Multiplicación por un escalar
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicacion-de-matrices">
+   Multiplicación de matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matriz-transpuesta">
+   Matriz transpuesta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conversion-de-matrices-1d-en-matrices-2d-en-numpy">
+   Conversión de matrices 1D en matrices 2D en NumPy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficar-una-matriz">
+   Graficar una matriz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplicaciones-geometricas-de-operaciones-matriciales">
+   Aplicaciones geométricas de operaciones matriciales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#suma-multiples-traslaciones-geometricas">
+     Suma = múltiples traslaciones geométricas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Multiplicación por un escalar
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicacion-de-matrices-proyeccion-sobre-un-eje">
+     Multiplicación de matrices – Proyección sobre un eje
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicacion-de-matrices-rotacion">
+     Multiplicación de matrices – Rotación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicacion-de-matrices-otras-transformaciones-lineales">
+     Multiplicación de matrices – Otras transformaciones lineales
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matriz-inversa">
+   Matriz inversa
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determinante">
+   Determinante
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Matrices</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-en-python">
+   Matrices en python
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tamano">
+   Tamaño
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexacion-de-elementos">
+   Indexación de elementos
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matrices-cuadradas-triangulares-diagonales-e-identidad">
+   Matrices cuadradas, triangulares, diagonales e identidad
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sumando-matrices">
+   Sumando matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicacion-por-un-escalar">
+   Multiplicación por un escalar
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multiplicacion-de-matrices">
+   Multiplicación de matrices
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matriz-transpuesta">
+   Matriz transpuesta
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conversion-de-matrices-1d-en-matrices-2d-en-numpy">
+   Conversión de matrices 1D en matrices 2D en NumPy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#graficar-una-matriz">
+   Graficar una matriz
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aplicaciones-geometricas-de-operaciones-matriciales">
+   Aplicaciones geométricas de operaciones matriciales
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#suma-multiples-traslaciones-geometricas">
+     Suma = múltiples traslaciones geométricas
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Multiplicación por un escalar
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicacion-de-matrices-proyeccion-sobre-un-eje">
+     Multiplicación de matrices – Proyección sobre un eje
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicacion-de-matrices-rotacion">
+     Multiplicación de matrices – Rotación
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicacion-de-matrices-otras-transformaciones-lineales">
+     Multiplicación de matrices – Otras transformaciones lineales
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#matriz-inversa">
+   Matriz inversa
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#determinante">
+   Determinante
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a class="reference external" href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaML/2_Matrices/Matrices.ipynb"><img alt="Open In colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="matrices">
+<h1>Matrices<a class="headerlink" href="#matrices" title="Permalink to this headline">¶</a></h1>
+<p>Una matriz es un arreglo rectangular de escalares (es decir, cualquier número: entero, real o complejo) dispuestos en filas y columnas, por ejemplo:</p>
+<p>\begin{bmatrix} 10 &amp; 20 &amp; 30 \ 40 &amp; 50 &amp; 60 \end{bmatrix}</p>
+<p>También puede pensar en una matriz como una lista de vectores: la matriz anterior contiene 2 vectores 3D horizontales o 3 vectores 2D verticales.</p>
+<p>Las matrices son convenientes y muy eficientes para ejecutar operaciones en muchos vectores a la vez. También veremos que son excelentes para representar y realizar transformaciones lineales como rotaciones, traslaciones y escalas.</p>
+<div class="section" id="matrices-en-python">
+<h2>Matrices en python<a class="headerlink" href="#matrices-en-python" title="Permalink to this headline">¶</a></h2>
+<p>En python, una matriz se puede representar de varias formas. El más simple es solo una lista de listas de python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[10, 20, 30], [40, 50, 60]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>En python, una matriz se puede representar de varias formas. El más simple es solo una lista de listas de python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 20, 30],
+       [40, 50, 60]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por convención, las matrices generalmente tienen nombres en mayúsculas, como <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>En el resto de este tutorial, asumiremos que estamos usando arreglos NumPy (tipo <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>) para representar matrices.</p>
+</div>
+<div class="section" id="tamano">
+<h2>Tamaño<a class="headerlink" href="#tamano" title="Permalink to this headline">¶</a></h2>
+<p>El tamaño de una matriz se define por su número de filas y número de columnas. Se anota <span class="math notranslate nohighlight">\(filas \veces columnas\)</span>. Por ejemplo, la matriz <span class="math notranslate nohighlight">\(A\)</span> anterior es un ejemplo de una matriz de <span class="math notranslate nohighlight">\(2 \times 3\)</span>: 2 filas, 3 columnas. Precaución: una matriz de <span class="math notranslate nohighlight">\(3 \times 2\)</span> tendría 3 filas y 2 columnas.</p>
+<p>Para obtener el tamaño de una matriz en NumPy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Precaución</strong>: el atributo <code class="docutils literal notranslate"><span class="pre">size</span></code> representa el número de elementos en el <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>, no el tamaño de la matriz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">size</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="indexacion-de-elementos">
+<h2>Indexación de elementos<a class="headerlink" href="#indexacion-de-elementos" title="Permalink to this headline">¶</a></h2>
+<p>El número ubicado en la fila <span class="math notranslate nohighlight">\(i^{th}\)</span> y la columna <span class="math notranslate nohighlight">\(j^{th}\)</span> de una matriz <span class="math notranslate nohighlight">\(X\)</span> a veces se indica como <span class="math notranslate nohighlight">\(X_{i,j}\)</span> o <span class="math notranslate nohighlight">\(X_{ij}\)</span>, pero no no es una notación estándar, por lo que la gente suele preferir nombrar explícitamente los elementos, así: “<em>Sea <span class="math notranslate nohighlight">\(X = (x_{i,j})_{1 ≤ i ≤ m, 1 ≤ j ≤ n}\)</span></em>”. Esto significa que <span class="math notranslate nohighlight">\(X\)</span> es igual a:</p>
+<p><span class="math notranslate nohighlight">\(X = \begin{bmatrix}
+   x_{1,1} &amp; x_{1,2} &amp; x_{1,3} &amp; \cdots &amp; x_{1,n}\\
+   x_{2,1} &amp; x_{2,2} &amp; x_{2,3} &amp; \cdots &amp; x_{2,n}\\
+   x_{3,1} &amp; x_{3,2} &amp; x_{3,3} &amp; \cdots &amp; x_{3,n}\\
+   \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+   x_{m,1} &amp; x_{m,2} &amp; x_{m,3} &amp; \cdots &amp; x_{m,n}\\
+\end{bmatrix}\)</span></p>
+<p>Sin embargo, en este notebook usaremos la notación <span class="math notranslate nohighlight">\(X_{i,j}\)</span>, ya que coincide bastante bien con la notación de NumPy. Tenga en cuenta que en matemáticas, los índices generalmente comienzan en 1, pero en programación generalmente comienzan en 0. Entonces, para acceder a <span class="math notranslate nohighlight">\(A_{2,3}\)</span> mediante programación, debemos escribir esto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># 2da fila, 3ra columna</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>60
+</pre></div>
+</div>
+</div>
+</div>
+<p>El vector de  la fila <span class="math notranslate nohighlight">\(i^{ésima}\)</span> a veces se anota como <span class="math notranslate nohighlight">\(M_i\)</span> o <span class="math notranslate nohighlight">\(M_{i,*}\)</span>, pero nuevamente no hay una notación estándar, por lo que las personas prefieren definir explícitamente sus propios nombres, por ejemplo: “<em>Sea <strong>x</strong><span class="math notranslate nohighlight">\(_{i}\)</span> el <span class="math notranslate nohighlight">\(i^{ésimo}\)</span> vector fila  de la matriz <span class="math notranslate nohighlight">\(X\)</span></em>”. Usaremos <span class="math notranslate nohighlight">\(M_{i,*}\)</span>, por la misma razón que la anterior. Por ejemplo, para acceder a <span class="math notranslate nohighlight">\(A_{2,*}\)</span> (es decir, el vector de la segunda fila de <span class="math notranslate nohighlight">\(A\)</span>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># Vector de segunda fila (como una matriz 1D)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([40, 50, 60])
+</pre></div>
+</div>
+</div>
+</div>
+<p>De manera similar, el <span class="math notranslate nohighlight">\(j^{ésimo}\)</span> vector de columna a veces se indica como <span class="math notranslate nohighlight">\(M^j\)</span> o <span class="math notranslate nohighlight">\(M_{*,j}\)</span>, pero no existe una notación estándar. Usaremos <span class="math notranslate nohighlight">\(M_{*,j}\)</span>. Por ejemplo, para acceder a <span class="math notranslate nohighlight">\(A_{*,3}\)</span> (es decir, el vector de la tercera columna de <span class="math notranslate nohighlight">\(A\)</span>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>  <span class="c1"># 3er vector de columna (como una matriz 1D)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([30, 60])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tenga en cuenta que el resultado es en realidad una matriz NumPy unidimensional: no existe una matriz unidimensional <em>vertical</em> u <em>horizontal</em>. Si realmente necesita representar un vector de fila como una matriz de una fila (es decir, una matriz 2D NumPy), o un vector de columna como una matriz de una columna, entonces necesita usar un slice en lugar de un índice al acceder a la fila o columna, por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>  <span class="c1"># filas 2 a 3 (excluidas): esto devuelve la fila 2 como una matriz de una fila</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[40, 50, 60]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># columnas 3 a 4 (excluidas): esto devuelve la columna 3 como una matriz de una columna</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[30],
+       [60]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matrices-cuadradas-triangulares-diagonales-e-identidad">
+<h2>Matrices cuadradas, triangulares, diagonales e identidad<a class="headerlink" href="#matrices-cuadradas-triangulares-diagonales-e-identidad" title="Permalink to this headline">¶</a></h2>
+<p>Una <strong>matriz cuadrada</strong> es una matriz que tiene el mismo número de filas y columnas, por ejemplo, una matriz de <span class="math notranslate nohighlight">\(3 \times 3\)</span>:</p>
+<p>\begin{bmatrix}
+4 &amp; 9 &amp; 2 \
+3 &amp; 5 &amp; 7 \
+8 &amp; 1 &amp; 6
+\end{bmatrix}</p>
+<p>Una <strong>matriz triangular superior</strong> es un tipo especial de matriz cuadrada donde todos los elementos <em>debajo</em> de la diagonal principal (de arriba a la izquierda a abajo a la derecha) son cero, por ejemplo:</p>
+<p>\begin{bmatrix}
+4 &amp; 9 &amp; 2 \
+0 &amp; 5 &amp; 7 \
+0 &amp; 0 &amp; 6
+\end{bmatrix}</p>
+<p>De manera similar, una <strong>matriz triangular inferior</strong> es una matriz cuadrada donde todos los elementos <em>encima</em> de la diagonal principal son cero, por ejemplo:</p>
+<p>\begin{bmatrix}
+4 &amp; 0 &amp; 0 \
+3 &amp; 5 &amp; 0 \
+8 &amp; 1 &amp; 6
+\end{bmatrix}</p>
+<p>Una <strong>matriz triangular</strong> es una que es triangular inferior o triangular superior.</p>
+<p>Una matriz que es tanto triangular superior como inferior se denomina <strong>matriz diagonal</strong>, por ejemplo:</p>
+<p>\begin{bmatrix}
+4 &amp; 0 &amp; 0 \
+0 &amp; 5 &amp; 0 \
+0 &amp; 0 &amp; 6
+\end{bmatrix}</p>
+<p>Puede construir una matriz diagonal usando la función <code class="docutils literal notranslate"><span class="pre">diag</span></code> de NumPy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4, 0, 0],
+       [0, 5, 0],
+       [0, 0, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si pasa una matriz a la función <code class="docutils literal notranslate"><span class="pre">diag</span></code>, felizmente extraerá los valores diagonales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+    <span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 5, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, la <strong>matriz identidad</strong> de tamaño <span class="math notranslate nohighlight">\(n\)</span>, indicada como <span class="math notranslate nohighlight">\(I_n\)</span>, es una matriz diagonal de tamaño <span class="math notranslate nohighlight">\(n \times n\)</span> con <span class="math notranslate nohighlight">\(1\)</span> en la diagonal principal, por ejemplo <span class="math notranslate nohighlight">\(I_3\)</span>:</p>
+<p>\begin{bmatrix}
+1 &amp; 0 &amp; 0 \
+0 &amp; 1 &amp; 0 \
+0 &amp; 0 &amp; 1
+\end{bmatrix}</p>
+<p>La función <code class="docutils literal notranslate"><span class="pre">eye</span></code> de Numpy devuelve la matriz de identidad del tamaño deseado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.,  0.,  0.],
+       [ 0.,  1.,  0.],
+       [ 0.,  0.,  1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La matriz de identidad a menudo se indica simplemente como <span class="math notranslate nohighlight">\(I\)</span> (en lugar de <span class="math notranslate nohighlight">\(I_n\)</span>) cuando su tamaño es claro dado el contexto. Se llama la matriz <em>identidad</em> porque al multiplicar una matriz con ella, la matriz permanece sin cambios, como veremos a continuación.</p>
+</div>
+<div class="section" id="sumando-matrices">
+<h2>Sumando matrices<a class="headerlink" href="#sumando-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Si dos matrices <span class="math notranslate nohighlight">\(Q\)</span> y <span class="math notranslate nohighlight">\(R\)</span> tienen el mismo tamaño <span class="math notranslate nohighlight">\(m \times n\)</span>, se pueden sumar. La suma se realiza <em>elemento a elemento</em>: el resultado también es una matriz <span class="math notranslate nohighlight">\(m \times n\)</span> <span class="math notranslate nohighlight">\(S\)</span> donde cada elemento es la suma de los elementos en la posición correspondiente: <span class="math notranslate nohighlight">\(S_{i,j} = Q_{i,j} + R_{i,j}\)</span></p>
+<p><span class="math notranslate nohighlight">\(S =
+\begin{bmatrix}
+  Q_{11} + R_{11} &amp; Q_{12} + R_{12} &amp; Q_{13} + R_{13} &amp; \cdots &amp; Q_{1n} + R_{1n} \\
+  Q_{21} + R_{21} &amp; Q_{22} + R_{22} &amp; Q_{23} + R_{23} &amp; \cdots &amp; Q_{2n} + R_{2n}  \\
+  Q_{31} + R_{31} &amp; Q_{32} + R_{32} &amp; Q_{33} + R_{33} &amp; \cdots &amp; Q_{3n} + R_{3n}  \\
+  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+  Q_{m1} + R_{m1} &amp; Q_{m2} + R_{m2} &amp; Q_{m3} + R_{m3} &amp; \cdots &amp; Q_{mn} + R_{mn}  \\
+\end{bmatrix}\)</span></p>
+<p>Por ejemplo, creemos una matriz de <span class="math notranslate nohighlight">\(2 \times 3\)</span> <span class="math notranslate nohighlight">\(B\)</span> y calculemos <span class="math notranslate nohighlight">\(A + B\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># iterar sobre las filas</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+   <span class="c1"># iterar sobre las columnas</span>
+   <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+       <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 2, 3],
+       [4, 5, 6]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 20, 30],
+       [40, 50, 60]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11, 22, 33],
+       [44, 55, 66]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>La suma es <em>conmutativa</em></strong>, lo que significa que <span class="math notranslate nohighlight">\(A + B = B + A\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">+</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11, 22, 33],
+       [44, 55, 66]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>También es <em>asociativo</em></strong>, lo que significa que <span class="math notranslate nohighlight">\(A + (B + C) = (A + B) + C\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">],</span> <span class="p">[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">]])</span>
+
+<span class="n">A</span> <span class="o">+</span> <span class="p">(</span><span class="n">B</span> <span class="o">+</span> <span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[111, 222, 333],
+       [444, 555, 666]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span> <span class="o">+</span> <span class="n">C</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[111, 222, 333],
+       [444, 555, 666]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiplicacion-por-un-escalar">
+<h2>Multiplicación por un escalar<a class="headerlink" href="#multiplicacion-por-un-escalar" title="Permalink to this headline">¶</a></h2>
+<p>Una matriz <span class="math notranslate nohighlight">\(M\)</span> se puede multiplicar por un escalar <span class="math notranslate nohighlight">\(\lambda\)</span>. El resultado se anota <span class="math notranslate nohighlight">\(\lambda M\)</span>, y es una matriz del mismo tamaño que <span class="math notranslate nohighlight">\(M\)</span> con todos los elementos multiplicados por <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\lambda M =
+\begin{bmatrix}
+  \lambda \times M_{11} &amp; \lambda \times M_{12} &amp; \lambda \times M_{13} &amp; \cdots &amp; \lambda \times M_{1n} \\
+  \lambda \times M_{21} &amp; \lambda \times M_{22} &amp; \lambda \times M_{23} &amp; \cdots &amp; \lambda \times M_{2n} \\
+  \lambda \times M_{31} &amp; \lambda \times M_{32} &amp; \lambda \times M_{33} &amp; \cdots &amp; \lambda \times M_{3n} \\
+  \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+  \lambda \times M_{m1} &amp; \lambda \times M_{m2} &amp; \lambda \times M_{m3} &amp; \cdots &amp; \lambda \times M_{mn} \\
+\end{bmatrix}\)</span></p>
+<p>Una forma más concisa de escribir esto es:</p>
+<p><span class="math notranslate nohighlight">\((\lambda M)_{i,j} = \lambda (M)_{i,j}\)</span></p>
+<p>En NumPy, simplemente use el operador <code class="docutils literal notranslate"><span class="pre">*</span></code> para multiplicar una matriz por un escalar. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 20,  40,  60],
+       [ 80, 100, 120]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La multiplicación escalar también se define en el lado derecho y da el mismo resultado: <span class="math notranslate nohighlight">\(M \lambda = \lambda M\)</span>. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 20,  40,  60],
+       [ 80, 100, 120]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esto hace que la multiplicación escalar sea <strong>conmutativa</strong>.</p>
+<p>También es <strong>asociativa</strong>, lo que significa que <span class="math notranslate nohighlight">\(\alpha (\beta M) = (\alpha \times \beta) M\)</span>, donde <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> son escalares. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">40</span><span class="n">b0eb922f5f</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">A</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;A&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 60, 120, 180],
+       [240, 300, 360]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, es <strong>distributiva sobre la suma</strong> de matrices, lo que significa que <span class="math notranslate nohighlight">\(\lambda (Q + R) = \lambda Q + \lambda R\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 22,  44,  66],
+       [ 88, 110, 132]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">B</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 22,  44,  66],
+       [ 88, 110, 132]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multiplicacion-de-matrices">
+<h2>Multiplicación de matrices<a class="headerlink" href="#multiplicacion-de-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Hasta ahora, las operaciones matriciales han sido bastante intuitivas. Pero multiplicar matrices es un poco más complicado.</p>
+<p>Una matriz <span class="math notranslate nohighlight">\(Q\)</span> de tamaño <span class="math notranslate nohighlight">\(m \times n\)</span> se puede multiplicar por una matriz <span class="math notranslate nohighlight">\(R\)</span> de tamaño <span class="math notranslate nohighlight">\(n \times q\)</span>. Se anota simplemente <span class="math notranslate nohighlight">\(QR\)</span> sin signo de multiplicación ni punto. El resultado <span class="math notranslate nohighlight">\(P\)</span> es una matriz <span class="math notranslate nohighlight">\(m \times q\)</span> donde cada elemento se calcula como una suma de productos:</p>
+<p><span class="math notranslate nohighlight">\(P_{i,j} = \sum_{k=1}^n{Q_{i,k} \times R_{k,j}}\)</span></p>
+<p>El elemento en la posición <span class="math notranslate nohighlight">\(i,j\)</span> en la matriz resultante es la suma de los productos de los elementos en la fila <span class="math notranslate nohighlight">\(i\)</span> de la matriz <span class="math notranslate nohighlight">\(Q\)</span> por los elementos en la columna <span class="math notranslate nohighlight">\(j\)</span> de la matriz <span class="math notranslate nohighlight">\(R\)</span>.</p>
+<p><img alt="Alt Text" src="https://numbas.mathcentre.ac.uk/media/question-resources/Matrix_Multiplication_02.gif" /></p>
+<p>Puedes notar que cada elemento <span class="math notranslate nohighlight">\(P_{i,j}\)</span> es el producto escalar del vector fila <span class="math notranslate nohighlight">\(Q_{i,*}\)</span> y el vector columna <span class="math notranslate nohighlight">\(R_{*,j}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(P_{i,j} = Q_{i,*} \cdot R_{*,j}\)</span></p>
+<p>Entonces podemos reescribir <span class="math notranslate nohighlight">\(P\)</span> de manera más concisa como:</p>
+<p><span class="math notranslate nohighlight">\(P =
+\begin{bmatrix}
+Q_{1,*} \cdot R_{*,1} &amp; Q_{1,*} \cdot R_{*,2} &amp; \cdots &amp; Q_{1,*} \cdot R_{*,q} \\
+Q_{2,*} \cdot R_{*,1} &amp; Q_{2,*} \cdot R_{*,2} &amp; \cdots &amp; Q_{2,*} \cdot R_{*,q} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+Q_{m,*} \cdot R_{*,1} &amp; Q_{m,*} \cdot R_{*,2} &amp; \cdots &amp; Q_{m,*} \cdot R_{*,q}
+\end{bmatrix}\)</span></p>
+<p>Multipliquemos dos matrices en NumPy, usando el método <code class="docutils literal notranslate"><span class="pre">dot</span></code> de <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>:
+<span class="math notranslate nohighlight">\(E = AD = \begin{bmatrix}
+  10 &amp; 20 &amp; 30 \\
+  40 &amp; 50 &amp; 60
+\end{bmatrix} 
+\begin{bmatrix}
+  2 &amp; 3 &amp; 5 &amp; 7 \\
+  11 &amp; 13 &amp; 17 &amp; 19 \\
+  23 &amp; 29 &amp; 31 &amp; 37
+\end{bmatrix} = 
+\begin{bmatrix}
+  930 &amp; 1160 &amp; 1320 &amp; 1560 \\
+  2010 &amp; 2510 &amp; 2910 &amp; 3450
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">37</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">E</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="n">E</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 930, 1160, 1320, 1560],
+       [2010, 2510, 2910, 3450]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Verifiquemos este resultado mirando un elemento, solo para estar seguros: mirando <span class="math notranslate nohighlight">\(E_{2,3}\)</span> por ejemplo, necesitamos multiplicar los elementos en la <span class="math notranslate nohighlight">\(2^{da}\)</span> fila de <span class="math notranslate nohighlight">\(A\)</span> por los elementos en la <span class="math notranslate nohighlight">\(3^{ra}\)</span> columna de D y suma estos productos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">40</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">50</span><span class="o">*</span><span class="mi">17</span> <span class="o">+</span> <span class="mi">60</span><span class="o">*</span><span class="mi">31</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2910
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># fila 2, columna 3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2910
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Se ve bien! Puedes comprobar los otros elementos hasta que te acostumbres al algoritmo.</p>
+<p>Multiplicamos una matriz de <span class="math notranslate nohighlight">\(2 \times 3\)</span> por una matriz de <span class="math notranslate nohighlight">\(3 \times 4\)</span>, por lo que el resultado es una matriz de <span class="math notranslate nohighlight">\(2 \times 4\)</span>. El número de columnas de la primera matriz tiene que ser igual al número de filas de la segunda matriz. Si intentamos multiplicar <span class="math notranslate nohighlight">\(D\)</span> por <span class="math notranslate nohighlight">\(A\)</span>, obtenemos un error porque D tiene 4 columnas mientras que A tiene 2 filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">D</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ValueError:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ValueError: shapes (3,4) and (2,3) not aligned: 4 (dim 1) != 2 (dim 0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esto ilustra el hecho de que <strong>la multiplicación de matrices <em>NO</em> es conmutativa</strong>: en general <span class="math notranslate nohighlight">\(QR ≠ RQ\)</span></p>
+<p>De hecho, <span class="math notranslate nohighlight">\(QR\)</span> y <span class="math notranslate nohighlight">\(RQ\)</span> solo están <em>ambos</em> definidos si <span class="math notranslate nohighlight">\(Q\)</span> tiene el tamaño <span class="math notranslate nohighlight">\(m \times n\)</span> y <span class="math notranslate nohighlight">\(R\)</span> tiene el tamaño <span class="math notranslate nohighlight">\(n \times m\)</span>. Veamos un ejemplo en el que ambos <em>están</em> definidos y mostramos que (en general) <em>NO</em> son iguales:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[400, 130],
+       [940, 310]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[130, 200, 270],
+       [ 80, 130, 180],
+       [210, 330, 450]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por otro lado, <strong>la multiplicación de matrices <em>es</em> asociativa</strong>, lo que significa que <span class="math notranslate nohighlight">\(Q(RS) = (QR)S\)</span>. Vamos a crear una matriz de <span class="math notranslate nohighlight">\(4 \times 5\)</span> <span class="math notranslate nohighlight">\(G\)</span> para ilustrar esto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">8</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">2</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span>  <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">]])</span>
+<span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>     <span class="c1"># (AB)G</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[21640, 28390, 27320, 31140, 13570],
+       [47290, 62080, 60020, 68580, 29500]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>     <span class="c1"># A(BG)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[21640, 28390, 27320, 31140, 13570],
+       [47290, 62080, 60020, 68580, 29500]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>También es <strong><em>distributivo</em> sobre la suma</strong> de matrices, lo que significa que <span class="math notranslate nohighlight">\((Q + R)S = QS + RS\)</span>. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1023, 1276, 1452, 1716],
+       [2211, 2761, 3201, 3795]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="p">)</span> <span class="o">+</span> <span class="n">B</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1023, 1276, 1452, 1716],
+       [2211, 2761, 3201, 3795]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>El producto de una matriz <span class="math notranslate nohighlight">\(M\)</span> por la matriz identidad (de igual tamaño) da como resultado la misma matriz <span class="math notranslate nohighlight">\(M\)</span>. Más formalmente, si <span class="math notranslate nohighlight">\(M\)</span> es una matriz <span class="math notranslate nohighlight">\(m \times n\)</span>, entonces:</p>
+<p><span class="math notranslate nohighlight">\(M I_n = I_m M = M\)</span></p>
+<p>Esto generalmente se escribe de manera más concisa (ya que el tamaño de las matrices de identidad no es ambiguo dado el contexto):</p>
+<p><span class="math notranslate nohighlight">\(MI = MI = M\)</span></p>
+<p>Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 10.,  20.,  30.],
+       [ 40.,  50.,  60.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 10.,  20.,  30.],
+       [ 40.,  50.,  60.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Precaución</strong>: el operador <code class="docutils literal notranslate"><span class="pre">*</span></code> de NumPy realiza multiplicaciones por elementos, <em>NO</em> una multiplicación de matrices:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">*</span> <span class="n">B</span>   <span class="c1"># NO es una multiplicación de matrices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 10,  40,  90],
+       [160, 250, 360]])
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>El operador infijo &#64;</strong></p>
+<p>Python 3.5 <a class="reference external" href="https://docs.python.org/3/whatsnew/3.5.html#pep-465-a-dedicated-infix-operator-for-matrix-multiplication">introdujo</a> el operador infijo <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> para la multiplicación de matrices, y NumPy 1.10 agregó soporte para ello. Si está utilizando Python 3.5+ y NumPy 1.10+, simplemente puede escribir <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&#64;</span> <span class="pre">D</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">A.dot(D)</span></code>, lo que hace que su código sea mucho más legible (pero menos portátil). Este operador también funciona para productos de puntos vectoriales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python version: </span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">.</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numpy version:&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">version</span><span class="p">)</span>
+
+<span class="c1"># Descomente la siguiente línea si su versión de Python es ≥3.5</span>
+<span class="c1"># y su versión de NumPy es ≥1.10:</span>
+
+<span class="c1">#A @ D</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Python version: 3.5.3
+Numpy version: 1.12.1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nota: <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">&#64;</span> <span class="pre">R</span></code> es en realidad equivalente a <code class="docutils literal notranslate"><span class="pre">Q.__matmul__(R)</span></code>, que NumPy implementa como <code class="docutils literal notranslate"><span class="pre">np.matmul(Q,</span> <span class="pre">R)</span></code>, no como <code class="docutils literal notranslate"><span class="pre">Q.dot(R)</span></code>. La principal diferencia es que <code class="docutils literal notranslate"><span class="pre">matmul</span></code> no soporta la multiplicación escalar, mientras que <code class="docutils literal notranslate"><span class="pre">dot</span></code> sí, así que puedes escribir <code class="docutils literal notranslate"><span class="pre">Q.dot(3)</span></code>, que es equivalente a <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">*</span> <span class="pre">3</span></code>, pero no puedes escribir <code class="docutils literal notranslate"><span class="pre">Q</span> <span class="pre">&#64;</span> <span class="pre">3</span></code> (<a class="reference external" href="http://stackoverflow.com/a/34142617/38626">más detalles</a>).</p>
+</div>
+<div class="section" id="matriz-transpuesta">
+<h2>Matriz transpuesta<a class="headerlink" href="#matriz-transpuesta" title="Permalink to this headline">¶</a></h2>
+<p>La transpuesta de una matriz <span class="math notranslate nohighlight">\(M\)</span> es una matriz denominada <span class="math notranslate nohighlight">\(M^T\)</span> tal que la fila <span class="math notranslate nohighlight">\(i^{th}\)</span> en <span class="math notranslate nohighlight">\(M^T\)</span> es igual a la columna <span class="math notranslate nohighlight">\(i^{th}\)</span> en <span class="math notranslate nohighlight">\(M\)</span> :</p>
+<p><span class="math notranslate nohighlight">\( A^T =
+\begin{bmatrix}
+  10 &amp; 20 &amp; 30 \\
+  40 &amp; 50 &amp; 60
+\end{bmatrix}^T =
+\begin{bmatrix}
+  10 &amp; 40 \\
+  20 &amp; 50 \\
+  30 &amp; 60
+\end{bmatrix}\)</span></p>
+<p>En otras palabras, (<span class="math notranslate nohighlight">\(A^T)_{i,j}\)</span> = <span class="math notranslate nohighlight">\(A_{j,i}\)</span></p>
+<p>Obviamente, si <span class="math notranslate nohighlight">\(M\)</span> es una matriz <span class="math notranslate nohighlight">\(m \times n\)</span>, entonces <span class="math notranslate nohighlight">\(M^T\)</span> es una matriz <span class="math notranslate nohighlight">\(n \times m\)</span>.</p>
+<p>Nota: hay algunas otras notaciones, como <span class="math notranslate nohighlight">\(M^t\)</span>, <span class="math notranslate nohighlight">\(M′\)</span> o <span class="math notranslate nohighlight">\({^t}M\)</span>.</p>
+<p>En NumPy, la transposición de una matriz se puede obtener simplemente usando el atributo <code class="docutils literal notranslate"><span class="pre">T</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 20, 30],
+       [40, 50, 60]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 40],
+       [20, 50],
+       [30, 60]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como era de esperar, transponer una matriz dos veces devuelve la matriz original:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10, 20, 30],
+       [40, 50, 60]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La transposición es distributiva sobre la suma de matrices, lo que significa que <span class="math notranslate nohighlight">\((Q + R)^T = Q^T + R^T\)</span>. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11, 44],
+       [22, 55],
+       [33, 66]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">B</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[11, 44],
+       [22, 55],
+       [33, 66]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Además, <span class="math notranslate nohighlight">\((Q \cdot R)^T = R^T \cdot Q^T\)</span>. Tenga en cuenta que el orden es inverso. Por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 930, 2010],
+       [1160, 2510],
+       [1320, 2910],
+       [1560, 3450]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 930, 2010],
+       [1160, 2510],
+       [1320, 2910],
+       [1560, 3450]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Una <strong>matriz simétrica</strong> <span class="math notranslate nohighlight">\(M\)</span> se define como una matriz que es igual a su traspuesta: <span class="math notranslate nohighlight">\(M^T = M\)</span>. Esta definición implica que debe ser una matriz cuadrada cuyos elementos sean simétricos con respecto a la diagonal principal, por ejemplo:</p>
+<p>\begin{bmatrix}
+17 &amp; 22 &amp; 27 &amp; 49 \
+22 &amp; 29 &amp; 36 &amp; 0 \
+27 &amp; 36 &amp; 45 &amp; 2 \
+49 &amp; 0 &amp; 2 &amp; 99
+\end{bmatrix}</p>
+<p>El producto de una matriz por su transpuesta siempre es una matriz simétrica, por ejemplo:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  87,  279,  547],
+       [ 279,  940, 1860],
+       [ 547, 1860, 3700]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="conversion-de-matrices-1d-en-matrices-2d-en-numpy">
+<h2>Conversión de matrices 1D en matrices 2D en NumPy<a class="headerlink" href="#conversion-de-matrices-1d-en-matrices-2d-en-numpy" title="Permalink to this headline">¶</a></h2>
+<p>Como mencionamos anteriormente, en NumPy (a diferencia de Matlab, por ejemplo), 1D realmente significa 1D: no existe tal cosa como una matriz 1D vertical o una matriz 1D horizontal. Por lo tanto, no debería sorprenderse al ver que la transposición de una matriz 1D no hace nada:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2, 5])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Queremos convertir <span class="math notranslate nohighlight">\(\textbf{u}\)</span> en un vector fila antes de transponerlo. Hay algunas maneras de hacer esto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u</span><span class="p">])</span>
+<span class="n">u_row</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 5]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Observe los corchetes adicionales: esta es una matriz 2D con solo una fila (es decir, una matriz de 1x2). En otras palabras, realmente es un <strong>vector de fila</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 5]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Observe los corchetes adicionales: esta es una matriz 2D con solo una fila (es decir, una matriz de 1x2). En otras palabras, realmente es un <strong>vector de fila</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2, 5]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esto es equivalente, pero un poco menos explícito.</p>
+<p>Ok, ahora transpongamos nuestro vector fila:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_row</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2],
+       [5]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Genial! Ahora tenemos un buen <strong>vector de columna</strong>.</p>
+<p>En lugar de crear un vector de fila y luego transponerlo, también es posible convertir una matriz 1D directamente en un vector de columna:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2],
+       [5]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="graficar-una-matriz">
+<h2>Graficar una matriz<a class="headerlink" href="#graficar-una-matriz" title="Permalink to this headline">¶</a></h2>
+<p>Ya hemos visto que los vectores se pueden representar como puntos o flechas en un espacio N-dimensional. ¿Existe una buena representación gráfica de las matrices? Bueno, simplemente puede ver una matriz como una lista de vectores, por lo que trazar una matriz da como resultado muchos puntos o flechas. Por ejemplo, creemos una matriz <code class="docutils literal notranslate"><span class="pre">P</span></code> de <span class="math notranslate nohighlight">\(2 \times 4\)</span> y representémosla como puntos:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">4.6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">x_coords_P</span><span class="p">,</span> <span class="n">y_coords_P</span> <span class="o">=</span> <span class="n">P</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_coords_P</span><span class="p">,</span> <span class="n">y_coords_P</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_104_0.png" src="../../_images/Matrices_104_0.png" />
+</div>
+</div>
+<p>Por supuesto, también podríamos haber almacenado los mismos 4 vectores como vectores de fila en lugar de vectores de columna, dando como resultado una matriz de <span class="math notranslate nohighlight">\(4 \times 2\)</span> (la transpuesta de <span class="math notranslate nohighlight">\(P\)</span>, de hecho). Es realmente una elección arbitraria.</p>
+<p>Como los vectores están ordenados, puedes ver la matriz como un camino y representarla con puntos conectados:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_coords_P</span><span class="p">,</span> <span class="n">y_coords_P</span><span class="p">,</span> <span class="s2">&quot;bo&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_coords_P</span><span class="p">,</span> <span class="n">y_coords_P</span><span class="p">,</span> <span class="s2">&quot;b--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_106_0.png" src="../../_images/Matrices_106_0.png" />
+</div>
+</div>
+<p>O puede representarlo como un polígono: la clase <code class="docutils literal notranslate"><span class="pre">Polygon</span></code> de matplotlib espera una matriz <span class="math notranslate nohighlight">\(n \times 2\)</span> NumPy, no una matriz <span class="math notranslate nohighlight">\(2 \times n\)</span>, por lo que solo necesitamos darle <span class="math notranslate nohighlight">\(P^T\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_108_0.png" src="../../_images/Matrices_108_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="aplicaciones-geometricas-de-operaciones-matriciales">
+<h2>Aplicaciones geométricas de operaciones matriciales<a class="headerlink" href="#aplicaciones-geometricas-de-operaciones-matriciales" title="Permalink to this headline">¶</a></h2>
+<p>Vimos anteriormente que la suma de vectores da como resultado una traslación geométrica, la multiplicación de vectores por un escalar da como resultado un reescalado (acercamiento o alejamiento, centrado en el origen), y el producto punto vectorial da como resultado la proyección de un vector sobre otro vector, el reescalado y la medición del resultado. coordinar.</p>
+<p>De manera similar, las operaciones matriciales tienen aplicaciones geométricas muy útiles.</p>
+<div class="section" id="suma-multiples-traslaciones-geometricas">
+<h3>Suma = múltiples traslaciones geométricas<a class="headerlink" href="#suma-multiples-traslaciones-geometricas" title="Permalink to this headline">¶</a></h3>
+<p>Primero, sumar dos matrices es equivalente a sumar todos sus vectores. Por ejemplo, vamos a crear una matriz de <span class="math notranslate nohighlight">\(2 \times 4\)</span> <span class="math notranslate nohighlight">\(H\)</span> y sumarla a <span class="math notranslate nohighlight">\(P\)</span>, y ver el resultado:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">P_moved</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">H</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_moved</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">vector</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">H</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">,</span> <span class="s2">&quot;$P+H$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;$H_{*,1}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.1</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;$H_{*,2}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="s2">&quot;$H_{*,3}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">4.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;$H_{*,4}$&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_111_0.png" src="../../_images/Matrices_111_0.png" />
+</div>
+</div>
+<p>Si sumamos una matriz llena de vectores idénticos, obtenemos una traslación geométrica simple:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">P_translated</span> <span class="o">=</span> <span class="n">P</span> <span class="o">+</span> <span class="n">H2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_translated</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">vector</span><span class="p">,</span> <span class="n">origin</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">H2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+    <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_113_0.png" src="../../_images/Matrices_113_0.png" />
+</div>
+</div>
+<p>Aunque las matrices solo se pueden sumar si tienen el mismo tamaño, NumPy permite agregar un vector de fila o un vector de columna a una matriz: esto se denomina <em>difusión</em> y se explica con más detalles en el <span class="xref myst">tutorial de NumPy</span>. Podríamos haber obtenido el mismo resultado que el anterior con:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P</span> <span class="o">+</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">]]</span>  <span class="c1"># igual que P + H2, gracias a la transmisión NumPy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.5,  3.5,  0.5,  4.1],
+       [ 0.6,  3.9,  2.4,  0.9]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Multiplicación por un escalar<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Al multiplicar una matriz por un escalar, todos sus vectores se multiplican por ese escalar, por lo que, como era de esperar, el resultado geométrico es un cambio de escala de toda la figura. Por ejemplo, cambiemos la escala de nuestro polígono por un factor del 60 % (alejándose, centrado en el origen):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_transformation</span><span class="p">(</span><span class="n">P_before</span><span class="p">,</span> <span class="n">P_after</span><span class="p">,</span> <span class="n">text_before</span><span class="p">,</span> <span class="n">text_after</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">arrows</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">vector_before</span><span class="p">,</span> <span class="n">vector_after</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">P_before</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">P_after</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+            <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector_before</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+            <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">vector_after</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_before</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P_after</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">P_before</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">P_before</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">text_before</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">P_after</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">P_after</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">text_after</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">P_rescaled</span> <span class="o">=</span> <span class="mf">0.60</span> <span class="o">*</span> <span class="n">P</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_rescaled</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$0.6 P$&quot;</span><span class="p">,</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_117_0.png" src="../../_images/Matrices_117_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="multiplicacion-de-matrices-proyeccion-sobre-un-eje">
+<h3>Multiplicación de matrices – Proyección sobre un eje<a class="headerlink" href="#multiplicacion-de-matrices-proyeccion-sobre-un-eje" title="Permalink to this headline">¶</a></h3>
+<p>La multiplicación de matrices es más compleja de visualizar, pero también es la herramienta más poderosa de la caja.</p>
+<p>Comencemos de manera simple, definiendo una matriz de <span class="math notranslate nohighlight">\(1 \times 2\)</span> <span class="math notranslate nohighlight">\(U = \begin{bmatrix} 1 &amp; 0 \end{bmatrix}\)</span>. Este vector fila es simplemente el vector unitario horizontal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora veamos el producto escalar <span class="math notranslate nohighlight">\(U \cdot P\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 3. ,  4. ,  1. ,  4.6]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Estas son las coordenadas horizontales de los vectores en <span class="math notranslate nohighlight">\(P\)</span>. En otras palabras, acabamos de proyectar <span class="math notranslate nohighlight">\(P\)</span> en el eje horizontal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_projection</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">P</span><span class="p">):</span>
+    <span class="n">U_P</span> <span class="o">=</span> <span class="n">U</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+    
+    <span class="n">axis_end</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">U</span>
+    <span class="n">plot_vector2d</span><span class="p">(</span><span class="n">axis_end</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">vector</span><span class="p">,</span> <span class="n">proj_coordinate</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">P</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U_P</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
+        <span class="n">proj_point</span> <span class="o">=</span> <span class="n">proj_coordinate</span> <span class="o">*</span> <span class="n">U</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">proj_point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">proj_point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;ro&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">vector</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">proj_point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]],</span> <span class="p">[</span><span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">proj_point</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]],</span> <span class="s2">&quot;r--&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_projection</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_123_0.png" src="../../_images/Matrices_123_0.png" />
+</div>
+</div>
+<p>De hecho, podemos proyectar en cualquier otro eje simplemente reemplazando <span class="math notranslate nohighlight">\(U\)</span> con cualquier otro vector unitario. Por ejemplo, proyectemos sobre el eje que está en un ángulo de 30° sobre el eje horizontal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle30</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>  <span class="c1"># angle in radians</span>
+<span class="n">U_30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle30</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle30</span><span class="p">)]])</span>
+
+<span class="n">plot_projection</span><span class="p">(</span><span class="n">U_30</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_125_0.png" src="../../_images/Matrices_125_0.png" />
+</div>
+</div>
+<p>¡Bien! Recuerda que el producto escalar de un vector unitario y una matriz básicamente realiza una proyección sobre un eje y nos da las coordenadas de los puntos resultantes sobre ese eje.</p>
+</div>
+<div class="section" id="multiplicacion-de-matrices-rotacion">
+<h3>Multiplicación de matrices – Rotación<a class="headerlink" href="#multiplicacion-de-matrices-rotacion" title="Permalink to this headline">¶</a></h3>
+<p>Ahora vamos a crear una matriz <span class="math notranslate nohighlight">\(2 \times 2\)</span> <span class="math notranslate nohighlight">\(V\)</span> que contenga dos vectores unitarios que formen ángulos de 30° y 120° con el eje horizontal:</p>
+<p><span class="math notranslate nohighlight">\(V = \begin{bmatrix} \cos(30°) &amp; \sin(30°) \\ \cos(120°) &amp; \sin(120°) \end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle120</span> <span class="o">=</span> <span class="mi">120</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle30</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle30</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle120</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle120</span><span class="p">)]</span>
+    <span class="p">])</span>
+<span class="n">V</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.8660254,  0.5      ],
+       [-0.5      ,  0.8660254]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Veamos el producto <span class="math notranslate nohighlight">\(VP\)</span>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 2.69807621,  5.21410162,  1.8660254 ,  4.23371686],
+       [-1.32679492,  1.03108891,  1.23205081, -1.8669873 ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>La primera fila es igual a <span class="math notranslate nohighlight">\(V_{1,*} P\)</span>, que son las coordenadas de la proyección de <span class="math notranslate nohighlight">\(P\)</span> sobre el eje de 30°, como hemos visto anteriormente. La segunda fila es <span class="math notranslate nohighlight">\(V_{2,*} P\)</span>, que son las coordenadas de la proyección de <span class="math notranslate nohighlight">\(P\)</span> en el eje de 120°. ¡Así que básicamente obtuvimos las coordenadas de <span class="math notranslate nohighlight">\(P\)</span> después de rotar los ejes horizontal y vertical 30° (o de manera equivalente después de rotar el polígono -30° alrededor del origen)! Grafiquemos <span class="math notranslate nohighlight">\(VP\)</span> para ver esto:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">P_rotated</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">P_rotated</span><span class="p">,</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$VP$&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">arrows</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_132_0.png" src="../../_images/Matrices_132_0.png" />
+</div>
+</div>
+<p>La matriz <span class="math notranslate nohighlight">\(V\)</span> se llama <strong>matriz de rotación</strong>.</p>
+</div>
+<div class="section" id="multiplicacion-de-matrices-otras-transformaciones-lineales">
+<h3>Multiplicación de matrices – Otras transformaciones lineales<a class="headerlink" href="#multiplicacion-de-matrices-otras-transformaciones-lineales" title="Permalink to this headline">¶</a></h3>
+<p>En términos más generales, cualquier transformación lineal <span class="math notranslate nohighlight">\(f\)</span> que mapee vectores n-dimensionales a vectores m-dimensionales puede representarse como una matriz <span class="math notranslate nohighlight">\(m \times n\)</span>. Por ejemplo, digamos que <span class="math notranslate nohighlight">\(\textbf{u}\)</span> es un vector tridimensional:</p>
+<p><span class="math notranslate nohighlight">\(\textbf{u} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}\)</span></p>
+<p>y <span class="math notranslate nohighlight">\(f\)</span> se define como:</p>
+<p><span class="math notranslate nohighlight">\(f(\textbf{u}) = \begin{pmatrix}
+ax + by + cz \\
+dx + ey + fz
+\end{pmatrix}\)</span></p>
+<p>Esta transformación <span class="math notranslate nohighlight">\(f\)</span> asigna vectores tridimensionales a vectores bidimensionales de forma lineal (es decir, las coordenadas resultantes solo implican sumas de múltiplos de las coordenadas originales). Podemos representar esta transformación como matriz <span class="math notranslate nohighlight">\(F\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(F = \begin{bmatrix}
+a &amp; b &amp; c \\
+d &amp; e &amp; f
+\end{bmatrix}\)</span></p>
+<p>Ahora, para calcular <span class="math notranslate nohighlight">\(f(\textbf{u})\)</span> simplemente podemos hacer una multiplicación de matrices:</p>
+<p><span class="math notranslate nohighlight">\(f(\textbf{u}) = F \textbf{u}\)</span></p>
+<p>Si tenemos una matriz <span class="math notranslate nohighlight">\(G = \begin{bmatrix}\textbf{u}_1 &amp; \textbf{u}_2 &amp; \cdots &amp; \textbf{u}_q \end{bmatrix}\)</span>, donde cada <span class="math notranslate nohighlight">\(\textbf{u }_i\)</span> es un vector columna tridimensional, entonces <span class="math notranslate nohighlight">\(FG\)</span> da como resultado la transformación lineal de todos los vectores <span class="math notranslate nohighlight">\(\textbf{u}_i\)</span> como se define en la matriz <span class="math notranslate nohighlight">\(F\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(FG = \begin{bmatrix}f(\textbf{u}_1) &amp; f(\textbf{u}_2) &amp; \cdots &amp; f(\textbf{u}_q) \end{bmatrix}\)</span></p>
+<p>Para resumir, la matriz del lado izquierdo de un producto escalar especifica qué transformación lineal aplicar a los vectores del lado derecho. Ya hemos demostrado que esto se puede usar para realizar proyecciones y rotaciones, pero cualquier otra transformación lineal es posible. Por ejemplo, aquí hay una transformación conocida como <em>mapeo de corte</em>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_shear</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{de_corte}</span><span class="s2"> P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_135_0.png" src="../../_images/Matrices_135_0.png" />
+</div>
+</div>
+<p>Veamos cómo esta transformación afecta a una matriz que contiene los puntos de un <strong>cuadrado unitario</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Square</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">Square</span><span class="p">,</span> <span class="n">F_shear</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Square</span><span class="p">),</span> <span class="s2">&quot;$Square$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{de_corte}</span><span class="s2"> Square$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_137_0.png" src="../../_images/Matrices_137_0.png" />
+</div>
+</div>
+<p>Ahora veamos un <strong>mapeo de compresión</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_squeeze</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mf">1.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mf">1.4</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_squeeze</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{de_compresion}</span><span class="s2"> P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_139_0.png" src="../../_images/Matrices_139_0.png" />
+</div>
+</div>
+<p>El efecto sobre el cuadrado unitario es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_transformation</span><span class="p">(</span><span class="n">Square</span><span class="p">,</span> <span class="n">F_squeeze</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Square</span><span class="p">),</span> <span class="s2">&quot;$Square$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{de_compresion}</span><span class="s2"> Square$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_141_0.png" src="../../_images/Matrices_141_0.png" />
+</div>
+</div>
+<p>Mostremos una última: la reflexión a través del eje horizontal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_reflect</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_reflect</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{reflexion}</span><span class="s2"> P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_143_0.png" src="../../_images/Matrices_143_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matriz-inversa">
+<h2>Matriz inversa<a class="headerlink" href="#matriz-inversa" title="Permalink to this headline">¶</a></h2>
+<p>Ahora que entendemos que una matriz puede representar cualquier transformación lineal, una pregunta natural es: ¿podemos encontrar una matriz de transformación que invierta el efecto de una matriz de transformación dada <span class="math notranslate nohighlight">\(F\)</span>? La respuesta es sí… ¡a veces! Cuando existe, dicha matriz se denomina <strong>inversa</strong> de <span class="math notranslate nohighlight">\(F\)</span> y se indica como <span class="math notranslate nohighlight">\(F^{-1}\)</span>.</p>
+<p>Por ejemplo, la rotación, el mapeo de corte y el mapeo de compresión tienen transformaciones inversas. Demostremos esto en el mapeo de corte:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_inv_shear</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">],</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">])</span>
+<span class="n">P_sheared</span> <span class="o">=</span> <span class="n">F_shear</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">P_unsheared</span> <span class="o">=</span> <span class="n">F_inv_shear</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P_sheared</span><span class="p">)</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P_sheared</span><span class="p">,</span> <span class="n">P_unsheared</span><span class="p">,</span> <span class="s2">&quot;$P_</span><span class="si">{cortada}</span><span class="s2">$&quot;</span><span class="p">,</span> <span class="s2">&quot;$P_</span><span class="si">{descortada}</span><span class="s2">$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;b--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_145_0.png" src="../../_images/Matrices_145_0.png" />
+</div>
+</div>
+<p>Aplicamos un mapeo de corte en <span class="math notranslate nohighlight">\(P\)</span>, tal como lo hicimos antes, pero luego aplicamos una segunda transformación al resultado, y <em>he aquí</em> esto tuvo el efecto de volver al <span class="math notranslate nohighlight">\(P\)</span> original (trazamos el esquema original de <span class="math notranslate nohighlight">\(P\)</span> para verificar). La segunda transformación es la inversa de la primera.</p>
+<p>Esta vez definimos la matriz inversa <span class="math notranslate nohighlight">\(F_{shear}^{-1}\)</span> manualmente, pero NumPy proporciona una función <code class="docutils literal notranslate"><span class="pre">inv</span></code> para calcular la inversa de una matriz, por lo que podríamos haber escrito en su lugar:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_inv_shear</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">F_shear</span><span class="p">)</span>
+<span class="n">F_inv_shear</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1. , -1.5],
+       [ 0. ,  1. ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Solo se pueden invertir matrices cuadradas. Esto tiene sentido cuando lo piensa: si tiene una transformación que reduce el número de dimensiones, se pierde parte de la información y no hay forma de recuperarla. Por ejemplo, digamos que usa una matriz de <span class="math notranslate nohighlight">\(2 \times 3\)</span> para proyectar un objeto 3D en un plano. El resultado puede verse así:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">],</span>
+         <span class="s2">&quot;r-&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_149_0.png" src="../../_images/Matrices_149_0.png" />
+</div>
+</div>
+<p>Mirando esta imagen, es imposible saber si se trata de la proyección de un cubo o de un objeto rectangular estrecho. Parte de la información se ha perdido en la proyección.</p>
+<p>Incluso las matrices de transformación cuadradas pueden perder información. Por ejemplo, considere esta matriz de transformación:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_project</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_project</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{project}</span><span class="s2"> \cdot P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_151_0.png" src="../../_images/Matrices_151_0.png" />
+</div>
+</div>
+<p>Esta matriz de transformación realiza una proyección sobre el eje horizontal. Nuestro polígono se aplana por completo, por lo que parte de la información se pierde por completo y es imposible volver al polígono original mediante una transformación lineal. En otras palabras, <span class="math notranslate nohighlight">\(F_{proyectar}\)</span> no tiene inversa. Una matriz cuadrada de este tipo que no se puede invertir se denomina <strong>matriz singular</strong>. Si le pedimos a NumPy que calcule su inversa, genera una excepción:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">F_project</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">LA</span><span class="o">.</span><span class="n">LinAlgError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;LinAlgError:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinAlgError: Singular matrix
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aquí hay otro ejemplo de una matriz singular. Éste realiza una proyección sobre el eje en un ángulo de 30° sobre el eje horizontal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle30</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+<span class="n">F_project_30</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+               <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle30</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">angle30</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">],</span>
+               <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">angle30</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle30</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span>
+         <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_project_30</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_{project\_30} \cdot P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_155_0.png" src="../../_images/Matrices_155_0.png" />
+</div>
+</div>
+<p>Pero esta vez, debido a errores de redondeo de punto flotante, NumPy logra calcular un inverso (sin embargo, observe cuán grandes son los elementos):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">F_project_30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[  1.20095990e+16,  -2.08012357e+16],
+       [ -2.08012357e+16,   3.60287970e+16]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Como era de esperar, el producto escalar de una matriz por su inversa da como resultado la matriz identidad:</p>
+<p><span class="math notranslate nohighlight">\(M \cdot M^{-1} = M^{-1} \cdot M = I\)</span></p>
+<p>Esto tiene sentido ya que hacer una transformación lineal seguida de la transformación inversa no produce ningún cambio.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_shear</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">F_shear</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.,  0.],
+       [ 0.,  1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Otra forma de expresar esto es que la inversa de la inversa de una matriz <span class="math notranslate nohighlight">\(M\)</span> es la misma <span class="math notranslate nohighlight">\(M\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(((M)^{-1})^{-1} = M\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">LA</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">F_shear</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1. ,  1.5],
+       [ 0. ,  1. ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Además, lo contrario de escalar por un factor de <span class="math notranslate nohighlight">\(\lambda\)</span> es, por supuesto, escalar por un factor de <span class="math notranslate nohighlight">\(\frac{1}{\lambda}\)</span>:</p>
+<p><span class="math notranslate nohighlight">\( (\lambda \times M)^{-1} = \frac{1}{\lambda} \times M^{-1}\)</span></p>
+<p>Una vez que comprende la interpretación geométrica de las matrices como transformaciones lineales, la mayoría de estas propiedades parecen bastante intuitivas.</p>
+<p>Una matriz que es su propia inversa se llama <strong>involución</strong>. Los ejemplos más simples son las matrices de reflexión, o una rotación de 180°, pero también hay involuciones más complejas, por ejemplo, imagina una transformación que se comprime horizontalmente, luego se refleja sobre el eje vertical y finalmente gira 90° en el sentido de las agujas del reloj. Tome una servilleta e intente hacerlo dos veces: terminará en la posición original. Aquí está la matriz involutiva correspondiente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_involution</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_involution</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{involucion}</span><span class="s2"> \cdot P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">d4e1b27bca73</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">F_involution</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>         <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_involution</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{involucion}</span><span class="s2"> \cdot P$&quot;</span><span class="p">,</span>
+
+<span class="ne">NameError</span>: name &#39;np&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finalmente, una matriz cuadrada <span class="math notranslate nohighlight">\(H\)</span> cuya inversa es su propia transpuesta es una <strong>matriz ortogonal</strong>:</p>
+<p><span class="math notranslate nohighlight">\(H^{-1} = H^T\)</span></p>
+<p>Por lo tanto:</p>
+<p><span class="math notranslate nohighlight">\(H \cdot H^T = H^T \cdot H = I\)</span></p>
+<p>Corresponde a una transformación que conserva distancias, como rotaciones y reflexiones, y combinaciones de estas, pero sin reescalar, cortar o comprimir. Verifiquemos que <span class="math notranslate nohighlight">\(F_{reflect}\)</span> sea realmente ortogonal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_reflect</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F_reflect</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 0],
+       [0, 1]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="determinante">
+<h2>Determinante<a class="headerlink" href="#determinante" title="Permalink to this headline">¶</a></h2>
+<p>El determinante de una matriz cuadrada <span class="math notranslate nohighlight">\(M\)</span>, anotado <span class="math notranslate nohighlight">\(\det(M)\)</span> o <span class="math notranslate nohighlight">\(\det M\)</span> o <span class="math notranslate nohighlight">\(|M|\)</span> es un valor que se puede calcular a partir de sus elementos <span class="math notranslate nohighlight">\((M_{i,j})\)</span> usando varios métodos equivalentes. Uno de los métodos más simples es este enfoque recursivo:</p>
+<p><span class="math notranslate nohighlight">\(|M| = M_{1,1}\times|M^{(1,1)}| - M_{2,1}\times|M^{(2,1)}| + M_{3,1}\times|M^{(3,1)}| - M_{4,1}\times|M^{(4,1)}| + \cdots ± M_{n,1}\times|M^{(n,1)}|\)</span></p>
+<ul class="simple">
+<li><p>Donde <span class="math notranslate nohighlight">\(M^{(i,j)}\)</span> es la matriz <span class="math notranslate nohighlight">\(M\)</span> sin fila <span class="math notranslate nohighlight">\(i\)</span> ni columna <span class="math notranslate nohighlight">\(j\)</span>.
+Por ejemplo, calculemos el determinante de la siguiente matriz <span class="math notranslate nohighlight">\(3 \times 3\)</span>:
+<span class="math notranslate nohighlight">\(M = \begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 0
+\end{bmatrix}\)</span></p></li>
+</ul>
+<p>Usando el método anterior, obtenemos:</p>
+<p><span class="math notranslate nohighlight">\(|M| = 1 \times \left | \begin{bmatrix} 5 &amp; 6 \\ 8 &amp; 0 \end{bmatrix} \right |
+     - 2 \times \left | \begin{bmatrix} 4 &amp; 6 \\ 7 &amp; 0 \end{bmatrix} \right |
+     + 3 \times \left | \begin{bmatrix} 4 &amp; 5 \\ 7 &amp; 8 \end{bmatrix} \right |\)</span></p>
+<p>Ahora necesitamos calcular el determinante de cada una de estas matrices de <span class="math notranslate nohighlight">\(2 \times 2\)</span> (estos determinantes se llaman <strong>menores</strong>):</p>
+<p><span class="math notranslate nohighlight">\(\left | \begin{bmatrix} 5 &amp; 6 \\ 8 &amp; 0 \end{bmatrix} \right | = 5 \times 0 - 6 \times 8 = -48\)</span></p>
+<p><span class="math notranslate nohighlight">\(\left | \begin{bmatrix} 4 &amp; 6 \\ 7 &amp; 0 \end{bmatrix} \right | = 4 \times 0 - 6 \times 7 = -42\)</span></p>
+<p><span class="math notranslate nohighlight">\(\left | \begin{bmatrix} 4 &amp; 5 \\ 7 &amp; 8 \end{bmatrix} \right | = 4 \times 8 - 5 \times 7 = -3\)</span></p>
+<p>Ahora podemos calcular el resultado final:</p>
+<p><span class="math notranslate nohighlight">\(|M| = 1 \times (-48) - 2 \times (-42) + 3 \times (-3) = 27\)</span></p>
+<p>Ahora podemos calcular el resultado final:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>27.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Uno de los principales usos del determinante es <em>determinar</em> si una matriz cuadrada puede invertirse o no: si el determinante es igual a 0, entonces la matriz <em>no</em> puede invertirse (es una matriz singular), y si el determinante no es 0, entonces <em>puede</em> ser invertido.</p>
+<p>Por ejemplo, calculemos el determinante para las matrices <span class="math notranslate nohighlight">\(F_{project}\)</span>, <span class="math notranslate nohighlight">\(F_{project\_30}\)</span> y <span class="math notranslate nohighlight">\(F_{shear}\)</span> que definimos anteriormente:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">F_project</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Así es, <span class="math notranslate nohighlight">\(F_{project}\)</span> es singular, como vimos antes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">F_project_30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0816681711721642e-17
+</pre></div>
+</div>
+</div>
+</div>
+<p>Este determinante está sospechosamente cerca de 0: en realidad debería ser 0, pero no lo es debido a pequeños errores de punto flotante. La matriz es en realidad singular.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">F_shear</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Perfecto! Esta matriz <em>puede</em> ser inversa como vimos antes. ¡Guau, las matemáticas realmente funcionan!</p>
+<p>El determinante también se puede usar para medir cuánto afecta una transformación lineal a las áreas superficiales: por ejemplo, las matrices de proyección <span class="math notranslate nohighlight">\(F_{project}\)</span> y <span class="math notranslate nohighlight">\(F_{project\_30}\)</span> aplanan completamente el polígono <span class="math notranslate nohighlight">\(P\)</span>, hasta que su área es cero. Es por eso que el determinante de estas matrices es 0. El mapeo de corte modificó la forma del polígono, pero no afectó su área de superficie, por lo que el determinante es 1. Puede intentar calcular el determinante de una matriz de rotación, y también debería dar 1. ¿Qué pasa con una matriz de escalado? Vamos a ver:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">F_scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
+    <span class="p">])</span>
+<span class="n">plot_transformation</span><span class="p">(</span><span class="n">P</span><span class="p">,</span> <span class="n">F_scale</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">P</span><span class="p">),</span> <span class="s2">&quot;$P$&quot;</span><span class="p">,</span> <span class="s2">&quot;$F_</span><span class="si">{scale}</span><span class="s2"> \cdot P$&quot;</span><span class="p">,</span>
+                    <span class="n">axis</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Matrices_177_0.png" src="../../_images/Matrices_177_0.png" />
+</div>
+</div>
+<p>Redimensionamos el polígono por un factor de 1/2 en los ejes vertical y horizontal para que el área de superficie del polígono resultante sea 1/4 de la del polígono original. Calculemos el determinante y comprobemos que:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">F_scale</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.25
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Correcto!</p>
+<p>El determinante en realidad puede ser negativo, cuando la transformación da como resultado una versión “volteada” del polígono original (por ejemplo, un guante de la mano izquierda se convierte en un guante de la mano derecha). Por ejemplo, el determinante de la matriz <code class="docutils literal notranslate"><span class="pre">F_reflect</span></code> es -1 porque el área de la superficie se conserva pero el polígono se voltea:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LA</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">F_reflect</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MatematicasParaML/2_Matrices"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../1_Vectores/Ejercicios.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ejercicios Vectores</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../3_Factorizacion/Factorizacion.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Factorización de matrices</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

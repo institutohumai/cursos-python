@@ -1,0 +1,2414 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyPersonality &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introducción a Machine Learning" href="intro_a_ml.html" />
+    <link rel="prev" title="Corrección y Análisis en Orientación Vocacional" href="holland_viz.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/README.html">
+   Álgebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones2.html">
+   ¿Qué es una función?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/7_Probabilidad/Probabilidad%20p18.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/NeuroIA/mypersonality.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FNeuroIA/mypersonality.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio">
+   Ejercicio
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mascara-booleana-con-muchas-condiciones">
+     Máscara booleana con muchas condiciones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fancy-indexing">
+   Fancy Indexing
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>MyPersonality</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ejercicio">
+   Ejercicio
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mascara-booleana-con-muchas-condiciones">
+     Máscara booleana con muchas condiciones
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fancy-indexing">
+   Fancy Indexing
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/neuro/NeuroIA/mypersonality.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a>
+<div align="center"> Recordá abrir en una nueva pestaña </div></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="mypersonality">
+<h1>MyPersonality<a class="headerlink" href="#mypersonality" title="Permalink to this headline">¶</a></h1>
+<p>La prueba Big5 (Costa y Mac Crae 1985, Goldberg et al. 2006) es una taxonomía o clasificación de rasgos de personalidad que analiza la composición de cinco dimensiones de personalidad en su sentido más amplio. Esta disertación se publicó en el Psychological Review, 41, 1-32. Los cinco factores son:</p>
+<ul class="simple">
+<li><p>Apertura a la experiencia (inventivo / curioso vs. consistente / cauteloso) O</p></li>
+<li><p>Escrupulosidad (eficiente / organizado vs. extravagante / descuidado) C</p></li>
+<li><p>Extraversión (sociable / enérgico vs. solitario / reservado) E</p></li>
+<li><p>Amabilidad (amigable / compasivo vs. desafiante / insensible) A</p></li>
+<li><p>Neuroticismo (susceptible / nervioso vs. resistente / seguro) N</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://unket.s3-sa-east-1.amazonaws.com/data/mypersonality.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sEXT&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       2.65
+1       2.65
+2       2.65
+3       2.65
+4       2.65
+        ... 
+9912    2.15
+9913    4.05
+9914    4.05
+9915    1.40
+9916    4.25
+Name: sEXT, Length: 9917, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;#AUTHID&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#AUTHID</th>
+      <th>STATUS</th>
+      <th>sEXT</th>
+      <th>sNEU</th>
+      <th>sAGR</th>
+      <th>sCON</th>
+      <th>sOPN</th>
+      <th>cEXT</th>
+      <th>cNEU</th>
+      <th>cAGR</th>
+      <th>cCON</th>
+      <th>cOPN</th>
+      <th>DATE</th>
+      <th>NETWORKSIZE</th>
+      <th>BETWEENNESS</th>
+      <th>NBETWEENNESS</th>
+      <th>DENSITY</th>
+      <th>BROKERAGE</th>
+      <th>NBROKERAGE</th>
+      <th>TRANSITIVITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>b7b7764cfa1c523e4e93ab2a79a946c4</td>
+      <td>likes the sound of thunder.</td>
+      <td>2.65</td>
+      <td>3.00</td>
+      <td>3.15</td>
+      <td>3.25</td>
+      <td>4.40</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>n</td>
+      <td>y</td>
+      <td>06/19/09 03:21 PM</td>
+      <td>180.0</td>
+      <td>14861.6</td>
+      <td>93.29</td>
+      <td>0.03</td>
+      <td>15661.0</td>
+      <td>0.49</td>
+      <td>0.10</td>
+    </tr>
+    <tr>
+      <th>102</th>
+      <td>318bf822d4f2bd3920367560218619c0</td>
+      <td>has bed bugs..... ewwwww!</td>
+      <td>4.50</td>
+      <td>4.00</td>
+      <td>3.00</td>
+      <td>4.50</td>
+      <td>3.75</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>06/27/09 11:21 PM</td>
+      <td>318.0</td>
+      <td>49024.8</td>
+      <td>97.88</td>
+      <td>0.02</td>
+      <td>49584.0</td>
+      <td>0.49</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>is stuck on Band-Aid brand, cuz Band-Aid's stu...</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.60</td>
+      <td>3.30</td>
+      <td>4.10</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>06/28/09 05:03 AM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.50</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>db39f7b2aad360b1033ec1f8fcd57f9c</td>
+      <td>Back from vacation and tired</td>
+      <td>4.65</td>
+      <td>3.20</td>
+      <td>3.05</td>
+      <td>3.65</td>
+      <td>4.75</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>07/15/09 10:59 PM</td>
+      <td>102.0</td>
+      <td>4359.8</td>
+      <td>86.33</td>
+      <td>0.09</td>
+      <td>4668.0</td>
+      <td>0.46</td>
+      <td>0.36</td>
+    </tr>
+    <tr>
+      <th>246</th>
+      <td>4d035bd3fd8d9595d15cea9e388964be</td>
+      <td>had a great day at church...</td>
+      <td>3.70</td>
+      <td>2.90</td>
+      <td>3.40</td>
+      <td>3.35</td>
+      <td>4.05</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>n</td>
+      <td>y</td>
+      <td>07/19/09 05:40 PM</td>
+      <td>57.0</td>
+      <td>1509.5</td>
+      <td>98.02</td>
+      <td>0.05</td>
+      <td>1522.0</td>
+      <td>0.49</td>
+      <td>0.03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mypersonality_8_0.png" src="../_images/mypersonality_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>315.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sEXT&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">])</span>
+<span class="n">rho</span><span class="p">,</span> <span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.3621394116038834, 3.664654662842724e-09)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">.10f</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.0000000037&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neuroticismo</span>
+<span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sNEU&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-0.18020241658633415, 0.004257725510543998)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Amabilidad</span>
+<span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;sAGR&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.11133128697465432, 0.07892697855400191)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;sEXT&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;NETWORKSIZE&quot;</span><span class="p">,</span> <span class="n">trendline</span><span class="o">=</span><span class="s2">&quot;ols&quot;</span><span class="p">,</span> <span class="n">trendline_color_override</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Extroversión&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.7/dist-packages/statsmodels/tools/_testing.py:19: FutureWarning:
+
+pandas.util.testing is deprecated. Use the functions in the public API at pandas.testing instead.
+</pre></div>
+</div>
+<div class="output text_html"><html>
+<head><meta charset="utf-8" /></head>
+<body>
+    <div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>
+                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
+            <div id="0a339138-74bb-43fa-8599-c465e10fbf15" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <script type="text/javascript">
+
+                    window.PLOTLYENV=window.PLOTLYENV || {};
+
+                if (document.getElementById("0a339138-74bb-43fa-8599-c465e10fbf15")) {
+                    Plotly.newPlot(
+                        '0a339138-74bb-43fa-8599-c465e10fbf15',
+                        [{"hoverlabel": {"namelength": 0}, "hovertemplate": "sEXT=%{x}<br>NETWORKSIZE=%{y}", "legendgroup": "", "marker": {"color": "#636efa", "symbol": "circle"}, "mode": "markers", "name": "", "showlegend": false, "type": "scatter", "x": [2.65, 4.5, 4.3, 4.65, 3.7, 3.45, 3.15, 4.15, 3.65, 3.75, 3.35, 1.5, 3.25, 1.8, 3.55, 2.6, 3.35, 1.35, 3.15, 2.45, 4.1, 2.65, 4.3, 2.3, 4.5, 2.8, 2.45, 2.5, 2.9, 4.33, 2.55, 2.45, 4.2, 1.75, 2.0, 4.0, 3.4, 2.75, 4.0, 3.75, 2.05, 3.7, 3.6, 4.7, 4.55, 2.1, 4.2, 3.75, 4.5, 3.7, 3.6, 1.8, 1.8, 5.0, 3.5, 1.75, 4.0, 1.55, 2.7, 2.95, 3.7, 4.45, 3.0, 2.65, 3.25, 2.71, 4.25, 3.4, 3.8, 2.75, 2.7, 3.25, 2.7, 3.5, 3.3, 2.25, 3.75, 3.3, 2.1, 3.75, 2.9, 2.8, 3.5, 3.75, 3.3, 2.75, 4.5, 3.0, 3.55, 4.0, 4.75, 4.25, 2.0, 2.5, 3.7, 2.75, 4.75, 3.2, 2.75, 3.84, 2.35, 4.5, 3.65, 3.0, 5.0, 4.13, 3.2, 4.5, 2.95, 2.7, 3.0, 3.5, 3.1, 3.6, 3.0, 4.33, 4.5, 4.15, 3.25, 2.45, 3.75, 4.25, 4.15, 1.95, 4.0, 4.75, 3.8, 2.63, 4.5, 2.4, 4.5, 4.0, 1.6, 4.2, 3.0, 2.9, 1.75, 3.0, 3.05, 2.6, 2.9, 2.38, 3.25, 3.65, 2.55, 2.75, 3.0, 2.9, 3.2, 2.5, 4.6, 4.5, 4.65, 3.25, 4.0, 3.35, 2.55, 2.15, 2.25, 2.65, 3.25, 3.45, 3.5, 4.6, 1.33, 2.25, 3.25, 4.5, 4.0, 3.4, 3.65, 3.0, 4.6, 3.7, 4.75, 2.35, 3.4, 1.75, 3.45, 3.4, 3.4, 4.05, 4.55, 2.5, 1.9, 3.05, 3.5, 3.84, 4.5, 2.35, 3.45, 4.35, 3.25, 4.95, 3.35, 2.4, 1.7, 2.45, 2.75, 4.05, 3.4, 3.9, 4.5, 3.65, 3.68, 4.35, 2.6, 3.13, 2.85, 3.6, 2.85, 4.75, 2.25, 2.85, 3.4, 2.05, 4.38, 3.55, 3.5, 4.05, 1.9, 1.95, 2.15, 3.3, 2.35, 3.17, 3.6, 3.25, 4.0, 3.3, 2.9, 3.5, 2.4, 4.25, 2.8, 2.2, 1.85, 4.25, 2.75, 4.75, 3.2, 2.75, 4.75, 3.25, 2.45, 3.7, 2.15, 4.05, 1.4, 4.25], "xaxis": "x", "y": [180.0, 318.0, 739.0, 102.0, 57.0, 122.0, 75.0, 950.0, 475.0, 251.0, 789.0, 223.0, 671.0, 89.0, 379.0, 139.0, 431.0, 99.0, 255.0, 130.0, 947.0, 446.0, 494.0, 297.0, 535.0, 340.0, 285.0, 356.0, 222.0, 145.0, 145.0, 633.0, 332.0, 50.0, 628.0, 89.0, 1225.0, 731.0, 899.0, 376.0, 322.0, 385.0, 644.0, 457.0, 254.0, 307.0, 294.0, 289.0, 369.0, 1264.0, 290.0, 198.0, 171.0, 326.0, 241.0, 177.0, 464.0, 265.0, 102.0, 802.0, 216.0, 315.0, 1596.0, 245.0, 146.0, 731.0, 317.0, 209.0, 58.0, 270.0, 135.0, 335.0, 312.0, 306.0, 1460.0, 300.0, 775.0, 381.0, 573.0, 332.0, 354.0, 463.0, 256.0, 1350.0, 196.0, 258.0, 606.0, 134.0, 77.0, 959.0, 699.0, 900.0, 721.0, 239.0, 29.0, 160.0, 289.0, 222.0, 332.0, 254.0, 115.0, 676.0, 112.0, 431.0, 855.0, 694.0, 188.0, 822.0, 689.0, 177.0, 315.0, 562.0, 758.0, 804.0, 493.0, 654.0, 845.0, 714.0, 549.0, 1560.0, 278.0, 298.0, 298.0, 686.0, 631.0, 1091.0, 622.0, 267.0, 1151.0, 313.0, 965.0, 241.0, 159.0, 907.0, 459.0, 72.0, 91.0, 512.0, 144.0, 126.0, 414.0, 82.0, 169.0, 41.0, 81.0, 440.0, 77.0, 24.0, 565.0, 159.0, 775.0, 826.0, 175.0, 486.0, 302.0, 322.0, 436.0, 127.0, 1098.0, 313.0, 457.0, 95.0, 243.0, 1118.0, 85.0, 361.0, 216.0, 962.0, 559.0, 238.0, 138.0, 236.0, 1071.0, 187.0, 477.0, 361.0, 497.0, 99.0, 831.0, 278.0, 374.0, 46.0, 405.0, 381.0, 56.0, 367.0, 139.0, 584.0, 1043.0, 457.0, 695.0, 40.0, 277.0, 378.0, 144.0, 167.0, 197.0, 119.0, 262.0, 563.0, 266.0, 1267.0, 288.0, 322.0, 419.0, 595.0, 294.0, 333.0, 194.0, 174.0, 176.0, 1323.0, 38.0, 175.0, 274.0, 134.0, 622.0, 257.0, 413.0, 1226.0, 141.0, 415.0, 84.0, 253.0, 213.0, 343.0, 295.0, 443.0, 329.0, 714.0, 478.0, 61.0, 166.0, 955.0, 436.0, 94.0, 542.0, 321.0, 70.0, 447.0, 149.0, 161.0, 325.0, 231.0, 65.0, 451.0, 36.0, 83.0, 154.0, 539.0], "yaxis": "y"}, {"hoverlabel": {"namelength": 0}, "hovertemplate": "<b>OLS trendline</b><br>NETWORKSIZE = 133.121422 * sEXT + -30.239697<br>R<sup>2</sup>=0.131145<br><br>sEXT=%{x}<br>NETWORKSIZE=%{y} <b>(trend)</b>", "legendgroup": "", "line": {"color": "red"}, "marker": {"color": "#636efa", "symbol": "circle"}, "mode": "lines", "name": "", "showlegend": false, "type": "scatter", "x": [1.33, 1.35, 1.4, 1.5, 1.55, 1.6, 1.7, 1.75, 1.75, 1.75, 1.75, 1.8, 1.8, 1.8, 1.85, 1.9, 1.9, 1.95, 1.95, 2.0, 2.0, 2.05, 2.05, 2.1, 2.1, 2.15, 2.15, 2.15, 2.2, 2.25, 2.25, 2.25, 2.25, 2.3, 2.35, 2.35, 2.35, 2.35, 2.38, 2.4, 2.4, 2.4, 2.45, 2.45, 2.45, 2.45, 2.45, 2.45, 2.5, 2.5, 2.5, 2.5, 2.55, 2.55, 2.55, 2.6, 2.6, 2.6, 2.63, 2.65, 2.65, 2.65, 2.65, 2.7, 2.7, 2.7, 2.7, 2.71, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.75, 2.8, 2.8, 2.8, 2.85, 2.85, 2.85, 2.9, 2.9, 2.9, 2.9, 2.9, 2.9, 2.95, 2.95, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.05, 3.05, 3.1, 3.13, 3.15, 3.15, 3.17, 3.2, 3.2, 3.2, 3.2, 3.25, 3.25, 3.25, 3.25, 3.25, 3.25, 3.25, 3.25, 3.25, 3.25, 3.25, 3.3, 3.3, 3.3, 3.3, 3.3, 3.35, 3.35, 3.35, 3.35, 3.4, 3.4, 3.4, 3.4, 3.4, 3.4, 3.4, 3.4, 3.45, 3.45, 3.45, 3.45, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.5, 3.55, 3.55, 3.55, 3.6, 3.6, 3.6, 3.6, 3.6, 3.65, 3.65, 3.65, 3.65, 3.65, 3.68, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.7, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, 3.75, 3.8, 3.8, 3.84, 3.84, 3.9, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.0, 4.05, 4.05, 4.05, 4.05, 4.1, 4.13, 4.15, 4.15, 4.15, 4.2, 4.2, 4.2, 4.25, 4.25, 4.25, 4.25, 4.25, 4.25, 4.3, 4.3, 4.33, 4.33, 4.35, 4.35, 4.38, 4.45, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.5, 4.55, 4.55, 4.6, 4.6, 4.6, 4.65, 4.65, 4.7, 4.75, 4.75, 4.75, 4.75, 4.75, 4.75, 4.75, 4.95, 5.0, 5.0], "xaxis": "x", "y": [146.81179487362337, 149.47422331965498, 156.13029443473397, 169.442436664892, 176.09850777997102, 182.75457889505003, 196.06672112520803, 202.72279224028705, 202.72279224028705, 202.72279224028705, 202.72279224028705, 209.37886335536606, 209.37886335536606, 209.37886335536606, 216.03493447044508, 222.69100558552407, 222.69100558552407, 229.34707670060305, 229.34707670060305, 236.0031478156821, 236.0031478156821, 242.65921893076109, 242.65921893076109, 249.31529004584013, 249.31529004584013, 255.97136116091912, 255.97136116091912, 255.97136116091912, 262.62743227599816, 269.28350339107715, 269.28350339107715, 269.28350339107715, 269.28350339107715, 275.93957450615613, 282.5956456212352, 282.5956456212352, 282.5956456212352, 282.5956456212352, 286.5892882902826, 289.25171673631417, 289.25171673631417, 289.25171673631417, 295.9077878513932, 295.9077878513932, 295.9077878513932, 295.9077878513932, 295.9077878513932, 295.9077878513932, 302.5638589664722, 302.5638589664722, 302.5638589664722, 302.5638589664722, 309.2199300815512, 309.2199300815512, 309.2199300815512, 315.8760011966302, 315.8760011966302, 315.8760011966302, 319.86964386567763, 322.5320723117092, 322.5320723117092, 322.5320723117092, 322.5320723117092, 329.18814342678826, 329.18814342678826, 329.18814342678826, 329.18814342678826, 330.519357649804, 335.84421454186725, 335.84421454186725, 335.84421454186725, 335.84421454186725, 335.84421454186725, 335.84421454186725, 335.84421454186725, 335.84421454186725, 335.84421454186725, 342.50028565694623, 342.50028565694623, 342.50028565694623, 349.1563567720253, 349.1563567720253, 349.1563567720253, 355.81242788710426, 355.81242788710426, 355.81242788710426, 355.81242788710426, 355.81242788710426, 355.81242788710426, 362.4684990021833, 362.4684990021833, 369.1245701172623, 369.1245701172623, 369.1245701172623, 369.1245701172623, 369.1245701172623, 369.1245701172623, 369.1245701172623, 369.1245701172623, 369.1245701172623, 375.7806412323413, 375.7806412323413, 382.4367123474203, 386.43035501646773, 389.0927834624993, 389.0927834624993, 391.7552119085309, 395.74885457757836, 395.74885457757836, 395.74885457757836, 395.74885457757836, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 402.40492569265734, 409.06099680773633, 409.06099680773633, 409.06099680773633, 409.06099680773633, 409.06099680773633, 415.7170679228154, 415.7170679228154, 415.7170679228154, 415.7170679228154, 422.37313903789436, 422.37313903789436, 422.37313903789436, 422.37313903789436, 422.37313903789436, 422.37313903789436, 422.37313903789436, 422.37313903789436, 429.0292101529734, 429.0292101529734, 429.0292101529734, 429.0292101529734, 435.6852812680524, 435.6852812680524, 435.6852812680524, 435.6852812680524, 435.6852812680524, 435.6852812680524, 435.6852812680524, 435.6852812680524, 442.3413523831314, 442.3413523831314, 442.3413523831314, 448.9974234982104, 448.9974234982104, 448.9974234982104, 448.9974234982104, 448.9974234982104, 455.6534946132894, 455.6534946132894, 455.6534946132894, 455.6534946132894, 455.6534946132894, 459.64713728233687, 462.30956572836845, 462.30956572836845, 462.30956572836845, 462.30956572836845, 462.30956572836845, 462.30956572836845, 462.30956572836845, 468.96563684344744, 468.96563684344744, 468.96563684344744, 468.96563684344744, 468.96563684344744, 468.96563684344744, 468.96563684344744, 475.62170795852643, 475.62170795852643, 480.94656485058965, 480.94656485058965, 488.9338501886844, 502.2459924188425, 502.2459924188425, 502.2459924188425, 502.2459924188425, 502.2459924188425, 502.2459924188425, 502.2459924188425, 502.2459924188425, 502.2459924188425, 508.9020635339214, 508.9020635339214, 508.9020635339214, 508.9020635339214, 515.5581346490004, 519.5517773180478, 522.2142057640796, 522.2142057640796, 522.2142057640796, 528.8702768791585, 528.8702768791585, 528.8702768791585, 535.5263479942375, 535.5263479942375, 535.5263479942375, 535.5263479942375, 535.5263479942375, 535.5263479942375, 542.1824191093165, 542.1824191093165, 546.1760617783639, 546.1760617783639, 548.8384902243954, 548.8384902243954, 552.8321328934429, 562.1506324545536, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 568.8067035696325, 575.4627746847115, 575.4627746847115, 582.1188457997905, 582.1188457997905, 582.1188457997905, 588.7749169148697, 588.7749169148697, 595.4309880299486, 602.0870591450275, 602.0870591450275, 602.0870591450275, 602.0870591450275, 602.0870591450275, 602.0870591450275, 602.0870591450275, 628.7113436053437, 635.3674147204226, 635.3674147204226], "yaxis": "y"}],
+                        {"legend": {"tracegroupgap": 0}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Extroversi\u00f3n"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "sEXT"}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "title": {"text": "NETWORKSIZE"}}},
+                        {"responsive": true}
+                    ).then(function(){
+
+var gd = document.getElementById('0a339138-74bb-43fa-8599-c465e10fbf15');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })
+                };
+
+            </script>
+        </div>
+</body>
+</html></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mascara booleana</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">700</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#AUTHID</th>
+      <th>STATUS</th>
+      <th>sEXT</th>
+      <th>sNEU</th>
+      <th>sAGR</th>
+      <th>sCON</th>
+      <th>sOPN</th>
+      <th>cEXT</th>
+      <th>cNEU</th>
+      <th>cAGR</th>
+      <th>cCON</th>
+      <th>cOPN</th>
+      <th>DATE</th>
+      <th>NETWORKSIZE</th>
+      <th>BETWEENNESS</th>
+      <th>NBETWEENNESS</th>
+      <th>DENSITY</th>
+      <th>BROKERAGE</th>
+      <th>NBROKERAGE</th>
+      <th>TRANSITIVITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>171</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>is stuck on Band-Aid brand, cuz Band-Aid's stu...</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.6</td>
+      <td>3.30</td>
+      <td>4.1</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>06/28/09 05:03 AM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.5</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>Just going to grab some raw fish................</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.6</td>
+      <td>3.30</td>
+      <td>4.1</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>06/14/09 08:33 PM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.5</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>saw HP6... funny, lots of awesome awkward sile...</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.6</td>
+      <td>3.30</td>
+      <td>4.1</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>07/15/09 07:04 AM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.5</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>Need to re-learn my patterns again... awesome...</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.6</td>
+      <td>3.30</td>
+      <td>4.1</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>07/09/09 12:13 AM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.5</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>FREE SLURPEE DAY!!!</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.6</td>
+      <td>3.30</td>
+      <td>4.1</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>07/11/09 03:18 PM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.5</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9867</th>
+      <td>b4de950df13c0765018013237c6a1b3d</td>
+      <td>is sorry if she did not reply to text messages...</td>
+      <td>4.25</td>
+      <td>1.75</td>
+      <td>5.0</td>
+      <td>4.25</td>
+      <td>3.5</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>11/07/09 06:35 AM</td>
+      <td>955.0</td>
+      <td>441841.0</td>
+      <td>97.20</td>
+      <td>0.01</td>
+      <td>450439.0</td>
+      <td>0.5</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>9868</th>
+      <td>b4de950df13c0765018013237c6a1b3d</td>
+      <td>is back in the US.</td>
+      <td>4.25</td>
+      <td>1.75</td>
+      <td>5.0</td>
+      <td>4.25</td>
+      <td>3.5</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>12/16/09 09:50 PM</td>
+      <td>955.0</td>
+      <td>441841.0</td>
+      <td>97.20</td>
+      <td>0.01</td>
+      <td>450439.0</td>
+      <td>0.5</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>9869</th>
+      <td>b4de950df13c0765018013237c6a1b3d</td>
+      <td>Me "Will you X me?" *PROPNAME* "No. I don't do...</td>
+      <td>4.25</td>
+      <td>1.75</td>
+      <td>5.0</td>
+      <td>4.25</td>
+      <td>3.5</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>01/02/09 04:05 PM</td>
+      <td>955.0</td>
+      <td>441841.0</td>
+      <td>97.20</td>
+      <td>0.01</td>
+      <td>450439.0</td>
+      <td>0.5</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>9870</th>
+      <td>b4de950df13c0765018013237c6a1b3d</td>
+      <td>thinks she should throw more clothes away so s...</td>
+      <td>4.25</td>
+      <td>1.75</td>
+      <td>5.0</td>
+      <td>4.25</td>
+      <td>3.5</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>01/27/10 02:45 AM</td>
+      <td>955.0</td>
+      <td>441841.0</td>
+      <td>97.20</td>
+      <td>0.01</td>
+      <td>450439.0</td>
+      <td>0.5</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <th>9871</th>
+      <td>b4de950df13c0765018013237c6a1b3d</td>
+      <td>My Indian address: 109 Blincoe Avon, Belmont A...</td>
+      <td>4.25</td>
+      <td>1.75</td>
+      <td>5.0</td>
+      <td>4.25</td>
+      <td>3.5</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>01/20/10 02:18 AM</td>
+      <td>955.0</td>
+      <td>441841.0</td>
+      <td>97.20</td>
+      <td>0.01</td>
+      <td>450439.0</td>
+      <td>0.5</td>
+      <td>0.08</td>
+    </tr>
+  </tbody>
+</table>
+<p>1976 rows × 20 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mascara_booleana</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nos devuelve una serie de la misma longitud que la original y que contiene sólo valores True o False.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">mascara_booleana</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mascara_booleana</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9917,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mascara_booleana</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;bool&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Veamos la cantidad de casos</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1976, 20)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#AUTHID</th>
+      <th>STATUS</th>
+      <th>sEXT</th>
+      <th>sNEU</th>
+      <th>sAGR</th>
+      <th>sCON</th>
+      <th>sOPN</th>
+      <th>cEXT</th>
+      <th>cNEU</th>
+      <th>cAGR</th>
+      <th>cCON</th>
+      <th>cOPN</th>
+      <th>DATE</th>
+      <th>NETWORKSIZE</th>
+      <th>BETWEENNESS</th>
+      <th>NBETWEENNESS</th>
+      <th>DENSITY</th>
+      <th>BROKERAGE</th>
+      <th>NBROKERAGE</th>
+      <th>TRANSITIVITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1262</th>
+      <td>0737e4e4980f56c9fb1cb5743001c917</td>
+      <td>Live as if you will die tomorrow.  Learn as if...</td>
+      <td>3.35</td>
+      <td>2.3</td>
+      <td>4.1</td>
+      <td>2.4</td>
+      <td>4.5</td>
+      <td>n</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>01/02/09 05:54 AM</td>
+      <td>431.0</td>
+      <td>91298.5</td>
+      <td>98.98</td>
+      <td>0.01</td>
+      <td>91701.0</td>
+      <td>0.5</td>
+      <td>0.03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="section" id="ejercicio">
+<h2>Ejercicio<a class="headerlink" href="#ejercicio" title="Permalink to this headline">¶</a></h2>
+<p>Con el mismo dataset,</p>
+<p>¿Cuántos tienen más de 500 conexiones?
+¿Cuántos dan positivo para el rasgo de Apertura (Openness)?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2928, 20)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cOPN&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.743168296863971
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cOPN&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#AUTHID</th>
+      <th>STATUS</th>
+      <th>sEXT</th>
+      <th>sNEU</th>
+      <th>sAGR</th>
+      <th>sCON</th>
+      <th>sOPN</th>
+      <th>cEXT</th>
+      <th>cNEU</th>
+      <th>cAGR</th>
+      <th>cCON</th>
+      <th>cOPN</th>
+      <th>DATE</th>
+      <th>NETWORKSIZE</th>
+      <th>BETWEENNESS</th>
+      <th>NBETWEENNESS</th>
+      <th>DENSITY</th>
+      <th>BROKERAGE</th>
+      <th>NBROKERAGE</th>
+      <th>TRANSITIVITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>171</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>is stuck on Band-Aid brand, cuz Band-Aid's stu...</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.60</td>
+      <td>3.30</td>
+      <td>4.10</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>06/28/09 05:03 AM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.50</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>Just going to grab some raw fish................</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.60</td>
+      <td>3.30</td>
+      <td>4.10</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>06/14/09 08:33 PM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.50</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>saw HP6... funny, lots of awesome awkward sile...</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.60</td>
+      <td>3.30</td>
+      <td>4.10</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>07/15/09 07:04 AM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.50</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>Need to re-learn my patterns again... awesome...</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.60</td>
+      <td>3.30</td>
+      <td>4.10</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>07/09/09 12:13 AM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.50</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>ecbddbfe00e0f83cfdb802a7186061c7</td>
+      <td>FREE SLURPEE DAY!!!</td>
+      <td>4.30</td>
+      <td>2.15</td>
+      <td>3.60</td>
+      <td>3.30</td>
+      <td>4.10</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>07/11/09 03:18 PM</td>
+      <td>739.0</td>
+      <td>267574.0</td>
+      <td>98.39</td>
+      <td>0.01</td>
+      <td>270029.0</td>
+      <td>0.50</td>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9838</th>
+      <td>e7b7f5af7d02ec06b3da2edf2053dfed</td>
+      <td>PURPLE PEOPLE EATERS!!</td>
+      <td>3.30</td>
+      <td>3.30</td>
+      <td>2.30</td>
+      <td>3.89</td>
+      <td>4.15</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>01/17/10 09:03 PM</td>
+      <td>714.0</td>
+      <td>245021.0</td>
+      <td>96.53</td>
+      <td>0.02</td>
+      <td>250442.0</td>
+      <td>0.49</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <th>9839</th>
+      <td>e7b7f5af7d02ec06b3da2edf2053dfed</td>
+      <td>You just gotta love checks and balances...</td>
+      <td>3.30</td>
+      <td>3.30</td>
+      <td>2.30</td>
+      <td>3.89</td>
+      <td>4.15</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>01/20/10 03:19 AM</td>
+      <td>714.0</td>
+      <td>245021.0</td>
+      <td>96.53</td>
+      <td>0.02</td>
+      <td>250442.0</td>
+      <td>0.49</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <th>9840</th>
+      <td>e7b7f5af7d02ec06b3da2edf2053dfed</td>
+      <td>GO VIKES!!</td>
+      <td>3.30</td>
+      <td>3.30</td>
+      <td>2.30</td>
+      <td>3.89</td>
+      <td>4.15</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>01/17/10 05:14 PM</td>
+      <td>714.0</td>
+      <td>245021.0</td>
+      <td>96.53</td>
+      <td>0.02</td>
+      <td>250442.0</td>
+      <td>0.49</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <th>9841</th>
+      <td>e7b7f5af7d02ec06b3da2edf2053dfed</td>
+      <td>TGIF Hopefully I can have some fun too...</td>
+      <td>3.30</td>
+      <td>3.30</td>
+      <td>2.30</td>
+      <td>3.89</td>
+      <td>4.15</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>01/29/10 06:33 PM</td>
+      <td>714.0</td>
+      <td>245021.0</td>
+      <td>96.53</td>
+      <td>0.02</td>
+      <td>250442.0</td>
+      <td>0.49</td>
+      <td>0.16</td>
+    </tr>
+    <tr>
+      <th>9916</th>
+      <td>a286b7286b1247d4a7851709e9f31e1e</td>
+      <td>Last night was amazing! Not only did I see *PR...</td>
+      <td>4.25</td>
+      <td>3.00</td>
+      <td>3.25</td>
+      <td>3.50</td>
+      <td>4.00</td>
+      <td>y</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>02/08/10 06:28 PM</td>
+      <td>539.0</td>
+      <td>138337.0</td>
+      <td>95.77</td>
+      <td>0.02</td>
+      <td>142460.0</td>
+      <td>0.49</td>
+      <td>0.13</td>
+    </tr>
+  </tbody>
+</table>
+<p>1997 rows × 20 columns</p>
+</div></div></div>
+</div>
+<div class="section" id="mascara-booleana-con-muchas-condiciones">
+<h3>Máscara booleana con muchas condiciones<a class="headerlink" href="#mascara-booleana-con-muchas-condiciones" title="Permalink to this headline">¶</a></h3>
+<p>Ahora tratemos de filtrar el dataset por dos condiciones. Para eso tenemos que combinar dos máscaras booleanas con una condición.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>S</p></th>
+<th class="head"><p>Descripcion</p></th>
+<th class="head"><p>S</p></th>
+<th class="head"><p>Descripcion</p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&amp;</p></td>
+<td><p>AND (y)</p></td>
+<td><p>|</p></td>
+<td><p>OR (o)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>^</p></td>
+<td><p>XOR (o exclusivo)</p></td>
+<td><p>~</p></td>
+<td><p>NOT (no)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Por ejemplo tomar los STATUS de las personas que cumplen con las dos características del punto anterior.</p>
+</div>
+</div>
+<div class="section" id="fancy-indexing">
+<h2>Fancy Indexing<a class="headerlink" href="#fancy-indexing" title="Permalink to this headline">¶</a></h2>
+<p>Ahora vamos a quedarnos con un subconjunto de columnas del DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_view</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;STATUS&#39;</span><span class="p">,</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_view</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9917, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Existe una forma menos explícita de hacer esta misma operación. Si pasamos una lista al indexing, pandas asume que el tipo de indexing es loc y que el filtro es sobre las columnas y no las filas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_view</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;STATUS&#39;</span><span class="p">,</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_view</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, 20)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29724.9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>429.3771200968035
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>428.76038150197854
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4258132.9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ejercicio:</p>
+<p>Calcular el total para quienes dan positivo en Extroversión y quienes no.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_chico</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cEXT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
+
+<span class="n">df_chico</span><span class="p">[</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2081929.9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_chico</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cEXT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span><span class="p">]</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cEXT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span><span class="p">][</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">])</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">kdeplot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cEXT&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1500</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/mypersonality_41_0.png" src="../_images/mypersonality_41_0.png" />
+</div>
+</div>
+<p>¿Podemos concluir que los grupos son diferentes?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sEXT</th>
+      <th>sNEU</th>
+      <th>sAGR</th>
+      <th>sCON</th>
+      <th>sOPN</th>
+      <th>NETWORKSIZE</th>
+      <th>BETWEENNESS</th>
+      <th>NBETWEENNESS</th>
+      <th>DENSITY</th>
+      <th>BROKERAGE</th>
+      <th>NBROKERAGE</th>
+      <th>TRANSITIVITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>9917.000000</td>
+      <td>9917.000000</td>
+      <td>9917.000000</td>
+      <td>9917.000000</td>
+      <td>9917.000000</td>
+      <td>9917.000000</td>
+      <td>9.917000e+03</td>
+      <td>9917.000000</td>
+      <td>9917.000000</td>
+      <td>9.917000e+03</td>
+      <td>9917.000000</td>
+      <td>9916.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>3.354760</td>
+      <td>2.609453</td>
+      <td>3.616643</td>
+      <td>3.474201</td>
+      <td>4.130386</td>
+      <td>429.377120</td>
+      <td>1.354253e+05</td>
+      <td>94.665170</td>
+      <td>3.154012</td>
+      <td>1.376425e+05</td>
+      <td>0.489920</td>
+      <td>0.128821</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.857578</td>
+      <td>0.760248</td>
+      <td>0.682485</td>
+      <td>0.737215</td>
+      <td>0.585672</td>
+      <td>428.760382</td>
+      <td>1.994338e+05</td>
+      <td>5.506696</td>
+      <td>311.073343</td>
+      <td>2.013921e+05</td>
+      <td>0.011908</td>
+      <td>0.106063</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.330000</td>
+      <td>1.250000</td>
+      <td>1.650000</td>
+      <td>1.450000</td>
+      <td>2.250000</td>
+      <td>24.000000</td>
+      <td>9.325000e+01</td>
+      <td>0.040000</td>
+      <td>0.000000</td>
+      <td>4.900000e-01</td>
+      <td>0.180000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.710000</td>
+      <td>2.000000</td>
+      <td>3.140000</td>
+      <td>3.000000</td>
+      <td>3.750000</td>
+      <td>196.000000</td>
+      <td>1.690220e+04</td>
+      <td>93.770000</td>
+      <td>0.010000</td>
+      <td>1.798200e+04</td>
+      <td>0.490000</td>
+      <td>0.060000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.400000</td>
+      <td>2.600000</td>
+      <td>3.650000</td>
+      <td>3.400000</td>
+      <td>4.250000</td>
+      <td>317.000000</td>
+      <td>4.716690e+04</td>
+      <td>96.440000</td>
+      <td>0.020000</td>
+      <td>4.868300e+04</td>
+      <td>0.490000</td>
+      <td>0.090000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>4.000000</td>
+      <td>3.050000</td>
+      <td>4.150000</td>
+      <td>4.000000</td>
+      <td>4.550000</td>
+      <td>633.000000</td>
+      <td>1.966060e+05</td>
+      <td>97.880000</td>
+      <td>0.030000</td>
+      <td>1.981860e+05</td>
+      <td>0.500000</td>
+      <td>0.170000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.000000</td>
+      <td>4.750000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>29724.900000</td>
+      <td>1.251780e+06</td>
+      <td>99.820000</td>
+      <td>30978.000000</td>
+      <td>1.263790e+06</td>
+      <td>0.500000</td>
+      <td>0.630000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;cOPN&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y    7370
+n    2547
+Name: cOPN, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Recordemos cómo abrir la documentación de un método</span>
+df.sort_values<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos el máximo</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#AUTHID</th>
+      <th>STATUS</th>
+      <th>sEXT</th>
+      <th>sNEU</th>
+      <th>sAGR</th>
+      <th>sCON</th>
+      <th>sOPN</th>
+      <th>cEXT</th>
+      <th>cNEU</th>
+      <th>cAGR</th>
+      <th>cCON</th>
+      <th>cOPN</th>
+      <th>DATE</th>
+      <th>NETWORKSIZE</th>
+      <th>BETWEENNESS</th>
+      <th>NBETWEENNESS</th>
+      <th>DENSITY</th>
+      <th>BROKERAGE</th>
+      <th>NBROKERAGE</th>
+      <th>TRANSITIVITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6399</th>
+      <td>b576dc0449e75306c30456902ce0c80b</td>
+      <td>To those with interest in international politi...</td>
+      <td>3.84</td>
+      <td>2.6</td>
+      <td>3.75</td>
+      <td>4.0</td>
+      <td>4.15</td>
+      <td>y</td>
+      <td>n</td>
+      <td>y</td>
+      <td>y</td>
+      <td>y</td>
+      <td>254</td>
+      <td>29724.9</td>
+      <td>93.25</td>
+      <td>0.04</td>
+      <td>30978.0</td>
+      <td>0.49</td>
+      <td>0.18</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculamos el mínimo</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;NETWORKSIZE&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>#AUTHID</th>
+      <th>STATUS</th>
+      <th>sEXT</th>
+      <th>sNEU</th>
+      <th>sAGR</th>
+      <th>sCON</th>
+      <th>sOPN</th>
+      <th>cEXT</th>
+      <th>cNEU</th>
+      <th>cAGR</th>
+      <th>cCON</th>
+      <th>cOPN</th>
+      <th>DATE</th>
+      <th>NETWORKSIZE</th>
+      <th>BETWEENNESS</th>
+      <th>NBETWEENNESS</th>
+      <th>DENSITY</th>
+      <th>BROKERAGE</th>
+      <th>NBROKERAGE</th>
+      <th>TRANSITIVITY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8232</th>
+      <td>b05f34be807a91ce0325cda601bc5856</td>
+      <td>I'm flu free. Anyone wanna do something, cause...</td>
+      <td>2.9</td>
+      <td>3.35</td>
+      <td>2.8</td>
+      <td>3.0</td>
+      <td>3.95</td>
+      <td>n</td>
+      <td>y</td>
+      <td>n</td>
+      <td>n</td>
+      <td>y</td>
+      <td>10/04/09 05:41 PM</td>
+      <td>24.0</td>
+      <td>225.0</td>
+      <td>88.93</td>
+      <td>0.13</td>
+      <td>241.0</td>
+      <td>0.48</td>
+      <td>0.12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./NeuroIA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="holland_viz.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Corrección y Análisis en Orientación Vocacional</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="intro_a_ml.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introducción a Machine Learning</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

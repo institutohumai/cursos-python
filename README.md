@@ -1,6 +1,6 @@
-# Fuente para el libro "Inteligencia Artificial Aplicada en Castellano"
+# Ciencia de Datos y Aprendizaje Automático
 
-Es nuestro placer compartirles este trabajo hecho con amor y esfuerzo, en una misión social por compartir y fomentar criteriosamente la Inteligencia Artificial en Latinoamérica.
+[Sitio Web del repositorio](https://institutohumai.github.io/cursos-python/intro.html)
 
 ## Introducción
 

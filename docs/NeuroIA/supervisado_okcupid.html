@@ -1,0 +1,2969 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machine Learning sobre OkC &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Álgebra" href="../MatematicasParaML/README.html" />
+    <link rel="prev" title="Introducción a Sci-kit Learn" href="sklearn_titanic.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/README.html">
+   Álgebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones2.html">
+   ¿Qué es una función?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/7_Probabilidad/Probabilidad%20p18.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/NeuroIA/supervisado_okcupid.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FNeuroIA/supervisado_okcupid.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-ml">
+   Tipos de ML
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparacion">
+     Preparación
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imputacion-de-nulos">
+     Imputación de nulos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aprendizaje-supervisado">
+     Aprendizaje Supervisado
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#regresion-lineal">
+       Regresión Lineal
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#clasificacion">
+       Clasificación
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matriz-de-confusion">
+       Matriz de confusión
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn">
+     KNN
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arbol-de-decision">
+     Árbol de decisión
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generalizacion-y-sobreajuste">
+     Generalización y sobreajuste
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Machine Learning sobre OkC</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tipos-de-ml">
+   Tipos de ML
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#preparacion">
+     Preparación
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imputacion-de-nulos">
+     Imputación de nulos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aprendizaje-supervisado">
+     Aprendizaje Supervisado
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#regresion-lineal">
+       Regresión Lineal
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#clasificacion">
+       Clasificación
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matriz-de-confusion">
+       Matriz de confusión
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#knn">
+     KNN
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arbol-de-decision">
+     Árbol de decisión
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#generalizacion-y-sobreajuste">
+     Generalización y sobreajuste
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="machine-learning-sobre-okc">
+<h1>Machine Learning sobre OkC<a class="headerlink" href="#machine-learning-sobre-okc" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@markdown ## Machine Learning IV</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_moons</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">sctr</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+                 <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Set1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/supervisado_okcupid_1_0.png" src="../_images/supervisado_okcupid_1_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Repaso</p></li>
+<li><p>Dataset OkCupid</p></li>
+<li><p>Preparación de los datos:</p>
+<ul>
+<li><p>Imputación de nulos</p></li>
+<li><p>Feature Selection</p></li>
+<li><p>Feature Engineering</p></li>
+</ul>
+</li>
+<li><p>Aprendizaje Supervizado</p>
+<ul>
+<li><p>Generalizacion y overfitting
+train, test split
+validation curve</p></li>
+<li><p>Regresión Lineal</p></li>
+<li><p>KNN</p></li>
+<li><p>Árbol de decisión</p></li>
+<li><p>Ensambles de Árboles</p></li>
+<li><p>Regresión Logística</p></li>
+</ul>
+</li>
+<li><p>Complejidad vs Interpretabilidad</p></li>
+<li><p>Aprendizaje No supervisado</p>
+<ul>
+<li><p>Clustering, <em>KMeans</em></p></li>
+<li><p>PCA</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Datos scrapeados y provistos por Mathias Gatti :D </span>
+<span class="o">!</span>wget -nc https://unket.s3-sa-east-1.amazonaws.com/data/ok_cupid_data.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ok_cupid_data.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(39350, 3323)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>How does the idea of being slapped hard in the face during sex make you feel?</th>
+      <th>Divide your age by 2.  Have you had sex with at least that many people?</th>
+      <th>Would you date someone just for the sex?</th>
+      <th>Do you read erotic fiction?</th>
+      <th>Is it wrong to watch pornographic films if you're in a relationship?</th>
+      <th>Would you watch a porno movie with your ideal match?</th>
+      <th>Have you ever owned sex toys?</th>
+      <th>Which is a bigger deal for you?</th>
+      <th>Would you dump someone simply because they weren't good at sex?</th>
+      <th>Would you rather…</th>
+      <th>Group sex (with 3 or more people)?:</th>
+      <th>Do you like kissing in public?</th>
+      <th>Regardless of future plans, what's more interesting to you right now?</th>
+      <th>How old were you when you lost your virginity?</th>
+      <th>Would you ever take your family to a nude beach?</th>
+      <th>How important is religion/God in your life?</th>
+      <th>Do you believe in some kind of a spiritual, cosmic force outside the realm of most modern religion?</th>
+      <th>Some religions are more correct than others.</th>
+      <th>Do you believe in ghosts?</th>
+      <th>Would you prefer good things happened, or interesting things?</th>
+      <th>Which would you rather be?</th>
+      <th>Which word describes you better?</th>
+      <th>Have you ever seen a therapist?</th>
+      <th>Do you think really abstract art—like just splattered paint—can be truly brilliant?</th>
+      <th>When something upsets you, what do you become more of?</th>
+      <th>When telling stories, do you like to exaggerate?</th>
+      <th>Which, on you, is closest to perfection?</th>
+      <th>Does the idea of flipping a coin to make important life decisions appeal to you?</th>
+      <th>Do you like to argue?</th>
+      <th>Have you ever cried during a movie?</th>
+      <th>Which describes you better?</th>
+      <th>Are you a better conversationalist or listener?</th>
+      <th>When in charge of others, how do you tend to be?</th>
+      <th>Which word describes you better?.1</th>
+      <th>Which is more important in a healthy relationship?</th>
+      <th>Do you have a problem with racist jokes?</th>
+      <th>Are you a highly skilled writer?</th>
+      <th>Are you more of a fast or careful talker?</th>
+      <th>Would you rather live in the big city or a small town?</th>
+      <th>Do you spend more money on clothes or food?</th>
+      <th>...</th>
+      <th>When sharing a bed, do you share a duvet?</th>
+      <th>What’s the most important part of Diwali to you?</th>
+      <th>Do you create your own recipes or follow recipes?</th>
+      <th>Do you watch morning gossip shows?</th>
+      <th>Rajnikant or Chiranjeevi?</th>
+      <th>Should characters be allowed to kiss on shows?</th>
+      <th>Do you know anyone who has married someone they met on a dating app?</th>
+      <th>Do you like true crime shows, podcasts, books, etc.?</th>
+      <th>Are you on Eksi Sozluk?</th>
+      <th>Do you like Papa Francesco?</th>
+      <th>Is mental health as important as physical health?</th>
+      <th>Do you have more than one job?</th>
+      <th>Should women be responsible for running the household and raising children?</th>
+      <th>In Vietnam what is the best measure of success?</th>
+      <th>Do you volunteer?</th>
+      <th>Are you in favor of the legalization of recreational cannabis?</th>
+      <th>What is your comfort food?</th>
+      <th>Should there be public transportation on Shabbat?</th>
+      <th>Is champagne only for special occasions?</th>
+      <th>Would you go on a virtual double date with a friend?</th>
+      <th>Youth movements are...</th>
+      <th>Do you find it attractive when a match advocates for social and political issues on social media?</th>
+      <th>How important are horoscopes to you when it comes to marriage?</th>
+      <th>Meyhane or bar?</th>
+      <th>Do you like to go Dutch on dates?</th>
+      <th>Did you ever bunk school as a kid?</th>
+      <th>Would you date someone who doesn’t support their local hockey team during the playoffs?</th>
+      <th>If you’re dating someone, would you tell your parents about them?</th>
+      <th>Which Netflix show is better?</th>
+      <th>Would you rather eat Pizza or Churrasco?</th>
+      <th>Where would you rather go on a summer holiday?</th>
+      <th>Do you like going to Oktoberfest?</th>
+      <th>What do you prefer to drink on a night out?</th>
+      <th>Ranbir or Ranveer?</th>
+      <th>When you are fasting do you dislike it when someone nearby is eating or drinking?</th>
+      <th>title</th>
+      <th>rawContent</th>
+      <th>__typename</th>
+      <th>location</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1965</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>A perfect day</td>
+      <td>Brunch on a patio somewhere, afternoon with dr...</td>
+      <td>Essay</td>
+      <td>Toronto, Canada</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>34494</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>The best movie of all time, in my opinion</td>
+      <td>I love too many but my favorite genres are\n\n...</td>
+      <td>Essay</td>
+      <td>Fullerton, United States</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <th>25585</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>My self-summary</td>
+      <td>Uh hey. My friends keep making me sign up for ...</td>
+      <td>Essay</td>
+      <td>Bay Shore, United States</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>16351</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>On a typical Friday night I am</td>
+      <td>Wasting away at uni to finally finish my stupi...</td>
+      <td>Essay</td>
+      <td>The Hague, Netherlands</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>21975</th>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Star Trek vs Star Wars: my thoughts</td>
+      <td>Don’t be a bad padawan</td>
+      <td>Essay</td>
+      <td>Volta Redonda, Brazil</td>
+      <td>34</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 3323 columns</p>
+</div></div></div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="tipos-de-ml">
+<h1>Tipos de ML<a class="headerlink" href="#tipos-de-ml" title="Permalink to this headline">¶</a></h1>
+<center><img src=https://github.com/institutohumai/cursos-python/raw/ml0/MachineLearning/media/tipos_modelos.png width=500></center><p>Ejemplos Supervisados:</p>
+<p>Clasificación:</p>
+<ul class="simple">
+<li><p>la persona va o no a terapia?</p></li>
+<li><p>de qué país es?</p></li>
+</ul>
+<p>Regresión:</p>
+<ul class="simple">
+<li><p>cuántos años tiene la persona? (dadas las preguntas)</p></li>
+</ul>
+<p>Todo este repertorio de estimadores va a usar la misma inferfaz, o API, que se ve algo así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.familia_de_modelos</span> <span class="kn">import</span> <span class="n">Modelo</span>
+<span class="n">mi_modelo</span> <span class="o">=</span> <span class="n">Modelo</span><span class="p">(</span><span class="n">hiperparámetros</span><span class="p">)</span>
+<span class="n">mi_modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">predicción</span> <span class="o">=</span> <span class="n">mi_modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">nuevo_X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para ajustar nuestros modelos de machine learning, la función de sklearn toma una matriz de features <strong>X</strong> y un vector <strong>y</strong> (en el caso de ML supervisado), donde <strong>X</strong> tiene la forma <code class="docutils literal notranslate"><span class="pre">(n_observaciones,</span> <span class="pre">n_variables)</span></code> e <strong>y</strong> <code class="docutils literal notranslate"><span class="pre">(n_observaciones)</span></code></p>
+<p>El pipeline suele ser:</p>
+<ul class="simple">
+<li><p>Selección de una clase de modelo, importandolo como corresponda de Scikit-learn</p></li>
+<li><p>Selección de los hiperparámetros del modelo, instanciando esa clase con los valores deseados</p></li>
+<li><p>Ordenamiento de los datos en una matriz de features y un vector <em>target</em>. Esto incluye carga de los datos, ordenarlos y concatenarlos, descartar y/o llenar nulos, crear nuevas variables o normalizar.</p></li>
+<li><p><em>Fitteo</em> del modelo a los datos, usando el método fit() de la instancia del modelo.</p></li>
+</ul>
+<p>Aplicación del modelo a nuevos datos:</p>
+<ul class="simple">
+<li><p>Para supervisado, predecimos categorias usando predict()</p></li>
+<li><p>Para no supervisado, usamos transform() o predict() dependiendo del caso</p></li>
+</ul>
+<div class="section" id="preparacion">
+<h2>Preparación<a class="headerlink" href="#preparacion" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Matriz de Features</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+
+<span class="c1"># Draw features matrix</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">font_prop</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;monospace&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Matriz de Features ($X$)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;n_features $\longrightarrow$&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font_prop</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\longleftarrow$ n_observaciones&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font_prop</span><span class="p">)</span>
+
+<span class="c1"># Draw labels vector</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Vector Target ($y$)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">7.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\longleftarrow$ n_observaciones&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+        <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">font_prop</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/supervisado_okcupid_12_0.png" src="../_images/supervisado_okcupid_12_0.png" />
+</div>
+</div>
+<p>Definimos nuestra variable objetivo y cuáles son nuestras features o variables explicativas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">no_preguntas</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="s1">&#39;rawContent&#39;</span><span class="p">,</span><span class="s1">&#39;__typename&#39;</span><span class="p">,</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">col_regresion</span> <span class="o">=</span> <span class="s1">&#39;age&#39;</span>
+<span class="n">y_r</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_regresion</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">preguntas</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>How does the idea of being slapped hard in the face during sex make you feel?        27049
+Divide your age by 2.  Have you had sex with at least that many people?              28387
+Would you date someone just for the sex?                                             15630
+Do you read erotic fiction?                                                          33071
+Is it wrong to watch pornographic films if you&#39;re in a relationship?                 31557
+                                                                                     ...  
+Where would you rather go on a summer holiday?                                       39024
+Do you like going to Oktoberfest?                                                    38193
+What do you prefer to drink on a night out?                                          39322
+Ranbir or Ranveer?                                                                   39212
+When you are fasting do you dislike it when someone nearby is eating or drinking?    39346
+Length: 3318, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputacion-de-nulos">
+<h2>Imputación de nulos<a class="headerlink" href="#imputacion-de-nulos" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preguntas</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">no_preguntas</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">preguntas</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>How does the idea of being slapped hard in the face during sex make you feel?        27049
+Divide your age by 2.  Have you had sex with at least that many people?              28387
+Would you date someone just for the sex?                                             15630
+Do you read erotic fiction?                                                          33071
+Is it wrong to watch pornographic films if you&#39;re in a relationship?                 31557
+                                                                                     ...  
+Where would you rather go on a summer holiday?                                       39024
+Do you like going to Oktoberfest?                                                    38193
+What do you prefer to drink on a night out?                                          39322
+Ranbir or Ranveer?                                                                   39212
+When you are fasting do you dislike it when someone nearby is eating or drinking?    39346
+Length: 3318, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># numero de respuestas por pregunta</span>
+<span class="n">n_respuestas_por_pregunta</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">preguntas</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+
+<span class="c1"># descartamos la parte con menos respuestas</span>
+<span class="n">cuantil_umbral</span> <span class="o">=</span> <span class="mf">0.95</span>  <span class="c1"># pensar, cuál es el tradeoff aca?</span>
+<span class="n">descartar</span> <span class="o">=</span> <span class="n">n_respuestas_por_pregunta</span><span class="p">[(</span><span class="n">n_respuestas_por_pregunta</span> <span class="o">&lt;</span> <span class="n">n_respuestas_por_pregunta</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">cuantil_umbral</span><span class="p">))]</span><span class="o">.</span><span class="n">index</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">descartar</span><span class="p">]]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(39350, 171)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Would you date someone just for the sex?</th>
+      <th>Would you rather…</th>
+      <th>Group sex (with 3 or more people)?:</th>
+      <th>Regardless of future plans, what's more interesting to you right now?</th>
+      <th>How important is religion/God in your life?</th>
+      <th>Which would you rather be?</th>
+      <th>Which word describes you better?</th>
+      <th>Do you like to argue?</th>
+      <th>Are you a morning person?</th>
+      <th>How frequently do you drink alcohol?</th>
+      <th>What's your relationship with marijuana?</th>
+      <th>What's your deal with harder drugs (stuff beyond pot)?</th>
+      <th>How much do you go "clubbing" (out dancing in bars)?</th>
+      <th>Have you ever been married?</th>
+      <th>Do you have any tattoos?</th>
+      <th>Choose the better romantic activity:</th>
+      <th>Pick the best date on this list:</th>
+      <th>Should burning your country's flag be illegal?</th>
+      <th>Do you believe in God?</th>
+      <th>Do you like to watch sports on television?</th>
+      <th>Do you think humans have enough respect for the Earth's other species?</th>
+      <th>What's the highest level of education you've completed?</th>
+      <th>How important is money/wealth for you in a match?</th>
+      <th>If you don't do anything at all for an entire day, how does that make you feel?</th>
+      <th>Have you smoked a cigarette in the last 6 months?</th>
+      <th>Is marriage a necessity for two people who love each other?</th>
+      <th>Are you a cat person or a dog person?</th>
+      <th>How often do you use profane language?</th>
+      <th>In a serious relationship, do you feel it's important to keep your significant other informed of the details of your day-to-day life?</th>
+      <th>What is next in this series? 1, 4, 10, 19, 31, _</th>
+      <th>Is jealousy healthy in a relationship?</th>
+      <th>How would you describe your body?</th>
+      <th>Which best describes your personal feelings about sports?</th>
+      <th>On average, which best describes how often you GET WICKED DRUNK?</th>
+      <th>Are you currently employed?</th>
+      <th>Would you ever date or mess around with a good friend's ex?</th>
+      <th>Biting?</th>
+      <th>Could you date someone who does drugs?</th>
+      <th>How often should your significant other buy you gifts, jewelry, or other things more expensive than, say, dinner, cards, or flowers?</th>
+      <th>Once you're intimate, how often would you and your significant other have sex?</th>
+      <th>...</th>
+      <th>Are you looking for a partner to have children with?</th>
+      <th>When you first talk online with someone, which of the following would you prefer to talk about?</th>
+      <th>Which pubic hair style do you prefer for a partner?</th>
+      <th>Are you generally able to forgive and forget?</th>
+      <th>Are you Christian?</th>
+      <th>What's worse on a first date?</th>
+      <th>Are you either vegetarian or vegan?</th>
+      <th>Which best describes your political beliefs?</th>
+      <th>How often do you use social media?</th>
+      <th>How often do you give Facebook updates?</th>
+      <th>How often do you masturbate?</th>
+      <th>How often do you wear cologne or perfume?</th>
+      <th>Who are you most likely to reveal a dark, provocative secret to?</th>
+      <th>Which is scarier to reveal to a new partner?</th>
+      <th>Is it possible for your partner to reveal too much information?</th>
+      <th>Do you ever Skype/call/video chat a date you met online before meeting up in person?</th>
+      <th>Would you introduce someone you've started seeing casually to your friends?</th>
+      <th>Do you like using party drugs like MDMA/molly?</th>
+      <th>What is your preferred cuddling position?</th>
+      <th>Are you kinky?</th>
+      <th>Do you smoke?.1</th>
+      <th>Would you date someone who was in considerable debt?</th>
+      <th>Should the US build a wall between the US &amp; Mexico?</th>
+      <th>Are you open to a casual relationship (i.e. more than a hookup, less than a significant other)?</th>
+      <th>Do you believe guns should be allowed in schools?</th>
+      <th>If you see an attractive stranger (offline), do you introduce yourself?</th>
+      <th>Can you tell from someone’s dating profile whether or not you’ll get along in real life?</th>
+      <th>What's your Hogwarts house?</th>
+      <th>How would you feel if your partner earned more money than you?</th>
+      <th>How often do you go to a place of worship?</th>
+      <th>Is it important to you that your partner practices the same religion as you?</th>
+      <th>Do you answer work email on the weekend?</th>
+      <th>How often do you take selfies?</th>
+      <th>Best first date?</th>
+      <th>How will you address racial inequality?</th>
+      <th>title</th>
+      <th>rawContent</th>
+      <th>__typename</th>
+      <th>location</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>25900</th>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>I spend a lot of time thinking about</td>
+      <td>-the fact that i may be wrong\n\n-the prison i...</td>
+      <td>Essay</td>
+      <td>Tucson, United States</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <th>33872</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>I spend a lot of time thinking about</td>
+      <td>Music, psychoactives/beer, cigars, my future/p...</td>
+      <td>Essay</td>
+      <td>Manchester, United Kingdom</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>1475</th>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>What I'm actually looking for</td>
+      <td>Someone different from the rest, I need change...</td>
+      <td>Essay</td>
+      <td>La Habra, United States</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>14373</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>The most private thing I'm willing to admit</td>
+      <td>I'm v e r y sensitive\n\nlove spills out of my...</td>
+      <td>Essay</td>
+      <td>Richmond, United States</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>5458</th>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>My favorite style of tattoo art</td>
+      <td>Black and grey.</td>
+      <td>Essay</td>
+      <td>Lethbridge, Canada</td>
+      <td>21</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 171 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">y_c</span> <span class="o">=</span> <span class="n">y_c</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">y_c</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Would you date someone just for the sex?</th>
+      <th>Would you rather…</th>
+      <th>Group sex (with 3 or more people)?:</th>
+      <th>Regardless of future plans, what's more interesting to you right now?</th>
+      <th>How important is religion/God in your life?</th>
+      <th>Which would you rather be?</th>
+      <th>Which word describes you better?</th>
+      <th>Do you like to argue?</th>
+      <th>Are you a morning person?</th>
+      <th>How frequently do you drink alcohol?</th>
+      <th>What's your relationship with marijuana?</th>
+      <th>What's your deal with harder drugs (stuff beyond pot)?</th>
+      <th>How much do you go "clubbing" (out dancing in bars)?</th>
+      <th>Have you ever been married?</th>
+      <th>Do you have any tattoos?</th>
+      <th>Choose the better romantic activity:</th>
+      <th>Pick the best date on this list:</th>
+      <th>Should burning your country's flag be illegal?</th>
+      <th>Do you believe in God?</th>
+      <th>Do you like to watch sports on television?</th>
+      <th>Do you think humans have enough respect for the Earth's other species?</th>
+      <th>What's the highest level of education you've completed?</th>
+      <th>How important is money/wealth for you in a match?</th>
+      <th>If you don't do anything at all for an entire day, how does that make you feel?</th>
+      <th>Have you smoked a cigarette in the last 6 months?</th>
+      <th>Is marriage a necessity for two people who love each other?</th>
+      <th>Are you a cat person or a dog person?</th>
+      <th>How often do you use profane language?</th>
+      <th>In a serious relationship, do you feel it's important to keep your significant other informed of the details of your day-to-day life?</th>
+      <th>What is next in this series? 1, 4, 10, 19, 31, _</th>
+      <th>Is jealousy healthy in a relationship?</th>
+      <th>How would you describe your body?</th>
+      <th>Which best describes your personal feelings about sports?</th>
+      <th>On average, which best describes how often you GET WICKED DRUNK?</th>
+      <th>Are you currently employed?</th>
+      <th>Would you ever date or mess around with a good friend's ex?</th>
+      <th>Biting?</th>
+      <th>Could you date someone who does drugs?</th>
+      <th>How often should your significant other buy you gifts, jewelry, or other things more expensive than, say, dinner, cards, or flowers?</th>
+      <th>Once you're intimate, how often would you and your significant other have sex?</th>
+      <th>...</th>
+      <th>Are you looking for a partner to have children with?</th>
+      <th>When you first talk online with someone, which of the following would you prefer to talk about?</th>
+      <th>Which pubic hair style do you prefer for a partner?</th>
+      <th>Are you generally able to forgive and forget?</th>
+      <th>Are you Christian?</th>
+      <th>What's worse on a first date?</th>
+      <th>Are you either vegetarian or vegan?</th>
+      <th>Which best describes your political beliefs?</th>
+      <th>How often do you use social media?</th>
+      <th>How often do you give Facebook updates?</th>
+      <th>How often do you masturbate?</th>
+      <th>How often do you wear cologne or perfume?</th>
+      <th>Who are you most likely to reveal a dark, provocative secret to?</th>
+      <th>Which is scarier to reveal to a new partner?</th>
+      <th>Is it possible for your partner to reveal too much information?</th>
+      <th>Do you ever Skype/call/video chat a date you met online before meeting up in person?</th>
+      <th>Would you introduce someone you've started seeing casually to your friends?</th>
+      <th>Do you like using party drugs like MDMA/molly?</th>
+      <th>What is your preferred cuddling position?</th>
+      <th>Are you kinky?</th>
+      <th>Do you smoke?.1</th>
+      <th>Would you date someone who was in considerable debt?</th>
+      <th>Should the US build a wall between the US &amp; Mexico?</th>
+      <th>Are you open to a casual relationship (i.e. more than a hookup, less than a significant other)?</th>
+      <th>Do you believe guns should be allowed in schools?</th>
+      <th>If you see an attractive stranger (offline), do you introduce yourself?</th>
+      <th>Can you tell from someone’s dating profile whether or not you’ll get along in real life?</th>
+      <th>What's your Hogwarts house?</th>
+      <th>How would you feel if your partner earned more money than you?</th>
+      <th>How often do you go to a place of worship?</th>
+      <th>Is it important to you that your partner practices the same religion as you?</th>
+      <th>Do you answer work email on the weekend?</th>
+      <th>How often do you take selfies?</th>
+      <th>Best first date?</th>
+      <th>How will you address racial inequality?</th>
+      <th>title</th>
+      <th>rawContent</th>
+      <th>__typename</th>
+      <th>location</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23286</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>My thoughts on male allies</td>
+      <td>We need more of them and we need to be support...</td>
+      <td>Essay</td>
+      <td>Meanwood, United Kingdom</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>8529</th>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>The last show I binged</td>
+      <td>The office (us)\n\nLoved it!\n\nI'm not really...</td>
+      <td>Essay</td>
+      <td>Antalya, Turkey</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>26566</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>On a typical Friday night I am</td>
+      <td>Going out on the town with my friends and then...</td>
+      <td>Essay</td>
+      <td>Waterloo, Canada</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>34858</th>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>Favorite books, movies, shows, music, and food</td>
+      <td>Books: Unfortunately, I haven't been reading a...</td>
+      <td>Essay</td>
+      <td>Levittown, United States</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>8003</th>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>The first thing people notice about me</td>
+      <td>My eyelashes</td>
+      <td>Essay</td>
+      <td>Guadalajara, Mexico</td>
+      <td>27</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 171 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Dividimos los datos en un 30% por cada set</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train_r</span><span class="p">,</span> <span class="n">y_test_r</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_r</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aprendizaje-supervisado">
+<h2>Aprendizaje Supervisado<a class="headerlink" href="#aprendizaje-supervisado" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="regresion-lineal">
+<h3>Regresión Lineal<a class="headerlink" href="#regresion-lineal" title="Permalink to this headline">¶</a></h3>
+<p>En estadística, la regresión lineal o es un modelo matemático usado para aproximar la relación de dependencia entre una variable dependiente <span class="math notranslate nohighlight">\(y\)</span>, y  <span class="math notranslate nohighlight">\(X\)</span>. Este modelo puede ser expresado a grandes rasgos como:</p>
+<div class="math notranslate nohighlight">
+\[y=\beta_0+\beta_1x_1\]</div>
+<p>Importamos la clase de estimador apropiado de Scikit-Learn, en este caso el de regresión lineal:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+
+<span class="n">modelo</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">no_preguntas</span> <span class="o">+</span> <span class="p">[</span><span class="n">col_regresion</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">y_train_r</span><span class="p">)</span> <span class="c1"># se calculan los pesos optimos, de mejor ajuste</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
+</pre></div>
+</div>
+</div>
+</div>
+<p><img width='600px' src='https://dphi.tech/blog/wp-content/uploads/2020/04/example-regression-simulation.gif'></img></p>
+<p>donde:</p>
+<ul class="simple">
+<li><p><math>Y</math> es la variable dependiente o variable de respuesta.</p></li>
+<li><p><span class="math notranslate nohighlight">\(x\)</span>, es las variables explicativas, independientes o regresoras. Podemos tener cualquier número.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta_0,\beta_1\)</span> son los parámetros del modelo, miden la influencia que las variables explicativas tienen sobre la variable objetivo.</p></li>
+</ul>
+<p>el término <span class="math notranslate nohighlight">\(\beta_0\)</span> es la intersección o término “constante”, las <span class="math notranslate nohighlight">\(\beta_i \)</span> son los parámetros respectivos a cada variable independiente.</p>
+<p>Una vez entrenado el modelo, podemos intepretar el valor de los coeficientes.</p>
+<p>El caracter <span class="math notranslate nohighlight">\(\overline{y}\)</span> es el promedio y <span class="math notranslate nohighlight">\(\hat{y}\)</span> la estimación.</p>
+<p>El Error Absoluto Medio es el promedio de las diferencias absolutas entre los valores estimados y los reales:</p>
+<div class="math notranslate nohighlight">
+\[MAE = \frac{1}{n}\sum_{i=1}^{n}\left | y_{i} - \hat{y_{i}} \right |\]</div>
+<p>En lugar de usar el valor absoluto, podemos usar la diferencia al cuadrado.</p>
+<div class="math notranslate nohighlight">
+\[MSE = \frac{1}{n}\sum_{i=1}^{n}\left ( y_{i} - \hat{y_{i}} \right )^2\]</div>
+<p>El R^2 nos dice la proporción de varianza que es explicada por nuestro modelo. Es la suma de las diferencias de nuestro modelo, sobre la suma de cuadrados de la variable original (la varianza).</p>
+<div class="math notranslate nohighlight">
+\[R^2 = \sum_{i=1}^{n} \frac{( y_{i} - \hat{y_{i}}^2)}{( y_{i} - \overline{{y_{i}}}^2)}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+
+<span class="n">datos</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">modelo</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">datos</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">datos</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Positivo&#39;</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;Negativo&#39;</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">datos</span><span class="p">]</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">datos</span><span class="p">],</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">datos</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> 
+    <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> 
+    <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span>
+    <span class="n">color_discrete_sequence</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span>
+    <span class="n">labels</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Variable&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Coeficiente&#39;</span><span class="p">),</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Peso para cada variable al predecir&#39;</span><span class="p">,</span> 
+    <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><html>
+<head><meta charset="utf-8" /></head>
+<body>
+    <div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax) {MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>
+                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
+            <div id="1681497e-fafe-4196-bde9-cf6b82a7891b" class="plotly-graph-div" style="height:525px; width:100%;"></div>
+            <script type="text/javascript">
+
+                    window.PLOTLYENV=window.PLOTLYENV || {};
+
+                if (document.getElementById("1681497e-fafe-4196-bde9-cf6b82a7891b")) {
+                    Plotly.newPlot(
+                        '1681497e-fafe-4196-bde9-cf6b82a7891b',
+                        [{"alignmentgroup": "True", "hoverlabel": {"namelength": 0}, "hovertemplate": "color=Negativo<br>Variable=%{x}<br>Coeficiente=%{y}", "legendgroup": "color=Negativo", "marker": {"color": "red"}, "name": "color=Negativo", "offsetgroup": "color=Negativo", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [-2.151658333778951, -1.0391501280274242, -0.9173536112555927, -0.9146014440974986, -0.846997939516431, -0.6982606605999448, -0.6729461130567722, -0.5830684095203744, -0.5696064768377835, -0.5116233781700121, -0.49447227478079375, -0.470407590332169, -0.45897382550154525, -0.4313877867184287, -0.416275740049539, -0.40572575554726664, -0.39936831320568045, -0.3968611881167005, -0.35146096223858203, -0.35052778123381345, -0.347171895574257, -0.331569728478486, -0.31641152140881956, -0.31593346519897003, -0.31448786392798933, -0.30706819230262405, -0.30570195686241136, -0.2961892997451278, -0.29206936638434866, -0.28538668861375405, -0.2726816500087302, -0.2683735075280341, -0.26346802752290616, -0.2519218946532614, -0.25130335048508734, -0.24928518775564626, -0.2492044365978649, -0.2432416972727478, -0.2382670047506874, -0.23608735621251878, -0.22879431435645753, -0.20830999212666113, -0.2009525008743479, -0.20083581584715962, -0.19907852919433627, -0.1889143768921337, -0.17335556385930984, -0.17078564837831028, -0.17058263671470575, -0.16471253622502902, -0.16166593292177917, -0.15566376953710595, -0.15319276602126222, -0.1492370124782375, -0.14802575175901383, -0.13989369685311612, -0.13456246643142744, -0.1270421041880825, -0.12671527594876342, -0.12356284756749589, -0.1192878241864383, -0.11841361902446806, -0.11593210321997988, -0.11547542301827968, -0.1061173207105115, -0.10565540675421303, -0.10325909009556677, -0.09838084877682024, -0.09480178968995229, -0.08904284771324995, -0.08805905958117777, -0.0875316197719739, -0.0825074303502153, -0.08240484843842591, -0.08176316629427474, -0.08134775052155158, -0.07762437664006352, -0.0687951853260185, -0.0591998855110607, -0.05826452441498392, -0.05381772801024923, -0.043848268608742774, -0.036542605691414765, -0.03465085806414747, -0.03062454063446432, -0.02763761662772435, -0.02736449278904482, -0.026944192279724548, -0.026288368706940124, -0.022146854469892174, -0.016245464070387405, -0.013757915294519002, -0.013157950755923409, -0.012701210592228784, -0.009836168620632496, -0.004603931800771538, -9.566335964908412e-05], "xaxis": "x", "y": ["Have you ever been married?", "What's the highest level of education you've completed?", "What's worse on a first date?", "Are you currently employed?", "Biting?", "How important is it for you to give expensive gifts on a regular basis when in a relationship?", "If you were going to have a child, would you want the other parent to be of the same ethnicity as you?", "Consider the recent fictional movies you have watched.  Which of the following aspects do you find most disturbing?", "Rate your self-confidence:", "How much do you go \"clubbing\" (out dancing in bars)?", "Would you date someone just for the sex?", "Which would you rather be?", "When you are angry or frustrated do you ever throw, smash, kick, or hit inanimate objects?", "Would you date someone who was in considerable debt?", "Are you Christian?", "Do you litter?", "What's your deal with harder drugs (stuff beyond pot)?", "On your days off, do you like to get out and make the most of the day, or do you prefer to sleep late and relax?", "Do you believe your country would be more or less safe if every adult owned a gun?", "If you were to get married, would you want your partner to change his or her last name to yours?", "Which pubic hair style do you prefer for a partner?", "How long do you need to chat with someone before feeling comfortable meeting in person?", "You're out on the street and you encounter some people speaking a foreign language. What's your reaction?", "Group sex (with 3 or more people)?:", "Is it possible for your partner to reveal too much information?", "Is marriage a necessity for two people who love each other?", "Which of the following character flaws would you be least tolerant of in a potential partner?", "Is love overrated?", "Which body type do you prefer?", "Regardless of future plans, what's more interesting to you right now?", "How often are you open with your feelings?", "How important is money/wealth for you in a match?", "If you discovered a spider on the wall in your bedroom, which would you do?", "Pick the best date on this list:", "How often do you 'take it out' on other people when you're having a bad day?", "I prefer to sleep\u2026", "Do you feel guilty or bad after having sex?", "Which event sounds most appealing?", "Are you looking for a partner to have children with?", "If you were to die, would whoever goes through your personal belongings be shocked by what they find?", "Would you rather\u2026", "Are you a cat person or a dog person?", "How often do you meditate?", "If you see an attractive stranger (offline), do you introduce yourself?", "Are you still in love with one or more of your former partners?", "Which best describes your personal feelings about sports?", "Which would you prefer your ideal match to be more into?", "Is your ideal match well-off financially or at the very least someone who has high income potential?", "If you don't do anything at all for an entire day, how does that make you feel?", "Imagine you are having sex with a partner, who begins to give you specific instructions on how to best provide satisfaction.  Assuming there is no danger, would you follow these instructions?", "Do you ever not feel like having sex because you feel too unattractive or too unappealing?", "Imagine that your partner does not enjoy performing oral sex and refuses to ever perform it on you. How disappointed would you be?", "Is it a requirement that you communicate every day with your significant other (via phone, text, in person, whatever)?", "Underarms can be a hairy subject. How do you maintain your pits?", "How do you feel about people with past addictions?", "Would you introduce someone you've started seeing casually to your friends?", "Do you have any tattoos?", "Once you're intimate, how often would you and your significant other have sex?", "Which of these four is sexiest?", "Which of the following senses do you find sexiest?", "Could you date someone who does drugs?", "Have you smoked a cigarette in the last 6 months?", "Which of the following types of intelligence do you value most?", "It\u2019s your first date. Do you split the bill, pay the whole bill, have them pay the whole bill", "How much do you usually tip a server who did a fine job?", "Should burning your country's flag be illegal?", "Do you smoke?.1", "Does silence make you uncomfortable?", "What's your Hogwarts house?", "How do you feel about falling in love?", "How will you address racial inequality?", "What haircolor, or shade, do you prefer?", "Which is scarier to reveal to a new partner?", "Do you answer work email on the weekend?", "What's your opinion of the phrase \"making love\" when it refers to sex?", "Are you generally able to forgive and forget?", "Strip clubs?", "In a serious relationship, do you feel it's important to keep your significant other informed of the details of your day-to-day life?", "Choose the better romantic activity:", "Are you open to a casual relationship (i.e. more than a hookup, less than a significant other)?", "Have you ever tried any sexual roleplaying?", "Are you ready to settle down and get married right now?", "How would you feel if your partner earned more money than you?", "How often do you use social media?", "How do you think your sex drive compares to what is typical for other people of your age and gender?", "Can you tell from someone\u2019s dating profile whether or not you\u2019ll get along in real life?", "I talk about my previous relationships:", "Do you find arrogance to be a turn-on?", "How trusting are you where it concerns your government?", "Do you believe in God?", "If you had to name your greatest motivation in life thus far, what would it be?", "Who are you most likely to reveal a dark, provocative secret to?", "How often do you give Facebook updates?", "Do you ever feel the need to get really drunk?", "How often do you use profane language?", "How frequently do you drink alcohol?", "Do you enjoy long camping trips? (longer than 3 nights)"], "yaxis": "y"}, {"alignmentgroup": "True", "hoverlabel": {"namelength": 0}, "hovertemplate": "color=Positivo<br>Variable=%{x}<br>Coeficiente=%{y}", "legendgroup": "color=Positivo", "marker": {"color": "blue"}, "name": "color=Positivo", "offsetgroup": "color=Positivo", "orientation": "h", "showlegend": true, "textposition": "auto", "type": "bar", "x": [0.00475836589886737, 0.007374787849876996, 0.011155218737652017, 0.02701018274006206, 0.033564722604342095, 0.04131223165352954, 0.04297780977092153, 0.04360611579776014, 0.04369678396161217, 0.0550302907427212, 0.05723128628351659, 0.05738239740252016, 0.06388192954788502, 0.06436164859615305, 0.06445891805224585, 0.07007097432932614, 0.07289297154220996, 0.07613660573318556, 0.07842426312305073, 0.08416396523918684, 0.08445786531934024, 0.0865801272587427, 0.09175613357152455, 0.0945797765179262, 0.10399929787812962, 0.10502761812297404, 0.10972434033631498, 0.1145468574758406, 0.11988138521837495, 0.1198901545417148, 0.1311147912260736, 0.14441956247402765, 0.15085278446524847, 0.15596724692577432, 0.17642297113804234, 0.18512248771077133, 0.18867160176611722, 0.19307071916482726, 0.1944019775279146, 0.19832419413805774, 0.20051621216358806, 0.23551491106741257, 0.24205947935248495, 0.2527146143133261, 0.2629706126105046, 0.26316907876307616, 0.2703811448281306, 0.2717862175216796, 0.3155834604632703, 0.3176032587555455, 0.3270234524842863, 0.33100635507026294, 0.33898122167787403, 0.3440595353915484, 0.36157413804657706, 0.3729320311354532, 0.3806892823402459, 0.41803974764045143, 0.4634118219967797, 0.47725915642805705, 0.5000267679248669, 0.5084242393436953, 0.5726103553138753, 0.5918763946202032, 0.5929734683466807, 0.6312406464024982, 0.6582200338153438, 0.8136510236496551, 0.8787016999563646], "xaxis": "x", "y": ["How often do you keep your promises?", "Once you take a moral position, can anything be said or done to change your mind?", "What's your relationship with marijuana?", "When you first talk online with someone, which of the following would you prefer to talk about?", "In terms of sex, how experienced would your ideal mate be (with people other than you)?", "Do you like to watch sports on television?", "Are you kinky?", "Are you concerned with your image and the way others perceive you?", "Are you a morning person?", "Do you like to go clubbing?", "Do you carry condoms?", "Does it bother you when people are late?", "How important is religion/God in your life?", "How often should your significant other buy you gifts, jewelry, or other things more expensive than, say, dinner, cards, or flowers?", "What is next in this series? 1, 4, 10, 19, 31, _", "If your partner wanted you to say a specific phrase during sex, would you?", "Your a bitch! What bothers you more about this sentence?", "Do you leave the lights on after leaving a room when they are no longer necessary?", "Do you like using party drugs like MDMA/molly? ", "Which best describes your political beliefs?", "Do you space out or daydream a lot?", "How do you feel about kids?", "Do you prefer hardcore or softcore when it comes to your porn?", "Do you like to leave music on while you sleep?", "How are you most likely to show your partner you care?", "If you were visiting a new city, where would you be most excited to go?", "Would you ever date or mess around with a good friend's ex?", "Do you think people who have entered the country illegally should be deported?", "How often do you masturbate?", "Best first date?", "How often do you wear cologne or perfume?", "On a typical night, what time do you go to sleep?", "How does the thought of someone masturbating with you in mind make you feel?", "How often do you go to a place of worship?", "Which is the greatest compliment you could receive?", "Regardless of your actual age, do you consider yourself to be an adult?", "Do you ever Skype/call/video chat a date you met online before meeting up in person?", "How much do other people's opinions of you influence your decisions?", "Which of the following would you be most disturbed to find in a 13-year-old child's room?", "In a relationship I like to discuss politics with my partner.", "How long do your romantic relationships usually last?", "Which do you prefer in a significant other, generally speaking?", "How do you feel about age differences in relationships?", "When you have no pressing obligations, at what time do you prefer to get up in the morning?", "Are you either vegetarian or vegan?", "Your significant other is perfectly content with their minimum wage job and has no plans to look for more challenging/better paying work. Is this a problem?", "You witness your next door neighbors discreetly smoking marijuana on their own property.  How do you respond?", "Do you keep a budget of your finances?", "How would you describe your body?", "Are sex and intimacy the same thing?", "Should the US build a wall between the US & Mexico?", "What is your preferred cuddling position?", "Is it important to you that your partner practices the same religion as you?", "If you had to pick one of the following types for a significant other, which would it be?", "Is jealousy healthy in a relationship?", "A college-level education is...", "Do you like to argue?", "How often do you do things out of spite?", "On average, which best describes how often you GET WICKED DRUNK?", "Do you chew with your mouth open?", "When in a relationship, what importance do you place upon celebrating weekly or monthly anniversaries?", "Is astrological sign at all important in a match?", "How often do you take selfies?", "You\u2019re dating someone new. You discover that they have a housemate the same gender as you. This:", "Do you think humans have enough respect for the Earth's other species?", "About how long do you want your next relationship to last?", "Would you date someone who was currently in a relationship, knowing that you would \"be a secret\"?", "Which word describes you better?", "Do you believe guns should be allowed in schools?"], "yaxis": "y"}],
+                        {"barmode": "relative", "legend": {"tracegroupgap": 0}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]], "sequentialminus": [[0.0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1.0, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}, "title": {"text": "Peso para cada variable al predecir"}, "xaxis": {"anchor": "y", "domain": [0.0, 1.0], "title": {"text": "Variable"}}, "yaxis": {"anchor": "x", "domain": [0.0, 1.0], "title": {"text": "Coeficiente"}}},
+                        {"responsive": true}
+                    ).then(function(){
+
+var gd = document.getElementById('1681497e-fafe-4196-bde9-cf6b82a7891b');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })
+                };
+
+            </script>
+        </div>
+</body>
+</html></div></div>
+</div>
+</div>
+<div class="section" id="clasificacion">
+<h3>Clasificación<a class="headerlink" href="#clasificacion" title="Permalink to this headline">¶</a></h3>
+<p>Dentro el mundo del aprendizaje supervisado, los modelos de clasificación surgen para casos en los que la variable objetivo no es contínua -como teníamos en la regresión lineal- sino que es <strong>categórica</strong>. De esta manera, como su nombre lo indica, el modelo entrenado va a trabajar para predecir si un dato nuevo va a pertenecer a una u otra categoría.</p>
+</div>
+<div class="section" id="matriz-de-confusion">
+<h3>Matriz de confusión<a class="headerlink" href="#matriz-de-confusion" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importamos </span>
+<span class="c1">#@title Ejemplo: clasificador de opiniones de clases</span>
+ 
+<span class="o">!</span>wget -nv https://datasets-humai.s3.amazonaws.com/datasets/sentiment.csv 
+ 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span><span class="n">accuracy_score</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+ 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sentiment.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+ 
+<span class="c1"># separamos train y test</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.33</span><span class="p">)</span>
+ 
+<span class="c1"># Vectorizamos los textos por TF-IDF</span>
+<span class="n">vec</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">model</span><span class="p">)</span>
+ 
+<span class="n">clf</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+ 
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy:&#39;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="n">predictions</span> <span class="o">==</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_test</span><span class="p">))</span>
+<span class="n">df_cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">predictions</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="n">y_test</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="n">heatmap</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">heatmap</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor Verdadero&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor Predicho&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-06-16 20:58:39 URL:https://datasets-humai.s3.amazonaws.com/datasets/sentiment.csv [125932/125932] -&gt; &quot;sentiment.csv.1&quot; [1]
+Accuracy: 0.8561151079136691
+</pre></div>
+</div>
+<img alt="../_images/supervisado_okcupid_37_1.png" src="../_images/supervisado_okcupid_37_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_predict</span> <span class="o">=</span> <span class="s2">&quot;Fue una cagada total la clase, el profesor se tomó  una siesta y nos hizo usar machine learning para ver cuánto tiempo dormía&quot;</span> <span class="c1">#@param {type:&quot;string&quot;}</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">to_predict</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;NEGATIVE&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="knn">
+<h2>KNN<a class="headerlink" href="#knn" title="Permalink to this headline">¶</a></h2>
+<p>Un algoritmo utilizado para este modelo es el de K-vecinos más cercanos (KNN).</p>
+<p>Al entrenar el modelo, se particiona el espacio con los distintos datos de entrenamiento, los cuales serán recordados a la hora de ingresar una nueva observación. Esta recibirá una categoría a partir de la clase más frecuente a la que pertenecen sus K-vecinos más cercanos. K es un hiperparámetro que determina la cantidad de vecinos a considerar.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">no_preguntas</span> <span class="o">+</span> <span class="p">[</span><span class="n">col_clasificacion</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">),</span> <span class="n">y_train_c</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s1">&#39;median&#39;</span><span class="p">))</span>
+
+<span class="c1"># Evaluamos el modelo en el segundo set de datos</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">no_preguntas</span> <span class="o">+</span> <span class="p">[</span><span class="n">col_clasificacion</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_c</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="c1"># MM, accuracy sospechosamente alto! </span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9934652387003086
+</pre></div>
+</div>
+</div>
+</div>
+<p><img width='600px' src='https://images.squarespace-cdn.com/content/v1/5d782753c70af105c29a9b14/1580261417906-DK2TJSW9MULH2GNO948X/ke17ZwdGBToddI8pDm48kIqgLv1hI2g8FQxJXT0ujm5Zw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZUJFbgE-7XRK3dMEBRBhUpz3-DJrP9NycSy4yzphCjjmeTZVRX5WMcRJvtQZp8rG2MEhnGdQss3ZxezpLds4XfU/Screen+Shot+2020-01-28+at+8.30.01+PM.png?format=1000w'></img></p>
+<p><img width='600px' src='https://images.squarespace-cdn.com/content/v1/5d782753c70af105c29a9b14/1580261947016-XODPUVKWPGGMJJMAXSNF/ke17ZwdGBToddI8pDm48kMd60jMnnZQg-ioqPwIaihAUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcFxNGsh8kvRtlsNBzkHShsTqDXhOJO6-hCnJ4nETj-sIWmG9l28QVJExRpIUFOD4l/Screen+Shot+2020-01-28+at+8.38.55+PM.png?format=1500w'></img></p>
+</div>
+<div class="section" id="arbol-de-decision">
+<h2>Árbol de decisión<a class="headerlink" href="#arbol-de-decision" title="Permalink to this headline">¶</a></h2>
+<img src='https://www.kdnuggets.com/wp-content/uploads/socialcops-tree.jpg' width='900px'><p>Los modelos de Machine Learning más performantes, se basan en “ensamblar” muchos árboles simples. Sirven tanto para clasificación como para regresión. Tienen nombres como:</p>
+<ul class="simple">
+<li><p>Random Forest</p></li>
+<li><p>XGBoost</p></li>
+<li><p>LightGBM</p></li>
+<li><p>Tree Gradient Boosting</p></li>
+</ul>
+</div>
+<div class="section" id="generalizacion-y-sobreajuste">
+<h2>Generalización y sobreajuste<a class="headerlink" href="#generalizacion-y-sobreajuste" title="Permalink to this headline">¶</a></h2>
+<img src='https://jakevdp.github.io/PythonDataScienceHandbook/figures/05.03-bias-variance-2.png'><img src='https://jakevdp.github.io/PythonDataScienceHandbook/figures/05.03-validation-curve.png'></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./NeuroIA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="sklearn_titanic.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introducción a Sci-kit Learn</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../MatematicasParaML/README.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Álgebra</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,2394 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducción a Sci-kit Learn &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Machine Learning sobre OkC" href="supervisado_okcupid.html" />
+    <link rel="prev" title="Ejercicio ML I" href="ejercicios_ml.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/README.html">
+   Álgebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/3_Factorizacion/Factorizacion.html">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/4_Funciones/Funciones2.html">
+   ¿Qué es una función?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../MatematicasParaML/7_Probabilidad/Probabilidad%20p18.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/NeuroIA/sklearn_titanic.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FNeuroIA/sklearn_titanic.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introducción a Sci-kit Learn
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vamos-por-un-primer-ejemplo">
+     Vamos por un primer ejemplo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-from-disaster">
+   Machine learning from disaster
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">
+     Análisis exploratorio de datos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluando-el-balanceo-de-la-clase">
+     Evaluando el balanceo de la clase
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#otras-exploraciones-de-los-datos">
+     Otras exploraciones de los datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#descartando-variables-especificas">
+       Descartando variables específicas
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calculando-las-variables-dummy">
+       Calculando las variables Dummy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matriz-de-correlaciones">
+     Matriz de correlaciones
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#revision-de-valores-faltantes">
+     Revisión de valores faltantes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separacion-de-datos-entre-train-y-test">
+     Separación de datos entre train y test
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ajustando-el-modelo">
+     Ajustando el modelo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipeline-de-inferencia">
+     Pipeline de inferencia
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prediccion-sobre-los-datos-de-prueba-y-evaluacion-del-modelo">
+     Predicción sobre los datos de prueba y evaluación del modelo
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matriz-de-confusion">
+       Matriz de confusión
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporte-de-clasificacion">
+     Reporte de clasificación
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-debajo-de-la-curva">
+       Área debajo de la curva
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-pasara-con-jack-y-rose">
+     ¿Qué pasará con Jack y Rose?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introducción a Sci-kit Learn</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Introducción a Sci-kit Learn
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vamos-por-un-primer-ejemplo">
+     Vamos por un primer ejemplo
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#machine-learning-from-disaster">
+   Machine learning from disaster
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#analisis-exploratorio-de-datos">
+     Análisis exploratorio de datos
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluando-el-balanceo-de-la-clase">
+     Evaluando el balanceo de la clase
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#otras-exploraciones-de-los-datos">
+     Otras exploraciones de los datos
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#descartando-variables-especificas">
+       Descartando variables específicas
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calculando-las-variables-dummy">
+       Calculando las variables Dummy
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#matriz-de-correlaciones">
+     Matriz de correlaciones
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#revision-de-valores-faltantes">
+     Revisión de valores faltantes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separacion-de-datos-entre-train-y-test">
+     Separación de datos entre train y test
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ajustando-el-modelo">
+     Ajustando el modelo
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pipeline-de-inferencia">
+     Pipeline de inferencia
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prediccion-sobre-los-datos-de-prueba-y-evaluacion-del-modelo">
+     Predicción sobre los datos de prueba y evaluación del modelo
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#matriz-de-confusion">
+       Matriz de confusión
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporte-de-clasificacion">
+     Reporte de clasificación
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#area-debajo-de-la-curva">
+       Área debajo de la curva
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-pasara-con-jack-y-rose">
+     ¿Qué pasará con Jack y Rose?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/institutohumai/cursos-python/blob/neuro/NeuroIA/sklearn_titanic.ipynb"> <img src='https://colab.research.google.com/assets/colab-badge.svg' /> </a>
+<div align="center"> Recordá abrir en una nueva pestaña </div></p>
+<div class="section" id="introduccion-a-sci-kit-learn">
+<h1>Introducción a Sci-kit Learn<a class="headerlink" href="#introduccion-a-sci-kit-learn" title="Permalink to this headline">¶</a></h1>
+<p>La librería <a class="reference external" href="https://scikit-learn.org/stable/">sci-kit learn</a> es una ámpliamente utilizada para prototipado y desarrollo de modelos de Machine Learning.</p>
+<p>Este paquete nos ofrece versiones eficientes de una gran variedad de algoritmos, accesibles mediante una API homogénea que facilita el desarrollo y permite probar distintos algorítmos con mínima modificación del código.</p>
+<img src='https://scikit-learn.org/stable/_static/ml_map.png' width=800px>
+<p>Podemos ver el <a class="reference external" href="https://scikit-learn.org/stable/user_guide">índice de algoritmos en sklearn</a>.</p>
+<p>En el desarrollo de sci-kit, se tuvieron en cuenta algunos principios:</p>
+<ul class="simple">
+<li><p>Consistencia: todos los objetos comparten una inferfaz uniforme</p></li>
+<li><p>Inspección: podemos acceder a los parámetros como atributos públicos</p></li>
+<li><p>Jerarquía limitada de objetos: solo los algorítmos se representan como clases de Python, mientras que los datasets utilizan formatos estándar: Numpy Arrays, DataFrames de Pandas, y matrices de SciPy.</p></li>
+<li><p>Composición: permitiendo siempre que es posible la concatenación de procesos en secuencias</p></li>
+<li><p>Valores default apropiados: en el caso de hiperparámetros necesarios en los modelos</p></li>
+</ul>
+<p>Para más detalle consultar el <a class="reference external" href="https://arxiv.org/abs/1309.0238">paper de sklearn</a></p>
+<p>Todo este repertorio de estimadores va a usar la misma inferfaz, o API, que se ve algo así:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.familia_de_modelos</span> <span class="kn">import</span> <span class="n">Modelo</span>
+<span class="n">mi_modelo</span> <span class="o">=</span> <span class="n">Modelo</span><span class="p">(</span><span class="n">hiperparámetros</span><span class="p">)</span>
+<span class="n">mi_modelo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">predicción</span> <span class="o">=</span> <span class="n">mi_modelo</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">nuevo_X</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Para ajustar nuestros modelos de machine learning, la <em>Estimator API</em> de sklearn toma una matriz de features <strong>X</strong> y un vector <strong>y</strong> (en el caso de ML supervisado), donde <strong>X</strong> tiene la forma <code class="docutils literal notranslate"><span class="pre">(n_observaciones,</span> <span class="pre">n_variables)</span></code> e <strong>y</strong> <code class="docutils literal notranslate"><span class="pre">(n_observaciones)</span></code></p>
+<p><img alt="" src="https://raw.githubusercontent.com/jakevdp/PythonDataScienceHandbook/master/notebooks/figures/05.02-samples-features.png" /></p>
+<p>Ejercicio para pensar:</p>
+<p>¿Cómo querríamos que sea la matriz <strong>X</strong>?</p>
+<p>¿Qué preprocesamiento podríamos necesitar hacer?</p>
+<p>¿Cómo sería en el caso de trabajar con…</p>
+<ul class="simple">
+<li><p>Variables Categóricas?</p></li>
+<li><p>Datos desbalanceados?</p></li>
+<li><p>Texto?</p></li>
+<li><p>Imagenes?</p></li>
+</ul>
+<div class="section" id="vamos-por-un-primer-ejemplo">
+<h2>Vamos por un primer ejemplo<a class="headerlink" href="#vamos-por-un-primer-ejemplo" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="machine-learning-from-disaster">
+<h1>Machine learning from disaster<a class="headerlink" href="#machine-learning-from-disaster" title="Permalink to this headline">¶</a></h1>
+<p>En esta notebook vamos a analizar los datos de sobrevivientes del Titanic y a construir un pipeline de inferencia que nos permita predecir cuál era la probabilidad de sobrevivir de cada pasajero.</p>
+<p>Finalmente, vamos a evaluar cuál era la probabilidad de supervivencia de los protagonistas de la película: Jack y Rose.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descargamos dataset </span>
+<span class="o">!</span>wget https://datasets-humai.s3.amazonaws.com/datasets/titanic.csv
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2020-11-27 18:39:17--  https://datasets-humai.s3.amazonaws.com/datasets/titanic.csv
+Resolving datasets-humai.s3.amazonaws.com (datasets-humai.s3.amazonaws.com)... 52.216.28.116
+Connecting to datasets-humai.s3.amazonaws.com (datasets-humai.s3.amazonaws.com)|52.216.28.116|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 60326 (59K) [text/csv]
+Saving to: ‘titanic.csv’
+
+titanic.csv         100%[===================&gt;]  58.91K   121KB/s    in 0.5s    
+
+2020-11-27 18:39:18 (121 KB/s) - ‘titanic.csv’ saved [60326/60326]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Las variables con las que contamos son:</p>
+<div class="highlight-Pclass notranslate"><div class="highlight"><pre><span></span>survival: Survival (0 = No; 1 = Yes)
+name: Name
+sex: Sex
+age: Age
+sibsp: Number of Siblings/Spouses Aboard
+parch: Number of Parents/Children Aboard
+ticket: Ticket Number
+fare: Passenger Fare (British pound)
+cabin: Cabin
+embarked: Port of Embarkation (C = Cherbourg; Q = Queenstown; S = Southampton)
+boat: Lifeboat
+body: Body Identification Number
+home.dest: Home/Destination
+</pre></div>
+</div>
+<div class="section" id="analisis-exploratorio-de-datos">
+<h2>Análisis exploratorio de datos<a class="headerlink" href="#analisis-exploratorio-de-datos" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ya conocidas</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Preprocesamiento</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">ColumnTransformer</span>
+
+<span class="c1"># Entrenamiento</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="c1"># Modelos</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+
+<span class="c1"># Métricas</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">classification_report</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Leemos dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;titanic.csv&#39;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="evaluando-el-balanceo-de-la-clase">
+<h2>Evaluando el balanceo de la clase<a class="headerlink" href="#evaluando-el-balanceo-de-la-clase" title="Permalink to this headline">¶</a></h2>
+<p>La primera pregunta: ¿Cuántos casos tenemos de cada clase? Si los datos están muy desbalanaceados podemos evaluar técnicas de Resampling.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    549
+1    342
+Name: Survived, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="otras-exploraciones-de-los-datos">
+<h2>Otras exploraciones de los datos<a class="headerlink" href="#otras-exploraciones-de-los-datos" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    0.616162
+1    0.383838
+Name: Survived, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Cuántos pasajeros había en cada clase?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3    0.551066
+1    0.242424
+2    0.206510
+Name: Pclass, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Cuántos son hombres y cuántos mujeres?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>male      0.647587
+female    0.352413
+Name: Sex, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>S    0.724409
+C    0.188976
+Q    0.086614
+Name: Embarked, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>¿Cómo se distribuye la edad?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sklearn_titanic_24_0.png" src="../_images/sklearn_titanic_24_0.png" />
+</div>
+</div>
+<p>¿Cómo se distribuye la tarifa pagada?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sklearn_titanic_26_0.png" src="../_images/sklearn_titanic_26_0.png" />
+</div>
+</div>
+<div class="section" id="descartando-variables-especificas">
+<h3>Descartando variables específicas<a class="headerlink" href="#descartando-variables-especificas" title="Permalink to this headline">¶</a></h3>
+<p>El ID de pasajero, el número de ticket y el número de cabina son variables demasiado específicas como para aprovecharlas en una predicción. Podemos descartarlas. Lo mismo podemos decir del nombre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">,</span><span class="s1">&#39;Cabin&#39;</span><span class="p">,</span><span class="s1">&#39;Ticket&#39;</span><span class="p">,</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="calculando-las-variables-dummy">
+<h3>Calculando las variables Dummy<a class="headerlink" href="#calculando-las-variables-dummy" title="Permalink to this headline">¶</a></h3>
+<p>Ahora tenemos que transformar las categóricas en representaciones numéricas que nuestro algoritmo pueda entender.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_dummies</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Fare</th>
+      <th>Sex_female</th>
+      <th>Sex_male</th>
+      <th>Embarked_C</th>
+      <th>Embarked_Q</th>
+      <th>Embarked_S</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>7.2500</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>71.2833</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.9250</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>1</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>53.1000</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.0500</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="matriz-de-correlaciones">
+<h2>Matriz de correlaciones<a class="headerlink" href="#matriz-de-correlaciones" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">df_dummies</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">corr</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">background_gradient</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style  type="text/css" >
+    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col0 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col1 {
+            background-color:  #6485ec;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col2 {
+            background-color:  #80a3fa;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col3 {
+            background-color:  #7ea1fa;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col4 {
+            background-color:  #92b4fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col5 {
+            background-color:  #e2dad5;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col6 {
+            background-color:  #f29072;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col7 {
+            background-color:  #85a8fc;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col8 {
+            background-color:  #e5d8d1;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col9 {
+            background-color:  #aac7fd;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col10 {
+            background-color:  #afcafc;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col0 {
+            background-color:  #6384eb;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col1 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col2 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col3 {
+            background-color:  #9ebeff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col4 {
+            background-color:  #80a3fa;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col5 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col6 {
+            background-color:  #cbd8ee;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col7 {
+            background-color:  #ecd3c5;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col8 {
+            background-color:  #9fbfff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col9 {
+            background-color:  #d7dce3;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col10 {
+            background-color:  #d8dce2;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col0 {
+            background-color:  #9fbfff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col1 {
+            background-color:  #5e7de7;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col2 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col3 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col4 {
+            background-color:  #485fd1;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col5 {
+            background-color:  #c5d6f2;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col6 {
+            background-color:  #d1dae9;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col7 {
+            background-color:  #e8d6cc;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col8 {
+            background-color:  #d2dbe8;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col9 {
+            background-color:  #a5c3fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col10 {
+            background-color:  #c6d6f1;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col0 {
+            background-color:  #a9c6fd;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col1 {
+            background-color:  #c3d5f4;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col2 {
+            background-color:  #485fd1;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col3 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col4 {
+            background-color:  #e4d9d2;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col5 {
+            background-color:  #d2dbe8;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col6 {
+            background-color:  #ead4c8;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col7 {
+            background-color:  #cdd9ec;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col8 {
+            background-color:  #c1d4f4;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col9 {
+            background-color:  #a3c2fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col10 {
+            background-color:  #d7dce3;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col0 {
+            background-color:  #c1d4f4;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col1 {
+            background-color:  #b5cdfa;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col2 {
+            background-color:  #6384eb;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col3 {
+            background-color:  #ead5c9;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col4 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col5 {
+            background-color:  #dbdcde;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col6 {
+            background-color:  #f4c5ad;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col7 {
+            background-color:  #b9d0f9;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col8 {
+            background-color:  #cad8ef;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col9 {
+            background-color:  #97b8ff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col10 {
+            background-color:  #d6dce4;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col0 {
+            background-color:  #e1dad6;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col1 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col2 {
+            background-color:  #abc8fd;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col3 {
+            background-color:  #b2ccfb;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col4 {
+            background-color:  #b6cefa;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col5 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col6 {
+            background-color:  #f1cdba;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col7 {
+            background-color:  #c3d5f4;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col8 {
+            background-color:  #f0cdbb;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col9 {
+            background-color:  #8db0fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col10 {
+            background-color:  #aec9fc;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col0 {
+            background-color:  #f7aa8c;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col1 {
+            background-color:  #93b5fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col2 {
+            background-color:  #7b9ff9;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col3 {
+            background-color:  #a6c4fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col4 {
+            background-color:  #bed2f6;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col5 {
+            background-color:  #d5dbe5;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col6 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col7 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col8 {
+            background-color:  #d8dce2;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col9 {
+            background-color:  #bad0f8;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col10 {
+            background-color:  #b5cdfa;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col0 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col1 {
+            background-color:  #ccd9ed;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col2 {
+            background-color:  #abc8fd;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col3 {
+            background-color:  #688aef;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col4 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col5 {
+            background-color:  #88abfd;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col6 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col7 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col8 {
+            background-color:  #bed2f6;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col9 {
+            background-color:  #98b9ff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col10 {
+            background-color:  #dfdbd9;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col0 {
+            background-color:  #d3dbe7;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col1 {
+            background-color:  #7a9df8;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col2 {
+            background-color:  #9dbdff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col3 {
+            background-color:  #779af7;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col4 {
+            background-color:  #779af7;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col5 {
+            background-color:  #e4d9d2;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col6 {
+            background-color:  #e7d7ce;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col7 {
+            background-color:  #d2dbe8;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col8 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col9 {
+            background-color:  #86a9fc;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col10 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col0 {
+            background-color:  #b1cbfc;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col1 {
+            background-color:  #dcdddd;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col2 {
+            background-color:  #8db0fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col3 {
+            background-color:  #81a4fb;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col4 {
+            background-color:  #6384eb;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col5 {
+            background-color:  #97b8ff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col6 {
+            background-color:  #e6d7cf;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col7 {
+            background-color:  #d3dbe7;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col8 {
+            background-color:  #b1cbfc;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col9 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col10 {
+            background-color:  #6c8ff1;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col0 {
+            background-color:  #8db0fe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col1 {
+            background-color:  #c3d5f4;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col2 {
+            background-color:  #8badfd;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col3 {
+            background-color:  #9bbcff;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col4 {
+            background-color:  #8caffe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col5 {
+            background-color:  #8caffe;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col6 {
+            background-color:  #cbd8ee;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col7 {
+            background-color:  #ecd3c5;
+            color:  #000000;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col8 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col9 {
+            background-color:  #3b4cc0;
+            color:  #f1f1f1;
+        }    #T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col10 {
+            background-color:  #b40426;
+            color:  #f1f1f1;
+        }</style><table id="T_0249c636_30f9_11eb_aa3c_1de831a9b986" ><thead>    <tr>        <th class="blank level0" ></th>        <th class="col_heading level0 col0" >Survived</th>        <th class="col_heading level0 col1" >Pclass</th>        <th class="col_heading level0 col2" >Age</th>        <th class="col_heading level0 col3" >SibSp</th>        <th class="col_heading level0 col4" >Parch</th>        <th class="col_heading level0 col5" >Fare</th>        <th class="col_heading level0 col6" >Sex_female</th>        <th class="col_heading level0 col7" >Sex_male</th>        <th class="col_heading level0 col8" >Embarked_C</th>        <th class="col_heading level0 col9" >Embarked_Q</th>        <th class="col_heading level0 col10" >Embarked_S</th>    </tr></thead><tbody>
+                <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row0" class="row_heading level0 row0" >Survived</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col0" class="data row0 col0" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col1" class="data row0 col1" >-0.338481</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col2" class="data row0 col2" >-0.077221</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col3" class="data row0 col3" >-0.035322</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col4" class="data row0 col4" >0.081629</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col5" class="data row0 col5" >0.257307</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col6" class="data row0 col6" >0.543351</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col7" class="data row0 col7" >-0.543351</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col8" class="data row0 col8" >0.168240</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col9" class="data row0 col9" >0.003650</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row0_col10" class="data row0 col10" >-0.155660</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row1" class="row_heading level0 row1" >Pclass</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col0" class="data row1 col0" >-0.338481</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col1" class="data row1 col1" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col2" class="data row1 col2" >-0.369226</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col3" class="data row1 col3" >0.083081</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col4" class="data row1 col4" >0.018443</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col5" class="data row1 col5" >-0.549500</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col6" class="data row1 col6" >-0.131900</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col7" class="data row1 col7" >0.131900</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col8" class="data row1 col8" >-0.243292</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col9" class="data row1 col9" >0.221009</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row1_col10" class="data row1 col10" >0.081720</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row2" class="row_heading level0 row2" >Age</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col0" class="data row2 col0" >-0.077221</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col1" class="data row2 col1" >-0.369226</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col2" class="data row2 col2" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col3" class="data row2 col3" >-0.308247</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col4" class="data row2 col4" >-0.189119</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col5" class="data row2 col5" >0.096067</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col6" class="data row2 col6" >-0.093254</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col7" class="data row2 col7" >0.093254</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col8" class="data row2 col8" >0.036261</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col9" class="data row2 col9" >-0.022405</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row2_col10" class="data row2 col10" >-0.032523</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row3" class="row_heading level0 row3" >SibSp</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col0" class="data row3 col0" >-0.035322</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col1" class="data row3 col1" >0.083081</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col2" class="data row3 col2" >-0.308247</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col3" class="data row3 col3" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col4" class="data row3 col4" >0.414838</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col5" class="data row3 col5" >0.159651</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col6" class="data row3 col6" >0.114631</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col7" class="data row3 col7" >-0.114631</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col8" class="data row3 col8" >-0.059528</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col9" class="data row3 col9" >-0.026354</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row3_col10" class="data row3 col10" >0.070941</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row4" class="row_heading level0 row4" >Parch</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col0" class="data row4 col0" >0.081629</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col1" class="data row4 col1" >0.018443</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col2" class="data row4 col2" >-0.189119</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col3" class="data row4 col3" >0.414838</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col4" class="data row4 col4" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col5" class="data row4 col5" >0.216225</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col6" class="data row4 col6" >0.245489</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col7" class="data row4 col7" >-0.245489</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col8" class="data row4 col8" >-0.011069</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col9" class="data row4 col9" >-0.081228</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row4_col10" class="data row4 col10" >0.063036</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row5" class="row_heading level0 row5" >Fare</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col0" class="data row5 col0" >0.257307</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col1" class="data row5 col1" >-0.549500</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col2" class="data row5 col2" >0.096067</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col3" class="data row5 col3" >0.159651</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col4" class="data row5 col4" >0.216225</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col5" class="data row5 col5" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col6" class="data row5 col6" >0.182333</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col7" class="data row5 col7" >-0.182333</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col8" class="data row5 col8" >0.269335</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col9" class="data row5 col9" >-0.117216</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row5_col10" class="data row5 col10" >-0.166603</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row6" class="row_heading level0 row6" >Sex_female</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col0" class="data row6 col0" >0.543351</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col1" class="data row6 col1" >-0.131900</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col2" class="data row6 col2" >-0.093254</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col3" class="data row6 col3" >0.114631</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col4" class="data row6 col4" >0.245489</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col5" class="data row6 col5" >0.182333</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col6" class="data row6 col6" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col7" class="data row6 col7" >-1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col8" class="data row6 col8" >0.082853</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col9" class="data row6 col9" >0.074115</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row6_col10" class="data row6 col10" >-0.125722</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row7" class="row_heading level0 row7" >Sex_male</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col0" class="data row7 col0" >-0.543351</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col1" class="data row7 col1" >0.131900</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col2" class="data row7 col2" >0.093254</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col3" class="data row7 col3" >-0.114631</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col4" class="data row7 col4" >-0.245489</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col5" class="data row7 col5" >-0.182333</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col6" class="data row7 col6" >-1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col7" class="data row7 col7" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col8" class="data row7 col8" >-0.082853</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col9" class="data row7 col9" >-0.074115</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row7_col10" class="data row7 col10" >0.125722</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row8" class="row_heading level0 row8" >Embarked_C</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col0" class="data row8 col0" >0.168240</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col1" class="data row8 col1" >-0.243292</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col2" class="data row8 col2" >0.036261</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col3" class="data row8 col3" >-0.059528</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col4" class="data row8 col4" >-0.011069</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col5" class="data row8 col5" >0.269335</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col6" class="data row8 col6" >0.082853</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col7" class="data row8 col7" >-0.082853</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col8" class="data row8 col8" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col9" class="data row8 col9" >-0.148258</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row8_col10" class="data row8 col10" >-0.778359</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row9" class="row_heading level0 row9" >Embarked_Q</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col0" class="data row9 col0" >0.003650</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col1" class="data row9 col1" >0.221009</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col2" class="data row9 col2" >-0.022405</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col3" class="data row9 col3" >-0.026354</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col4" class="data row9 col4" >-0.081228</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col5" class="data row9 col5" >-0.117216</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col6" class="data row9 col6" >0.074115</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col7" class="data row9 col7" >-0.074115</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col8" class="data row9 col8" >-0.148258</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col9" class="data row9 col9" >1.000000</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row9_col10" class="data row9 col10" >-0.496624</td>
+            </tr>
+            <tr>
+                        <th id="T_0249c636_30f9_11eb_aa3c_1de831a9b986level0_row10" class="row_heading level0 row10" >Embarked_S</th>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col0" class="data row10 col0" >-0.155660</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col1" class="data row10 col1" >0.081720</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col2" class="data row10 col2" >-0.032523</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col3" class="data row10 col3" >0.070941</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col4" class="data row10 col4" >0.063036</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col5" class="data row10 col5" >-0.166603</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col6" class="data row10 col6" >-0.125722</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col7" class="data row10 col7" >0.125722</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col8" class="data row10 col8" >-0.778359</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col9" class="data row10 col9" >-0.496624</td>
+                        <td id="T_0249c636_30f9_11eb_aa3c_1de831a9b986row10_col10" class="data row10 col10" >1.000000</td>
+            </tr>
+    </tbody></table></div></div>
+</div>
+</div>
+<div class="section" id="revision-de-valores-faltantes">
+<h2>Revisión de valores faltantes<a class="headerlink" href="#revision-de-valores-faltantes" title="Permalink to this headline">¶</a></h2>
+<p>Evaluemos ahora los valores faltantes. Una buena estrategia de imputación para empezar es reemplazar los valores faltantes en columnas numéricas con la mediana y en columnas categóricas con el valore más frecuente.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Survived      0
+Pclass        0
+Sex           0
+Age         177
+SibSp         0
+Parch         0
+Fare          0
+Embarked      2
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="separacion-de-datos-entre-train-y-test">
+<h2>Separación de datos entre train y test<a class="headerlink" href="#separacion-de-datos-entre-train-y-test" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ajustando-el-modelo">
+<h2>Ajustando el modelo<a class="headerlink" href="#ajustando-el-modelo" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_clean</span> <span class="o">=</span> <span class="n">df_dummies</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df_dummies</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Survived&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s1">&#39;Survived&#39;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight=None,
+                       criterion=&#39;gini&#39;, max_depth=None, max_features=&#39;auto&#39;,
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, n_estimators=100,
+                       n_jobs=None, oob_score=False, random_state=None,
+                       verbose=0, warm_start=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0,
+       0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0,
+       1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+       0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0,
+       1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0,
+       0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0,
+       0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0,
+       1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0,
+       1, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pipeline-de-inferencia">
+<h2>Pipeline de inferencia<a class="headerlink" href="#pipeline-de-inferencia" title="Permalink to this headline">¶</a></h2>
+<p>Para tener un modelo robusto, necesitamos crear un pipeline de inferencia que realice todos los pasos necesarios de pre-procesamiento (por ejemplo el cálculo de variables dummies) y realice también la imputación cuando los datos son faltantes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Fare&#39;</span><span class="p">]</span>
+<span class="n">numeric_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">))])</span>
+
+<span class="n">categorical_features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]</span>
+<span class="n">categorical_transformer</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;imputer&#39;</span><span class="p">,</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;missing&#39;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;onehot&#39;</span><span class="p">,</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">))])</span>
+
+<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">ColumnTransformer</span><span class="p">(</span>
+    <span class="n">transformers</span><span class="o">=</span><span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;num&#39;</span><span class="p">,</span> <span class="n">numeric_transformer</span><span class="p">,</span> <span class="n">numeric_features</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="n">categorical_transformer</span><span class="p">,</span> <span class="n">categorical_features</span><span class="p">)])</span>
+
+<span class="n">clf</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;preprocessor&#39;</span><span class="p">,</span> <span class="n">preprocessor</span><span class="p">),</span>
+                      <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">RandomForestClassifier</span><span class="p">())])</span>
+
+
+
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(memory=None,
+         steps=[(&#39;preprocessor&#39;,
+                 ColumnTransformer(n_jobs=None, remainder=&#39;drop&#39;,
+                                   sparse_threshold=0.3,
+                                   transformer_weights=None,
+                                   transformers=[(&#39;num&#39;,
+                                                  Pipeline(memory=None,
+                                                           steps=[(&#39;imputer&#39;,
+                                                                   SimpleImputer(add_indicator=False,
+                                                                                 copy=True,
+                                                                                 fill_value=None,
+                                                                                 missing_values=nan,
+                                                                                 strategy=&#39;median&#39;,
+                                                                                 verbose=0))],
+                                                           verbose=False),
+                                                  [&#39;Age&#39;, &#39;Fare&#39;]),
+                                                 (&#39;cat&#39;,
+                                                  Pipel...
+                 RandomForestClassifier(bootstrap=True, ccp_alpha=0.0,
+                                        class_weight=None, criterion=&#39;gini&#39;,
+                                        max_depth=None, max_features=&#39;auto&#39;,
+                                        max_leaf_nodes=None, max_samples=None,
+                                        min_impurity_decrease=0.0,
+                                        min_impurity_split=None,
+                                        min_samples_leaf=1, min_samples_split=2,
+                                        min_weight_fraction_leaf=0.0,
+                                        n_estimators=100, n_jobs=None,
+                                        oob_score=False, random_state=None,
+                                        verbose=0, warm_start=False))],
+         verbose=False)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="prediccion-sobre-los-datos-de-prueba-y-evaluacion-del-modelo">
+<h2>Predicción sobre los datos de prueba y evaluación del modelo<a class="headerlink" href="#prediccion-sobre-los-datos-de-prueba-y-evaluacion-del-modelo" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicciones</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicciones</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(179, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vamos a quedarnos con todas las filas y la primera columna</span>
+<span class="n">preds_proba</span> <span class="o">=</span> <span class="n">predicciones</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds_proba</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds_exacta</span> <span class="o">=</span> <span class="n">predicciones</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preds_exacta</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0,
+       1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0,
+       1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0,
+       1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1,
+       0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 0,
+       0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0,
+       1, 1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 1,
+       0, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0,
+       0, 0, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="matriz-de-confusion">
+<h3>Matriz de confusión<a class="headerlink" href="#matriz-de-confusion" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">preds_exacta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">heatmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df_cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="n">heatmap</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">heatmap</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Valor Verdadero&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valor Predicho&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/sklearn_titanic_53_0.png" src="../_images/sklearn_titanic_53_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reporte-de-clasificacion">
+<h2>Reporte de clasificación<a class="headerlink" href="#reporte-de-clasificacion" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">preds_exacta</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+           0       0.82      0.81      0.82       107
+           1       0.73      0.74      0.73        72
+
+    accuracy                           0.78       179
+   macro avg       0.77      0.77      0.77       179
+weighted avg       0.78      0.78      0.78       179
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="area-debajo-de-la-curva">
+<h3>Área debajo de la curva<a class="headerlink" href="#area-debajo-de-la-curva" title="Permalink to this headline">¶</a></h3>
+<p>¿Cuál es la calidad del ordenamiento que hace este modelo a través de las probabilidades predichas?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">preds_proba</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8433930425752857
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="que-pasara-con-jack-y-rose">
+<h2>¿Qué pasará con Jack y Rose?<a class="headerlink" href="#que-pasara-con-jack-y-rose" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pclass</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Fare</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>872</th>
+      <td>1</td>
+      <td>male</td>
+      <td>33.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5.0000</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>748</th>
+      <td>1</td>
+      <td>male</td>
+      <td>19.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>53.1000</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>718</th>
+      <td>3</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15.5000</td>
+      <td>Q</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>3</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>0</td>
+      <td>21.6792</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>550</th>
+      <td>1</td>
+      <td>male</td>
+      <td>17.0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>110.8833</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Jack</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Pclass&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span><span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;SibSp&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Parch&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Fare&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Embarked&#39;</span><span class="p">:</span><span class="s1">&#39;Q&#39;</span><span class="p">}</span>
+<span class="n">Rose</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Pclass&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span><span class="mi">21</span><span class="p">,</span> <span class="s1">&#39;SibSp&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Parch&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Fare&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Embarked&#39;</span><span class="p">:</span><span class="s1">&#39;S&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_Jack_Rose</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">Jack</span><span class="p">,</span> <span class="n">Rose</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">df_Jack_Rose</span><span class="p">),</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;No Survived&#39;</span><span class="p">,</span><span class="s1">&#39;Survived&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span><span class="s1">&#39;Rose&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>No Survived</th>
+      <th>Survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Jack</th>
+      <td>0.926667</td>
+      <td>0.073333</td>
+    </tr>
+    <tr>
+      <th>Rose</th>
+      <td>0.052500</td>
+      <td>0.947500</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./NeuroIA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="ejercicios_ml.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Ejercicio ML I</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="supervisado_okcupid.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Machine Learning sobre OkC</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

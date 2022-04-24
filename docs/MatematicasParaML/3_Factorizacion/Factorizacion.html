@@ -1,0 +1,2501 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Factorización de matrices &#8212; Ciencia de Datos y Aprendizaje Automático</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Funciones" href="../4_Funciones/Funciones.html" />
+    <link rel="prev" title="Matrices" href="../2_Matrices/Matrices.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logohumai.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Ciencia de Datos y Aprendizaje Automático</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Ciencia de Datos y Aprendizaje Automático
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduccion a la Programación con Python
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/README.html">
+   Introducción a Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/tipos-datos.html">
+   Introducción a la programación con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/1_TiposDatos/ejercicio/ejercicios.html">
+   Ejercicios I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/listas-funciones.html">
+   Listas, Funciones, Errores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.html">
+   Ejercicios II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.html">
+   Ejercicios Adicionales II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/modulos-funciones.html">
+   Módulos y Algorítmos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.html">
+   Ejercicios III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/intro-poo.html">
+   Programación orientada a objetos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/4_Intro_Poo/ejercicio/ejercicio.html">
+   Ejercicios POO IV
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/5_Poo_Experimento/poo-experimento.html">
+   Aplicación de POO: Experimento de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Introduccion/6_Poo_Proyecto/poo-proyecto.html">
+   Aplicación de POO: PACMAN
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Automatización
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/README.html">
+   Automatización y Minería Web
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/gsheets_pytrends.html">
+   Práctica: GSheet y PyTrends
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_I/automatizacion_pygui_bash_os.html">
+   Automatización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_gsheets_cron_mails.html">
+   Automatización II: outputs, envío de mail, volcado a GSheets, scheduling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Automatizaci%C3%B3n_2/clase_automatizacion_2_ejercicios.html">
+   Ejercicios Automatización II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Expresiones_Regulares/expresiones_regulares.html">
+   Expresiones Regulares
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/organizando_pdfs.html">
+   Ejercicio: Organizando PDFs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Automatizacion/Otros/edicion_imagenes.html">
+   Edición de Imágenes con Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Minería Web
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/README.html">
+   Minería Web con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/web_scraping_http_inicial.html">
+   Web Scraping: Extrayendo datos de Internet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/1_HTTP_Inicial/ejercicio/spinetta.html">
+   Ejercicio Scraping I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_http_avanzado.html">
+   Encontrando APIs ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_avanzado_2.html">
+   Práctica: Scraping Avanzado 2:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.html">
+   Ejercicios APIs Ocultas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/2_HTTP_Avanzado/scraping_extra_tips.html">
+   Tips para scrapear mejor
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.html">
+   Scraping por Automatización con Selenium
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  APIs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/README.html">
+   APIs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1.html">
+   APIs geográficas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/1_APIs_Geograficas/clase-1-ejercicios.html">
+   APIs Geográficas: Ejercicios
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/clase-2.html">
+   APIs de Series de Tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.html">
+   APIs Series de Tiempo: Ejercicios
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Análisis de Datos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/README.html">
+   Analisis de datos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/Indexing.html">
+   Indexación y Agregación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.html">
+   Ejercicios Pandas I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.html">
+   Pivot tables y joins
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.html">
+   Ejercicios Pandas II
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.html">
+   Agrupación
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.html">
+   Ejercicios Pandas III
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.html">
+   Data Wrangling Avanzado
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.html">
+   Ejercicio Pandas IV: Informe macroeconómico de Argentina
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.html">
+   Visualización con Pandas y Matplotlib
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.html">
+   Visualización con Plotly
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.html">
+   Ejercicios Visualización
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Aprendizaje Automático
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/README.html">
+   Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/1_Introduccion/rls.html">
+   Regresión Lineal Simple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.html">
+   Regresión Lineal Múltiple
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/3_Regularizacion/Regularizacion.html">
+   Regularización - Optimización - Feature Engineering - Pipelines
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.html">
+   Modelos no paramétricos: K-Nearest Neighbours y Árboles de decisión
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/6_Ensamble/Bagging%26Boosting.html">
+   Ensambles: Bagging &amp; Boosting
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.html">
+   Detección de anomalías y explicabilidad de modelos con valores SHAP
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/1.ARIMA.html">
+   Series de tiempo
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/9_SeriesDeTiempo/2.Prophet.html">
+   Prophet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../MachineLearning/10_Recomendacion/sistemas_recomendacion.html">
+   Sistemas de Recomendación
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Datos Geográficos
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/README.html">
+   Datos geograficos con Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/GeoPandas.html">
+   GeoPandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/1_Introduccion/ejercicio/ejercicio.html">
+   Ejercicios Geo I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/1_Visualizacion.html">
+   GeoPandas Visualización
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/2_Joins_Espaciales.html">
+   Joins Espaciales
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../DatosGeograficos/2_Joins_y_Viz/ejercicio/ejercicio.html">
+   Ejercicios Geo II
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Psicología Computacional y Neurociencias
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/tiempo_de_reaccion.html">
+   Experimento sencillo de Tiempo de Reacción
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/no_supervisado_nlp_social_listening.html">
+   Aprendizaje no supervisado para NLP en Twitter
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/holland_viz.html">
+   Corrección y Análisis en Orientación Vocacional
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/mypersonality.html">
+   MyPersonality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/intro_a_ml.html">
+   Introducción a Machine Learning
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sentiment.html">
+   Ejemplo Clasificación de Opiniones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/ejercicios_ml.html">
+   Ejercicio ML I
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/sklearn_titanic.html">
+   Introducción a Sci-kit Learn
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../NeuroIA/supervisado_okcupid.html">
+   Machine Learning sobre OkC
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Matemáticas para Aprendizaje Automático
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../README.html">
+   Álgebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Vectores/Vectores.html">
+   Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../1_Vectores/Ejercicios.html">
+   Ejercicios Vectores
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../2_Matrices/Matrices.html">
+   Matrices
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Factorización de matrices
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Funciones/Funciones.html">
+   Funciones
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../4_Funciones/Funciones2.html">
+   ¿Qué es una función?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Estadistica/estadistica_prob_1.html">
+   Introducción a Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../6_Estadistica/ejercicios_estadistica.html">
+   Ejercicios Estadística y Probabilidad
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../7_Probabilidad/Probabilidad%20p18.html">
+   Probabilidad
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Colaboración
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../General/0_Colaboracion/Guia%20para%20armar%20contenido.html">
+   Generando contenido
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/MatematicasParaML/3_Factorizacion/Factorizacion.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://institutohumai.github.io/cursos-python/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://institutohumai.github.io/cursos-python//issues/new?title=Issue%20on%20page%20%2FMatematicasParaML/3_Factorizacion/Factorizacion.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Factorización de matrices
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-graficadora">
+     Función graficadora
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-puede-hacer-una-transformacion-lineal">
+     ¿Qué puede hacer una transformación lineal?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jugando-con-matrices">
+     Jugando con matrices
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c">
+       $C
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e">
+       $E
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       $Π
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f">
+       $F
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r">
+       $R
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       $C
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#t">
+       $T
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#resumen">
+       Resumen:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preguntas">
+       Preguntas:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitaciones-de-una-transformacion-lineal">
+     Limitaciones de una transformación lineal.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-aplicacion">
+       Ejemplo de aplicación
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#inversa-de-una-martiz">
+         Inversa de una martiz
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#determinante-de-una-martiz">
+         Determinante de una martiz
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#composicion-de-funciones">
+     Composición de funciones
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#existe-una-forma-de-representar-las-transformaciones-lineales-a-paritr-de-transformaciones-basicas">
+     ¿Existe una forma de representar las transformaciones lineales a paritr de transformaciones básicas?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autovalores-y-autovectores">
+     Autovalores y autovectores
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diagonalizacion-de-una-matriz">
+     Diagonalización de una matriz:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-calculo-de-autovectores-y-autovalores">
+       Ejemplo de cálculo de autovectores y autovalores
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#metodos-iterativos-para-autovalores-y-autovectores">
+         Métodos iterativos para autovalores y autovectores
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#diagonalizacion">
+       Diagonalización
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observacion">
+         Observación:
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-diagonalizacion-no-es-unica">
+       La diagonalización no es única
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#no-toda-matriz-es-diagonalizable">
+       No toda matriz es diagonalizable
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#diagonalizacion-de-matrices-simetricas">
+       Diagonalización de matrices simétricas
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descomposicion-en-valores-singulares">
+     Descomposición en Valores Singulares
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandar-al-final">
+   Mandar al final
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-1">
+     Algoritmo 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#m-y-el-algoritmo-1">
+     <span class="math notranslate nohighlight">
+      \(M\)
+     </span>
+     y el Algoritmo 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calculo-analitico-de-autovectores-y-autovalores">
+       Calculo analítico de autovectores y autovalores
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Factorización de matrices</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Factorización de matrices
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funcion-graficadora">
+     Función graficadora
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#que-puede-hacer-una-transformacion-lineal">
+     ¿Qué puede hacer una transformación lineal?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jugando-con-matrices">
+     Jugando con matrices
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c">
+       $C
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e">
+       $E
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       $Π
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f">
+       $F
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#r">
+       $R
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id2">
+       $C
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#t">
+       $T
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#resumen">
+       Resumen:
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#preguntas">
+       Preguntas:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#limitaciones-de-una-transformacion-lineal">
+     Limitaciones de una transformación lineal.
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-aplicacion">
+       Ejemplo de aplicación
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#inversa-de-una-martiz">
+         Inversa de una martiz
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#determinante-de-una-martiz">
+         Determinante de una martiz
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#composicion-de-funciones">
+     Composición de funciones
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#existe-una-forma-de-representar-las-transformaciones-lineales-a-paritr-de-transformaciones-basicas">
+     ¿Existe una forma de representar las transformaciones lineales a paritr de transformaciones básicas?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#autovalores-y-autovectores">
+     Autovalores y autovectores
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#diagonalizacion-de-una-matriz">
+     Diagonalización de una matriz:
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ejemplo-de-calculo-de-autovectores-y-autovalores">
+       Ejemplo de cálculo de autovectores y autovalores
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#metodos-iterativos-para-autovalores-y-autovectores">
+         Métodos iterativos para autovalores y autovectores
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#diagonalizacion">
+       Diagonalización
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#observacion">
+         Observación:
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#la-diagonalizacion-no-es-unica">
+       La diagonalización no es única
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#no-toda-matriz-es-diagonalizable">
+       No toda matriz es diagonalizable
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#diagonalizacion-de-matrices-simetricas">
+       Diagonalización de matrices simétricas
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descomposicion-en-valores-singulares">
+     Descomposición en Valores Singulares
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mandar-al-final">
+   Mandar al final
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#algoritmo-1">
+     Algoritmo 1
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#m-y-el-algoritmo-1">
+     <span class="math notranslate nohighlight">
+      \(M\)
+     </span>
+     y el Algoritmo 1
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#calculo-analitico-de-autovectores-y-autovalores">
+       Calculo analítico de autovectores y autovalores
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="factorizacion-de-matrices">
+<h1>Factorización de matrices<a class="headerlink" href="#factorizacion-de-matrices" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="funcion-graficadora">
+<h2>Función graficadora<a class="headerlink" href="#funcion-graficadora" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1"># usar torch??</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Polygon</span>
+
+<span class="k">def</span> <span class="nf">initial</span><span class="p">():</span>
+
+  <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]</span>
+
+  <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+  <span class="n">aux</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span>
+  <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">][:]</span>
+  <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">aux</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="c1"># np.matrix(X).transpose()</span>
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+  <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>   
+  <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="mi">16</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>  
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">show_TL</span><span class="p">(</span><span class="n">T</span><span class="p">):</span> 
+  <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">T</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[INFO] bad matrix! it&#39;s not squared&quot;</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="o">*</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+  <span class="n">aux</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span>
+  <span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">][:]</span>
+  <span class="n">X</span><span class="p">[</span><span class="mi">3</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">aux</span>
+  <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="c1"># np.matrix(X).transpose()</span>
+  <span class="n">TX</span> <span class="o">=</span> <span class="n">T</span> <span class="o">@</span> <span class="n">X</span>
+
+  <span class="n">w</span> <span class="o">=</span> <span class="n">TX</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">TX</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+  <span class="n">h</span> <span class="o">=</span> <span class="n">TX</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">TX</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+  <span class="k">if</span> <span class="n">w</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="k">if</span> <span class="n">h</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="k">while</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">or</span> <span class="n">w</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">h</span> <span class="o">*=</span> <span class="mf">0.99</span>
+    <span class="n">w</span> <span class="o">*=</span> <span class="mf">0.99</span>
+
+  <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]</span>
+  
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">w</span><span class="o">*</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">h</span><span class="o">*</span><span class="mf">1.2</span><span class="p">))</span>
+
+  <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">))</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span> <span class="o">=</span> <span class="n">TX</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">))</span>
+  <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>  
+  <span class="n">ax1</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">TX</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">TX</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>  
+
+  <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">))</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span> <span class="o">=</span> <span class="n">TX</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">))</span>
+  <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>  
+  <span class="n">ax2</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">TX</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">TX</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>  
+
+  <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+  <span class="n">ax3</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">))</span>
+  <span class="n">ax3</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">Polygon</span><span class="p">(</span><span class="n">xy</span> <span class="o">=</span> <span class="n">TX</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">))</span>
+  <span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>  
+  <span class="n">ax3</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">TX</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">TX</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">,</span>
+              <span class="n">s</span> <span class="o">=</span> <span class="mi">12</span><span class="o">*</span><span class="n">h</span><span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s2">&quot;s&quot;</span><span class="p">)</span>  
+
+  <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="que-puede-hacer-una-transformacion-lineal">
+<h2>¿Qué puede hacer una transformación lineal?<a class="headerlink" href="#que-puede-hacer-una-transformacion-lineal" title="Permalink to this headline">¶</a></h2>
+<p>Como vimos en clases anteriores, una transforación lineal es un tipo de <strong>función</strong> que toma elementos de un espacio vectorial y nos devuelve elementos de otro espacio vectoral.</p>
+<p>Para ser lineal le pedíamos a la transformación que cumpla una serie de condiciones</p>
+<ul class="simple">
+<li><p>debe preservar la multiplicación componente a componente.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(T(kx_1) = kT(x_1)\)</span></p></li>
+</ul>
+</li>
+<li><p>debe preservar suma de vectores</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(T(x_1 + x_2) = T(x_1) + T(x_2)\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p>Estás dos condiciones son muy restrictivas. Por ejemplo, puede verse que estás condiciones implican:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T(0) = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(T(-x_1) = -T(x_1)\)</span></p></li>
+</ul>
+<p>Se puede demostrar que toda transformación lineal <span class="math notranslate nohighlight">\(T\)</span> existe una matriz asociada <span class="math notranslate nohighlight">\(M_T\)</span>. Esta matriz asociada <span class="math notranslate nohighlight">\(M_T\)</span> tiene la siguiente propiedad:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(T(x_1) = M_T x_1\)</span></p></li>
+</ul>
+<p>Es decir, el cálculo de aplicar la trasnformación lineal <span class="math notranslate nohighlight">\(T\)</span> al vector <span class="math notranslate nohighlight">\(x_1\)</span>, se reduce a calcular el producto matricial entre <span class="math notranslate nohighlight">\(M_T\)</span> y el vector columna de <span class="math notranslate nohighlight">\(x_1\)</span>. Este fue el motivo principal de querer usar transformaciones lineales.</p>
+<p>Esta propiedad de las trasnformaciones lineales nos permite hacer lo que los matemáticos llaman <em>abuso de notación</em>. Es decir, a partir de ahora usaremos <span class="math notranslate nohighlight">\(T\)</span> para representar, tanto a la transformación lineal, como a su matriz asociada. Esta es una practica usual en Algebra Lineal. Sin embargo, la transformación y la matriz son entidades distintas. Una es una función y la otra es una matriz.</p>
+<p>Sabemos que al concentrarnos solo en las transformaciones lineales, perdemos parte de la expresividad que tienen las funciones. En ese sentido es una buena idea saber que <em><strong>¿qué pueden hacer las trasformaciones lineales por nosotros?</strong></em></p>
+</div>
+<div class="section" id="jugando-con-matrices">
+<h2>Jugando con matrices<a class="headerlink" href="#jugando-con-matrices" title="Permalink to this headline">¶</a></h2>
+<p>Una buena idea para tratar de entender a las transformaciones lineales es analizar que hace una trasnformación sobre los vertices de un cuadrado. Para esto elegimos los vertices de un cuadrado de lado 2 entrado en el origen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">initial</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_8_0.png" src="../../_images/Factorizacion_8_0.png" />
+</div>
+</div>
+<div class="section" id="c">
+<h3>$C<a class="headerlink" href="#c" title="Permalink to this headline">¶</a></h3>
+<p>= \begin{bmatrix}
+\frac{1}{2} &amp; 0\
+0 &amp; 1\
+\end{bmatrix}$</p>
+<p>Tengo la siguiente transformación lineal:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+1 \\
+0 \\
+\end{bmatrix} → \begin{bmatrix}
+\frac{1}{2}\\
+0\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+0\\
+1\\
+\end{bmatrix} → \begin{bmatrix}
+0\\
+1\\
+\end{bmatrix}\)</span></p>
+<p>¿Qué hace esta trasformación lineal?</p>
+<p><span class="math notranslate nohighlight">\( C = \begin{bmatrix}
+\frac{1}{2} &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+     <span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_11_0.png" src="../../_images/Factorizacion_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="e">
+<h3>$E<a class="headerlink" href="#e" title="Permalink to this headline">¶</a></h3>
+<p>= \begin{bmatrix}
+1 &amp; 0\
+0 &amp; 3\
+\end{bmatrix}$</p>
+<p>Tengo la siguiente transformación lineal:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+1\\
+0\\
+\end{bmatrix} → \begin{bmatrix}
+1\\
+0\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+0\\
+1\\
+\end{bmatrix} → \begin{bmatrix}
+0\\
+3\\
+\end{bmatrix}\)</span></p>
+<p>¿Qué hace esta trasformación lineal?</p>
+<p><span class="math notranslate nohighlight">\( E = \begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 3\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_14_0.png" src="../../_images/Factorizacion_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>$Π<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>= \begin{bmatrix}
+0 &amp; 0\
+0 &amp; 1\
+\end{bmatrix}$</p>
+<p>Tengo la siguiente transformación lineal:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+1\\
+0\\
+\end{bmatrix} → \begin{bmatrix}
+0\\
+0\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+0\\
+1\\
+\end{bmatrix} → \begin{bmatrix}
+0\\
+1\\
+\end{bmatrix}\)</span></p>
+<p>¿Qué hace esta trasformación lineal?</p>
+<p><span class="math notranslate nohighlight">\( Π = \begin{bmatrix}
+0 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PI</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+      <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">PI</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_17_0.png" src="../../_images/Factorizacion_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="f">
+<h3>$F<a class="headerlink" href="#f" title="Permalink to this headline">¶</a></h3>
+<p>= \begin{bmatrix}
+-1 &amp; 0\
+0 &amp; 1\
+\end{bmatrix}$</p>
+<p>Tengo la siguiente transformación lineal:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+1\\
+0\\
+\end{bmatrix} → \begin{bmatrix}
+-1\\
+0\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+0\\
+1\\
+\end{bmatrix} → \begin{bmatrix}
+0\\
+1\\
+\end{bmatrix}\)</span></p>
+<p>¿Qué hace esta trasformación lineal?</p>
+<p><span class="math notranslate nohighlight">\( F = \begin{bmatrix}
+-1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_20_0.png" src="../../_images/Factorizacion_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="r">
+<h3>$R<a class="headerlink" href="#r" title="Permalink to this headline">¶</a></h3>
+<p>= \begin{bmatrix}
+\frac{3}{5} &amp; -\frac{4}{5}\
+\frac{4}{5} &amp; \frac{3}{5}\
+\end{bmatrix}$</p>
+<p>Tengo la siguiente transformación lineal:</p>
+<p><span class="math notranslate nohighlight">\((1, 0) → (\dfrac{3}{5}, \dfrac{4}{5})\)</span></p>
+<p><span class="math notranslate nohighlight">\((0, 1) → (-\dfrac{4}{5}, \dfrac{3}{5})\)</span></p>
+<p>¿Qué hace esta trasformación lineal?</p>
+<p><span class="math notranslate nohighlight">\( R = \begin{bmatrix}
+\frac{3}{5} &amp; -\frac{4}{5}\\
+\frac{4}{5} &amp; \frac{3}{5}\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">],[</span><span class="mi">4</span><span class="o">/</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="mi">5</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_23_0.png" src="../../_images/Factorizacion_23_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>$C<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>= \begin{bmatrix}
+1 &amp; 0\
+1 &amp; 1\
+\end{bmatrix}$</p>
+<p>Tengo la siguiente transformación lineal:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+1\\
+0\\
+\end{bmatrix} → \begin{bmatrix}
+-1\\
+1\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+0\\
+1\\
+\end{bmatrix} → \begin{bmatrix}
+0\\
+1\\
+\end{bmatrix}\)</span></p>
+<p>¿Qué hace esta trasformación lineal?</p>
+<p><span class="math notranslate nohighlight">\( C = \begin{bmatrix}
+1 &amp; 0\\
+1 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_26_0.png" src="../../_images/Factorizacion_26_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="t">
+<h3>$T<a class="headerlink" href="#t" title="Permalink to this headline">¶</a></h3>
+<p>= \begin{bmatrix}
+2 &amp; 3\
+-7 &amp; \frac{1}{2}\
+\end{bmatrix}$</p>
+<p>Tengo la siguiente transformación lineal:</p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+1\\
+0\\
+\end{bmatrix} → \begin{bmatrix}
+2\\
+-7\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\begin{bmatrix}
+0\\
+1\\
+\end{bmatrix} → \begin{bmatrix}
+3\\
+\frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<p>¿Qué hace esta trasformación lineal?</p>
+<p><span class="math notranslate nohighlight">\( T = \begin{bmatrix}
+2 &amp; 3\\
+-7 &amp; \frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_29_0.png" src="../../_images/Factorizacion_29_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="resumen">
+<h3>Resumen:<a class="headerlink" href="#resumen" title="Permalink to this headline">¶</a></h3>
+<p>En general pareciera que todas las transformaciones lineales pueden reducirse a 5 tipos de transformaciones o combinaciones de ellas:</p>
+<ul class="simple">
+<li><p>contracciones <span class="math notranslate nohighlight">\(C\)</span></p></li>
+<li><p>expansiones <span class="math notranslate nohighlight">\(E\)</span></p></li>
+<li><p>reflexiones <span class="math notranslate nohighlight">\(F\)</span></p></li>
+<li><p>proyecciones <span class="math notranslate nohighlight">\(\Pi\)</span></p></li>
+<li><p>rotaciones <span class="math notranslate nohighlight">\(R\)</span></p></li>
+<li><p>deformaciones de corte <span class="math notranslate nohighlight">\(C\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="preguntas">
+<h3>Preguntas:<a class="headerlink" href="#preguntas" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>¿Podemos representar la multiplicación por un escalar con una matriz?</p></li>
+<li><p>¿Podemos representar la proyección en un <strong>eje arbitrario</strong> con una matriz?</p></li>
+<li><p>¿Podemos representar el determinante con una matriz?</p></li>
+<li><p>¿Podemos representar la reflexión por un <strong>eje arbitrario</strong> coon una matriz?</p></li>
+<li><p>¿Podemos representar el cálculo de la inversa con una matriz?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+
+<span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+
+<span class="c1">#F = [[-1,0],</span>
+<span class="c1">#     [0,1]]</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">L</span> <span class="o">@</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">P</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">PI</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">P</span> <span class="o">@</span> <span class="n">R</span><span class="o">.</span><span class="n">T</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+<span class="n">show_TL</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">R</span><span class="p">)</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">P</span><span class="p">)</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
+[[ 0.64 -0.48]
+ [-0.48  0.36]]
+L
+[[ 0.28 -0.96]
+ [-0.96 -0.28]]
+</pre></div>
+</div>
+<img alt="../../_images/Factorizacion_33_1.png" src="../../_images/Factorizacion_33_1.png" />
+<img alt="../../_images/Factorizacion_33_2.png" src="../../_images/Factorizacion_33_2.png" />
+<img alt="../../_images/Factorizacion_33_3.png" src="../../_images/Factorizacion_33_3.png" />
+<img alt="../../_images/Factorizacion_33_4.png" src="../../_images/Factorizacion_33_4.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="limitaciones-de-una-transformacion-lineal">
+<h2>Limitaciones de una transformación lineal.<a class="headerlink" href="#limitaciones-de-una-transformacion-lineal" title="Permalink to this headline">¶</a></h2>
+<p>Hemos visto que hay cosas que una matriz o una transformación lineal no puede hacer. Sería interesante saber cuales son lo límites de una transforamción lineal.</p>
+<p>Por definición, las transformaciones lineales deben preservar sumas y multiplicaciones por un escalar.</p>
+<p>Si <span class="math notranslate nohighlight">\(M\)</span> es una transformación lineal, <span class="math notranslate nohighlight">\(x\)</span> e <span class="math notranslate nohighlight">\(y\)</span> vectores y α un escalar entonces M debe verificar:</p>
+<p><span class="math notranslate nohighlight">\(M(x + y) = Mx + My\)</span></p>
+<p><span class="math notranslate nohighlight">\(M(\alpha x) = \alpha(Mx)\)</span></p>
+<p>Para todo <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span></p>
+<div class="section" id="ejemplo-de-aplicacion">
+<h3>Ejemplo de aplicación<a class="headerlink" href="#ejemplo-de-aplicacion" title="Permalink to this headline">¶</a></h3>
+<p>A partir de la definición anterior, se puede ver que la inversa y el determinante no pueden ser transformaciones lineales</p>
+<div class="section" id="inversa-de-una-martiz">
+<h4>Inversa de una martiz<a class="headerlink" href="#inversa-de-una-martiz" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\mathrm{Inv}(I) = 
+\mathrm{Inv}\left(\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\right)=\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathrm{Inv}(0I) = 
+\mathrm{Inv}\left(0\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\right)=0\mathrm{Inv}\left(\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\right)=0\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}=\begin{bmatrix}
+0 &amp; 0\\
+0 &amp; 0\\
+\end{bmatrix}\)</span></p>
+<p>¡Pero la matriz <span class="math notranslate nohighlight">\(0I\)</span> No tiene inversa!</p>
+</div>
+<div class="section" id="determinante-de-una-martiz">
+<h4>Determinante de una martiz<a class="headerlink" href="#determinante-de-una-martiz" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate nohighlight">\(\det(I)=\det\left(\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\right) = 1\)</span></p>
+<p><span class="math notranslate nohighlight">\(\det(2I) = \det(I + I) = \det(I) + \det(I) = 1 + 1\)</span></p>
+<p>Pero:</p>
+<p><span class="math notranslate nohighlight">\(\det(2I)=\det\left(\begin{bmatrix}
+2 &amp; 0\\
+0 &amp; 2\\
+\end{bmatrix}\right) = 4\)</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="composicion-de-funciones">
+<h2>Composición de funciones<a class="headerlink" href="#composicion-de-funciones" title="Permalink to this headline">¶</a></h2>
+<p>Para calcular <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(L\)</span> hemos aplicado una rotación <span class="math notranslate nohighlight">\(R^T\)</span>, luego multiplicamos por una matriz diagonal y luego por otra rotación <span class="math notranslate nohighlight">\(R\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Pi =
+\begin{bmatrix}
+0&amp;0\\
+0&amp;1
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( R = \begin{bmatrix}
+\frac{3}{5} &amp; -\frac{4}{5}\\
+\frac{4}{5} &amp; \frac{3}{5}\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( F = \begin{bmatrix}
+-1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(P = R\Pi R^T\)</span></p>
+<p><span class="math notranslate nohighlight">\(L = RFR^T\)</span></p>
+<p>La idea de esto es componer transformaciones lineales. Es decir, aplicar una a continuación de la otra. La justificación explicar por que esto funcióna es sencilla.</p>
+<p>Empecemos por la reflexión:</p>
+<p>Primero necesitamos rotar nuestro sistemas de coordenadas para llevar los puntos del eje <span class="math notranslate nohighlight">\(x\)</span> a la recta <span class="math notranslate nohighlight">\(4x - 3y = 0\)</span>. Eso es lo que hace <span class="math notranslate nohighlight">\(R^T\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">show_TL</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_43_0.png" src="../../_images/Factorizacion_43_0.png" />
+</div>
+</div>
+<p>Luego realizamos una reflexión,con la matriz <span class="math notranslate nohighlight">\(F\)</span>. De hecho ya sabíamos como hacer eso cuando estudiamos <span class="math notranslate nohighlight">\(F\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">show_TL</span><span class="p">(</span><span class="n">F</span><span class="nd">@R</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_45_0.png" src="../../_images/Factorizacion_45_0.png" />
+</div>
+</div>
+<p>Por ultimo regresamos a las coordenas originales. por medio de <span class="math notranslate nohighlight">\(R\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">show_TL</span><span class="p">(</span><span class="n">R</span><span class="nd">@F@R</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_47_0.png" src="../../_images/Factorizacion_47_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="existe-una-forma-de-representar-las-transformaciones-lineales-a-paritr-de-transformaciones-basicas">
+<h2>¿Existe una forma de representar las transformaciones lineales a paritr de transformaciones básicas?<a class="headerlink" href="#existe-una-forma-de-representar-las-transformaciones-lineales-a-paritr-de-transformaciones-basicas" title="Permalink to this headline">¶</a></h2>
+<p>Hemos visto que en algunos casos, algunas transformaciones lineales pueden representarse u obtenerse a traves de transformaciones más sencillas. Por ejemplo las proyecciones y las reflexiones. Pero esto dos deja la pregunta de si este resultado es general para toda transformación lineal.</p>
+<p>Analicemos una matriz <span class="math notranslate nohighlight">\(M\)</span> y tratemos de describirla <em>cualitativamente</em> como hemos hecho hasta ahora</p>
+<p><span class="math notranslate nohighlight">\( M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]]</span>
+<span class="n">show_TL</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Factorizacion_51_0.png" src="../../_images/Factorizacion_51_0.png" />
+</div>
+</div>
+<p>Vemos que esta matriz hace deformaciones de cortes y luego comprime y expande en otras direcciones.</p>
+<p>Sin embargo, no todos vectores son iguales para nuestra matriz.</p>
+<p><span class="math notranslate nohighlight">\( M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix},~
+x_1 = \begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix},~
+x_2 = \begin{bmatrix}
+1\\
+1\\
+\end{bmatrix},~
+x_3 = \begin{bmatrix}
+0\\
+1\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="n">x_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># me aseguro que sean columnas</span>
+<span class="n">x_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">x_3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="n">y_1</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">x_1</span>
+<span class="n">y_2</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">x_2</span>
+<span class="n">y_3</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">x_3</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_1</span> <span class="p">,</span> <span class="n">y_1</span><span class="p">,</span> <span class="n">x_2</span> <span class="p">,</span> <span class="n">y_2</span><span class="p">,</span> <span class="n">x_3</span> <span class="p">,</span> <span class="n">y_3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span><span class="s2">&quot;y1&quot;</span><span class="p">,</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span><span class="s2">&quot;y2&quot;</span><span class="p">,</span><span class="s2">&quot;x3&quot;</span><span class="p">,</span><span class="s2">&quot;y3&quot;</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y1 = M(x1)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y2 = M(x2)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y3 = M(x3)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---------------------------------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>y1 = M(x1)
+y2 = M(x2)
+y3 = M(x3)
+
+[[&#39;x1&#39; &#39;y1&#39; &#39;x2&#39; &#39;y2&#39; &#39;x3&#39; &#39;y3&#39;]]
+---------------------------------
+[[ 1.  -1.5  1.   0.5  0.   2. ]
+ [ 0.   0.   1.   0.5  1.   0.5]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>¡Hay direcciones donde el efecto de la matriz es solo multiplicarar por un número!</p>
+<p><span class="math notranslate nohighlight">\( M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix},~
+x_1 = \begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix},~
+x_2 = \begin{bmatrix}
+1\\
+1\\
+\end{bmatrix},~
+x_3 = \begin{bmatrix}
+0\\
+1\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(M(x_1) = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix} 
+\begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix} = 
+\begin{bmatrix}
+-\frac{3}{2}\\
+0\\
+\end{bmatrix} =
+-\frac{3}{2} \begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix} =
+ -\dfrac{3}{2}x_1\)</span></p>
+<p><span class="math notranslate nohighlight">\(M(x_2) = 
+\begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix} 
+\begin{bmatrix}
+1\\
+1 \\
+\end{bmatrix} =
+\begin{bmatrix}
+\frac{1}{2}\\
+\frac{1}{2}\\ 
+\end{bmatrix} =
+\frac{1}{2} \begin{bmatrix}
+1\\
+1 \\
+\end{bmatrix} =
+\dfrac{1}{2}x_2\)</span></p>
+<p><span class="math notranslate nohighlight">\(M(x_3) = 
+\begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix} 
+\begin{bmatrix}
+0\\
+1 \\
+\end{bmatrix} =
+\begin{bmatrix}
+2\\
+\frac{1}{2}\\ 
+\end{bmatrix}\)</span></p>
+<p>Tal vez encontrar estas direcciones preferenciales nos den una pista para encontrar una más sencilla de forma sencilla de nuestras matrices.</p>
+</div>
+<div class="section" id="autovalores-y-autovectores">
+<h2>Autovalores y autovectores<a class="headerlink" href="#autovalores-y-autovectores" title="Permalink to this headline">¶</a></h2>
+<p>Al parecer nuestra matriz <span class="math notranslate nohighlight">\(M\)</span>, tiene direcciones preferenciales. Cuando <span class="math notranslate nohighlight">\(M\)</span> actua sobre un vector <span class="math notranslate nohighlight">\(x_i\)</span> en estas direcciones, <span class="math notranslate nohighlight">\(M\)</span> solo multiplica por una constante, componente a componente.</p>
+<p>En una matriz arbitraria, estos vectores <span class="math notranslate nohighlight">\(x_i\)</span> son conocidos como <em><strong>autovectores</strong></em> o <em><strong>eigenvectores</strong></em> y las constante <span class="math notranslate nohighlight">\(λ_i\)</span> que multiplican los vectores se llaman <em><strong>autovalores</strong></em> o <em><strong>eigenvalores</strong></em></p>
+<p><span class="math notranslate nohighlight">\( M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<p>Los autovalores y autovectores de <span class="math notranslate nohighlight">\(M\)</span> son:</p>
+<p><span class="math notranslate nohighlight">\(x_1 = \begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix},~ \lambda_1 = -\dfrac{3}{2}\\
+x_2 = \begin{bmatrix}
+1\\
+1\\
+\end{bmatrix},~ \lambda_2 = \dfrac{1}{2}\)</span></p>
+</div>
+<div class="section" id="diagonalizacion-de-una-matriz">
+<h2>Diagonalización de una matriz:<a class="headerlink" href="#diagonalizacion-de-una-matriz" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ejemplo-de-calculo-de-autovectores-y-autovalores">
+<h3>Ejemplo de cálculo de autovectores y autovalores<a class="headerlink" href="#ejemplo-de-calculo-de-autovectores-y-autovalores" title="Permalink to this headline">¶</a></h3>
+<p>Consideremos nuestra matriz <span class="math notranslate nohighlight">\(M\)</span>. Hasta ahora, alguien nos entrego sus autovalores y autovectores. Pero sería bueno saber como encontrarlos.</p>
+<div class="section" id="metodos-iterativos-para-autovalores-y-autovectores">
+<h4>Métodos iterativos para autovalores y autovectores<a class="headerlink" href="#metodos-iterativos-para-autovalores-y-autovectores" title="Permalink to this headline">¶</a></h4>
+<p>Por ahora lo único que sabemos es que queremos encontrar un autovector <span class="math notranslate nohighlight">\(x_i\)</span> y un autovalor <span class="math notranslate nohighlight">\(λ_i\)</span> que verifican.</p>
+<p><span class="math notranslate nohighlight">\(Mx_i = \lambda_ix_i\)</span></p>
+<p>Supongamos que tenemos solo un vector inicial <span class="math notranslate nohighlight">\(v\)</span> y apliquemos sucesivas veces <span class="math notranslate nohighlight">\(M\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;itereación: 0&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">v</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;itereación:&quot;</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>itereación: 0 [[-2]] [[1]]
+itereación: 1 [[5.]] [[0.5]]
+itereación: 2 [[-6.5]] [[0.25]]
+itereación: 3 [[10.25]] [[0.125]]
+itereación: 4 [[-15.125]] [[0.0625]]
+itereación: 5 [[22.8125]] [[0.03125]]
+itereación: 6 [[-34.15625]] [[0.015625]]
+itereación: 7 [[51.265625]] [[0.0078125]]
+itereación: 8 [[-76.8828125]] [[0.00390625]]
+itereación: 9 [[115.33203125]] [[0.00195312]]
+itereación: 10 [[-172.99414062]] [[0.00097656]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Despues de iteraciones con un vector arbitrario obtenemos algo parecido a un autovector. Decimos que es algo parecido a un auto vector por lo siguiente:</p>
+<p>Sabíamos que <span class="math notranslate nohighlight">\((x_1)^T = \begin{bmatrix} 1&amp;0\end{bmatrix}\)</span> era un autovector, pero tambien lo será <span class="math notranslate nohighlight">\((y)^T = \begin{bmatrix} -2&amp;0\end{bmatrix}\)</span>, <span class="math notranslate nohighlight">\((u)^T = \begin{bmatrix} 100&amp;0\end{bmatrix}\)</span> o <span class="math notranslate nohighlight">\((w)^T = \begin{bmatrix} -173&amp;0\end{bmatrix}\)</span>. En neustra iteración final, estamos cerca de un valor similar a <span class="math notranslate nohighlight">\(w\)</span>, un autovector propiamente dicho.</p>
+<p>Vemos que las aplicaciones sucesivas nos un vector que se acerca a un autovector. Con lo cual podemos proponer este truco para encontrar un autovector. De hecho podemos proponer una mejora. Dado que algunas componentes pueden aumentar, es recomendable ir achicando nuestros vectores para evitar que estos crezcan indefinidamente. Lo mismo si nuestro vectores se achicaran. Para solucionar esto, eligiremos dividir la mayor componente en valor absoluto. Por ejemplo en nuestro vector <span class="math notranslate nohighlight">\((v)^T = \begin{bmatrix}-2&amp;1\end{bmatrix}\)</span> deberiamos dividir todo por <span class="math notranslate nohighlight">\(-2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;itereación: 0&quot;</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">v</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">v</span>
+  <span class="n">v_abs</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="c1"># aplicamos valor absoluto componente a componente</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="n">v_abs</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span> <span class="c1"># elegimos la componente con mayor valor absoluto</span>
+  <span class="n">lamb</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># guardamos la componente con mayor valor absoluto  </span>
+  <span class="n">v</span> <span class="o">/=</span> <span class="n">lamb</span> <span class="c1">#dividimos por la componente con mayor valor absoluto  </span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;itereación:&quot;</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">lamb</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>itereación: 0 [[-2]] [[1]]
+itereación: 1 [[1.]] [[0.1]] [[5.]] 0
+itereación: 2 [[1.]] [[-0.03846154]] [[-1.3]] 0
+itereación: 3 [[1.]] [[0.01219512]] [[-1.57692308]] 0
+itereación: 4 [[1.]] [[-0.00413223]] [[-1.47560976]] 0
+itereación: 5 [[1.]] [[0.00136986]] [[-1.50826446]] 0
+itereación: 6 [[1.]] [[-0.00045746]] [[-1.49726027]] 0
+itereación: 7 [[1.]] [[0.00015239]] [[-1.50091491]] 0
+itereación: 8 [[1.]] [[-5.08078447e-05]] [[-1.49969521]] 0
+itereación: 9 [[1.]] [[1.6934801e-05]] [[-1.50010162]] 0
+itereación: 10 [[1.]] [[-5.64506114e-06]] [[-1.49996613]] 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Al guardar la componente con mayor valor absoluto y dividir por ella, en esencia hemos encontrado también un autovalor.</p>
+<p>La elección de dividir por la componente en mayor valor absoluto no es arbitraria. Puede demostrarse que nuestro algoritmo converge a un autovector si dividimos nuestros resultados por cualquier norma de <span class="math notranslate nohighlight">\(v\)</span>. En ese sentido, podríamos haber dividido por cualquier norma. Podríamos haber dividido por la norma euclidiana para encontrar los autovectores. Sin embargo, si elegimos la llamada <strong>norma infinito</strong>, esta norma nos devuelve el valor absoluto de el autovalor correpondiente. De hecho al quedarnos con la componente original, recuperamos el signo.</p>
+<p>NormaInfinito(<span class="math notranslate nohighlight">\(v\)</span>):</p>
+<ol class="simple">
+<li><p>calculo el valor absoluto de cada componente de <span class="math notranslate nohighlight">\(v\)</span></p></li>
+<li><p>busco <span class="math notranslate nohighlight">\(k\)</span>, el máximo de los valores absolutos</p></li>
+<li><p>devuelvo el valor <span class="math notranslate nohighlight">\(k\)</span> encontrado.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">NormaInfinito</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+  <span class="n">u</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+  <span class="n">k</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">k</span>
+</pre></div>
+</div>
+<p>Podemos ver que algoritmo nos ha permitdo calcular un solo autovector y un solo autovalor. De hecho, puede demostrarse que siempre encuentra el autovalor con mayor valor absoluto y autovector asociado.</p>
+<p>Sin embargo, aun nos faltan encontrar otros autovalores y autovectores. Vemos que este problema puede ser muy intensivo en cálculo, si seguimos por este camino.</p>
+<p>Afortunadamente, existen técnicas númericas más avanzadas inspiradas en este algoritmo. Estás técnicas pemiten encontrar todos los autovalores y autovectores. Además, estás ya se encuentran incluidas en <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span><span class="n">M</span><span class="p">)</span> <span class="c1">#cálculo de autosistema</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">eigenvectors</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">eigenvectors</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.5 [[1. 0.]]
+0.5 [[0.70710678 0.70710678]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>En efecto, a la salida tenemos cada autovalor y su autovector correspondiente. Debido a como se trabaja el algoritmo, los autovectores siempre terminan normalizados con norma euclidiana.</p>
+</div>
+</div>
+<div class="section" id="diagonalizacion">
+<h3>Diagonalización<a class="headerlink" href="#diagonalizacion" title="Permalink to this headline">¶</a></h3>
+<p>Definamos las siguientes matrices a partir de los autovectores y autovalores de <span class="math notranslate nohighlight">\(M\)</span> arbitraria:</p>
+<p><span class="math notranslate nohighlight">\(\Lambda = \begin{bmatrix}
+λ_1&amp;0&amp;\dots &amp; 0\\
+0&amp;λ_2&amp;\dots &amp; 0\\
+\vdots&amp;\vdots&amp;\ddots &amp; \vdots\\
+0&amp;0&amp;\dots &amp; λ_n\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(X = 
+\begin{bmatrix}
+x_1|x_2|\dots |x_n
+\end{bmatrix}\)</span></p>
+<p>Es decir, en <span class="math notranslate nohighlight">\(\Lambda\)</span> ponemos todos los autovalores <span class="math notranslate nohighlight">\(\lambda_i\)</span> de <span class="math notranslate nohighlight">\(M\)</span> en la diagonal. El resto de los elementos los llenamos de 0. Por otro lado en <span class="math notranslate nohighlight">\(X\)</span> podemos a los autovectores <span class="math notranslate nohighlight">\(x_i\)</span> de <span class="math notranslate nohighlight">\(M\)</span> como columnas, <strong>respetando que el orden de los auto vectores coindida con los autovalores</strong>.</p>
+<p>Se puede demostrar que si <span class="math notranslate nohighlight">\(X\)</span> es invertible, entonces:</p>
+<p><span class="math notranslate nohighlight">\(M = XΛX^{-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(XΛX^{-1}\)</span> es la composición de aplicar  <span class="math notranslate nohighlight">\(X^{-1}\)</span>, luego <span class="math notranslate nohighlight">\(Λ\)</span> y finalmente <span class="math notranslate nohighlight">\(X\)</span>. Para nuestra <span class="math notranslate nohighlight">\(M\)</span> tenemos:</p>
+<p><span class="math notranslate nohighlight">\(M = X\Lambda X^{-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix},~
+\Lambda = \begin{bmatrix}
+-\frac{3}{2} &amp; 0\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( X^{-1} =
+\begin{bmatrix}
+1 &amp; -1\\
+0 &amp; \sqrt{2}\\
+\end{bmatrix},~ 
+X = \begin{bmatrix}
+1 &amp; \dfrac{\sqrt{2}}{2}\\
+0 &amp; \dfrac{\sqrt{2}}{2}\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">eigenvectors</span>
+<span class="n">X_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">Lambda_M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">eigenvalues</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+  <span class="n">Lambda_M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">Lambda_M</span> <span class="o">@</span> <span class="n">X_inv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.5  2. ]
+ [ 0.   0.5]]
+[[-1.5  2. ]
+ [ 0.   0.5]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>En función a lo anterior podemos ver que hay matrices, como <span class="math notranslate nohighlight">\(M\)</span>, que pueden ser representadas como diagonales. Para que puedan ser representadas como diagonales, necesitamos que esta matriz X$ de autovectores sea invertible.</p>
+<div class="section" id="observacion">
+<h4>Observación:<a class="headerlink" href="#observacion" title="Permalink to this headline">¶</a></h4>
+<p>Para diagonalizar una matriz necesitamos a <span class="math notranslate nohighlight">\(X\)</span> y su inversa.</p>
+<p>Podrían existir tres matrices <span class="math notranslate nohighlight">\(U\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>, <span class="math notranslate nohighlight">\(\Sigma\)</span> con <span class="math notranslate nohighlight">\(\Sigma\)</span> diagonal tal que</p>
+<p><span class="math notranslate nohighlight">\(M = U\Sigma Y\)</span></p>
+<p>pero</p>
+<p><span class="math notranslate nohighlight">\(UY \neq I\)</span></p>
+<p><span class="math notranslate nohighlight">\(YU \neq I\)</span></p>
+</div>
+</div>
+<div class="section" id="la-diagonalizacion-no-es-unica">
+<h3>La diagonalización no es única<a class="headerlink" href="#la-diagonalizacion-no-es-unica" title="Permalink to this headline">¶</a></h3>
+<p><span class="math notranslate nohighlight">\(M = X^{-1}\Lambda X = Y^{-1}\Lambda Y\)</span></p>
+<p><span class="math notranslate nohighlight">\(M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix},~
+\Lambda = \begin{bmatrix}
+-\frac{3}{2} &amp; 0\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( Y^{-1} =
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 1\\
+\end{bmatrix},~ 
+Y = \begin{bmatrix}
+1 &amp; -1\\
+0 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( X^{-1} =
+\begin{bmatrix}
+1 &amp; -1\\
+0 &amp; \sqrt{2}\\
+\end{bmatrix},~ 
+X = \begin{bmatrix}
+1 &amp; \dfrac{\sqrt{2}}{2}\\
+0 &amp; \dfrac{\sqrt{2}}{2}\\
+\end{bmatrix}\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">eigenvectors</span>
+<span class="n">X_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">Y_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+
+<span class="n">Lambda_M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">eigenvalues</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+  <span class="n">Lambda_M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">eigenvalues</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span> <span class="o">@</span> <span class="n">Lambda_M</span> <span class="o">@</span> <span class="n">X_inv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Y</span> <span class="o">@</span> <span class="n">Lambda_M</span> <span class="o">@</span> <span class="n">Y_inv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-1.5  2. ]
+ [ 0.   0.5]]
+[[-1.5  2. ]
+ [ 0.   0.5]]
+[[-1.5  2. ]
+ [ 0.   0.5]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="no-toda-matriz-es-diagonalizable">
+<h3>No toda matriz es diagonalizable<a class="headerlink" href="#no-toda-matriz-es-diagonalizable" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Las matrices que representan rotaciones son diagonalizables… <em>si usamos números complejos como autovalores</em></p></li>
+<li><p>Una deformación de corte no puede diagonalizarse. Para esos casos se usan otras herramientas que generalizan noción de <em>diagonalización</em> (Formas de Jordan)</p></li>
+</ul>
+</div>
+<div class="section" id="diagonalizacion-de-matrices-simetricas">
+<h3>Diagonalización de matrices simétricas<a class="headerlink" href="#diagonalizacion-de-matrices-simetricas" title="Permalink to this headline">¶</a></h3>
+<p>Toda matriz simétrica <span class="math notranslate nohighlight">\(B\)</span> es diagonalizable</p>
+<ul>
+<li><p>Todos los autovalores <span class="math notranslate nohighlight">\(\lambda_i\)</span> son <em>reales</em></p></li>
+<li><p>Los autovectores <span class="math notranslate nohighlight">\(x_i\)</span> forman una base ortogonal.</p>
+<p>Es decir, si usamos autovectores con norma unitaria para construir <span class="math notranslate nohighlight">\(X\)</span> se verifica:</p>
+<p><span class="math notranslate nohighlight">\(X^T=X^{-1}\)</span></p>
+</li>
+<li><p>Equivalentemente <span class="math notranslate nohighlight">\(X\)</span> repesenta una rotación</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<span class="c1"># eigh es una función optimizada para matrices simétricas</span>
+<span class="n">B_values</span><span class="p">,</span> <span class="n">B_vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+
+<span class="n">B_diag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">B_values</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+  <span class="n">B_diag</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">B_values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_diag</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_vectors</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_vectors</span> <span class="o">@</span> <span class="n">B_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">B_vectors</span> <span class="o">@</span> <span class="n">B_diag</span> <span class="o">@</span> <span class="n">B_vectors</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2]
+ [2 3]]
+
+[[-0.23606798  0.        ]
+ [ 0.          4.23606798]]
+[[-0.85065081  0.52573111]
+ [ 0.52573111  0.85065081]]
+
+[[ 1.0000000e+00 -1.2127222e-17]
+ [-1.2127222e-17  1.0000000e+00]]
+[[1. 2.]
+ [2. 3.]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="descomposicion-en-valores-singulares">
+<h2>Descomposición en Valores Singulares<a class="headerlink" href="#descomposicion-en-valores-singulares" title="Permalink to this headline">¶</a></h2>
+<p>Hasta ahora hemos hablado de matrices cuadradas. Nuestra idea era buscar representar matrices de manera tal que pudieramos explicar el efecto de una matriz, de forma sencilla.</p>
+<p>En general las matrices no son cuadradas. Además las matrices cuadradas no siempre son diagonalizables. En resumen, nuestros trucos con autovectores y autovalores pueden fallar.</p>
+<p>Por esta razón necesitamos algo más robusto para nuestro problema.</p>
+<p>Al final de la sección anterior dijimos que toda matriz simétrica es diagonalizable. En función de esto podemos proponer trabajar con una matriz simétrica <span class="math notranslate nohighlight">\(S\)</span>, a partir de una matriz <span class="math notranslate nohighlight">\(A\)</span> arbitraria, incluso tal vez rectangular.</p>
+<p>Antes de hablar de <span class="math notranslate nohighlight">\(S\)</span> analicemos como hacemos composición de transformacioens lineales con matriz rectangular</p>
+<p><span class="math notranslate nohighlight">\(A = \begin{bmatrix}1&amp;2&amp;3\\
+5&amp;4&amp;3\end{bmatrix} \)</span></p>
+<p><span class="math notranslate nohighlight">\(A\)</span> recibe vectores de dimensión 3 y devuelve vectores de dimensión 2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+               <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">b</span>
+<span class="n">c</span><span class="o">.</span><span class="n">T</span> <span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(matrix([[1, 5]]), matrix([[1, 0, 0]]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Esto nos indica que para que poder componer una matriz rectangular <span class="math notranslate nohighlight">\(A\)</span> por otra matriz <span class="math notranslate nohighlight">\(B\)</span> debemos hacer que el número de filas de <span class="math notranslate nohighlight">\(A\)</span> conicida con el número de columnas de <span class="math notranslate nohighlight">\(B\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">M</span> <span class="o">@</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[8.5 5.  1.5]
+ [2.5 2.  1.5]]
+[[-1.5  2. ]
+ [ 0.   0.5]]
+[[1 2 3]
+ [5 4 3]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Es fácil ver que si el número de filas y columnas no coindice la  composición entre transformaciones lineales es imposible. Solo con esto vemos que en general la composición de transformaciones lineales no es conmutativa.</p>
+<p>Debido a que esta composición aparece en un montón de otras aplicaciónes, es normal llamar a esta composición <em><strong>multiplicación entre matrices</strong></em>. Por ejemplo, esta multiplicación entre matrices, también nos permite definir el producto escalar de una manera consistente e incluso generalizarlo a otros casos.</p>
+<p>En función a lo anterior, vemos que hay precuaciones a considerar para obtener una matriz simétrica <span class="math notranslate nohighlight">\(S\)</span> a partir de <span class="math notranslate nohighlight">\(A\)</span> multiplicando por otra matriz.</p>
+<p>Por suerte, podemos elegir una matriz que siempre tiene como cantidad de filas la cantidad de columnas de <span class="math notranslate nohighlight">\(A\)</span>  y como cantidad de columnas la cantidad de filas de <span class="math notranslate nohighlight">\(A\)</span>: <span class="math notranslate nohighlight">\(A^T\)</span>, la transpuesta de <span class="math notranslate nohighlight">\(A\)</span></p>
+<p><span class="math notranslate nohighlight">\(A^T = \begin{bmatrix}1&amp;5\\
+2&amp;4\\
+3&amp;3\end{bmatrix} \)</span></p>
+<p>De hecho, <span class="math notranslate nohighlight">\(AA^T\)</span> siempre es simátrica para cualquier matriz <span class="math notranslate nohighlight">\(A\)</span>, incluso para matrices rectangulares</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span>
+<span class="n">S</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[14, 22],
+        [22, 50]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Por como construimos <span class="math notranslate nohighlight">\(S\)</span>, además de simétrica, <span class="math notranslate nohighlight">\(S\)</span> es definida positiva. Es decir, todos sus auto valores son positivos</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span><span class="p">,</span> <span class="n">vectors</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+<span class="c1"># eigh es una función optimizada para matrices simétricas</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">vectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 3.57465919 60.42534081]
+[[-0.90366968  0.4282302 ]
+ [ 0.4282302   0.90366968]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>También podríamos construir <span class="math notranslate nohighlight">\(H = A^TA\)</span>. En ese caso notariamos algo interesante:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">A</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="n">newValues</span><span class="p">,</span> <span class="n">newVectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newValues</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">newVectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[26 22 18]
+ [22 20 18]
+ [18 18 18]]
+
+[-7.11216106e-15  3.57465919e+00  6.04253408e+01]
+[[-0.40824829  0.6545176  -0.63634899]
+ [ 0.81649658 -0.04993903 -0.57518643]
+ [-0.40824829 -0.75439565 -0.51402386]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dos de los autovalores de <span class="math notranslate nohighlight">\(S\)</span> coinciden con los autovalores de <span class="math notranslate nohighlight">\(H\)</span>. El restante es muy cercano a 0. De hecho, eso se debe a un problema del cálculo en una PC. Si pudieramos tener precisión arbitraria el autovalor restante debe ser 0.</p>
+<p>Además, existe otra propiedad, Si <span class="math notranslate nohighlight">\(A\)</span> hubiera sido una matriz diagonalizable, los autovalores de <span class="math notranslate nohighlight">\(A\)</span> son la raiz cuadrada de los autovalores de <span class="math notranslate nohighlight">\(S\)</span>, a menos de signo.</p>
+<p>A partir de este experimento con S y H podemos ver algo interesante:</p>
+<p><span class="math notranslate nohighlight">\(A^TA = VDV^T\)</span></p>
+<p><span class="math notranslate nohighlight">\(AA^T = U\Lambda U^T\)</span></p>
+<p>Concentremos nos en la parte con <span class="math notranslate nohighlight">\(A\)</span></p>
+<p><span class="math notranslate nohighlight">\(A^T\underline{A} = VD\underline{V^T}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\underline{A}A^T = \underline{U}\Lambda U^T\)</span></p>
+<p>La notación nos sugiere que podemos escribir <span class="math notranslate nohighlight">\(A\)</span> como:</p>
+<p><span class="math notranslate nohighlight">\(A = U\Sigma V^T\)</span></p>
+<p>Donde <span class="math notranslate nohighlight">\(\Sigma\)</span> tiene información de <span class="math notranslate nohighlight">\(D\)</span> y <span class="math notranslate nohighlight">\(Λ\)</span>. <span class="math notranslate nohighlight">\(U\)</span> y <span class="math notranslate nohighlight">\(V^T\)</span> son cuadradas. De aquí vemos que <span class="math notranslate nohighlight">\(\Sigma\)</span> tiene la misma forma que <span class="math notranslate nohighlight">\(A\)</span>. Ademas:</p>
+<p><span class="math notranslate nohighlight">\(Σ^TΣ = D\)</span></p>
+<p><span class="math notranslate nohighlight">\(ΣΣ^T = Λ\)</span></p>
+<p>Es decir, <span class="math notranslate nohighlight">\(Σ\)</span> es una especie de raiz cuadrada de <span class="math notranslate nohighlight">\(D\)</span> y <span class="math notranslate nohighlight">\(Λ\)</span>, a menos de un signo.</p>
+<p>Esta forma de rescribir <span class="math notranslate nohighlight">\(A\)</span>, se conoce como <strong>descomposición en valores singulares</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">Sigma</span><span class="p">,</span> <span class="n">V_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+<span class="n">Sigma_M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Sigma</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+  <span class="n">Sigma_M</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Sigma</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Sigma_M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">V_T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">U</span> <span class="o">@</span> <span class="n">Sigma_M</span> <span class="o">@</span> <span class="n">V_T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1 2 3]
+ [5 4 3]]
+
+[[-0.4282302  -0.90366968]
+ [-0.90366968  0.4282302 ]]
+[[7.77337384 0.         0.        ]
+ [0.         1.89067691 0.        ]]
+[[-0.63634899 -0.57518643 -0.51402386]
+ [ 0.6545176  -0.04993903 -0.75439565]
+ [ 0.40824829 -0.81649658  0.40824829]]
+
+[[1. 2. 3.]
+ [5. 4. 3.]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mandar-al-final">
+<h1>Mandar al final<a class="headerlink" href="#mandar-al-final" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="algoritmo-1">
+<h2>Algoritmo 1<a class="headerlink" href="#algoritmo-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Representamos un vector <span class="math notranslate nohighlight">\(v\)</span> como combinación lineal de los vectores <span class="math notranslate nohighlight">\(x_i\)</span>, es decir, los autovectores de <span class="math notranslate nohighlight">\(A\)</span></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(v = \alpha_1x_1 + \alpha_1x_1 + … + \alpha_nx_n\)</span></p></li>
+</ul>
+</li>
+<li><p>Aplicamos los autovalores de <span class="math notranslate nohighlight">\(A\)</span> segun corresponda</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(x_1 \to \lambda_1x_1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_2 \to \lambda_2x_2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_n \to \lambda_nx_n\)</span></p></li>
+</ul>
+</li>
+<li><p>Sumamos los resultados parciales.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(Mv = \lambda_1\alpha_1x_1 + \lambda_2\alpha_2x_2 + … + \lambda_n\alpha_1x_n\)</span></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="m-y-el-algoritmo-1">
+<h2><span class="math notranslate nohighlight">\(M\)</span> y el Algoritmo 1<a class="headerlink" href="#m-y-el-algoritmo-1" title="Permalink to this headline">¶</a></h2>
+<p>En el apartado anterior encontramos los autovectores y autovalores de <span class="math notranslate nohighlight">\(M\)</span>. Esto significa que ahora podemos calcular <span class="math notranslate nohighlight">\(M\)</span> como propusimos en el Algoritmo 1</p>
+<p><span class="math notranslate nohighlight">\( M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(M(x_1) = \lambda_1 x_1,~x_1 = \begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix},~ \lambda_1 = -\dfrac{3}{2}\\
+M(x_2) = \lambda_2 x_2,~x_2 = \begin{bmatrix}
+1\\
+1\\
+\end{bmatrix},~ \lambda_2 = \dfrac{1}{2}\)</span></p>
+<p>El primer paso del Algoritmo 1 nos pide saber como escribir un vector arbitrario <span class="math notranslate nohighlight">\(v\)</span> en términos de <span class="math notranslate nohighlight">\(x_i\)</span>, los autovectores de <span class="math notranslate nohighlight">\(A\)</span>. Es decir queremos conocer los <span class="math notranslate nohighlight">\(\alpha_i\)</span> que verifican:</p>
+<p><span class="math notranslate nohighlight">\(v = \alpha_1x_1 + \alpha_1x_1 + … + \alpha_nx_n\)</span></p>
+<p>Esto lo podemos reescribir esto de la siguiente manera:</p>
+<p><span class="math notranslate nohighlight">\(v = Xa\)</span></p>
+<p><span class="math notranslate nohighlight">\(X = 
+\begin{bmatrix}
+x_1|x_2|\dots |x_n
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\(a = 
+\begin{bmatrix}
+\alpha_1\\ \hline
+\alpha_2\\\hline
+\vdots\\ \hline
+\alpha_n
+\end{bmatrix}\)</span></p>
+<p>Hemos apilado los <span class="math notranslate nohighlight">\(\alpha_i\)</span> en un vector columna y unido los vectores columnas de <span class="math notranslate nohighlight">\(x_i\)</span> para crear la matriz <span class="math notranslate nohighlight">\(X\)</span>. Puede parecer que lo que hicimos es meramente un cambio de notación. Sin embargo, la notación nos dice como calcular los <span class="math notranslate nohighlight">\(\alpha_i\)</span>. Si los <span class="math notranslate nohighlight">\(x_i\)</span> forman una base, eso significa que <span class="math notranslate nohighlight">\(X\)</span> debe tener inversa. Por lo tanto:</p>
+<p><span class="math notranslate nohighlight">\(X^{-1}v = a\)</span></p>
+<p>Al final del primer paso tenemos</p>
+<p><span class="math notranslate nohighlight">\(v \to a\)</span></p>
+<p><span class="math notranslate nohighlight">\(a = X^{-1} v\)</span></p>
+<p>Ahora tenemos un vector columna <span class="math notranslate nohighlight">\(a\)</span> sobre el que ya aplicaremos <span class="math notranslate nohighlight">\(M\)</span>. Como <span class="math notranslate nohighlight">\(a\)</span> está en términos de los autovectores <span class="math notranslate nohighlight">\(x_i\)</span>, solo tenemos que multiplicar componente a componente usando los autovalores <span class="math notranslate nohighlight">\(λ_i\)</span>. Aprovechando la notación anterior definiremos la matriz <span class="math notranslate nohighlight">\(\Lambda\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\Lambda = \begin{bmatrix}
+λ_1&amp;0&amp;\dots &amp; 0\\
+0&amp;λ_2&amp;\dots &amp; 0\\
+\vdots&amp;\vdots&amp;\ddots &amp; \vdots\\
+0&amp;0&amp;\dots &amp; λ_n\\
+\end{bmatrix}\)</span></p>
+<p>De esta manera, para proceder con nuestro segundo paso ahora debemos calcular:</p>
+<p><span class="math notranslate nohighlight">\(a \to \Lambda a\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Lambda a = \Lambda X^{-1} v\)</span></p>
+<p>Para terminar, debemos hacer que <span class="math notranslate nohighlight">\(\Lambda a\)</span> deje de estar en términos de <span class="math notranslate nohighlight">\(x_i\)</span>. Sin embargo, ya sabemos como eliminar eso. De hecho lo vimos al principio de esta sección:</p>
+<p><span class="math notranslate nohighlight">\(v = Xa\)</span></p>
+<p>En efecto <span class="math notranslate nohighlight">\(a\)</span> ha dejado de estar en términos de <span class="math notranslate nohighlight">\(x_i\)</span> y ahora a vuelto a su forma anterior, <span class="math notranslate nohighlight">\(v\)</span>. Por lo tanto, el paso final es:</p>
+<p><span class="math notranslate nohighlight">\(\Lambda a \to X\Lambda a\)</span></p>
+<p>Finalmente tenemos</p>
+<p><span class="math notranslate nohighlight">\(Mv = X \Lambda X^{-1} v\)</span></p>
+<p>Como <span class="math notranslate nohighlight">\(v\)</span> es un vector arbitrario, podemos asegurar:</p>
+<p><span class="math notranslate nohighlight">\(M = X \Lambda X^{-1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(M = \begin{bmatrix}
+-\frac{3}{2} &amp; 2\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix},~
+\Lambda = \begin{bmatrix}
+-\frac{3}{2} &amp; 0\\
+0 &amp; \frac{1}{2}\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( X^{-1} =
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 1\\
+\end{bmatrix},~ 
+X = \begin{bmatrix}
+1 &amp; -1\\
+0 &amp; 1\\
+\end{bmatrix}\)</span></p>
+<p>Como <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(X^{-1}\)</span> deben ser inversas, estas matrices deben verificar:</p>
+<p><span class="math notranslate nohighlight">\(X^{-1}X = 
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 1\\
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; -1\\
+0 &amp; 1\\
+\end{bmatrix} = 
+\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix} = I\)</span></p>
+<p><span class="math notranslate nohighlight">\(XX^{-1} = 
+\begin{bmatrix}
+1 &amp; -1\\
+0 &amp; 1\\
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 1\\
+0 &amp; 1\\
+\end{bmatrix} = 
+\begin{bmatrix}
+1 &amp; 0\\
+0 &amp; 1\\
+\end{bmatrix} = I\)</span></p>
+<p>Vemos que en realidad el Algoritmo 1 no es útil. No solo debemos aplicar 3 matrices, sino que una de ellas es una inversa.</p>
+<div class="section" id="calculo-analitico-de-autovectores-y-autovalores">
+<h3>Calculo analítico de autovectores y autovalores<a class="headerlink" href="#calculo-analitico-de-autovectores-y-autovalores" title="Permalink to this headline">¶</a></h3>
+<p>Para encontrar los autovectores de <span class="math notranslate nohighlight">\(M\)</span> debemos resolver el sistema</p>
+<p><span class="math notranslate nohighlight">\((M - \lambda_iI)x_i = 0\)</span></p>
+<p>Primero calcularemos <span class="math notranslate nohighlight">\(M - \lambda_1I\)</span></p>
+<p><span class="math notranslate nohighlight">\( M - \lambda_1 I = \begin{bmatrix}
+-\frac{3}{2} - \lambda_1&amp; 2\\
+0 &amp; \frac{1}{2} - \lambda_1\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( M - \lambda_1 I = \begin{bmatrix}
+-\frac{3}{2} - (-\frac{3}{2})&amp; 2\\
+0 &amp; \frac{1}{2} - (-\frac{3}{2})\\
+\end{bmatrix}\)</span></p>
+<p><span class="math notranslate nohighlight">\( M - \lambda_1 I = \begin{bmatrix}
+0&amp; 2\\
+0 &amp; 2\\
+\end{bmatrix}\)</span></p>
+<p>Aplicamos ahora a <span class="math notranslate nohighlight">\(M - \lambda_1 I\)</span> sobre un vector arbitrario</p>
+<p><span class="math notranslate nohighlight">\( (M - \lambda_1 I)x_1 = \begin{bmatrix}
+0&amp; 2\\
+0 &amp; 2\\
+\end{bmatrix}
+\begin{bmatrix}
+\alpha\\
+\beta \\
+\end{bmatrix}\)</span></p>
+<p>Esto genera dos ecuaciones iguales:</p>
+<p><span class="math notranslate nohighlight">\(2\beta = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(\beta = 0\)</span></p>
+<p>Por lo tanto nuestras solucioens son de la forma:</p>
+<p><span class="math notranslate nohighlight">\( \begin{bmatrix}
+\alpha\\
+0 \\
+\end{bmatrix}= \alpha \begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix}\)</span></p>
+<p>Elegimos nuestro autovector <span class="math notranslate nohighlight">\(x_1\)</span></p>
+<p><span class="math notranslate nohighlight">\(x_1 = \begin{bmatrix}
+1\\
+0 \\
+\end{bmatrix}\)</span></p>
+<p>De manera analoga para <span class="math notranslate nohighlight">\(\lambda_2\)</span> tenemos:</p>
+<p><span class="math notranslate nohighlight">\( M - \lambda_2 I = \begin{bmatrix}
+-2&amp; 2\\
+0 &amp; 0\\
+\end{bmatrix}\)</span></p>
+<p>Aplicamos ahora a <span class="math notranslate nohighlight">\(M - \lambda_2 I\)</span> sobre un vector arbitrario</p>
+<p><span class="math notranslate nohighlight">\( (M - \lambda_2 I)x_2 = \begin{bmatrix}
+-2&amp; 2\\
+0 &amp; 0\\
+\end{bmatrix}
+\begin{bmatrix}
+\alpha\\
+\beta \\
+\end{bmatrix}\)</span></p>
+<p>Obtenemos la ecuaciones:</p>
+<p><span class="math notranslate nohighlight">\(-2\alpha + 2\beta = 0\)</span></p>
+<p><span class="math notranslate nohighlight">\(2\alpha = 2\beta\)</span></p>
+<p><span class="math notranslate nohighlight">\(\alpha = \beta\)</span></p>
+<p>Por lo tanto nuestras solucioens son de la forma:</p>
+<p><span class="math notranslate nohighlight">\( \begin{bmatrix}
+\alpha\\
+\alpha \\
+\end{bmatrix}= \alpha \begin{bmatrix}
+1\\
+1 \\
+\end{bmatrix}\)</span></p>
+<p>Elegimos nuestro autovector <span class="math notranslate nohighlight">\(x_2\)</span></p>
+<p><span class="math notranslate nohighlight">\(x_2 = \begin{bmatrix}
+1\\
+1 \\
+\end{bmatrix}\)</span></p>
+<p>Con esto termina el cálculo de nuestros autovectores y autovalores</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./MatematicasParaML/3_Factorizacion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../2_Matrices/Matrices.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Matrices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../4_Funciones/Funciones.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Funciones</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Matías Grinberg<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
