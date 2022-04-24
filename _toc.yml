@@ -1,0 +1,89 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+defaults:  # The defaults key will be applied to all chapters and sub-sections
+  titlesonly: True
+  maxdepth: 1
+parts: 
+  - caption: Introduccion a la Programación con Python
+    chapters:
+    - file: Introduccion/README.md
+    - file: Introduccion/1_TiposDatos/tipos-datos.ipynb
+    - file: Introduccion/1_TiposDatos/ejercicio/ejercicios.ipynb
+    - file: Introduccion/2_Listas_Y_Funciones/listas-funciones.ipynb
+    - file: Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.ipynb
+    - file: Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.ipynb
+    - file: Introduccion/3_Modulos_Funciones/modulos-funciones.ipynb
+    - file: Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.ipynb
+    - file: Introduccion/4_Intro_Poo/intro-poo.ipynb
+    - file: Introduccion/4_Intro_Poo/ejercicio/ejercicio.ipynb
+    - file: Introduccion/5_Poo_Experimento/poo-experimento.ipynb
+    - file: Introduccion/6_Poo_Proyecto/poo-proyecto.ipynb
+
+  - caption: Automatización
+    chapters:
+    - file: Automatizacion/README.md
+    - file: Automatizacion/Automatización_I
+    - file: Automatizacion/Automatización_I/automatizacion_pygui_bash_os.ipynb
+    - file: Automatizacion/Automatización_2/clase_automatizacion_2_gsheets_cron_mails.ipynb
+    - file: Automatizacion/Automatización_2/clase_automatizacion_2_ejercicios.ipynb
+    - file: Automatizacion/Expresiones_Regulares/expresiones_regulares.ipynb
+    - file: Automatizacion/Otros/gsheets_pytrends.ipynb
+    - file: Automatizacion/Otros/organizando_pdfs.ipynb
+    - file: Automatizacion/Otros/edicion_imagenes.ipynb
+    
+  - caption: Minería Web
+    chapters: 
+    - file: Scraping/README.md
+    - file: Scraping/1_HTTP_Inicial/web_scraping_http_inicial.ipynb
+    - file: Scraping/1_HTTP_Inicial/ejercicio/spinetta.ipynb
+    - file: Scraping/2_HTTP_Avanzado/scraping_http_avanzado.ipynb
+    - file: Scraping/2_HTTP_Avanzado/scraping_avanzado_2.ipynb
+    - file: Scraping/2_HTTP_Avanzado/ejercicio/apis-ocultas.ipynb
+    - file: Scraping/2_HTTP_Avanzado/scraping_extra_tips.ipynb
+    - file: Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.ipynb
+
+  - caption: APIs
+    chapters:
+    - file: APIs/README.md
+    - file: APIs/1_APIs_Geograficas/clase-1.ipynb
+    - file: APIs/1_APIs_Geograficas/clase-1-ejercicios.ipynb
+    - file: APIs/2_APIs_Series_Tiempo/clase-2.ipynb
+    - file: APIs/2_APIs_Series_Tiempo/ejercicios/ejercicios.ipynb
+
+  - caption: Análisis de Datos
+    chapters:
+    - file: AnalisisDeDatos/README.md
+    - file: AnalisisDeDatos/1_Indexing/Indexing.ipynb
+    - file: AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.ipynb
+    - file: AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.ipynb
+    - file: AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.ipynb
+    - file: AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.ipynb
+    - file: AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.ipynb
+    - file: AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb
+    - file: AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.ipynb
+    - file: AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.ipynb
+    - file: AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.ipynb
+    - file: AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.ipynb
+
+  - caption: Aprendizaje Automático
+    chapters:
+    - file: MachineLearning/README.md
+    - file: MachineLearning/1_Introduccion/rls.ipynb
+    - file: MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
+    - file: MachineLearning/3_Regularizacion/Regularizacion.ipynb
+#    - file: MachineLearning/4_Clasificacion/Clasificacion.ipynb
+    - file: MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb
+    - file: MachineLearning/6_Ensamble/Bagging&Boosting.ipynb
+#    - file: MachineLearning/7_XGBoost/xgboost.ipynb
+    - file: MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.ipynb
+    - file: MachineLearning/9_SeriesDeTiempo/1.ARIMA.ipynb
+    - file: MachineLearning/9_SeriesDeTiempo/2.Prophet.ipynb
+    - file: MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb
+
+  - caption: Colaboración
+    numbered: True
+    chapters:
+    - file: "General/0_Colaboracion/Guia para armar contenido.ipynb" 
