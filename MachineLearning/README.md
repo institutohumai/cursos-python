@@ -7,7 +7,7 @@ Cada Jupyter se puede ejecutar de manera local usando el programa Jupyter Notebo
 Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el cual es un producto gratuito de Google, es una Jupyter Notebook en la nube. El botón lo pueden encontrar al comienzo de cada clase. Finalmente, también incluímos acá las rutas a las que redirige ese botón, que es https://colab.research.google.com + la ruta en github.
 
 
-1_Introducción a Machine Learning + Regresión Lineal Simple: 
+1. Introducción a Machine Learning + Regresión Lineal Simple: 
 - Aprendizaje supervisado y no supervisado. 
 - Algoritmos paramétricos y no paramétricos. 
 - Train/test split y cross validation. 
@@ -18,7 +18,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 
 Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNVHb7N_wHCp0
 
-2 Regresión Lineal Múltiple: 
+2. Regresión Lineal Múltiple: 
 - Modelo de Regresión Lineal Múltiple. 
 - Estimación e interpretación de los parámetros. 
 - Variables categóricas. 
@@ -29,7 +29,7 @@ Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNV
 
 Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo
 
-3 Regularización:
+3. Regularización:
 - Regularización
 - Optimización
 - Feature Engineering
@@ -39,7 +39,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 
 Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R
 
-4 Clasificación:
+4. Clasificación:
 - Limitaciones de la Regresión Lineal
 - Regresión Logística
 - Interpretación
@@ -49,7 +49,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 
 Video: https://www.youtube.com/watch?v=qW9qC1zstwc&list=PLISuMnTdVU-zvmwe88-8yvbJWoRgpCriR
 
-5 KNN y Árboles de Decisión
+5. KNN y Árboles de Decisión
 - Modelos paramétricos vs. no paramétricos
 - K-vecinos más cercanos
 - Árboles de decisión para clasificación
@@ -59,7 +59,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 
 Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76FY3eJNdja8
 
-6 Ensambles
+6. Ensambles
 - Bagging
 	- Random Forests
 	- Extratrees
@@ -71,7 +71,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 
 Video: https://www.youtube.com/watch?v=YAOzh2pTAy4&list=PLISuMnTdVU-x13FA77cV5cr4OMoOPT6MZ&ab_channel=InstitutoHumai
 
-7 XGBoost
+7. XGBoost
 - XGBoost
 - LightGBM
 - CatBoost
@@ -83,7 +83,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 Video: https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv
 
 
-8 SHAP y ANOMALIAS
+8. SHAP y ANOMALIAS
 - Detección de anomalías
     - Técnicas de exploración
     - Isolation forest
@@ -95,7 +95,7 @@ Código: https://colab.research.google.com/github/institutohumai/cursos-python/b
 
 Video: https://www.youtube.com/watch?v=a4uHGK4nW-0&list=PLISuMnTdVU-zxuEhD2Wtg8depk_ZXfWhU
 
-9 Series de tiempo
+9. Series de tiempo
 
 - ETS
 - ARIMA
@@ -110,7 +110,7 @@ https://colab.research.google.com/github/institutohumai/cursos-python/blob/maste
 
 Video: https://www.youtube.com/watch?v=TeG-Ut8ftrw&list=PLISuMnTdVU-wJ4nvYFjji2EGlONuOwfVg
 
-10 Sistemas de Recomendación
+10. Sistemas de Recomendación
 
 Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb
 

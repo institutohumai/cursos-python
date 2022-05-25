@@ -1,4 +1,4 @@
-## Scraping con Python
+## Minería Web con Python
 
 En esta carpeta se encuentran las clase sobre cómo extraer información de la web mediante técnicas de scraping. Para ello se usan
 las librerías beautifulsoup y selenium. También se aprende cómo encontrar APIs en página y cómo usar XPath.
