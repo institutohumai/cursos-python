@@ -138,3 +138,5 @@ cython_debug/
 cython_debug/preprocesamiento.ipynb
 **/data/
 AnalisisDeDatos/4_Visualizacion/preprocesamiento.ipynb
+
+.vscode
