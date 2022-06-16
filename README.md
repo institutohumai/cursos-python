@@ -1,24 +1,6 @@
-# Ciencia de Datos y Aprendizaje Automático
+# Humai
 
-- Sitio Web del repositorio: [humai.com.ar/docs/intro](https://humai.com.ar/docs/intro)
-
-## Introducción
-
-En este repositorio podrán encontrar cursos sobre el lenguaje de programación Python. Orientan el desarrollo 4 ideas principales:
-
-1- El material debe ser **abierto**: siendo que es cada vez más relevante el aprender a programar y dado que existen muchísimas 
-instituciones y personas a quienes podrían serle de utilidad, decidimos que el material desarrollado sea públicamente accesible. Esto tiene por fin la **difusión** 
-pero también invitar a colaborar a todas aquellas personas quienes quieran donar material.
-Para ello les invitamos a que nos contacten a cordoba.leonardoignacio@gmail.com, maria.gaska@gmail.com o mg@ihum.ai. Para colaborar empleamos un versión reducida de GitFlow. 
-Pueden aprender sobre eso en General/guiagit.pdf y en [este artículo de Medium](https://medium.com/@ihumai/gitflow-colaborando-en-git-4046f4a95c9c) podrán encontrar más detalles y un video.
-
-2- El contenido tiene una orientación **local**: apuntamos a impulsar el ecosistema regional, considerando que la mayor parte del material disponible en internet se encuentra en inglés y esto es una barrera para mucha gente, creemos que es importante
-que el material desarrollado sea en español Además, a la hora de trabajar con datos generalmente usamos datos reales y en español.
-
-3- El material es **modular**: siendo que cada persona tiene necesidades de aprendizaje distintas, los contenidos se organizan en módulos chicos, cada cual se enfoca en un tema en particular. De este modo cada persona puede seguir su camino hacia distintas vertientes del área, como Científico de Datos, Analísta de Datos, Ingeniero de Machine Learning, etc.
-
-4- El contenido está **curado**: todo lo publicado en la rama master fue revisado previamente a ser subido, y sigue pautas acordadas sobre estilo. En especial, tratamos de respetar
-PEP8, explicar el código y conceptos en Jupyter Notebooks, proponer ejercicios como parte de la clase y también ofrecer notebooks con tarea.
+## IA: Ciencia de Datos y Aprendizaje Automático
 
 # Cursos
 
@@ -90,8 +72,9 @@ Somos una organización independiente y sin fines de lucro que busca fomentar el
 
 Si te gustó nuestro material para estudiar o enseñar, o simplemente te resuena nuestra misión, agradecemos enormemente contribuciones en [nuestro sitio web](https://humai.com.ar/sumate.html#Card) o invitanos un [cafecito](https://cafecito.app/humai) ☕ . Estamos abiertos a colaboración de docentes o desarrolladores, si estás interesado  escribínos a admin@humai.com.ar! En cualquier caso como estudiante, docente, o interesado en IA y ciencia de datos te invitamos a sumarte a [nuestro foro en Discord](https://discord.gg/wYCA2chQvb).
 
-También estás invitado a sumarte a [nuestro Discord](https://join.slack.com/t/ihumai/shared_invite/zt-fr1gdg51-VOrVPEJHEbCyi2VkSX727Q) o seguirnos en las redes (al costado en [humai.com.ar](https://ihum.ai/)). ¡Cualquier cosa, esperamos tus comentarios! 😊
+También estás invitado a sumarte a [nuestro Discord](https://discord.gg/wYCA2chQvb) o seguirnos en las redes (al costado en [humai.com.ar](https://ihum.ai/)). ¡Cualquier cosa, esperamos tus comentarios! 😊
 
 Desde ya un enorme agradecimiento,  
+El Equipo de Humai
 
-Mati, Fran, Leo, y todo el equipo de Humai.
+<img src='https://humai.com.ar/static/logos/isologo.png' width='80px' margin='100px'></img>
