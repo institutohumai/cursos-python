@@ -50,7 +50,7 @@
 
 | Título        | Clase         | Ejercicios | Video
 |:--------------------|:--------------------:|:--------------------:|:--------------------
-| IA Ética | - | - | [Video](https://www.youtube.com/watch?v=oMJfeV09d3k) |
+| IA Ética | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/0_IAEtica/ETICA E IA.pdf)  | - | [Video](https://www.youtube.com/watch?v=oMJfeV09d3k) |
 | Introducción a ML + Regresión Lineal Simple | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/1_Introduccion/rls.ipynb) | - | [Video](https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNVHb7N_wHCp0) |
 | Regresión Lineal Múltiple | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb) | - | [Video](https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo) |
 | Regularización | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb) | - | [Video](https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R) |
