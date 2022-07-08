@@ -7,6 +7,16 @@ Cada Jupyter se puede ejecutar de manera local usando el programa Jupyter Notebo
 Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el cual es un producto gratuito de Google, es una Jupyter Notebook en la nube. El botón lo pueden encontrar al comienzo de cada clase. Finalmente, también incluímos acá las rutas a las que redirige ese botón, que es https://colab.research.google.com + la ruta en github.
 
 
+0. IA Ética
+
+Seminario obligatorio de ética en inteligencia artificial
+
+Video: https://www.youtube.com/watch?v=oMJfeV09d3k&ab_channel=InstitutoHumai 
+
+Presentación: https://www.canva.com/design/DAFEGEfHlpY/ARi6DjNYdJVMWdQe4u_aQw/view?utm_content=DAFEGEfHlpY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink 
+
+Bibliografía: https://drive.google.com/drive/folders/1TJLoNvtgb0C3cBhiKp-Mcthcg5YOC-_w 
+
 1. Introducción a Machine Learning + Regresión Lineal Simple: 
 - Aprendizaje supervisado y no supervisado. 
 - Algoritmos paramétricos y no paramétricos. 
