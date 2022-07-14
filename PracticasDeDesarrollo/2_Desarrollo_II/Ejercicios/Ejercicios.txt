@@ -1,0 +1,7 @@
+Para la tarea de esta clase vamos a crear un ambiente virtual, 
+con CONDA o Poetry y vamos a crear un script que usando click 
+podamos llamar a las funciones en de la Mistery definida en el archivo wrong.py adjunto.
+
+Continuando, vamos a instalar mypy en el mismo ambiente y 
+vamos a corregir wrong.py junto con los archivos que vayamos agregando.
+¡Suerte! :)
