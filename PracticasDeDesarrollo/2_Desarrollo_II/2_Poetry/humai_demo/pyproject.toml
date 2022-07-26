@@ -1,0 +1,26 @@
+
+# En esta sección describiremos nuestro paquete.
+[tool.poetry]
+name = "humai_demo" # Nombre del proyecto.
+version = "0.1.0" # Versión actual del paquete. Es importante cambiar esto a cada release.
+description = "Este es un paquete demo para las clases de humai" # Somera descripción de nuestro paquete.
+authors = ["Agustin Dye <agustin@deployr.ai>"] # El/la/los culpables.
+
+# Estas son las dependencias de nuestro paquete.
+[tool.poetry.dependencies]
+python = "^3.10" # Acá estamos indicando que la versión mínima para correr nuestro paquete es 3.10. En muchos casos 
+# hay que verificar que esto sea cierto. Poetry automaticamente asume la versión de Python con la que iniciaste el proyecto.
+
+fastapi = "^0.78.0" # Esta es una librería de ejemplo que agregué.
+
+# En esta sección se agregan las dependencias necesarias para el desarrollo de la librería
+[tool.poetry.dev-dependencies]
+pytest = "^5.2" # Por defecto instala pytest
+
+[tool.poetry.scripts]
+hola_humai = "humai_demo.main:print_hello_world"
+
+# Cómo se va a crear el paquete una vez lo instalemos/publiquemos.
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

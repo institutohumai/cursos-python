@@ -68,9 +68,6 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
-
 # PyBuilder
 .pybuilder/
 target/
@@ -141,3 +138,5 @@ cython_debug/
 cython_debug/preprocesamiento.ipynb
 **/data/
 AnalisisDeDatos/4_Visualizacion/preprocesamiento.ipynb
+
+.vscode
