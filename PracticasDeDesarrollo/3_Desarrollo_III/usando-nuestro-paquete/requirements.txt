@@ -1,0 +1,2 @@
+pandas
+git+https://github.com/deployr-ai/humai_utils.git
