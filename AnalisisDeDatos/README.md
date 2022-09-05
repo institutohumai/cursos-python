@@ -13,36 +13,22 @@ También se verán otras librerías usadas en visualización y para extraer info
 Te dejamos los links de los videos que acompañan a cada de cada una de las clases dadas.
 
 
-## Indexing
-Presentamos la librería Pandas y los métodos de acceso .loc y .iloc. Clase elaborada por María Gaska.
+| Título        | Clase         | Ejercicios | Video
+|:--------------------|:--------------------:|:--------------------:|:--------------------
+| Indexing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/Indexing.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.ipynb) | [Video](https://www.youtube.com/watch?v=grBT_YZXHwU&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=1) |
+| Pivot Table y Joins | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=xr00OfQn0JU&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=2) |
+| Agrupacion y Agregacion | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.ipynb) | [Video](https://www.youtube.com/watch?v=NFERQ_bCfHw&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=3) |
+| Data Wrangling Avanzado | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.ipynb) | [Video](https://www.youtube.com/watch?v=fjOgkNA-sQ4&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=4) |
+| Visualización | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Visualizacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.ipynb) | [Video](https://www.youtube.com/watch?v=zgVEpj-6ChY&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=5) |
 
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/Indexing.ipynb)
-- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/1_Indexing/ejercicio/ejercicio.ipynb)
-- [Video](https://www.youtube.com/watch?v=grBT_YZXHwU&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=1) - Clase dictada por Miranda Chab.
+Enorme agradecimiento a las personas que contribuyeron con las clases:
+Agustín Benassi, María Gaska, Miranda Chab, Mathias Gatti, Matías Grinberg, Máximo Ripani.
 
-## Pivot Table y Joins
-En esta clase vemos cómo aplicar pivot tables en Python con Pandas (muy usadas en herramientas como Excel) y vemos cómo "joinear" distintas tablas. Clase elaborada por Agustín Benassi.
+<br>  
 
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2.ipynb)
-- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/2_Pivot_Table_y_Joins/clase-2-ejercicios.ipynb)
-- [Video](https://www.youtube.com/watch?v=xr00OfQn0JU&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=2) - Clase dictada por Mathias Gatti.
+Esperamos que te sea útil! Muchas gracias por aprender con nuestra comunidad,  
+El equipo de Humai,  
 
-## Agrupacion y Agregacion
-Acá nos vamos a concentrar en cómo trabajar sobre grupos de información en Pandas. Clase eleaborada por Maria Gaska
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/agrupacion_agregacion.ipynb)
-- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/3_Agrupacion_y_Agregacion/ejercicio/ejercicio.ipynb)
-- [Video](https://www.youtube.com/watch?v=NFERQ_bCfHw&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=3) - Clase dictada por Agustin Benassi.
+<br>  
 
-## Data Wrangling Avanzado
-En esta cuarta clase el foco está puesto en otro tipo de herramientas de Pandas, como transformaciones sobre strings, manipulación de series de tiempo y .melt. Además se ven conceptos de Tidy Data. Clase elaborada por Leonardo Ignacio Córdoba, Juan Manuel Barriola y Mileta Dotta.
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/data_wrangling_avanzado.ipynb)
-- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/4_Data_Wrangling_Avanzado/ejercicio/ejercicio.ipynb)
-- [Video](https://www.youtube.com/watch?v=fjOgkNA-sQ4&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=4) - Clase dictada por Agustin Benassi.
-
-## Visualizacion
-Por último, acá vamos a presentar los métodos de visualización con Pandas y una librería muy útil llamada Plotly, también para realizar gráficos. Clase elaborada por Máximo Ripani.
-
-- [Parte 1](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Visualizacion_Pandas.ipynb) - Visualización con Pandas
-- [Parte 2](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Visualizacion_Plotly.ipynb) - Visualización con Plotly
-- [Ejercicio](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/AnalisisDeDatos/5_Visualizacion/Ejercitacion/Ejercitacion_Extra.ipynb)
-- [Video](https://www.youtube.com/watch?v=zgVEpj-6ChY&list=PLISuMnTdVU-yObpmSVldV6INufjlcOnqa&index=5) - Clase dictada por Máximo Ripani.
+<img src='https://humai.com.ar/static/logos/isologo.png' width='80px' margin='100px'></img>

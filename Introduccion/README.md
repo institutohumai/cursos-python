@@ -8,46 +8,23 @@ Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el
 
 También te dejamos los links de los videos que acompañan a cada una de las clases dadas.
 
-1. Tipos de Datos: aquí introducimos los tipos de datos básicos, condicionales y bucles. Clase elaborada por Matías Grinberg, María Gaska y Leonardo Ignacio Córdoba. 
 
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/1_TiposDatos/tipos-datos.ipynb)
+| Título        | Clase         | Ejercicios | Video
+|:--------------------|:--------------------:|:--------------------:|:--------------------
+| Tipos de Datos | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/1_TiposDatos/tipos-datos.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/1_TiposDatos/ejercicio/ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=-yqL1VUYvrw&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F) |
+| Listas y Funciones | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/2_Listas_Y_Funciones/listas-funciones.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.ipynb) | [Video](https://www.youtube.com/watch?v=EVZ7HRUBDc4&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=3) |
+| Módulos | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/3_Modulos_Funciones/modulos-funciones.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.ipynb) | [Video](https://www.youtube.com/watch?v=gPN294xBbdc&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=4) |
+| Intro a POO | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/4_Intro_Poo/intro-poo.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/4_Intro_Poo/ejercicio/ejercicio.ipynb) | [Video](https://www.youtube.com/watch?v=1PfQLOCpp_Y&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=5) |
+| POO Experimento | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Experimento/poo-experimento.ipynb) | - | [Video](https://www.youtube.com/watch?v=31fjtQqmuIc&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=5) |
+| POO Pac Man | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Proyecto/poo-proyecto.ipynb) | - | - |
 
-- [Ejercicio](https://github.com/institutohumai/cursos-python/blob/master/Introduccion/1_TiposDatos/ejercicio/ejercicios.ipynb)
+Enorme agradecimiento a las personas que contribuyeron como docentes para las clases: María Gaska, Leonardo Ignacio Córdoba, Matías Grinberg, Gastón Bujía.
 
-- [Video](https://www.youtube.com/watch?v=-yqL1VUYvrw&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F) - Clase dictada por María Gaska.
+<br>  
 
-2. Listas y Funciones: en esta clase ahondamos en listas y nos centramos en entender errores, cómo manejarlos, I/O y funciones. Clase elaborada por Matías Grinberg, María Gaska, Leonardo Ignacio Córdoba y Gastón Bujía. 
+Esperamos que te sea útil! Muchas gracias por aprender con nuestra comunidad,  
+El equipo de Humai,  
 
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/2_Listas_Y_Funciones/listas-funciones.ipynb)
+<br>  
 
-- [Ejercicio](https://github.com/institutohumai/cursos-python/blob/master/Introduccion/2_Listas_Y_Funciones/ejercicio/ejercicio.ipynb)
-
-- [Ejercicios Adicionales](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/2_Listas_Y_Funciones/ejercicio/adicionales.ipynb)
-
-- [Video](https://www.youtube.com/watch?v=EVZ7HRUBDc4&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=2) - Clase dictada por Leonardo Córdoba
-
-3. Módulos y Funciones: en la tercera clase del curso proponemos continuar estudiando funciones, más orientados a algoritmos. Además, vemos cómo importar módulos. Clase elaborada por María Gaska, Leonardo Ignacio Córdoba y Gastón Bujía. 
-
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/3_Modulos_Funciones/modulos-funciones.ipynb)
-
-- [Ejercicio](https://github.com/institutohumai/cursos-python/blob/master/Introduccion/3_Modulos_Funciones/ejercicio/ejercicio.ipynb)
-
-- [Video](https://www.youtube.com/watch?v=gPN294xBbdc&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=3) - Clase dictada por Gaston Bujia
-
-4. Introducción a la Programación Orientada a Objetos: en esta carpeta van a encontrar una introducción a la Programación Orientada a Objetos. Clase elaborada por María Gaska, Leonardo Ignacio Córdoba y Matías Grinberg.
-
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/4_Intro_Poo/intro-poo.ipynb)
-
-- [Ejercicio](https://github.com/institutohumai/cursos-python/blob/master/Introduccion/4_Intro_Poo/ejercicio/ejercicio.ipynb)
-
-- [Video](https://www.youtube.com/watch?v=1PfQLOCpp_Y&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=4) - Clase dictada por María Gaska
-
-5. Proyecto de Aplicación de POO: Experimento Psicométrico: en esta clase usaremos lo visto para hacer un pequeño experimento de tiempo de reacción que involucra elementos iniciales de Programación Orientada a Objetos, manejo y análisis de datos, y automatización para generar un reporte de los resultados. Clase elaborada por Matías Grinberg.
-
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Experimento/poo-experimento.ipynb)
-
-- [Video](https://www.youtube.com/watch?v=31fjtQqmuIc&list=PLISuMnTdVU-xW46IijNsPg8ljPfz-1s7F&index=5) - Clase dictada por Matias Grinberg
-
-6. Proyecto de Aplicación de POO: PACMAN: finalmente, como cierre proponemos seguir profundizando con POO al mismo tiempo que armamos una versión simple del popular juego Pacman. Clase elaborada por María Gaska y Leonardo Ignacio Córdoba. 
-
-- [Clase](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Introduccion/5_Poo_Proyecto/poo-proyecto.ipynb)
+<img src='https://humai.com.ar/static/logos/isologo.png' width='80px' margin='100px'></img>
