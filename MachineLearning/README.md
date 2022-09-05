@@ -7,123 +7,26 @@ Cada Jupyter se puede ejecutar de manera local usando el programa Jupyter Notebo
 Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el cual es un producto gratuito de Google, es una Jupyter Notebook en la nube. El botón lo pueden encontrar al comienzo de cada clase. Finalmente, también incluímos acá las rutas a las que redirige ese botón, que es https://colab.research.google.com + la ruta en github.
 
 
-0. IA Ética
+| Título        | Clase         | Ejercicios | Video
+|:--------------------|:--------------------:|:--------------------:|:--------------------
+| IA Ética | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/0_IAEtica/ia_etica.pdf)  | - | [Video](https://www.youtube.com/watch?v=oMJfeV09d3k) |
+| Introducción a ML + Regresión Lineal Simple | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/1_Introduccion/rls.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/1_Introduccion/Ejercicios/regresion_ls_ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNVHb7N_wHCp0) |
+| Regresión Lineal Múltiple | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/ejercicios/ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo) |
+| Regularización | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb) | - | [Video](https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R) |
+| Clasificación | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/4_Clasificacion/Clasificacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/4_Clasificacion/ejercicios/ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=qW9qC1zstwc&list=PLISuMnTdVU-zvmwe88-8yvbJWoRgpCriR) |
+| KNN y Árboles de Decisión | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb) | - | [Video](https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76FY3eJNdja8) |
+| Ensambles | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/6_Ensamble/bagging_boosting.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/6_Ensamble/ejercicios/ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=YAOzh2pTAy4&list=PLISuMnTdVU-x13FA77cV5cr4OMoOPT6MZ&ab_channel=InstitutoHumai) |
+| XGBoost | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/7_XGBoost/xgboost.ipynb) | - | [Video](https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv) |
+| Shap y Anomalías | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://github.com/institutohumai/cursos-python/blob/master/MachineLearning/8_ShapyAnomalias/ejercicios/ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=a4uHGK4nW-0&list=PLISuMnTdVU-zxuEhD2Wtg8depk_ZXfWhU) |
+| Series de tiempo | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/1.ARIMA.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/2.Prophet.ipynb) |  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/ejercicios/ejercicios.ipynb) | [Video](https://www.youtube.com/watch?v=TeG-Ut8ftrw&list=PLISuMnTdVU-wJ4nvYFjji2EGlONuOwfVg) |
+| No Supervisado | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/10_AprendizajeNoSupervisado/aprendizaje_no_supervisado.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/10_AprendizajeNoSupervisado/ejercicios/ejercicios.ipynb) | [Video 1](https://youtu.be/fAydXbLgNzs) [Video 2](https://youtu.be/-2TAqmmOuBw) [Video 3](https://youtu.be/TFrRm849QBU)|
+| Recomendación | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/11_Recomendacion/sistemas_recomendacion.ipynb) | - | [Video 1](https://www.youtube.com/watch?v=9KWVIZJfm8Q) [Video 2](https://www.youtube.com/watch?v=d-MiHa4cRqo) |
 
-Seminario obligatorio de ética en inteligencia artificial
+<br>  
 
-Video: https://www.youtube.com/watch?v=oMJfeV09d3k&ab_channel=InstitutoHumai 
+Esperamos que te sea útil! Muchas gracias por aprender con nuestra comunidad,  
+El equipo de Humai,  
 
-Presentación: https://www.canva.com/design/DAFEGEfHlpY/ARi6DjNYdJVMWdQe4u_aQw/view?utm_content=DAFEGEfHlpY&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink 
+<br>  
 
-Bibliografía: https://drive.google.com/drive/folders/1TJLoNvtgb0C3cBhiKp-Mcthcg5YOC-_w 
-
-1. Introducción a Machine Learning + Regresión Lineal Simple: 
-- Aprendizaje supervisado y no supervisado. 
-- Algoritmos paramétricos y no paramétricos. 
-- Train/test split y cross validation. 
-- Information leak, corte transversal, series temp. y datos de panel. 
-- Regresion lineal simple
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/1_Introduccion/rls.ipynb
-
-Video: https://www.youtube.com/watch?v=FuIlgsbPr9E&list=PLISuMnTdVU-zF4QLEKnLvNVHb7N_wHCp0
-
-2. Regresión Lineal Múltiple: 
-- Modelo de Regresión Lineal Múltiple. 
-- Estimación e interpretación de los parámetros. 
-- Variables categóricas. 
-- Evaluación del modelo. 
-- Diagnóstico del modelo
-
-[Código]: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/2_RegresionLinealMultiple/RegresionLinealMultiple.ipynb
-
-Video: https://www.youtube.com/watch?v=7W43HBXt9Cs&list=PLISuMnTdVU-wuxD7ubJD8rc29MkDy9bWo
-
-3. Regularización:
-- Regularización
-- Optimización
-- Feature Engineering
-- Pipelines
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/3_Regularizacion/Regularizacion.ipynb
-
-Video: https://www.youtube.com/watch?v=ETyIMqHoP9g&list=PLISuMnTdVU-xexTl51UbNu30myaUsaa3R
-
-4. Clasificación:
-- Limitaciones de la Regresión Lineal
-- Regresión Logística
-- Interpretación
-- Métricas de evaluación
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/4_Clasificacion/Clasificacion.ipynb
-
-Video: https://www.youtube.com/watch?v=qW9qC1zstwc&list=PLISuMnTdVU-zvmwe88-8yvbJWoRgpCriR
-
-5. KNN y Árboles de Decisión
-- Modelos paramétricos vs. no paramétricos
-- K-vecinos más cercanos
-- Árboles de decisión para clasificación
-- Árboles de decisión para regresión
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/5_KNNyArbolesDeDecision/KNN_Arboles.ipynb
-
-Video: https://www.youtube.com/watch?v=d9Z1F04uETk&list=PLISuMnTdVU-wzYasgzs3n76FY3eJNdja8
-
-6. Ensambles
-- Bagging
-	- Random Forests
-	- Extratrees
-- Boosting  
-	-AdaBoost  
-	-Grandient Boosting Trees 
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/6_Ensamble/Bagging%26Boosting.ipynb
-
-Video: https://www.youtube.com/watch?v=YAOzh2pTAy4&list=PLISuMnTdVU-x13FA77cV5cr4OMoOPT6MZ&ab_channel=InstitutoHumai
-
-7. XGBoost
-- XGBoost
-- LightGBM
-- CatBoost
-- NGBoost
-- Pipelines
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/7_XGBoost/xgboost.ipynb
-
-Video: https://youtube.com/playlist?list=PLISuMnTdVU-x19YIy1umdmekra28VToSv
-
-
-8. SHAP y ANOMALIAS
-- Detección de anomalías
-    - Técnicas de exploración
-    - Isolation forest
-- Explicabilidad de modelos
-    - Feature Importance
-    - Shap values
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/8_ShapyAnomalias/anomaly-detection-shap-values.ipynb
-
-Video: https://www.youtube.com/watch?v=a4uHGK4nW-0&list=PLISuMnTdVU-zxuEhD2Wtg8depk_ZXfWhU
-
-9. Series de tiempo
-
-- ETS
-- ARIMA
-- Prophet
-- Time series cross validation y métricas de error
-
-Código: 
-
-https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/1.ARIMA.ipynb
-
-https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/9_SeriesDeTiempo/2.Prophet.ipynb
-
-Video: https://www.youtube.com/watch?v=TeG-Ut8ftrw&list=PLISuMnTdVU-wJ4nvYFjji2EGlONuOwfVg
-
-10. Sistemas de Recomendación
-
-Código: https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MachineLearning/10_Recomendacion/sistemas_recomendacion.ipynb
-
-Video 1: https://www.youtube.com/watch?v=9KWVIZJfm8Q
-
-Video 2: https://www.youtube.com/watch?v=d-MiHa4cRqo
+<img src='https://humai.com.ar/static/logos/isologo.png' width='80px' margin='100px'></img>
