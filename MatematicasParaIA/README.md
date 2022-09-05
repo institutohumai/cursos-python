@@ -14,3 +14,12 @@ Estos módulos están diseñados para completar los fundamentos matemáticos que
 | Estadistica | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/7_Estadistica/estadistica.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/7_Estadistica/ejercicios/ejercicios.ipynb) | [Video](https://youtu.be/sz4iCKgFTPc) |
 | Aprendizaje estadístico | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/8_Aprendizaje_Estadistico/Desigualdad_Hoeffding.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/8_Aprendizaje_Estadistico/Maldicion_Dimension.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/8_Aprendizaje_Estadistico/SVM_python_scikitlearn_1.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]() | [Video]() |
 
+
+<br>  
+
+Esperamos que te sea útil! Muchas gracias por aprender con nuestra comunidad,  
+El equipo de Humai,  
+
+<br>  
+
+<img src='https://humai.com.ar/static/logos/isologo.png' width='80px' margin='100px'></img>

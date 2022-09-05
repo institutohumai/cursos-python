@@ -38,7 +38,7 @@
 | Selenium  | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/scraping_por_automatizacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Scraping/3_Selenium_y_xpath/ejercicio/whatsapp_bot.ipynb) | [video](https://youtu.be/VV6UX_0xws4) |
 | Automatización II | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/Automatizacion/Automatización_2/clase_automatizacion_2_gsheets_cron_mails.ipynb) | <- | [Google Sheets]() <br>[Cron]()  <br>[Google Data Studio]()  <br>[Enviar mails]()
 
-# APIS
+# APIs
 | Título        | Clase         | Ejercicios | Video
 |:--------------------|:--------------------:|:--------------------:|:--------------------
 | APIs Geográficas | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/1_APIs_Geograficas/clase-1.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/APIs/1_APIs_Geograficas/clase-1-ejercicios.ipynb) | - |
@@ -102,7 +102,11 @@ Si te gustó nuestro material para estudiar o enseñar, o simplemente te resuena
 
 También estás invitado a sumarte a [nuestro Discord](https://discord.gg/wYCA2chQvb) o seguirnos en las redes (al costado en [humai.com.ar](https://ihum.ai/)). ¡Cualquier cosa, esperamos tus comentarios! 😊
 
-Desde ya un enorme agradecimiento,  
-El Equipo de Humai
+<br>  
+
+Esperamos que te sea útil! Muchas gracias por aprender con nuestra comunidad,  
+El equipo de Humai,  
+
+<br>  
 
 <img src='https://humai.com.ar/static/logos/isologo.png' width='80px' margin='100px'></img>
