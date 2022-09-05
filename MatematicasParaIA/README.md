@@ -3,87 +3,14 @@
 Estos módulos están diseñados para completar los fundamentos matemáticos que se necesitan para estudiar y profundizar en ciencia de datos y aprendizaje automático. Con la creciente demanda e interés en aprender IA en distintas disciplinas y con diferentes aplicaciones, entendemos que es clave poder hacernos de conocimientos específicos de matemáticas que puedan hacer la diferencia a la hora de formarnos como profesionales competentes en el mercado laboral.
 
 
-1. Álgebra Lineal
-2. Análisis Matemático
-3. Probabilidad y Estadística
-
-1. Vectores
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
-
-2. Matrices
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
-
-3. Factorización
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
-
-4. Funciones
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
-
-5. Optimización
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
-
-6. Probabilidad
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
-
-7. Estadística
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
-
-8. Aprendizaje estadístico
-
-Código: 
-
-
-Ejercicios: 
-
-
-Videos: 
+| Título        | Clase         | Ejercicios | Video
+|:--------------------|:--------------------:|:--------------------:|:--------------------
+| Vectores | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/1_Vectores/vectores.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/1_Vectores/ejercicios/Ejercicios_vectores.ipynb) | [Video](https://youtu.be/Wxj0u0vqUk0) |
+| Matrices | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/2_Matrices/ejercicios/Ejercicios_Matrices.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/2_Matrices/matrices.ipynb) | [Video](https://youtu.be/TXE447BUF_I) |
+| Factorización | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/3_Factorizacion/factorizacion.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/3_Factorizacion/complementaria_PCA_y_SVD.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/3_Factorizacion/ejercicios/factorizacion_ejercicios.ipynb) | [Video](https://youtu.be/P8r13fki-b8) |
+| Funciones | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/4_Funciones/funciones_intro_calculo.ipynb) | - | [Video](https://youtu.be/4oVG1Vpcu2M) |
+| Optimización | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/5_Optimizacion/optimizacion.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/5_Optimizacion/ejercicios/ejercicios_optimizacion.ipynb) | [Video](https://youtu.be/x8Nmr9beqpY) |
+| Probabilidad | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/6_Probabilidad/probabilidad.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/6_Probabilidad/probabilidad_2.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/6_Probabilidad/ejercicios/ejercicios.ipynb) | [Video](https://youtu.be/rYLdTolGg2E) |
+| Estadistica | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/7_Estadistica/estadistica.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/7_Estadistica/ejercicios/ejercicios.ipynb) | [Video](https://youtu.be/sz4iCKgFTPc) |
+| Aprendizaje estadístico | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/8_Aprendizaje_Estadistico/Desigualdad_Hoeffding.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/8_Aprendizaje_Estadistico/Maldicion_Dimension.ipynb) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/MatematicasParaIA/8_Aprendizaje_Estadistico/SVM_python_scikitlearn_1.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]() | [Video]() |
 
