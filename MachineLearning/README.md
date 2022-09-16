@@ -24,6 +24,8 @@ Alternativamente, cada notebook incluye un botón para abrir en Google Colab, el
 
 <br>  
 
+Agradecemos enormemente a los profesores de este curso: María Frances Gaska, Juan Manuel Barriola, Lucas Gnocci, Milena Dotta, Gastón Bujía, Tomás Cufaro y Leonardo Córdoba. 
+
 Esperamos que te sea útil! Muchas gracias por aprender con nuestra comunidad,  
 El equipo de Humai,  
 
