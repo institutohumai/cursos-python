@@ -2,10 +2,10 @@
 
 Enorme agradecimiento a Manuel Corrado y Eugenio Scafati por el aporte docente.
 
-| Título        | Clase         | Ejercicios |
-|:--------------------|:--------------------:|:--------------------:|
-| Introducción a Bases de Datos | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/1_Intro_DBs/intro_sql.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/1_Intro_DBs/ejercicios.ipynb) | 
-| Intro a SQL | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/2_SQL/sql_2.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/2_SQL/sql_practica_solucion.ipynb)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/2_SQL/sql_practica_2_solucion.ipynb)|
+| Título        | Clase         | Ejercicios | Video
+|:--------------------|:--------------------:|:--------------------:|:--------------------
+| Introducción a Bases de Datos | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/1_Intro_DBs/intro_sql.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/1_Intro_DBs/ejercicios.ipynb) | [Video](https://youtu.be/IBLKYX4sgLY)
+| Intro a SQL | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/2_SQL/sql_2.ipynb) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/2_SQL/sql_practica_solucion.ipynb)  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/institutohumai/cursos-python/blob/master/BasesDeDatos/2_SQL/sql_practica_2_solucion.ipynb)| [Video](https://youtu.be/md5qdEsRkXo)
 
 
 <br>  
