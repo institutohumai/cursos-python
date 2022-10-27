@@ -143,4 +143,4 @@ cython_debug/
 .mypy_cache
 .python-version
 
-.DS_Store/
+.DS_Store
