@@ -101,9 +101,6 @@ def nueva_posicion_avanzar_func(
     # Calculamos la nueva posicion
     nueva_posicion = int(suma) + int(posicion)
 
-    print(f"{suma = }")
-    print(f"{posicion = }")
-
     # Guardamos la ultima posicion
     time_name = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     with open(f"/tmp/data/posiciones/{time_name}.txt", "w") as f:
