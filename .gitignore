@@ -142,3 +142,5 @@ cython_debug/
 .ipynb_checkpoints
 .mypy_cache
 .python-version
+
+docker-*/
