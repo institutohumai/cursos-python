@@ -1,0 +1,37 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: local_pgdb # Pueden usarlo como nombre de host en el pgadmin
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./docker-postgres:/var/lib/postgresql/data
+      # Otra forma de obtener el directorio actual con variables de entorno
+      # - $PWD/docker-postgres:/var/lib/postgresql/data
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin@mail.com
+      PGADMIN_DEFAULT_PASSWORD: pgadmin
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+      
+  batch-data:
+    image: batch-data
+    build: ./batch-data
+    container_name: batch-data
+    environment:
+        POSTGRES_HOST: local_pgdb 
+        
+volumes:
+    pgadmin-data:
