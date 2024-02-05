@@ -11,7 +11,7 @@ authors = ["Agustin Dye <agustin@deployr.ai>"] # El/la/los culpables.
 python = "^3.10" # Acá estamos indicando que la versión mínima para correr nuestro paquete es 3.10. En muchos casos 
 # hay que verificar que esto sea cierto. Poetry automaticamente asume la versión de Python con la que iniciaste el proyecto.
 
-fastapi = "^0.78.0" # Esta es una librería de ejemplo que agregué.
+fastapi = "^0.109.1" # Esta es una librería de ejemplo que agregué.
 
 # En esta sección se agregan las dependencias necesarias para el desarrollo de la librería
 [tool.poetry.dev-dependencies]
